@@ -11,12 +11,15 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-  - chart: vault
-    repoURL: https://helm.releases.hashicorp.com
-    targetRevision: {{ .Values.vault.version }}
-    helm:
-      valueFiles:
-        - $values/charts/hashicorp-vault/values.yaml
-  - repoURL: git@github.com:steled/argocd-apps.git
-    targetRevision: main
-    ref: values
+    - chart: vault
+      repoURL: https://helm.releases.hashicorp.com
+      targetRevision: {{ .Values.vault.version }}
+      helm:
+        valueFiles:
+          - $values/charts/hashicorp-vault/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
