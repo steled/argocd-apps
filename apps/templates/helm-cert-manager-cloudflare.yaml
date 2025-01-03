@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: helm-cert-manager-cloudflare
     server: {{ .Values.spec.destination.server }}
-  project: default
+  project: apps
   source:
     path: helm-cert-manager-cloudflare
     repoURL: {{ .Values.spec.source.repoURL }}
