@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-hashicorp-vault
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: hashicorp-vault
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+  - chart: vault
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: {{ .Values.vault.version }}
+    helm:
+      valueFiles:
+        - $values/charts/hashicorp-vault/values.yaml
+  - repoURL: it@github.com:steled/argocd-apps.git
+    targetRevision: dev
+    ref: values
