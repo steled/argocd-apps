@@ -17,6 +17,6 @@ spec:
     helm:
       valueFiles:
         - $values/charts/hashicorp-vault/values.yaml
-  - repoURL: it@github.com:steled/argocd-apps.git
+  - repoURL: git@github.com:steled/argocd-apps.git
     targetRevision: dev
     ref: values
