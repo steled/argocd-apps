@@ -18,10 +18,10 @@ spec:
         valueFiles:
           - $values/charts/cert-manager/values.yaml
         parameters:
-          - name: "cert-manager.email"
-            value: {{ .Values.cert-manager.email }}
-          - name: "cloudflare.api-token"
-            value: {{ .Values.cert-manager.cloudflare.api-token }}
+          - name: "certmanager.email"
+            value: {{ .Values.certmanager.email }}
+          - name: "cloudflare.apiToken"
+            value: {{ .Values.certmanager.cloudflare.apiToken }}
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
