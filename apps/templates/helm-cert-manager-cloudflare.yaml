@@ -10,7 +10,21 @@ spec:
     namespace: helm-cert-manager-cloudflare
     server: {{ .Values.spec.destination.server }}
   project: apps
-  source:
-    path: helm-cert-manager-cloudflare
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+  sources:
+    - chart: cert-manager
+      repoURL: https://charts.jetstack.io
+      targetRevision: {{ .Values.cert-manager.version }}
+      helm:
+        valueFiles:
+          - $values/charts/cert-manager/values.yaml
+        parameters:
+          - name: "cert-manager.email"
+            value: {{ .Values.cert-manager.email }}
+          - name: "cloudflare.api-token"
+            value: {{ .Values.cert-manager.cloudflare.api-token }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
