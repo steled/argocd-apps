@@ -8,6 +8,9 @@ spec:
 apprise:
   version: "1.1.7"
 
+cert-manager:
+  version: "v1.16.2"
+
 longhorn:
   version: "1.7.2"
 
