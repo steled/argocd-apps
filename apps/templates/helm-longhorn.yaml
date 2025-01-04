@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-longhorn
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: longhorn
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: longhorn
+      repoURL: https://charts.longhorn.io
+      targetRevision: {{ .Values.longhorn.version }}
+      helm:
+        valueFiles:
+          - $values/charts/longhorn/values.yaml
+        parameters:
+          - name: "ingress.host"
+            value: {{ .Values.longhorn.host }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
