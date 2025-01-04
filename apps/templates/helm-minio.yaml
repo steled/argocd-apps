@@ -29,13 +29,13 @@ spec:
           - name: "svcaccts.existingSecret[0].accessKey"
             value: {{ .Values.minio.svcaccts.user1.accessKey }}
           - name: "secret.rootPassword"
-            value: {{ Values.minio.secret.rootPassword }}
+            value: {{ .Values.minio.secret.rootPassword }}
           - name: "secret.rootUser"
-            value: {{ Values.minio.secret.rootUser }}
+            value: {{ .Values.minio.secret.rootUser }}
           - name: "secret.user1_password"
-            value: {{ Values.minio.secret.user1_password }}
+            value: {{ .Values.minio.secret.user1_password }}
           - name: "secret.user1_secretKey"
-            value: {{ Values.minio.secret.user1_secretKey }}
+            value: {{ .Values.minio.secret.user1_secretKey }}
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
