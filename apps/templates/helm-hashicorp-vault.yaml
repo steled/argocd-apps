@@ -17,6 +17,9 @@ spec:
       helm:
         valueFiles:
           - $values/charts/hashicorp-vault/values.yaml
+        parameters:
+          - name: "server.ingress.ingressClassName"
+            value: {{ .Values.vault.server.ingressClassName }}
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
