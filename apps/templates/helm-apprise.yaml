@@ -22,6 +22,7 @@ spec:
           value: {{ .Values.apprise.domain }}
         - name: "htpasswd"
           value: {{ .Values.apprise.htpasswd }}
+          forceString: true
       valueFiles:
         - ./values.yaml
   syncPolicy:
