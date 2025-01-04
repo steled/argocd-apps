@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-minio
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: minio
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: minio
+      repoURL: https://charts.min.io/
+      targetRevision: {{ .Values.minio.version }}
+      helm:
+        valueFiles:
+          - $values/charts/minio/values.yaml
+        parameters:
+          - name: "ingress.hosts"
+            value: {{ .Values.minio.ingress.hosts }}
+          - name: "ingress.tls[0].hosts"
+            value: {{ .Values.minio.ingress.hosts }}
+          - name: "consoleIngress.hosts"
+            value: {{ .Values.minio.consoleIngress.hosts }}
+          - name: "consoleIngress.tls[0].hosts"
+            value: {{ .Values.minio.consoleIngress.hosts }}
+          - name: "svcaccts.existingSecret[0].accessKey"
+            value: {{ .Values.minio.svcaccts.user1.accessKey }}
+          - name: "secret.rootPassword"
+            value: {{ Values.minio.secret.rootPassword }}
+          - name: "secret.rootUser"
+            value: {{ Values.minio.secret.rootUser }}
+          - name: "secret.user1_password"
+            value: {{ Values.minio.secret.user1_password }}
+          - name: "secret.user1_secretKey"
+            value: {{ Values.minio.secret.user1_secretKey }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
