@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-apprise
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: apprise
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  source:
+    path: ./charts/apprise
+    repoURL: git@github.com:steled/argocd-apps.git
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      parameters:
+        - name: "image.version"
+          value: {{ .Values.apprise.version }}
+        - name: "domain"
+          value: {{ .Values.apprise.domain }}
+        - name: "htpasswd"
+          value: {{ .Values.apprise.htpasswd }}
+      valueFiles:
+        - ./values.yaml
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
