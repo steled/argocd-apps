@@ -31,7 +31,7 @@ spec:
           - name: "nextcloud.extraEnv[1].name"
             value: "OVERWRITECLIURL"
           - name: "nextcloud.extraEnv[1].value"
-            value: "https://"{{ .Values.nextcloud.extraEnv1.overwritecliurl }}
+            value: {{ .Values.nextcloud.extraEnv1.overwritecliurl }}
           - name: "externalDatabase.database"
             value: {{ .Values.nextcloud.externalDatabase.database }}
           - name: "postgresql.global.postgresql.auth.database"
