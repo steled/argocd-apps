@@ -18,30 +18,30 @@ spec:
         valueFiles:
           - $values/charts/victoriametrics/values.yaml
         parameters:
-          - name: "vmsingle.ingress.hosts"
-            value: {{ .Values.victoriametrics.vmsingle.ingress.hosts }}
-          - name: "vmsingle.ingress.tls[0].hosts"
-            value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts }}
-          - name: "alertmanager.ingress.hosts"
-            value: {{ .Values.victoriametrics.alertmanager.ingress.hosts }}
-          - name: "alertmanager.ingress.tls[0].hosts"
-            value: {{ .Values.victoriametrics.alertmanager.ingress.tls0.hosts }}
+          - name: "vmsingle.ingress.hosts[0]"
+            value: {{ .Values.victoriametrics.vmsingle.ingress.hosts0 }}
+          - name: "vmsingle.ingress.tls[0].hosts[0]"
+            value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
+          - name: "alertmanager.ingress.hosts[0]"
+            value: {{ .Values.victoriametrics.alertmanager.ingress.hosts0 }}
+          - name: "alertmanager.ingress.tls[0].hosts[0]"
+            value: {{ .Values.victoriametrics.alertmanager.ingress.tls0.hosts0 }}
           - name: "alertmanager.config.receivers[0].telegram_configs[0].bot_token"
             value: {{ .Values.victoriametrics.alertmanager.config.receivers.telegram_configs.bot_token }}
           - name: "alertmanager.config.receivers[0].telegram_configs[0].chat_id"
             value: {{ .Values.victoriametrics.alertmanager.config.receivers.telegram_configs.chat_id }}
-          - name: "vmalert.ingress.hosts"
-            value: {{ .Values.victoriametrics.vmalert.ingress.hosts }}
-          - name: "vmalert.ingress.tls[0].hosts"
-            value: {{ .Values.victoriametrics.vmalert.ingress.tls0.hosts }}
-          - name: "vmagent.ingress.hosts"
-            value: {{ .Values.victoriametrics.vmagent.ingress.hosts }}
-          - name: "vmagent.tls[0].hosts"
-            value: {{ .Values.victoriametrics.vmagent.tls0.hosts }}
-          - name: "grafana.ingress.hosts"
-            value: {{ .Values.victoriametrics.grafana.ingress.hosts }}
-          - name: "grafana.tls[0].hosts"
-            value: {{ .Values.victoriametrics.grafana.tls0.hosts }}
+          - name: "vmalert.ingress.hosts[0]"
+            value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
+          - name: "vmalert.ingress.tls[0].hosts[0]"
+            value: {{ .Values.victoriametrics.vmalert.ingress.tls0.hosts0 }}
+          - name: "vmagent.ingress.hosts[0]"
+            value: {{ .Values.victoriametrics.vmagent.ingress.hosts0 }}
+          - name: "vmagent.tls[0].hosts[0]"
+            value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
+          - name: "grafana.ingress.hosts[0]"
+            value: {{ .Values.victoriametrics.grafana.ingress.hosts0 }}
+          - name: "grafana.tls[0].hosts[0]"
+            value: {{ .Values.victoriametrics.grafana.tls0.hosts0 }}
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
