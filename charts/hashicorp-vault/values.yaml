@@ -13,7 +13,7 @@ server:
     enabled: true
     activeService: false
     annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
       ingress.cilium.io/loadbalancer-mode: dedicated
       lbipam.cilium.io/ips: ''
     hosts:
