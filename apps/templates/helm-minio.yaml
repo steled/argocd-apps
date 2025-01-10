@@ -21,11 +21,11 @@ spec:
           - name: "ingress.hosts"
             value: {{ .Values.minio.ingress.hosts }}
           - name: "ingress.tls[0].hosts"
-            value: {{ .Values.minio.ingress.hosts }}
+            value: {{ .Values.minio.ingress.tls0.hosts }}
           - name: "consoleIngress.hosts"
             value: {{ .Values.minio.consoleIngress.hosts }}
           - name: "consoleIngress.tls[0].hosts"
-            value: {{ .Values.minio.consoleIngress.hosts }}
+            value: {{ .Values.minio.consoleIngress.tls0.hosts }}
           - name: "svcaccts.existingSecret[0].accessKey"
             value: {{ .Values.minio.svcaccts.user1.accessKey }}
           - name: "secret.rootPassword"
