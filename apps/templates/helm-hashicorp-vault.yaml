@@ -19,7 +19,7 @@ spec:
           - $values/charts/hashicorp-vault/values.yaml
         parameters:
           - name: "server.ingress.annotations.clbipam.cilium\\.io/ips"
-            value: {{ .Values.vault.server.ingress.annotations.lbipamCiliumIoIps }}
+            value: "{{ .Values.vault.server.ingress.annotations.lbipamCiliumIoIps }}"
             forceString: true
           # - name: "server.ingress.hosts[0].host"
           #   value: {{ .Values.vault.server.ingress.hosts0.host }}
