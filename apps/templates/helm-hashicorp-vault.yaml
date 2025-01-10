@@ -22,7 +22,7 @@ spec:
             value: {{ .Values.vault.server.ingress.annotations.lbipamCiliumIoIps }}
           - name: "server.ingress.hosts[0].host"
             value: "{ {{ .Values.vault.server.ingress.hosts0.host }} }"
-          - name: "server.ingress.tls[0].hosts"
+          - name: "server.ingress.tls[0].hosts[0]"
             value: "{ {{ .Values.vault.server.ingress.tls0.hosts }} }"
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
