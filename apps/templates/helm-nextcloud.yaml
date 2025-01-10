@@ -18,12 +18,12 @@ spec:
         valueFiles:
           - $values/charts/nextcloud/values.yaml
         parameters:
-          - name: "ingress.tls[0].hosts"
-            value: {{ .Values.nextcloud.ingress.tls0.hosts }}
+          - name: "ingress.tls[0].hosts[0]"
+            value: {{ .Values.nextcloud.ingress.tls0.hosts0 }}
           - name: "nextcloud.host"
             value: {{ .Values.nextcloud.host }}
-          - name: "nextcloud.trustedDomains"
-            value: {{ .Values.nextcloud.trustedDomains }}
+          - name: "nextcloud.trustedDomains[0]"
+            value: {{ .Values.nextcloud.trustedDomains0 }}
           - name: "nextcloud.extraEnv[0].OVERWRITEHOST"
             value: {{ .Values.nextcloud.domain }}
           - name: "nextcloud.extraEnv[1].OVERWRITECLIURL"
