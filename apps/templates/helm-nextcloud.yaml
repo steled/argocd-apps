@@ -24,9 +24,9 @@ spec:
             value: {{ .Values.nextcloud.host }}
           - name: "nextcloud.trustedDomains[0]"
             value: {{ .Values.nextcloud.trustedDomains0 }}
-          - name: "nextcloud.extraEnv[0].OVERWRITEHOST"
+          - name: "nextcloud.extraEnv[0].value"
             value: {{ .Values.nextcloud.extraEnv0.overwritehost }}
-          - name: "nextcloud.extraEnv[1].OVERWRITECLIURL"
+          - name: "nextcloud.extraEnv[1].value"
             value: "https://"{{ .Values.nextcloud.extraEnv0.overwritecliurl }}
           - name: "externalDatabase.database"
             value: {{ .Values.nextcloud.externalDatabase.database }}
