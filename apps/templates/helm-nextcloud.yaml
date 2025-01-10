@@ -28,8 +28,8 @@ spec:
             value: "OVERWRITEHOST"
           - name: "nextcloud.extraEnv[0].value"
             value: {{ .Values.nextcloud.extraEnv0.overwritehost }}
-          # - name: "nextcloud.extraEnv[1].name"
-          #   value: "OVERWRITECLIURL"
+          - name: "nextcloud.extraEnv[1].name"
+            value: "OVERWRITECLIURL"
           # - name: "nextcloud.extraEnv[1].value"
           #   value: "https://"{{ .Values.nextcloud.extraEnv0.overwritecliurl }}
           - name: "externalDatabase.database"
