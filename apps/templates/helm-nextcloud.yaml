@@ -19,10 +19,10 @@ spec:
           - $values/charts/nextcloud/values.yaml
         parameters:
           - name: "ingress.tls[0].hosts"
-            value: {{ .Values.nextcloud.domain }}
+            value: {{ .Values.nextcloud.ingress.tls[0].hosts }}
           - name: "nextcloud.host"
-            value: {{ .Values.nextcloud.domain }}
-          - name: "nextcloud.trustedDomains[0]"
+            value: {{ .Values.nextcloud.host }}
+          - name: "nextcloud.trustedDomains"
             value: {{ .Values.nextcloud.trustedDomains }}
           - name: "nextcloud.extraEnv[0].OVERWRITEHOST"
             value: {{ .Values.nextcloud.domain }}
