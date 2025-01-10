@@ -15,16 +15,16 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
       ingress.cilium.io/loadbalancer-mode: dedicated
-      lbipam.cilium.io/ips: ${ip_address}
+      lbipam.cilium.io/ips: ''
     hosts:
-      - host: ${hashicorp_vault_domain}
+      - host: ''
         paths:
           - /
     ingressClassName: cilium
     tls:
       - secretName: hashicorp-vault-tls
         hosts:
-          - ${hashicorp_vault_domain}
+          - ''
   # standalone:
   #   config: |-
   #     ui = true
