@@ -23,7 +23,7 @@ spec:
           - name: "server.ingress.hosts[0].host"
             value: "{ {{ .Values.vault.server.ingress.hosts0.host }} }"
           - name: "server.ingress.tls[0].hosts"
-            value: { {{ .Values.vault.server.ingress.tls0.hosts }} }
+            value: "{ {{ .Values.vault.server.ingress.tls0.hosts }} }"
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
