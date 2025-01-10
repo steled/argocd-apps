@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-jdownloader
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: jdownloader
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - path: ./charts/jdownloader
+      repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        valueFiles:
+          - ./values.yaml
+    - chart: sft-server
+      repoURL: https://github.com/steled/sftp-server/archive/refs/tags/{{ .Values.sftp-server.version }}.tar.gz
+      targetRevision: main
+      helm:
+        valueFiles:
+          - $values/charts/jdownloader/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
