@@ -1,0 +1,60 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-nextcloud
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: nextcloud
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: nextcloud
+      repoURL: https://nextcloud.github.io/helm/
+      targetRevision: {{ .Values.nextcloud.version }}
+      helm:
+        valueFiles:
+          - $values/charts/nextcloud/values.yaml
+        parameters:
+          - name: "ingress.tls[0].hosts"
+            value: {{ .Values.nextcloud.domain }}
+          - name: "nextcloud.host"
+            value: {{ .Values.nextcloud.domain }}
+          - name: "nextcloud.trustedDomains[0]"
+            value: {{ .Values.nextcloud.trustedDomains }}
+          - name: "nextcloud.extraEnv[0].OVERWRITEHOST"
+            value: {{ .Values.nextcloud.domain }}
+          - name: "nextcloud.extraEnv[1].OVERWRITECLIURL"
+            value: "https://{{ .Values.nextcloud.domain }}"
+          - name: "externalDatabase.database"
+            value: {{ .Values.nextcloud.externalDatabase.database }}
+          - name: "postgresql.global.postgresql.auth.database"
+            value: {{ .Values.nextcloud.postgresql.global.postgresql.auth.database }}
+          - name: "postgresql.global.postgresql.auth.username"
+            value: {{ .Values.nextcloud.postgresql.global.postgresql.auth.username }}
+          - name: "secret.nextcloudUsername"
+            value: {{ .Values.nextcloud.secret.nextcloudUsername }}
+          - name: "secret.nextcloudPassword"
+            value: {{ .Values.nextcloud.secret.nextcloudPassword }}
+          - name: "secret.postgresqlUsername"
+            value: {{ .Values.nextcloud.secret.postgresqlUsername }}
+          - name: "secret.postgresqlAdminPassword"
+            value: {{ .Values.nextcloud.secret.postgresqlAdminPassword }}
+          - name: "secret.postgresqlUserPassword"
+            value: {{ .Values.nextcloud.secret.postgresqlUserPassword }}
+          - name: "secret.smtpHost"
+            value: {{ .Values.nextcloud.secret.smtpHost }}
+          - name: "secret.smtpUsername"
+            value: {{ .Values.nextcloud.secret.smtpUsername }}
+          - name: "secret.smtpPassword"
+            value: {{ .Values.nextcloud.secret.smtpPassword }}
+          - name: "secret.redisPassword"
+            value: {{ .Values.nextcloud.secret.redisPassword }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
