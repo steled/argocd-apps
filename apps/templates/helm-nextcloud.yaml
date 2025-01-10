@@ -25,9 +25,9 @@ spec:
           - name: "nextcloud.trustedDomains[0]"
             value: {{ .Values.nextcloud.trustedDomains0 }}
           - name: "nextcloud.extraEnv[0].OVERWRITEHOST"
-            value: {{ .Values.nextcloud.domain }}
+            value: {{ .Values.nextcloud.extraEnv0.overwritehost }}
           - name: "nextcloud.extraEnv[1].OVERWRITECLIURL"
-            value: "https://{{ .Values.nextcloud.domain }}"
+            value: "https://"{{ .Values.nextcloud.extraEnv0.overwritecliurl }}
           - name: "externalDatabase.database"
             value: {{ .Values.nextcloud.externalDatabase.database }}
           - name: "postgresql.global.postgresql.auth.database"
