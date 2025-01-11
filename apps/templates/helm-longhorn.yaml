@@ -20,6 +20,7 @@ spec:
         parameters:
           - name: "ingress.host"
             value: {{ .Values.longhorn.host }}
+        releaseName: longhorn
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values

@@ -36,6 +36,7 @@ spec:
             value: {{ .Values.minio.secret.user1_password }}
           - name: "secret.user1_secretKey"
             value: {{ .Values.minio.secret.user1_secretKey }}
+        releaseName: minio
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values

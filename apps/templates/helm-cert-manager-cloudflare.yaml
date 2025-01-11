@@ -22,6 +22,7 @@ spec:
             value: {{ .Values.certmanager.email }}
           - name: "cloudflare.apiToken"
             value: {{ .Values.certmanager.cloudflare.apiToken }}
+        releaseName: cert-manager
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values

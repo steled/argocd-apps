@@ -56,6 +56,7 @@ spec:
             value: {{ .Values.nextcloud.secret.smtpPassword }}
           - name: "secret.redisPassword"
             value: {{ .Values.nextcloud.secret.redisPassword }}
+        releaseName: nextcloud
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
