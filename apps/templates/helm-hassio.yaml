@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     namespace: hassio-test
-    server: test
+    server: {{ .Values.spec.destination.server }}
   project: apps
   source:
     path: ./charts/hassio
