@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-jd-sftp
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: jd-sftp
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - path: ./charts/jd-sftp
+      repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        parameters:
+          - name: "secret.jd.env_devicename"
+            value: {{ .Values.jd-sftp.secret.jd.env_devicename }}
+          - name: "secret.jd.env_email"
+            value: {{ .Values.jd-sftp.secret.jd.env_email }}
+          - name: "secret.jd.env_password"
+            value: {{ .Values.jd-sftp.secret.jd.env_password }}
+          - name: "sftp-server.sftp_ip_address"
+            value: {{ .Values.jd-sftp.sftp-server.sftp_ip_address }}
+        valueFiles:
+          - ./values.yaml
+    - chart: sft-server
+      repoURL: https://github.com/steled/sftp-server/archive/refs/tags/{{ .Values.sftp-server.version }}.tar.gz
+      targetRevision: main
+      helm:
+        valueFiles:
+          - $values/charts/jd-sftp/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

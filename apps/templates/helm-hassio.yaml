@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-hassio
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: hassio
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  source:
+    path: ./charts/hassio
+    repoURL: git@github.com:steled/argocd-apps.git
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      parameters:
+        - name: "endpoint.ip"
+          value: {{ .Values.hassio.endpoint.ip }}
+        - name: "ingress.host0"
+          value: {{ .Values.hassio.ingress.host0 }}
+        - name: "ingress.tls0.hosts0"
+          value: {{ .Values.hassio.ingress.tls0.hosts0 }}
+      releaseName: apprise
+      valueFiles:
+        - $values/charts/hassio/values.yaml
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
