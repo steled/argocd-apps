@@ -22,8 +22,8 @@ spec:
           value: {{ .Values.hassio.ingress.host0 }}
         - name: "ingress.tls0.hosts0"
           value: {{ .Values.hassio.ingress.tls0.hosts0 }}
-        # - name: "namespace"
-        #   value: {{ .Values.hassio.namespace }}
+        - name: "namespace"
+          value: {{ .Values.namespace }}
       releaseName: apprise
       valueFiles:
         - $values/charts/hassio/values.yaml
