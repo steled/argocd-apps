@@ -11,6 +11,9 @@ apprise:
 certmanager:
   version: "v1.16.2"
 
+hassio:
+  namespace: hassio
+
 longhorn:
   version: "1.7.2"
 
