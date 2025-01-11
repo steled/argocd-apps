@@ -31,11 +31,11 @@ spec:
       helm:
         releaseName: sftp-server
         parameters:
-          - name: "sftp-server.image.tag"
+          - name: "image.tag"
             value: {{ .Values.sftpServer.image.version }}
-          - name: "sftp-server.service.annotations.lbipam\\.cilium\\.io/ips"
+          - name: "service.annotations.lbipam\\.cilium\\.io/ips"
             value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
-          - name: "sftp-server.sftpConfig.authorizedKeys"
+          - name: "sftpConfig.authorizedKeys"
             value: {{ .Values.jdSftp.sftpServer.sftpConfig.authorizedKeys }}
         valueFiles:
           - $values/charts/jd-sftp/values.yaml
