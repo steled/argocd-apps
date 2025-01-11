@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
     ingress.cilium.io/loadbalancer-mode: shared
   name: hassio
   namespace: {{ .Values.namespace }}
