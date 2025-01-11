@@ -15,7 +15,6 @@ spec:
       repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
-        releaseName: jd-sftp
         parameters:
           - name: "secret.jd.env_devicename"
             value: {{ .Values.jdSftp.secret.jd.env_devicename }}
@@ -23,12 +22,6 @@ spec:
             value: {{ .Values.jdSftp.secret.jd.env_email }}
           - name: "secret.jd.env_password"
             value: {{ .Values.jdSftp.secret.jd.env_password }}
-          - name: "sftp-server.image.tag"
-            value: {{ .Values.sftpServer.image.version }}
-          - name: "sftp-server.service.annotations.lbipam\\.cilium\\.io/ips"
-            value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
-          - name: "sftp-server.sftpConfig.authorizedKeys"
-            value: {{ .Values.jdSftp.sftpServer.sftpConfig.authorizedKeys }}
         valueFiles:
           - $values/charts/hassio/values.yaml
     - repoURL: https://github.com/steled/sftp-server.git
@@ -36,6 +29,13 @@ spec:
       # repoURL: https://github.com/steled/sftp-server/archive/refs/tags/{{ .Values.sftpServer.version }}.tar.gz
       targetRevision: {{ .Values.sftpServer.version }}
       helm:
+        releaseName: jd-sftp
+          - name: "sftp-server.image.tag"
+            value: {{ .Values.sftpServer.image.version }}
+          - name: "sftp-server.service.annotations.lbipam\\.cilium\\.io/ips"
+            value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
+          - name: "sftp-server.sftpConfig.authorizedKeys"
+            value: {{ .Values.jdSftp.sftpServer.sftpConfig.authorizedKeys }}
         valueFiles:
           - $values/charts/jd-sftp/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
