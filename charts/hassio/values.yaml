@@ -1,0 +1,7 @@
+endpoint:
+  ip: ''
+
+ingress:
+  host0: ''
+  tls0:
+    hosts0: ''
