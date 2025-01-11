@@ -35,8 +35,8 @@ spec:
             value: {{ .Values.sftpServer.image.version }}
           - name: "service.annotations.lbipam\\.cilium\\.io/ips"
             value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
-          - name: "sftpConfig.authorizedKeys"
-            value: {{ .Values.jdSftp.sftpServer.sftpConfig.authorizedKeys }}
+          - name: "sftpConfig.authorizedKeys[0]"
+            value: {{ .Values.jdSftp.sftpServer.sftpConfig.authorizedKeys0 }}
         valueFiles:
           - $values/charts/jd-sftp/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
