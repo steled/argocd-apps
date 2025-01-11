@@ -1,5 +1,5 @@
-secret:
-  jd:
+jd:
+  secret:
     env_devicename: ''
     env_email: ''
     env_password: ''

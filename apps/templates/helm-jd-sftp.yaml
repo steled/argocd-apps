@@ -16,12 +16,12 @@ spec:
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
         parameters:
-          - name: "secret.jd.env_devicename"
-            value: {{ .Values.jdSftp.secret.jd.env_devicename }}
-          - name: "secret.jd.env_email"
-            value: {{ .Values.jdSftp.secret.jd.env_email }}
-          - name: "secret.jd.env_password"
-            value: {{ .Values.jdSftp.secret.jd.env_password }}
+          - name: "jd.secret.env_devicename"
+            value: {{ .Values.jdSftp.jd.secret.env_devicename }}
+          - name: "jd.secret.env_email"
+            value: {{ .Values.jdSftp.jd.secret.env_email }}
+          - name: "jd.secret.env_password"
+            value: {{ .Values.jdSftp.jd.secret.env_password }}
         valueFiles:
           - $values/charts/hassio/values.yaml
     - repoURL: https://github.com/steled/sftp-server.git
@@ -31,11 +31,11 @@ spec:
       helm:
         releaseName: sftp-server
         parameters:
-          - name: "image.tag"
+          - name: "sftp-server.image.tag"
             value: {{ .Values.sftpServer.image.version }}
-          - name: "service.annotations.lbipam\\.cilium\\.io/ips"
+          - name: "sftp-server.service.annotations.lbipam\\.cilium\\.io/ips"
             value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
-          - name: "sftpConfig.authorizedKeys"
+          - name: "sftp-server.sftpConfig.authorizedKeys"
             value: {{ .Values.jdSftp.sftpServer.sftpConfig.authorizedKeys }}
         valueFiles:
           - $values/charts/jd-sftp/values.yaml
