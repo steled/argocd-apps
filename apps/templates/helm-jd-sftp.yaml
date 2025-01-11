@@ -30,6 +30,7 @@ spec:
       targetRevision: {{ .Values.sftpServer.version }}
       helm:
         releaseName: jd-sftp
+        parameters:
           - name: "sftp-server.image.tag"
             value: {{ .Values.sftpServer.image.version }}
           - name: "sftp-server.service.annotations.lbipam\\.cilium\\.io/ips"
