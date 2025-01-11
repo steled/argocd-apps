@@ -29,7 +29,7 @@ spec:
     - chart: sft-server
       repoURL: https://github.com/steled/sftp-server/archive/refs/tags/{{ .Values.sftpServer.version }}.tar.gz
       # repoURL: https://github.com/steled/sftp-server.git
-      # targetRevision: {{ .Values.sftpServer.version }}
+      targetRevision: {{ .Values.sftpServer.version }}
       helm:
         valueFiles:
           - $values/charts/jd-sftp/values.yaml
