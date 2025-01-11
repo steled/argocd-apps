@@ -27,7 +27,7 @@ spec:
         valueFiles:
           - ./values.yaml
     - chart: sft-server
-      repoURL: https://github.com/steled/sftp-server/archive/refs/tags/{{ .Values.sftp-server.version }}.tar.gz
+      repoURL: https://github.com/steled/sftp-server/archive/refs/tags/{{ .Values.sftpServer.version }}.tar.gz
       targetRevision: main
       helm:
         valueFiles:
