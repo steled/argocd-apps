@@ -1,6 +1,6 @@
 spec:
   destination:
-    server: https://kubernetes.default.svc
+    server: test #https://kubernetes.default.svc
   source:
     repoURL: git@github.com:steled/argocd-apps.git
     targetRevision: HEAD
