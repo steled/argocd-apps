@@ -5,7 +5,7 @@ metadata:
     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
     ingress.cilium.io/loadbalancer-mode: shared
   name: hassio
-  namespace: {{ .Values.hassio.namespace }}
+  namespace: {{ .Values.namespace }}
 spec:
   ingressClassName: cilium
   rules:
