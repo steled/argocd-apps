@@ -28,7 +28,7 @@ spec:
           - $values/charts/hassio/values.yaml
     - chart: sft-server
       # repoURL: https://github.com/steled/sftp-server/archive/refs/tags/{{ .Values.sftpServer.version }}.tar.gz
-      repoURL: https://github.com/steled/sftp-server
+      repoURL: https://github.com/steled/sftp-server.git
       targetRevision: {{ .Values.sftpServer.version }}
       helm:
         valueFiles:
