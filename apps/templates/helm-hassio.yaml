@@ -22,7 +22,7 @@ spec:
           value: {{ .Values.hassio.ingress.host0 }}
         - name: "ingress.tls0.hosts0"
           value: {{ .Values.hassio.ingress.tls0.hosts0 }}
-        - name: "namepsace"
+        - name: "namespace"
           value: {{ .Values.hassio.namespace }}
       releaseName: apprise
       valueFiles:
