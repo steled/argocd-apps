@@ -1,0 +1,8 @@
+secret:
+  jd:
+    env_devicename: ''
+    env_email: ''
+    env_password: ''
+
+sftp-server:
+  sftp_ip_address: ''

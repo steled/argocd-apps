@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jd-sftp
+  name: jd
+spec:
+  selector:
+    matchLabels:
+      app: jd-sftp
+  template:
+    metadata:
+      labels:
+        app: jd-sftp
+    spec:
+      containers:
+      - env:
+        - name: JD_DEVICENAME
+          valueFrom:
+            secretKeyRef:
+              key: env_jd_devicename
+              name: jdownloader
+              optional: false
+        - name: JD_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: env_jd_password
+              name: jdownloader
+              optional: false
+        - name: JD_EMAIL
+          valueFrom:
+            secretKeyRef:
+              key: env_jd_email
+              name: jdownloader
+              optional: false
+        image: antlafarge/jdownloader:alpine
+        imagePullPolicy: Always
+        name: jd
+        ports:
+        - containerPort: 3129
+          name: jd
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+        volumeMounts:
+        - mountPath: /jdownloader/cfg
+          mountPropagation: None
+          name: config
+        - mountPath: /jdownloader/downloads
+          mountPropagation: None
+          name: downloads
+        - mountPath: /jdownloader/logs
+          mountPropagation: None
+          name: logs
+      securityContext:
+        runAsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: jd-sftp-config-pvc
+      - name: downloads
+        persistentVolumeClaim:
+          claimName: jd-sftp-downloads-pvc
+      - name: logs
+        persistentVolumeClaim:
+          claimName: jd-sftp-logs-pvc
