@@ -15,7 +15,6 @@ spec:
     repoURL: git@github.com:steled/argocd-apps.git
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
-      namespace: hassio-test
       parameters:
         - name: "endpoint.ip"
           value: {{ .Values.hassio.endpoint.ip }}
@@ -23,8 +22,6 @@ spec:
           value: {{ .Values.hassio.ingress.host0 }}
         - name: "ingress.tls0.hosts0"
           value: {{ .Values.hassio.ingress.tls0.hosts0 }}
-        # - name: "namespace"
-        #   value: {{ .Values.namespace }}
       releaseName: apprise
       valueFiles:
         - $values/charts/hassio/values.yaml
