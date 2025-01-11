@@ -15,8 +15,7 @@ spec:
       repoURL: https://victoriametrics.github.io/helm-charts/
       targetRevision: {{ .Values.victoriametrics.version }}
       helm:
-        valueFiles:
-          - $values/charts/victoriametrics/values.yaml
+        releaseName: victoria-metrics-k8s-stack
         parameters:
           - name: "metricsProxy.image.version"
             value: {{ .Values.victoriametrics.metricsProxy.image.version }}
@@ -48,10 +47,12 @@ spec:
             value: {{ .Values.victoriametrics.secret.grafanaAdminPassword }}
           - name: "secret.grafanaAdminUser"
             value: {{ .Values.victoriametrics.secret.grafanaAdminUser }}
-        releaseName: victoria-metrics-k8s-stack
-    - repoURL: git@github.com:steled/argocd-apps.git
-      targetRevision: main
-      ref: values
+        valueFiles:
+          - $values/charts/victoriametrics/values.yaml
+          - ./values.yaml
+    # - repoURL: git@github.com:steled/argocd-apps.git
+    #   targetRevision: main
+    #   ref: values
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
