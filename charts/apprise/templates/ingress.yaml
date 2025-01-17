@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-{{ .Values.ingress.environment }}
+    ingress.cilium.io/loadbalancer-mode: shared
+  labels:
+    app: apprise
+  name: apprise
+spec:
+  ingressClassName: cilium
+  rules:
+  - host: {{ .Values.ingress.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: apprise
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - {{ .Values.ingress.domain }}
+    secretName: apprise-secret

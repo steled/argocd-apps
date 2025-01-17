@@ -7,7 +7,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: apprise
+    namespace: apprise-test
     server: {{ .Values.spec.destination.server }}
   project: apps
   source:
@@ -18,9 +18,9 @@ spec:
       parameters:
         - name: "image.version"
           value: {{ .Values.apprise.version }}
-        - name: "domain"
+        - name: "ingress.domain"
           value: {{ .Values.apprise.domain }}
-        - name: "htpasswd"
+        - name: "secret.htpasswd"
           value: {{ .Values.apprise.htpasswd }}
       releaseName: apprise
       valueFiles:

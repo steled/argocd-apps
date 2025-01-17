@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: apprise
+  name: apprise
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apprise
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: apprise
+    spec:
+      automountServiceAccountToken: true
+      containers:
+      - env:
+        - name: APPRISE_STATEFUL_MODE
+          value: simple
+        - name: PGID
+          value: "1000"
+        - name: PUID
+          value: "1000"
+        image: caronc/apprise:{{ .Values.deployment.image.version }}
+        imagePullPolicy: IfNotPresent
+        name: apprise
+        ports:
+        - containerPort: 8000
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            memory: 128Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /config
+          mountPropagation: None
+          name: apprise-data
+        - mountPath: /plugin
+          mountPropagation: None
+          name: apprise-data
+        - mountPath: /attach
+          mountPropagation: None
+          name: apprise-data
+        - mountPath: /etc/nginx/.htpasswd
+          mountPropagation: None
+          name: apprise-api-htpasswd-secret-volume
+          readOnly: true
+          subPath: .htpasswd
+        - mountPath: /etc/nginx/location-override.conf
+          mountPropagation: None
+          name: apprise-api-override-conf-config-volume
+          readOnly: true
+          subPath: location-override.conf
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: apprise-api-override-conf-config
+          optional: false
+        name: apprise-api-override-conf-config-volume
+      - name: apprise-data
+        persistentVolumeClaim:
+          claimName: apprise-data
+      - name: apprise-api-htpasswd-secret-volume
+        secret:
+          defaultMode: 420
+          optional: false
+          secretName: apprise-api-htpasswd-secret

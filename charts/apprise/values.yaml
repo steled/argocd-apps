@@ -1,0 +1,16 @@
+ingress:
+  environment: staging
+  domain: ''
+
+secret:
+  htpasswd: ''
+
+pvc:
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: longhorn
+
+deployment:
+  image:
+    version: latest
