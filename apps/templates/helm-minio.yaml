@@ -20,8 +20,8 @@ spec:
         parameters:
           - name: "ingress.hosts[0]"
             value: {{ .Values.minio.ingress.hosts0 }}
-          # - name: "ingress.tls[0].hosts[0]"
-          #   value: {{ .Values.minio.ingress.tls0.hosts0 }}
+          - name: "ingress.tls[0].hosts[0]"
+            value: {{ .Values.minio.ingress.tls0.hosts0 }}
           # - name: "consoleIngress.hosts[0]"
           #   value: {{ .Values.minio.consoleIngress.hosts0 }}
           # - name: "consoleIngress.tls[0].hosts[0]"
