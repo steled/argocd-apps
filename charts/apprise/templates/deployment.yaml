@@ -52,29 +52,37 @@ spec:
         - mountPath: /attach
           mountPropagation: None
           name: apprise-data
+        {{- if .Values.secret.htpasswd }}
         - mountPath: /etc/nginx/.htpasswd
           mountPropagation: None
           name: apprise-api-htpasswd-secret-volume
           readOnly: true
           subPath: .htpasswd
+        {{ end }}
+        {{- if .Values.secret.htpasswd }}
         - mountPath: /etc/nginx/location-override.conf
           mountPropagation: None
           name: apprise-api-override-conf-config-volume
           readOnly: true
           subPath: location-override.conf
+        {{ end }}
       restartPolicy: Always
       schedulerName: default-scheduler
       volumes:
+      {{- if .Values.secret.htpasswd }}
       - configMap:
           defaultMode: 420
           name: apprise-api-override-conf-config
           optional: false
         name: apprise-api-override-conf-config-volume
+      {{ end }}
       - name: apprise-data
         persistentVolumeClaim:
           claimName: apprise-data
+      {{- if .Values.secret.htpasswd }}
       - name: apprise-api-htpasswd-secret-volume
         secret:
           defaultMode: 420
           optional: false
           secretName: apprise-api-htpasswd-secret
+      {{ end }}
