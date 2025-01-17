@@ -18,6 +18,8 @@ minio:
   version: "5.3.0"
 
 nextcloud:
+  fpm:
+    version: 30.0.4-fpm
   version: "6.5.2"
 
 sftpServer:
