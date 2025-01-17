@@ -56,5 +56,5 @@ spec:
       volumes:
       - name: nextcloud-main
         persistentVolumeClaim:
-          claimName: nextcloud-server-pvc
+          claimName: nextcloud-nextcloud
   ttlSecondsAfterFinished: 120
