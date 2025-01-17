@@ -24,8 +24,8 @@ spec:
             value: {{ .Values.minio.ingress.tls0.hosts0 }}
           - name: "consoleIngress.hosts[0]"
             value: {{ .Values.minio.consoleIngress.hosts0 }}
-          # - name: "consoleIngress.tls[0].hosts[0]"
-          #   value: {{ .Values.minio.consoleIngress.tls0.hosts0 }}
+          - name: "consoleIngress.tls[0].hosts[0]"
+            value: {{ .Values.minio.consoleIngress.tls0.hosts0 }}
           # - name: "svcaccts.existingSecret[0].accessKey"
           #   value: {{ .Values.minio.svcaccts.user1.accessKey }}
           - name: "secret.rootPassword"
