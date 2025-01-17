@@ -7,11 +7,11 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: nextcloud
+    namespace: nextcloud-test
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - chart: nextcloud-test
+    - chart: nextcloud
       repoURL: https://nextcloud.github.io/helm/
       targetRevision: {{ .Values.nextcloud.version }}
       helm:
