@@ -18,8 +18,8 @@ spec:
         valueFiles:
           - $values/charts/minio/values.yaml
         parameters:
-          # - name: "ingress.hosts[0]"
-          #   value: {{ .Values.minio.ingress.hosts0 }}
+          - name: "ingress.hosts[0]"
+            value: {{ .Values.minio.ingress.hosts0 }}
           # - name: "ingress.tls[0].hosts[0]"
           #   value: {{ .Values.minio.ingress.tls0.hosts0 }}
           # - name: "consoleIngress.hosts[0]"
