@@ -1,9 +1,3 @@
-secret:
-  rootPassword: ''
-  rootUser: ''
-  user1_password: ''
-  user1_secretKey: ''
-
 mode: standalone
 existingSecret: minio-secret
 replicas: 1
