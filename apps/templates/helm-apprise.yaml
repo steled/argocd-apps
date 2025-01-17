@@ -20,8 +20,8 @@ spec:
           value: {{ .Values.apprise.version }}
         - name: "ingress.domain"
           value: {{ .Values.apprise.domain }}
-        # - name: "secret.htpasswd"
-          # value: {{ .Values.apprise.htpasswd }}
+        - name: "secret.htpasswd"
+          value: {{ .Values.apprise.htpasswd }}
       releaseName: apprise
       valueFiles:
         - ./values.yaml
