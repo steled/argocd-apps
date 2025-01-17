@@ -3,6 +3,8 @@ jd:
     env_devicename: ''
     env_email: ''
     env_password: ''
+  pvc:
+    storageClassName: longhorn
 
 image:
   repository: steled/sftp
@@ -51,10 +53,10 @@ persistentVolume:
   enabled: false
 
 # additional volumes to add to the sftp deployment.
-# extraVolumes:
-#   - name: steled-downloads
-#     persistentVolumeClaim:
-#       claimName: jd-sftp-downloads-pvc
+extraVolumes:
+  - name: steled-downloads
+    persistentVolumeClaim:
+      claimName: jd-sftp-downloads-pvc
 
 vxlanController:
   enabled: false
