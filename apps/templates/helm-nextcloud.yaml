@@ -11,7 +11,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - chart: nextcloud
+    - chart: nextcloud-test
       repoURL: https://nextcloud.github.io/helm/
       targetRevision: {{ .Values.nextcloud.version }}
       helm:
@@ -38,6 +38,14 @@ spec:
             value: {{ .Values.nextcloud.postgresql.global.postgresql.auth.database }}
           - name: "postgresql.global.postgresql.auth.username"
             value: {{ .Values.nextcloud.postgresql.global.postgresql.auth.username }}
+        releaseName: nextcloud
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/nextcloud
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        parameters:
+          - name: "job.nextcloud.maintenance.image"
+            value: {{ .Values.nextcloud.fpm.version }}
           - name: "secret.nextcloudUsername"
             value: {{ .Values.nextcloud.secret.nextcloudUsername }}
           - name: "secret.nextcloudPassword"
@@ -56,7 +64,9 @@ spec:
             value: {{ .Values.nextcloud.secret.smtpPassword }}
           - name: "secret.redisPassword"
             value: {{ .Values.nextcloud.secret.redisPassword }}
-        releaseName: nextcloud
+        releaseName: nextcloud-addition
+        valueFiles:
+          - ./values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
