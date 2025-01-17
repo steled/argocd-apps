@@ -28,6 +28,12 @@ spec:
             value: {{ .Values.minio.consoleIngress.tls0.hosts0 }}
           # - name: "svcaccts.existingSecret[0].accessKey"
           #   value: {{ .Values.minio.svcaccts.user1.accessKey }}
+        releaseName: minio
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/minio
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        parameters:
           - name: "secret.rootPassword"
             value: {{ .Values.minio.secret.rootPassword }}
           - name: "secret.rootUser"
@@ -36,7 +42,9 @@ spec:
             value: {{ .Values.minio.secret.user1_password }}
           - name: "secret.user1_secretKey"
             value: {{ .Values.minio.secret.user1_secretKey }}
-        releaseName: minio
+        releaseName: minio-addition
+        valueFiles:
+          - ./values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
