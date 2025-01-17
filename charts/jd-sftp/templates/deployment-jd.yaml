@@ -61,6 +61,7 @@ spec:
         runAsGroup: 1000
         runAsNonRoot: true
         runAsUser: 1000
+        fsGroup: 1000
       volumes:
       - name: config
         persistentVolumeClaim:
