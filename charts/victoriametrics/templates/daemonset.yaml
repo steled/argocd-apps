@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    name: metrics-proxy
+  name: metrics-proxy
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: metrics-proxy
+  template:
+    metadata:
+      labels:
+        name: metrics-proxy
+    spec:
+      containers:
+      - env:
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        image: haproxy:{{ .Values.metricsProxy.image.version }}
+        imagePullPolicy: IfNotPresent
+        name: metrics-proxy
+        resources:
+          limits:
+            cpu: 500m
+            memory: 200Mi
+          requests:
+            cpu: 50m
+            memory: 175Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /usr/local/etc/haproxy
+          mountPropagation: None
+          name: config
+      hostNetwork: true
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: metrics-proxy-config
+          optional: false
+        name: config
