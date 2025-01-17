@@ -26,7 +26,7 @@ spec:
             value: {{ .Values.minio.consoleIngress.hosts0 }}
           - name: "consoleIngress.tls[0].hosts[0]"
             value: {{ .Values.minio.consoleIngress.tls0.hosts0 }}
-          - name: "svcaccts[0].existingSecret.accessKey"
+          - name: "svcaccts[0].accessKey"
             value: {{ .Values.minio.svcaccts0.user1.accessKey }}
         releaseName: minio
     - repoURL: git@github.com:steled/argocd-apps.git
