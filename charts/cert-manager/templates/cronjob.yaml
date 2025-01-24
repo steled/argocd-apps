@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cloudflare-dyndns
+spec:
+  concurrencyPolicy: Replace
+  failedJobsHistoryLimit: 5
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        spec:
+          containers:
+          - command:
+            - /usr/local/bin/bash
+            - -c
+            - apk add --update curl jq &>/dev/null && /script/cloudflare_dyndns_script.sh
+            image: bash:latest
+            imagePullPolicy: IfNotPresent
+            name: cloudflare-dyndns
+            resources: {}
+            volumeMounts:
+            - mountPath: /script
+              mountPropagation: None
+              name: cloudflare-dyndns-script
+            - mountPath: /env
+              mountPropagation: None
+              name: cloudflare-dyndns-env
+          restartPolicy: OnFailure
+          volumes:
+          - configMap:
+              defaultMode: 511
+              name: cloudflare-dyndns
+              optional: false
+            name: cloudflare-dyndns-script
+          - name: cloudflare-dyndns-env
+            secret:
+              defaultMode: 420
+              optional: false
+              secretName: cloudflare-dyndns
+      ttlSecondsAfterFinished: 10
+  schedule: '@hourly'
+  startingDeadlineSeconds: 10
+  successfulJobsHistoryLimit: 0

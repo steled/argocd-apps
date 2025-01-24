@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflare-dyndns
+data:
+  cloudflare_dyndns_script.sh: |-
+      #!/bin/bash
+
+      source /env/.env
+      while [ -z "$CURRENT_IP_ADDRESS" ]
+      do
+        CURRENT_IP_ADDRESS=$(curl -s ip.me)
+        echo "CURRENT_IP_ADDRESS:" $CURRENT_IP_ADDRESS
+      done
+      for record in "$${dnsrecords[@]}"
+      do
+        declare -n array="$record"
+        unset CURRENT_DNS_VALUE
+        while [ -z "$CURRENT_DNS_VALUE" ]
+        do
+          CURRENT_DNS_VALUE=$(curl -sX GET "https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${array[1]}" -H "Content-Type:application/json" -H "Authorization: Bearer $${AUTH_KEY}" | jq -r .result.content)
+          echo "CURRENT_DNS_VALUE:" $CURRENT_DNS_VALUE
+        done
+        if [ $${CURRENT_DNS_VALUE} != $${CURRENT_IP_ADDRESS} ]
+        then
+          echo "DNS_RECORD_NAME:" $${array[0]}
+          echo "DNS_RECORD_ID:" $${array[1]}
+        	curl -sX PUT "https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${array[1]}" -H "Authorization: Bearer $${AUTH_KEY}" -H "Content-Type:application/json" --data '{"type":"A","name":'\"$${array[0]}'","content":'\"$${CURRENT_IP_ADDRESS}'"}' > /dev/null
+        fi
+        (echo OK && exit 0) || (echo ERROR && exit 1)
+      done
