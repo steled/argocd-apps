@@ -14,6 +14,7 @@ spec:
     - chart: cert-manager
       repoURL: https://charts.jetstack.io
       targetRevision: {{ .Values.certmanager.version }}
+      helm:
         releaseName: cert-manager
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/cert-manager
@@ -24,6 +25,7 @@ spec:
             value: {{ .Values.certmanager.email }}
           - name: "secret.cloudflare.apiToken"
             value: {{ .Values.certmanager.cloudflare.apiToken }}
+        releaseName: cert-manager-addition
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
