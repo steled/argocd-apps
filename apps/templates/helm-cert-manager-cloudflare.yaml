@@ -25,8 +25,8 @@ spec:
             value: {{ .Values.certmanager.email }}
           - name: "secret.cloudflare.apiToken"
             value: {{ .Values.certmanager.cloudflare.apiToken }}
-          # - name: "secret.cloudflareDyndns.env"
-            # value: {{ .Values.certmanager.cloudflareDyndns.env }}
+          - name: "secret.cloudflareDyndns.env"
+            value: {{ .Values.certmanager.cloudflareDyndns.env | quote }}
         releaseName: cert-manager-addition
   syncPolicy:
     syncOptions:
