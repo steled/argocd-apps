@@ -14,15 +14,16 @@ spec:
     - chart: cert-manager
       repoURL: https://charts.jetstack.io
       targetRevision: {{ .Values.certmanager.version }}
+        releaseName: cert-manager
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/cert-manager
+      targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
-        valueFiles:
-          - $values/charts/cert-manager/values.yaml
         parameters:
           - name: "clusterIssuer.certmanager.email"
             value: {{ .Values.certmanager.email }}
           - name: "secret.cloudflare.apiToken"
             value: {{ .Values.certmanager.cloudflare.apiToken }}
-        releaseName: cert-manager
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
