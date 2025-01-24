@@ -7,7 +7,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: longhorn
+    namespace: longhorn-test
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
