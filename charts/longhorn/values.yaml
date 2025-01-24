@@ -1,7 +1,3 @@
-persistence:
-  defaultClassReplicaCount: 1
-  migratable: true
-
 csi:
   attacherReplicaCount: 1
   provisionerReplicaCount: 1
@@ -11,9 +7,6 @@ csi:
 defaultSettings:
   defaultReplicaCount: 1
   orphanAutoDeletion: true
-
-longhornUI:
-  replicas: 1
 
 ingress:
   enabled: true
@@ -25,3 +18,13 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
     ingress.cilium.io/loadbalancer-mode: shared
+
+longhornUI:
+  replicas: 1
+
+persistence:
+  defaultClassReplicaCount: 1
+  migratable: true
+
+preUpgradeChecker:
+  jobEnabled: false
