@@ -1,0 +1,7 @@
+clusterIssuer:
+  certmanager:
+    email: ''
+
+secret:
+  cloudflare:
+    apiToken: ''
