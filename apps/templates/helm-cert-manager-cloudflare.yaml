@@ -22,11 +22,15 @@ spec:
       helm:
         parameters:
           - name: "clusterIssuer.certmanager.email"
-            value: {{ .Values.certmanager.email }}
+            value: {{ .Values.certmanager.clusterIssuer.email }}
           - name: "secret.cloudflare.apiToken"
-            value: {{ .Values.certmanager.cloudflare.apiToken }}
+            value: {{ .Values.certmanager.secret.cloudflare.apiToken }}
           - name: "secret.cloudflareDyndns.env"
-            value: {{ .Values.certmanager.cloudflareDyndns.env | quote }}
+            value: {{ .Values.certmanager.secret.cloudflareDyndns.env | quote }}
+          - name: "secret.cloudflareDyndns.authKey"
+            value: {{ .Values.certmanager.secret.cloudflareDyndns.authKey | quote }}
+          - name: "secret.cloudflareDyndns.dnsZoneId"
+            value: {{ .Values.certmanager.secret.cloudflareDyndns.dnsZoneId | quote }}
         releaseName: cert-manager-addition
   syncPolicy:
     syncOptions:

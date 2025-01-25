@@ -15,6 +15,17 @@ spec:
             - /usr/local/bin/bash
             - -c
             - apk add --update curl jq &>/dev/null && /script/cloudflare_dyndns_script.sh
+            env:
+            - name: AUTH_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cloudflare-dyndns
+                  key: AUTH_KEY
+            - name: DNS_ZONE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: cloudflare-dyndns
+                  key: DNS_ZONE_ID
             image: bash:latest
             imagePullPolicy: IfNotPresent
             name: cloudflare-dyndns
