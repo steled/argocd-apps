@@ -1,10 +1,9 @@
-# pvc:
-#   postgresql:
-#     backup:
-#       resources:
-#         requests:
-#           storage: 1Gi
-#       storageClassName: longhorn
+pvc:
+  postgresql:
+    backup:
+      storage: 1Gi
+      storageClassName: longhorn
+
 job:
   nextcloud:
     maintenance:
@@ -163,18 +162,9 @@ phpClientHttpsFix:
   enabled: true
   protocol: https
 
-# service:
-#   annotations:
-#     "lbipam.cilium.io/ips": "${ip_address}"
-#   type: LoadBalancer
-#   port: 8080
-#   # loadBalancerIP: ${ip_address}
-
 persistence:
   enabled: true
-  # existingClaim: nextcloud-server-pvc
   storageClass: longhorn
-  accessMode: ReadWriteOnce
   size: 8Gi
 
 cronjob:
@@ -188,8 +178,6 @@ externalDatabase:
   type: postgresql
   host: nextcloud-postgresql.nextcloud.svc.cluster.local:5432
   database: ''
-  # user: ''
-  # password: ''
   existingSecret:
     enabled: true
     secretName: nextcloud-secret
@@ -198,29 +186,36 @@ externalDatabase:
 
 postgresql:
   enabled: true
+  # backup:
+  #   enabled: true
+  #   cronjob:
+  #     schedule: "@hourly"
+  #     storage:
+  #       enabled: false
+  #       resourcePolicy: keep
+  #       storageClass: longhorn
+    
   global:
     defaultStorageClass: longhorn
     postgresql:
       auth:
         database: ''
         username: ''
-        # password: ''
         existingSecret: nextcloud-secret
         secretKeys:
           adminPasswordKey: postgresql-admin-password
           userPasswordKey: postgresql-user-password
 
   primary:
-    # extraVolumes:
-    #   - name: backup
-    #     persistentVolumeClaim:
-    #       claimName: postgresql-backup-pvc
-    # extraVolumeMounts:
-    #   - name: backup
-    #     mountPath: /backup
+    extraVolumes:
+      - name: backup
+        persistentVolumeClaim:
+          claimName: postgresql-backup-pvc
+    extraVolumeMounts:
+      - name: backup
+        mountPath: /backup
     persistence:
       enabled: true
-      # existingClaim: nextcloud-postgresql-pvc
       # storageClass: longhorn
     resourcesPreset: "small"
 
@@ -234,12 +229,10 @@ redis:
   master:
     persistence:
       enabled: true
-      # existingClaim: nextcloud-redis-master-pvc
     resourcesPreset: "micro"
   replica:
     persistence:
       enabled: true
-      # existingClaim: nextcloud-redis-replica-pvc
     replicaCount: 1
     resourcesPreset: "micro"
 
