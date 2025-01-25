@@ -21,7 +21,7 @@ data:
           CURRENT_DNS_VALUE=$(curl -sX GET "https://api.cloudflare.com/client/v4/zones/${DNS_ZONE_ID}/dns_records/${array[1]}" -H "Content-Type:application/json" -H "Authorization: Bearer ${AUTH_KEY}" | jq -r .result.content)
           echo "CURRENT_DNS_VALUE:" $CURRENT_DNS_VALUE
         done
-        if [ ${CURRENT_DNS_VALUE} != ${CURRENT_IP_ADDRESS} ]
+        if [[ ${CURRENT_DNS_VALUE} != ${CURRENT_IP_ADDRESS} ]]
         then
           echo "DNS_RECORD_NAME:" ${array[0]}
           echo "DNS_RECORD_ID:" ${array[1]}
