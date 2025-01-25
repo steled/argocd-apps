@@ -216,7 +216,7 @@ postgresql:
         mountPath: /backup
     persistence:
       enabled: true
-      # storageClass: longhorn
+      storageClass: longhorn
     resourcesPreset: "small"
 
 redis:
@@ -229,10 +229,12 @@ redis:
   master:
     persistence:
       enabled: true
+      storageClass: longhorn
     resourcesPreset: "micro"
   replica:
     persistence:
       enabled: true
+      storageClass: longhorn
     replicaCount: 1
     resourcesPreset: "micro"
 
