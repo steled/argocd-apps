@@ -2,6 +2,7 @@ endpoint:
   ip: ''
 
 ingress:
+  environment: production
   host0: ''
   tls0:
     hosts0: ''
