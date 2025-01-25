@@ -4,7 +4,7 @@ metadata:
   name: cloudflare-dyndns
 data:
   cloudflare_dyndns_script.sh: |-
-      #!/bin/bash
+      #!/usr/local/bin/bash
 
       source /env/.env
       while [ -z "$CURRENT_IP_ADDRESS" ]
