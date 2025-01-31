@@ -6,7 +6,19 @@
   "dependencyDashboard": true,
   "labels": ["dependencies"],
   "enabledManagers": [
+    "custom.regex",
     "github-actions"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "(^|/)templates/values\\.yaml$"
+      ],
+      "matchStrings": [
+        "\\s*# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>[^\\s]+?)(?: (?:packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\s+[A-Za-z0-9_]+?_(VERSION|version)\\s*:*\\??=\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
+      ]
+    }
   ],
   "github-actions": {
     "fileMatch": [
@@ -16,11 +28,11 @@
   },
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
+      "matchManagers": ["custom.regex", "github-actions"],
       "separateMinorPatch": true
     },
     {
-      "matchManagers": ["github-actions"],
+      "matchManagers": ["custom.regex", "github-actions"],
       "matchUpdateTypes": ["patch"],
       "automerge": true
     },
