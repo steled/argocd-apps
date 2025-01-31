@@ -15,11 +15,11 @@ certmanager:
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
-  version = "1.7.2"
+  longhorn_version = "1.7.2"
 
 minio:
   # renovate: depName=minio registryUrl=https://charts.min.io/
-  version = "5.3.0"
+  minio_version = "5.3.0"
 
 nextcloud:
   fpm:
