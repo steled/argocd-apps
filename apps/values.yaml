@@ -31,7 +31,7 @@ nextcloud:
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-image packageName=steled/sftp
-    version: "3.20.3-alpine"
+    version: "alpine"
   # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
   version: "v0.3.12"
 
