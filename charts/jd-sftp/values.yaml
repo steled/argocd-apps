@@ -7,7 +7,7 @@ jd:
     storageClassName: longhorn
 
 image:
-  repository: steled/sftp
+  repository: atmoz/sftp
   tag: ''
   pullPolicy: IfNotPresent
 
