@@ -55,11 +55,6 @@
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["nextcloud/helm"],
       "extractVersion": "^nextcloud-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["steled/sftp", "haproxy"],
-      "versioning": "loose"
     }
   ]
 }
