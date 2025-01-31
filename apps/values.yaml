@@ -25,7 +25,7 @@ nextcloud:
   fpm:
     version: 30.0.4-fpm
   # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
-  version: "6.5.2"
+  version: "6.6.3"
 
 sftpServer:
   image:
