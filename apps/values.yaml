@@ -24,14 +24,14 @@ minio:
 nextcloud:
   fpm:
     # renovate: datasource=docker depName=nextcloud packageName=nextcloud
-    version: 30.0.4-fpm
+    version: "30.0.4-fpm"
   # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
   version: "6.6.3"
 
 sftpServer:
   image:
-    # renovate: datasource=docker depName=sft packageName=steled/sftp
-    version: "alpine-3.20.3"
+    # renovate: datasource=docker depName=sftp-server packageName=steled/sftp
+    version: "3.20.3-alpine"
   # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
   version: "v0.3.12"
 
@@ -42,7 +42,7 @@ vault:
 victoriametrics:
   metricsProxy:
     image:
-      # renovate: datasource=docker depName=apprise packageName=haproxy
+      # renovate: datasource=docker depName=victoriametrics packageName=haproxy
       version: "3.1.1-alpine"
   # renovate: datasource=github-tags depName=victoriametrics packageName=VictoriaMetrics/helm-charts
   version: "0.35.1"
