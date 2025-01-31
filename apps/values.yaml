@@ -7,25 +7,25 @@ spec:
 
 apprise:
   # renovate: datasource=docker depName=apprise packageName=caronc/apprise
-  version: "1.1.7"
+  version: "1.1.8"
 
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager packageName=cert-manager/cert-manager
-  version: "v1.16.2"
+  version: "v1.16.3"
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
-  version: "1.7.2"
+  version: "1.8.0"
 
 minio:
   # renovate: datasource=helm depName=minio registryUrl=https://charts.min.io/
-  version: "5.3.0"
+  version: "5.4.0"
 
 nextcloud:
   fpm:
     version: 30.0.4-fpm
   # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
-  version: "6.5.2"
+  version: "6.6.3"
 
 sftpServer:
   image:
@@ -44,4 +44,4 @@ victoriametrics:
       # renovate: datasource=docker depName=apprise packageName=haproxy
       version: "3.1.1-alpine"
   # renovate: datasource=github-tags depName=victoriametrics packageName=VictoriaMetrics/helm-charts
-  version: "0.33.1"
+  version: "0.35.1"
