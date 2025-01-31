@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "baseBranches": [
+    "main"
+  ],
+  "dependencyDashboard": true,
+  "labels": ["dependencies"],
+  "enabledManagers": [
+    "github-actions"
+  ],
+  "github-actions": {
+    "fileMatch": [
+      "(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$",
+      "(^|/)action\\.ya?ml$"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "separateMinorPatch": true
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["VictoriaMetrics/helm-charts"],
+      "extractVersion": "^victoria-metrics-k8s-stack-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["nextcloud/helm"],
+      "extractVersion": "^nextcloud-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchDepNames": ["argocd"],
+      "extractVersion": "^argo-cd-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchDepNames": ["argocd-apps"],
+      "extractVersion": "^argocd-apps-(?<version>.*)$"
+    }
+  ]
+}
