@@ -24,7 +24,7 @@ minio:
 nextcloud:
   fpm:
     # renovate: datasource=docker depName=nextcloud-fpm packageName=nextcloud
-    version: "30.0.4-fpm"
+    version: "30.0.5-fpm"
   # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
   version: "6.6.3"
 
