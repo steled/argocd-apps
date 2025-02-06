@@ -1,11 +1,12 @@
 csi:
-  attacherReplicaCount: 1
-  provisionerReplicaCount: 1
-  resizerReplicaCount: 1
-  snapshotterReplicaCount: 1
+  attacherReplicaCount: 2
+  provisionerReplicaCount: 2
+  resizerReplicaCount: 2
+  snapshotterReplicaCount: 2
 
 defaultSettings:
-  defaultReplicaCount: 1
+  defaultDataPath: "/ext/persistent"
+  defaultReplicaCount: 2
   orphanAutoDeletion: true
 
 ingress:
@@ -20,10 +21,10 @@ ingress:
     ingress.cilium.io/loadbalancer-mode: shared
 
 longhornUI:
-  replicas: 1
+  replicas: 2
 
 persistence:
-  defaultClassReplicaCount: 1
+  defaultClassReplicaCount: 2
   migratable: true
 
 preUpgradeChecker:
