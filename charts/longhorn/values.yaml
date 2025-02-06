@@ -6,7 +6,7 @@ csi:
 
 defaultSettings:
   defaultDataPath: "/ext/persistent"
-  defaultReplicaCount: 1
+  defaultReplicaCount: 2
   orphanAutoDeletion: true
 
 ingress:
@@ -24,7 +24,7 @@ longhornUI:
   replicas: 2
 
 persistence:
-  defaultClassReplicaCount: 1
+  defaultClassReplicaCount: 2
   migratable: true
 
 preUpgradeChecker:
