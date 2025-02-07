@@ -33,7 +33,9 @@ sftpServer:
     # renovate: datasource=docker depName=sftp-image packageName=atmoz/sftp
     version: "alpine"
   # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
-  version: "v0.3.13"
+  # version: "v0.3.13"
+  # renovate: datasource=github-tags depName=sftp-server packageName=sj14/helm-charts
+  version: "0.7.0"
 
 vault:
   # renovate: datasource=github-tags depName=hashicorp-vault packageName=hashicorp/vault-helm

@@ -55,6 +55,11 @@
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["nextcloud/helm"],
       "extractVersion": "^nextcloud-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["sj14/helm-charts"],
+      "extractVersion": "^sftp-server-(?<version>.*)$"
     }
   ]
 }
