@@ -17,6 +17,6 @@ sftp:
 persistentVolume:
   accessModes: ["ReadWriteMany"]
   enabled: true
-  existingClaim: "jdownloader2-data"
+  existingClaim: "helm-jd-sftp-jdownloader2-data"
   size: "50Gi"
   subPath: "donwloads"
