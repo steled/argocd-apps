@@ -60,6 +60,11 @@
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["sj14/helm-charts"],
       "extractVersion": "^sftp-server-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["pmoscode-helm/jdownloader2"],
+      "extractVersion": "^jdownloader2-(?<version>.*)$"
     }
   ]
 }
