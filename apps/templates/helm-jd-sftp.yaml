@@ -36,21 +36,6 @@ spec:
             value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
         valueFiles:
           - $values/charts/jd-sftp/values.yaml
-    # - repoURL: https://github.com/steled/sftp-server.git
-    #   path: "."
-    #   # repoURL: https://github.com/steled/sftp-server/archive/refs/tags/{{ .Values.sftpServer.version }}.tar.gz
-    #   targetRevision: {{ .Values.sftpServer.version }}
-    #   helm:
-    #     releaseName: sftp-server
-    #     parameters:
-    #       - name: "image.tag"
-    #         value: {{ .Values.sftpServer.image.version }}
-    #       - name: "service.annotations.lbipam\\.cilium\\.io/ips"
-    #         value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
-    #       - name: "sftpConfig.authorizedKeys[0]"
-    #         value: {{ .Values.jdSftp.sftpServer.sftpConfig.authorizedKeys0 }}
-    #     valueFiles:
-    #       - $values/charts/jd-sftp/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
