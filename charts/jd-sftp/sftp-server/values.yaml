@@ -19,3 +19,4 @@ persistentVolume:
   enabled: true
   existingClaim: "helm-jd-sftp-jdownloader2-data"
   size: "50Gi"
+  subPath: "uploads"
