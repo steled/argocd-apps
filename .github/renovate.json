@@ -43,7 +43,7 @@
     },
     {
       "matchManagers": ["custom.regex", "github-actions"],
-      "matchUpdateTypes": ["patch", "pinDigest"],
+      "matchUpdateTypes": ["digest", "patch", "pin"],
       "automerge": true
     },
     {
