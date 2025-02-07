@@ -38,7 +38,7 @@ jdownloader2:
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-image packageName=atmoz/sftp
-    version: "sha256:85ff1a7742f7f28f1ce49d27ab659798244a8ae2e81ef3a0457b6733d0caecdc"
+    version: "alpine@sha256:85ff1a7742f7f28f1ce49d27ab659798244a8ae2e81ef3a0457b6733d0caecdc"
   # renovate: datasource=github-tags depName=sftp-server packageName=sj14/helm-charts
   version: "0.7.0"
 
