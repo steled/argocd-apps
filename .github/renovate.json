@@ -47,6 +47,11 @@
       "automerge": true
     },
     {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["atmoz/sftp"],
+      "pinDigests": true
+    },
+    {
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["VictoriaMetrics/helm-charts"],
       "extractVersion": "^victoria-metrics-k8s-stack-(?<version>.*)$"
