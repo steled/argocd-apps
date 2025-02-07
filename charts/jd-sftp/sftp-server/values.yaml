@@ -1,15 +1,3 @@
-jd:
-  secret:
-    env_devicename: ''
-    env_email: ''
-    env_password: ''
-  pvc:
-    storageClassName: longhorn
-
-# image:
-  # repository: atmoz/sftp
-  # tag: ''
-
 service:
   annotations:
     lbipam.cilium.io/ips: ''
@@ -29,5 +17,6 @@ sftp:
 persistentVolume:
   accessModes: ["ReadWriteMany"]
   enabled: true
-  existingClaim: "jd-sftp-downloads-pvc"
+  existingClaim: "jdownloader2-data"
   size: "50Gi"
+  subPath: "donwloads"

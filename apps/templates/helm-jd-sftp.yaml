@@ -11,19 +11,19 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - path: ./charts/jd-sftp
-      repoURL: git@github.com:steled/argocd-apps.git
-      targetRevision: {{ .Values.spec.source.targetRevision }}
+    - chart: jdownloader2
+      repoURL: https://pmoscode-helm.github.io/jdownloader2/
+      targetRevision: {{ .Values.jdownloader2.version }}
       helm:
         parameters:
-          - name: "jd.secret.env_devicename"
-            value: {{ .Values.jdSftp.jd.secret.env_devicename }}
-          - name: "jd.secret.env_email"
-            value: {{ .Values.jdSftp.jd.secret.env_email }}
-          - name: "jd.secret.env_password"
-            value: {{ .Values.jdSftp.jd.secret.env_password }}
+          - name: "image.tag"
+            value: {{ .Values.jdownloader2.image.version }}
+          - name: "myjd.email"
+            value: {{ .Values.jdSftp.jdownloader2.email }}
+          - name: "myjd.password"
+            value: {{ .Values.jdSftp.downloader2.password }}
         valueFiles:
-          - $values/charts/hassio/values.yaml
+          - $values/charts/jd-sftp/jdownloader2/values.yaml
     - chart: sftp-server
       repoURL: https://sj14.github.io/helm-charts
       targetRevision: {{ .Values.sftpServer.version }}
@@ -35,7 +35,7 @@ spec:
           - name: "service.annotations.lbipam\\.cilium\\.io/ips"
             value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
         valueFiles:
-          - $values/charts/jd-sftp/values.yaml
+          - $values/charts/jd-sftp/sftp-server/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values

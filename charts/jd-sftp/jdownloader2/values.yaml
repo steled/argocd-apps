@@ -1,0 +1,19 @@
+image:
+  tag: ''
+
+myjd:
+  email: ''
+  password: ''
+
+persistence:
+  accessMode: ReadWriteMany
+  enabled: true
+  size: 50Gi
+  storageClass: longhorn
+
+service:
+  myjd:
+    enabled: true
+
+  web:
+    enabled: false

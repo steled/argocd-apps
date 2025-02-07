@@ -28,12 +28,17 @@ nextcloud:
   # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
   version: "6.6.3"
 
+jdownloader2:
+  image:
+    # renovate: datasource=docker depName=jdownloader-2 packageName=jlesage/jdownloader-2
+    version: "v24.12.1"
+  # renovate: datasource=github-tags depName=jdownloader2 packageName=pmoscode-helm/jdownloader2
+  version: "0.13.0"
+
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-image packageName=atmoz/sftp
-    version: "alpine"
-  # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
-  # version: "v0.3.13"
+    version: "latest"
   # renovate: datasource=github-tags depName=sftp-server packageName=sj14/helm-charts
   version: "0.7.0"
 
