@@ -15,6 +15,7 @@ spec:
       repoURL: https://pmoscode-helm.github.io/jdownloader2/
       targetRevision: {{ .Values.jdownloader2.version }}
       helm:
+        releaseName: jdownloader2
         parameters:
           - name: "image.tag"
             value: {{ .Values.jdownloader2.image.version }}
