@@ -1,4 +1,4 @@
-![renovate workflow](https://github.com/steled/argocd-apps/actions/workflows/renovate.yml/badge.svg)
+![renovate workflow](https://github.com/steled/argocd-apps/actions/workflows/renovate.yaml/badge.svg)
 
 # argocd-apps
 
