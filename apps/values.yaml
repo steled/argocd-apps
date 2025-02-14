@@ -11,7 +11,7 @@ apprise:
 
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager packageName=cert-manager/cert-manager
-  version: "v1.17.0"
+  version: "v1.17.1"
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
