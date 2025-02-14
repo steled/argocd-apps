@@ -33,7 +33,7 @@ jdownloader2:
     # renovate: datasource=docker depName=jdownloader-2 packageName=jlesage/jdownloader-2
     version: "v24.12.1"
   # renovate: datasource=github-tags depName=jdownloader2 packageName=pmoscode-helm/jdownloader2
-  version: "0.13.0"
+  version: "1.2.1"
 
 sftpServer:
   image:
