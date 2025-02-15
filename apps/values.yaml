@@ -59,7 +59,7 @@ victoriametrics:
 version: "7.62.0@sha256:5b144843b1a5e48f62391db705a3ae5914f32998ec392969b2faf42a08e85494"
 
 # renovate: datasource=docker depName=jdownloader-2 packageName=jlesage/jdownloader-2
-version: "v25.02.1"
+version: "v24.12.1"
 
 # renovate: datasource=helm depName=minio registryUrl=https://charts.min.io/
-version: "5.4.0"
+version: "5.3.0"
