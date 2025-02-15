@@ -8,6 +8,7 @@ defaultSettings:
   defaultDataPath: "/ext/persistent"
   defaultReplicaCount: 2
   orphanAutoDeletion: true
+  replicaReplenishmentWaitInterval: 0
 
 ingress:
   enabled: true
@@ -17,7 +18,7 @@ ingress:
   tlsSecret: longhorn-tls
   pathType: Prefix
   annotations:
-    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
     ingress.cilium.io/loadbalancer-mode: shared
 
 longhornUI:
