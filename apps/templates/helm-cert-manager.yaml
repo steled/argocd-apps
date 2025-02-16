@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-cert-manager-cloudflare
+  name: helm-cert-manager
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: cert-manager-cloudflare
+    namespace: cert-manager
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
