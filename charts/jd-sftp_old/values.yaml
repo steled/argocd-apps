@@ -1,0 +1,33 @@
+jd:
+  secret:
+    env_devicename: ''
+    env_email: ''
+    env_password: ''
+  pvc:
+    storageClassName: longhorn
+
+# image:
+  # repository: atmoz/sftp
+  # tag: ''
+
+service:
+  annotations:
+    lbipam.cilium.io/ips: ''
+  type: LoadBalancer
+
+sftp:
+  users:
+    - dirs: ["downloads"]
+      gid: "1000"
+      name: steled
+      pass: ""
+      passEncrypted: false
+      pubKeys:
+        - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC3MlX8PC45lojTGQibGHZ0F26FZOhhGwcE3ROlg+LtQ5iPNMh8cjZlQ2BaW0P7D/3YfbiyN6t4odV+bC9Hx/7oXAa3TGvR4rALC7LEw37Fw78sfDqTqRWt3tNSk5BWgKNRpNMLFUwRSUQ0XAVMRQbqzusG4KwL0GgwiSgx5lVMXlt+PRmYhR7zsg0BqxC7WT9hMDVov1UT+xGWKDoWN4WULXYZ1wow2SJfZjw0JYcgb9c2zL2RhGahdF3VO+O/EuYbzvyFithpqYJEcmQAXLyrwyLO3X+Z7uZ7GccTeOrsyX8WGIrfz4wURv5Lqqpmy0VXW19MRrF87HJ5pcig2dOYAS4WkORAsR6f7IaDXEXoDmXlnMIrCCyEpXwZTAdW97QsQbA8t/fqejgG+U0o4PTltkwKywTGksENuzB0EwCrh5wESiX116REwWq+b4P089Pau3NHHe1rZOSJInNjzLvg0ac6kRjzxLAsjG1jupONXbgiPAvmASE6N2X33svskDgeeBmbbFbKG5S4jwXL1fgVwYDtyLehptl1p/mr9bVr/eq4iZjuScnpKpdWtrK756FAbfghbtkulJs0VLsrGenrNS754oIbNzEzELwzDb45TOO0JuhGeywdIm8qluGjuHOgc6BPbv6exZfaC+42z0SWiajJqv6uhrKaGEs553rWSw== steled'
+      uid: "1000"
+
+persistentVolume:
+  accessModes: ["ReadWriteMany"]
+  enabled: true
+  existingClaim: "jd-sftp-downloads-pvc"
+  size: "50Gi"

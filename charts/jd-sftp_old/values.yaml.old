@@ -1,0 +1,82 @@
+jd:
+  secret:
+    env_devicename: ''
+    env_email: ''
+    env_password: ''
+  pvc:
+    storageClassName: longhorn
+
+image:
+  repository: atmoz/sftp
+  tag: ''
+  pullPolicy: IfNotPresent
+
+sftp:
+  securityContext:
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SYS_CHROOT
+  extraVolumeMounts:
+    - name: steled-downloads
+      mountPath: "/home/steled/downloads"
+  livenessProbe:
+    enabled: false
+  readinessProbe:
+    enabled: false
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  annotations:
+    lbipam.cilium.io/ips: ''
+  enabled: true
+  type: LoadBalancer
+  port: 22
+
+sftpConfig:
+  username: steled
+  password: ""
+  encrypted: false
+  uid: "1000"
+  gid: "1000"
+  dirs: "downloads"
+  hostKeys: {}
+  authorizedKeys:
+  - ''
+
+debug:
+  enabled: false
+
+persistentVolume:
+  enabled: false
+
+# additional volumes to add to the sftp deployment.
+extraVolumes:
+  - name: steled-downloads
+    persistentVolumeClaim:
+      claimName: jd-sftp-downloads-pvc
+
+vxlanController:
+  enabled: false
+
+resources:
+  sftp:
+    limits:
+      cpu: 3000m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  debug:
+    limits:
+      cpu: 100m
+      memory: 64Mi
+    requests:
+      cpu: 50m
+      memory: 32Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
