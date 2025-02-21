@@ -14,7 +14,7 @@ ingress:
   annotations:
     # kubernetes.io/ingress.class: nginx
     # cert-manager.io/cluster-issuer: duckdns-letsencrypt-production
-    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
     ingress.cilium.io/loadbalancer-mode: shared
     # nginx.ingress.kubernetes.io/enable-cors: "true"
     # nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
