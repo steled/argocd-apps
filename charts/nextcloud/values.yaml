@@ -115,6 +115,7 @@ nextcloud:
           2 => '172.16.4.40',
         ),
         'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+        'mail_smtptimeout' => 30,
         # 'overwrite.cli.url' => 'https://XXX',
         # 'mail_smtpdebug' => false,
         # 'mail_from_address' => 'next-info',
