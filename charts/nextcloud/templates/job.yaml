@@ -51,7 +51,7 @@ spec:
           subPath: tmp
       restartPolicy: Never
       securityContext:
-        fsGroup: 82
+        fsGroup: 33
       terminationGracePeriodSeconds: 30
       volumes:
       - name: nextcloud-main
