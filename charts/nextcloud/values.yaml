@@ -207,13 +207,6 @@ postgresql:
           userPasswordKey: postgresql-user-password
 
   primary:
-    extraVolumes:
-      - name: backup
-        persistentVolumeClaim:
-          claimName: postgresql-backup-pvc
-    extraVolumeMounts:
-      - name: backup
-        mountPath: /backup
     persistence:
       enabled: true
       storageClass: longhorn
