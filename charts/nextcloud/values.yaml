@@ -97,6 +97,9 @@ nextcloud:
     secretName: nextcloud-secret
     usernameKey: nextcloud-username
     passwordKey: nextcloud-password
+    smtpUsernameKey: smtp-username
+    smtpPasswordKey: smtp-password
+    smtpHostKey: smtp-host
 
   configs:
     custom.config.php: |-
@@ -148,14 +151,11 @@ nextcloud:
 
   mail:
     enabled: true
-    fromAddress: ${mail_fromaddress}
-    domain: ${mail_domain}
+    fromAddress: ''
+    domain: ''
     smtp:
-      name: ${smtp_username}
-      password: ${smtp_password}
-      host: ${smtp_host}
-      port: ${smtp_port}
-      secure: ""
+      port: 587
+      secure: ''
       authtype: LOGIN
 
 phpClientHttpsFix:

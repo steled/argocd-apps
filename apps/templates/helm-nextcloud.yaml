@@ -22,6 +22,10 @@ spec:
             value: {{ .Values.nextcloud.ingress.tls0.hosts0 }}
           - name: "nextcloud.host"
             value: {{ .Values.nextcloud.host }}
+          - name: "nextcloud.mail.fromAddress"
+            value: {{ .Values.nextcloud.mail.fromAddress }}
+          - name: "nextcloud.mail.domain"
+            value: {{ .Values.nextcloud.mail.domain }}
           - name: "nextcloud.trustedDomains[0]"
             value: {{ .Values.nextcloud.trustedDomains0 }}
           - name: "nextcloud.extraEnv[0].name"
