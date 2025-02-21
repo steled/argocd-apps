@@ -89,8 +89,8 @@ nextcloud:
   #   runAsNonRoot: true
   #   readOnlyRootFilesystem: false
 
-  # podSecurityContext:
-  #   fsGroup: 33
+  podSecurityContext:
+    fsGroup: 33
 
   existingSecret:
     enabled: true
@@ -166,9 +166,6 @@ persistence:
   enabled: true
   storageClass: longhorn
   size: 8Gi
-
-securityContext:
-  fsGroup: 33
 
 cronjob:
   enabled: true
