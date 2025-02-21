@@ -107,7 +107,6 @@ nextcloud:
       $CONFIG = array (
         'encryption.legacy_format_support' => false,
         'default_phone_region' => 'DE',
-        # 'overwritehost' => 'XXX',
         'overwriteprotocol' => 'https',
         'trusted_proxies' => array (
           0 => '127.0.0.1',
@@ -116,17 +115,8 @@ nextcloud:
         ),
         'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
         'mail_smtptimeout' => 30,
-        # 'overwrite.cli.url' => 'https://XXX',
         # 'mail_smtpdebug' => false,
-        # 'mail_from_address' => 'next-info',
-        # 'mail_smtpmode' => 'smtp',
-        # 'mail_domain' => 'XXX',
-        # 'mail_smtphost' => 'XXX',
-        # 'mail_smtpport' => '587',
         'mail_smtpsecure' => '',
-        # 'mail_smtpauth' => true,
-        # 'mail_smtpname' => 'XXX',
-        # 'mail_smtppassword' => 'XXX',
         'maintenance_window_start' => 1,
       );
     # enable for logging
