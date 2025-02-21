@@ -186,14 +186,14 @@ externalDatabase:
 
 postgresql:
   enabled: true
-  # backup:
-  #   enabled: true
-  #   cronjob:
-  #     schedule: "@hourly"
-  #     storage:
-  #       enabled: false
-  #       resourcePolicy: keep
-  #       storageClass: longhorn
+  backup:
+    enabled: true
+    cronjob:
+      schedule: "@hourly"
+      storage:
+        enabled: true
+        # resourcePolicy: keep
+        storageClass: longhorn
     
   global:
     defaultStorageClass: longhorn
