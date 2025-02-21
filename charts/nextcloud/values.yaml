@@ -83,8 +83,8 @@ nextcloud:
   trustedDomains:
     - ''
 
-  securityContext:
-    fsGroup: 33
+  # securityContext:
+  #   fsGroup: 33
   #   runAsGroup: 33
   #   runAsUser: 33
   #   runAsNonRoot: true
