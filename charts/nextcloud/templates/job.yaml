@@ -57,4 +57,3 @@ spec:
       - name: nextcloud-main
         persistentVolumeClaim:
           claimName: nextcloud-nextcloud
-  ttlSecondsAfterFinished: 120
