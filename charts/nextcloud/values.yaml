@@ -123,7 +123,7 @@ nextcloud:
         # 'mail_domain' => 'XXX',
         # 'mail_smtphost' => 'XXX',
         # 'mail_smtpport' => '587',
-        # 'mail_smtpsecure' => '',
+        'mail_smtpsecure' => '',
         # 'mail_smtpauth' => true,
         # 'mail_smtpname' => 'XXX',
         # 'mail_smtppassword' => 'XXX',
