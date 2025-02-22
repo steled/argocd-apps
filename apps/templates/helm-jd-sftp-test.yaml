@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-jd-sftp
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: jd-sftp-test
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: jdownloader2
+      repoURL: https://pmoscode-helm.github.io/jdownloader2/
+      targetRevision: {{ .Values.jdownloader2.version }}
+      helm:
+        releaseName: jdownloader2-test
+        parameters:
+          - name: "image.tag"
+            value: {{ .Values.jdownloader2.image.version }}
+          - name: "myjd.email"
+            value: {{ .Values.jdSftp.jdownloader2.email }}
+          - name: "myjd.password"
+            value: {{ .Values.jdSftp.downloader2.password }}
+        valueFiles:
+          - $values/charts/jd-sftp/jdownloader2/values.yaml
+    - chart: sftp-server
+      repoURL: https://sj14.github.io/helm-charts
+      targetRevision: {{ .Values.sftpServer.version }}
+      helm:
+        releaseName: sftp-server-test
+        parameters:
+          - name: "image.tag"
+            value: {{ .Values.sftpServer.image.version }}
+          - name: "service.annotations.lbipam\\.cilium\\.io/ips"
+            value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
+        valueFiles:
+          - $values/charts/jd-sftp/sftp-server/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
