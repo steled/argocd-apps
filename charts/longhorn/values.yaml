@@ -10,7 +10,7 @@ csi:
   snapshotterReplicaCount: 2
 
 defaultBackupStore:
-  backupTarget: s3://minio@s3/
+  backupTarget: s3://longhorn-backup@s3/
   backupTargetCredentialSecret: minio-secret
 
 defaultSettings:
