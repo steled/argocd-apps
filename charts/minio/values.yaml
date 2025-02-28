@@ -6,12 +6,12 @@ endpoint:
 
 ingress:
   minio:
-    environment: staging #production
+    environment: production
     host0: ''
     tls0:
       hosts0: ''
   minioConsole:
-    environment: staging #production
+    environment: production
     host0: ''
     tls0:
       hosts0: ''
