@@ -22,7 +22,7 @@ ingress:
   enabled: true
   ingressClassName: cilium
   annotations:
-    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
     ingress.cilium.io/loadbalancer-mode: shared
   hosts:
     - ''
@@ -35,7 +35,7 @@ consoleIngress:
   enabled: true
   ingressClassName: cilium
   annotations:
-    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
   hosts: 
     - ''
   tls:
