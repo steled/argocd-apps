@@ -1,8 +1,17 @@
+secret:
+  awsAccessKeyId: ''
+  awsSecretAccessKey: ''
+  awsEndpoints: ''
+
 csi:
   attacherReplicaCount: 2
   provisionerReplicaCount: 2
   resizerReplicaCount: 2
   snapshotterReplicaCount: 2
+
+defaultBackupStore:
+  backupTarget: s3://minio@s3/
+  backupTargetCredentialSecret: minio-secret
 
 defaultSettings:
   defaultDataPath: "/ext/persistent"
