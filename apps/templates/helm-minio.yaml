@@ -10,44 +10,27 @@ spec:
     namespace: minio
     server: {{ .Values.spec.destination.server }}
   project: apps
-  sources:
-    - chart: minio
-      repoURL: https://charts.min.io/
-      targetRevision: {{ .Values.minio.version }}
-      helm:
-        valueFiles:
-          - $values/charts/minio/values.yaml
-        parameters:
-          - name: "ingress.hosts[0]"
-            value: {{ .Values.minio.ingress.hosts0 }}
-          - name: "ingress.tls[0].hosts[0]"
-            value: {{ .Values.minio.ingress.tls0.hosts0 }}
-          - name: "consoleIngress.hosts[0]"
-            value: {{ .Values.minio.consoleIngress.hosts0 }}
-          - name: "consoleIngress.tls[0].hosts[0]"
-            value: {{ .Values.minio.consoleIngress.tls0.hosts0 }}
-          - name: "svcaccts[0].accessKey"
-            value: {{ .Values.minio.svcaccts0.user1.accessKey }}
-        releaseName: minio
-    - repoURL: git@github.com:steled/argocd-apps.git
-      path: ./charts/minio
-      targetRevision: {{ .Values.spec.source.targetRevision }}
-      helm:
-        parameters:
-          - name: "secret.rootPassword"
-            value: {{ .Values.minio.secret.rootPassword }}
-          - name: "secret.rootUser"
-            value: {{ .Values.minio.secret.rootUser }}
-          - name: "secret.user1_password"
-            value: {{ .Values.minio.secret.user1_password }}
-          - name: "secret.user1_secretKey"
-            value: {{ .Values.minio.secret.user1_secretKey }}
-        releaseName: minio-addition
-        valueFiles:
-          - ./values.yaml
-    - repoURL: git@github.com:steled/argocd-apps.git
-      targetRevision: main
-      ref: values
+  source:
+    path: ./charts/minio
+    repoURL: git@github.com:steled/argocd-apps.git
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      parameters:
+        - name: "endpoint.minio.ip"
+          value: {{ .Values.minio.endpoint.minio.ip }}
+        - name: "ingress.minio.host0"
+          value: {{ .Values.minio.ingress.minio.host0 }}
+        - name: "ingress.minio.tls0.hosts0"
+          value: {{ .Values.minio.ingress.minio.tls0.hosts0 }}
+        - name: "endpoint.minioConsole.ip"
+          value: {{ .Values.minio.endpoint.minioConsole.ip }}
+        - name: "ingress.minioConsole.host0"
+          value: {{ .Values.minio.ingress.minioConsole.host0 }}
+        - name: "ingress.minioConsole.tls0.hosts0"
+          value: {{ .Values.minio.ingress.minioConsole.tls0.hosts0 }}
+      releaseName: minio
+      valueFiles:
+        - $values/charts/minio/values.yaml
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
