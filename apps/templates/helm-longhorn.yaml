@@ -25,17 +25,17 @@ spec:
       targetRevision: main
       ref: values
     - repoURL: git@github.com:steled/argocd-apps.git
-      path: ./charts/minio
+      path: ./charts/longhorn
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
         parameters:
           - name: "secret.awsAccessKeyId"
-            value: {{ .Values.minio.secret.awsAccessKeyId }}
+            value: {{ .Values.longhorn.secret.awsAccessKeyId }}
           - name: "secret.awsSecretAccessKey"
-            value: {{ .Values.minio.secret.awsSecretAccessKey }}
+            value: {{ .Values.longhorn.secret.awsSecretAccessKey }}
           - name: "secret.awsEndpoints"
-            value: {{ .Values.minio.secret.awsEndpoints }}
-        releaseName: minio-addition
+            value: {{ .Values.longhorn.secret.awsEndpoints }}
+        releaseName: longhorn-addition
         valueFiles:
           - ./values.yaml
   syncPolicy:
