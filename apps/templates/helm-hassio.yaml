@@ -22,7 +22,7 @@ spec:
           value: {{ .Values.hassio.ingress.host0 }}
         - name: "ingress.tls0.hosts0"
           value: {{ .Values.hassio.ingress.tls0.hosts0 }}
-      releaseName: apprise
+      releaseName: hassio
       valueFiles:
         - $values/charts/hassio/values.yaml
   syncPolicy:
