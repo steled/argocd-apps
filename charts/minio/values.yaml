@@ -6,7 +6,7 @@ secret:
 
 mode: standalone
 existingSecret: minio-secret
-replicas: 1
+replicas: 2
 
 tlsSecret:
   enabled: true
@@ -57,4 +57,4 @@ svcaccts:
   - existingSecret: minio-secret
     user: steled
     accessKey: ''
-    existingSecretKey: "user1_secretKey"
+    existingSecretKey: user1_secretKey
