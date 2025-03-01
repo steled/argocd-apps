@@ -44,6 +44,9 @@ alertmanager:
       #         insecure_skip_verify: true
 
 victoria-metrics-operator:
+  admissionWebhooks:
+    certManager:
+      enabled: true
   crds:
     cleanup:
       enabled: false
