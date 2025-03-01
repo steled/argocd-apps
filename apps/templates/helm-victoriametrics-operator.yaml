@@ -15,7 +15,7 @@ spec:
       repoURL: https://victoriametrics.github.io/helm-charts/
       targetRevision: {{ .Values.victoriametrics.version }}
       helm:
-        releaseName: vmo # victoria-metrics-operator
+        releaseName: victoria-metrics-operator
         parameters:
           # - name: "admissionWebhooks.certManager.cert.commonName"
           #   value: "victoria-metrics-operator.steled.org"
