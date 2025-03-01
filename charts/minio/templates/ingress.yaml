@@ -46,4 +46,4 @@ spec:
   tls:
   - hosts:
     - {{ .Values.ingress.minioConsole.tls0.hosts0 }}
-    secretName: minio-tls
+    secretName: minio-console-tls
