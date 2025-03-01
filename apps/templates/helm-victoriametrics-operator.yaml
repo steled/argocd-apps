@@ -19,7 +19,11 @@ spec:
         parameters:
           - name: "admissionWebhooks.certManager.enabled"
             value: "true"
-          - name: "admissionWebhooks.certManager.issuer"
+          - name: "admissionWebhooks.certManager.issuer.group"
+            value: "cert-manager.io"
+          - name: "admissionWebhooks.certManager.issuer.kind"
+            value: "ClusterIssuer"
+          - name: "admissionWebhooks.certManager.issuer.name"
             value: "cloudflare-letsencrypt-production"
           - name: "crds.cleanup.enabled"
             value: "true"
