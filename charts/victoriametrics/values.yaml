@@ -51,7 +51,7 @@ victoria-metrics-operator:
       enabled: true
   crds:
     cleanup:
-      enabled: false
+      enabled: true
     plain: true
   enabled: false
 
