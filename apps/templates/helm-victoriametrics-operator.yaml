@@ -17,6 +17,10 @@ spec:
       helm:
         releaseName: victoria-metrics-operator
         parameters:
+          - name: "admissionWebhooks.certManager.enabled"
+            value: "true"
+          - name: "admissionWebhooks.certManager.issuer"
+            value: "cloudflare-letsencrypt-production"
           - name: "crds.cleanup.enabled"
             value: "true"
           - name: "crds.plain"
