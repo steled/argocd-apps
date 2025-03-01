@@ -43,7 +43,6 @@ spec:
             value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
         valueFiles:
           - $values/charts/victoriametrics/values.yaml
-          - ./values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/victoriametrics
       targetRevision: {{ .Values.spec.source.targetRevision }}
