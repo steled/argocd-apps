@@ -15,12 +15,8 @@ spec:
       repoURL: https://victoriametrics.github.io/helm-charts/
       targetRevision: {{ .Values.victoriametrics.version }}
       helm:
-        releaseName: vmks # victoria-metrics-k8s-stack
+        releaseName: victoria-metrics-k8s-stack
         parameters:
-          - name: "vmsingle.ingress.hosts[0]"
-            value: {{ .Values.victoriametrics.vmsingle.ingress.hosts0 }}
-          - name: "vmsingle.ingress.tls[0].hosts[0]"
-            value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
           - name: "alertmanager.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.alertmanager.ingress.hosts0 }}
           - name: "alertmanager.ingress.tls[0].hosts[0]"
@@ -29,18 +25,22 @@ spec:
             value: {{ .Values.victoriametrics.alertmanager.config.receivers.telegram_configs.bot_token }}
           - name: "alertmanager.config.receivers[0].telegram_configs[0].chat_id"
             value: {{ .Values.victoriametrics.alertmanager.config.receivers.telegram_configs.chat_id }}
-          - name: "vmalert.ingress.hosts[0]"
-            value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
-          - name: "vmalert.ingress.tls[0].hosts[0]"
-            value: {{ .Values.victoriametrics.vmalert.ingress.tls0.hosts0 }}
-          - name: "vmagent.ingress.hosts[0]"
-            value: {{ .Values.victoriametrics.vmagent.ingress.hosts0 }}
-          - name: "vmagent.tls[0].hosts[0]"
-            value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
           - name: "grafana.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.grafana.ingress.hosts0 }}
           - name: "grafana.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.grafana.tls0.hosts0 }}
+          - name: "vmagent.ingress.hosts[0]"
+            value: {{ .Values.victoriametrics.vmagent.ingress.hosts0 }}
+          - name: "vmagent.tls[0].hosts[0]"
+            value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
+          - name: "vmalert.ingress.hosts[0]"
+            value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
+          - name: "vmalert.ingress.tls[0].hosts[0]"
+            value: {{ .Values.victoriametrics.vmalert.ingress.tls0.hosts0 }}
+          - name: "vmsingle.ingress.hosts[0]"
+            value: {{ .Values.victoriametrics.vmsingle.ingress.hosts0 }}
+          - name: "vmsingle.ingress.tls[0].hosts[0]"
+            value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
         valueFiles:
           - $values/charts/victoriametrics/values.yaml
           - ./values.yaml
