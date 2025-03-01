@@ -25,6 +25,8 @@ spec:
             value: "true"
           - name: "crds.plain"
             value: "true"
+          - name: "rbac.aggregatedClusterRoles.enabled"
+            value: "false"
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
