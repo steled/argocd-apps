@@ -6,6 +6,8 @@ metricsProxy:
   image:
     version: ''
 
+argocdReleaseOverride: $ARGOCD_APP_NAME
+
 defaultDashboards:
   annotations:
     argocd.argoproj.io/sync-options: ServerSideApply=true
