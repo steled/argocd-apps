@@ -47,6 +47,7 @@ victoria-metrics-operator:
   crds:
     cleanup:
       enabled: false
+    plain: true
   enabled: false
 
 vmagent:

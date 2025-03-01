@@ -29,8 +29,8 @@ spec:
           #   value: "cloudflare-letsencrypt-production"
           - name: "crds.cleanup.enabled"
             value: "true"
-          - name: "crds.plain"
-            value: "true"
+          # - name: "crds.plain"
+          #   value: "true"
           - name: "rbac.aggregatedClusterRoles.enabled"
             value: "false"
   syncPolicy:
