@@ -4,24 +4,10 @@ secret:
 
 metricsProxy:
   image:
-    version: latest
+    version: ''
 
 defaultDashboards:
   defaultTimezone: Europe/Berlin
-
-vmsingle:
-  ingress:
-    enabled: true
-    ingressClassName: cilium
-    annotations:
-        cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
-        ingress.cilium.io/loadbalancer-mode: shared
-    hosts:
-      - ''
-    tls:
-      - secretName: vmsingle-tls
-        hosts:
-          - ''
 
 alertmanager:
   ingress:
@@ -55,19 +41,11 @@ alertmanager:
       #       tls_config:
       #         insecure_skip_verify: true
 
-vmalert:
-  ingress:
-    enabled: true
-    ingressClassName: cilium
-    annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
-      ingress.cilium.io/loadbalancer-mode: shared
-    hosts:
-      - ''
-    tls:
-    - secretName: vmalert-tls
-      hosts:
-        - ''
+victoria-metrics-operator:
+  crds:
+    cleanup:
+      enabled: false
+  enabled: false
 
 vmagent:
   spec:
@@ -91,6 +69,34 @@ vmagent:
     - secretName: vmagent-tls
       hosts:  
         - ''
+
+vmalert:
+  ingress:
+    enabled: true
+    ingressClassName: cilium
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+      ingress.cilium.io/loadbalancer-mode: shared
+    hosts:
+      - ''
+    tls:
+    - secretName: vmalert-tls
+      hosts:
+        - ''
+
+vmsingle:
+  ingress:
+    enabled: true
+    ingressClassName: cilium
+    annotations:
+        cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+        ingress.cilium.io/loadbalancer-mode: shared
+    hosts:
+      - ''
+    tls:
+      - secretName: vmsingle-tls
+        hosts:
+          - ''
 
 grafana:
   # grafana.ini:
