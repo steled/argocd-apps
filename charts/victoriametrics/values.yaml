@@ -16,7 +16,7 @@ alertmanager:
     enabled: true
     ingressClassName: cilium
     annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
       ingress.cilium.io/loadbalancer-mode: shared
     hosts:
       - ''
@@ -63,7 +63,7 @@ vmagent:
     enabled: true
     ingressClassName: cilium
     annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
       ingress.cilium.io/loadbalancer-mode: shared
     hosts:
       - ''
@@ -77,7 +77,7 @@ vmalert:
     enabled: true
     ingressClassName: cilium
     annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
       ingress.cilium.io/loadbalancer-mode: shared
     hosts:
       - ''
@@ -91,7 +91,7 @@ vmsingle:
     enabled: true
     ingressClassName: cilium
     annotations:
-        cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+        cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
         ingress.cilium.io/loadbalancer-mode: shared
     hosts:
       - ''
@@ -121,7 +121,7 @@ grafana:
     enabled: true
     ingressClassName: cilium
     annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
       ingress.cilium.io/loadbalancer-mode: shared
     hosts:
       - ''
