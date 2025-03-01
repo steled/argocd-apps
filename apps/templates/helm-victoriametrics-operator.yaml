@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-victoriametrics-operator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: victoriametrics-operator
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: victoria-metrics-operator
+      repoURL: https://victoriametrics.github.io/helm-charts/
+      targetRevision: {{ .Values.victoriametrics.version }}
+      helm:
+        releaseName: victoria-metrics-operator
+        parameters:
+          - name: "crds.cleanup.enabled"
+            value: "true"
+          - name: "crds.plain"
+            value: "true"
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
