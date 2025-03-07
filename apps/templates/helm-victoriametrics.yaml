@@ -27,11 +27,11 @@ spec:
             value: {{ .Values.victoriametrics.alertmanager.config.receivers.telegram_configs.chat_id }}
           - name: "grafana.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.grafana.ingress.hosts0 }}
-          - name: "grafana.tls[0].hosts[0]"
+          - name: "grafana.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.grafana.tls0.hosts0 }}
           - name: "vmagent.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.vmagent.ingress.hosts0 }}
-          - name: "vmagent.tls[0].hosts[0]"
+          - name: "vmagent.ingresstls[0].hosts[0]"
             value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
           - name: "vmalert.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
@@ -43,6 +43,7 @@ spec:
             value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
         valueFiles:
           - $values/charts/victoriametrics/values.yaml
+          - ./values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/victoriametrics
       targetRevision: {{ .Values.spec.source.targetRevision }}
