@@ -53,8 +53,15 @@
     },
     {
       "matchDatasources": ["github-tags"],
+      "matchDepNames": ["victoriametrics"],
       "matchPackageNames": ["VictoriaMetrics/helm-charts"],
       "extractVersion": "^victoria-metrics-k8s-stack-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchDepNames": ["victoriametrics-operator"],
+      "matchPackageNames": ["VictoriaMetrics/helm-charts"],
+      "extractVersion": "^victoriametrics-operator-(?<version>.*)$"
     },
     {
       "matchDatasources": ["github-tags"],
