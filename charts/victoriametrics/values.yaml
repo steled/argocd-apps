@@ -6,7 +6,7 @@ metricsProxy:
   image:
     version: ''
 
-argocdReleaseOverride: $ARGOCD_APP_NAME
+argocdReleaseOverride: "argocdReleaseOverride=$ARGOCD_APP_NAME"
 
 defaultDashboards:
   annotations:
