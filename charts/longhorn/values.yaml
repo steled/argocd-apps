@@ -14,6 +14,7 @@ defaultBackupStore:
   backupTargetCredentialSecret: minio-secret
 
 defaultSettings:
+  concurrentAutomaticEngineUpgradePerNodeLimit: 1
   defaultDataPath: "/ext/persistent"
   defaultReplicaCount: 2
   orphanAutoDeletion: true
