@@ -11,6 +11,20 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/victoriametrics
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        parameters:
+          - name: "metricsProxy.image.version"
+            value: {{ .Values.victoriametrics.metricsProxy.image.version }}
+          - name: "secret.grafanaAdminPassword"
+            value: {{ .Values.victoriametrics.secret.grafanaAdminPassword }}
+          - name: "secret.grafanaAdminUser"
+            value: {{ .Values.victoriametrics.secret.grafanaAdminUser }}
+        releaseName: victoriametrics-addition
+        valueFiles:
+          - ./values.yaml
     - chart: victoria-metrics-k8s-stack
       repoURL: https://victoriametrics.github.io/helm-charts/
       targetRevision: {{ .Values.victoriametrics.version }}
@@ -43,21 +57,7 @@ spec:
             value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
         valueFiles:
           - $values/charts/victoriametrics/values.yaml
-          - ./values.yaml
-    - repoURL: git@github.com:steled/argocd-apps.git
-      path: ./charts/victoriametrics
-      targetRevision: {{ .Values.spec.source.targetRevision }}
-      helm:
-        parameters:
-          - name: "metricsProxy.image.version"
-            value: {{ .Values.victoriametrics.metricsProxy.image.version }}
-          - name: "secret.grafanaAdminPassword"
-            value: {{ .Values.victoriametrics.secret.grafanaAdminPassword }}
-          - name: "secret.grafanaAdminUser"
-            value: {{ .Values.victoriametrics.secret.grafanaAdminUser }}
-        releaseName: victoriametrics-addition
-        valueFiles:
-          - ./values.yaml
+          # - ./values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
