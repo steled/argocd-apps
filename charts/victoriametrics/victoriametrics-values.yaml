@@ -1,10 +1,10 @@
-secret:
-  grafanaAdminPassword: ''
-  grafanaAdminUser: ''
+# secret:
+#   grafanaAdminPassword: ''
+#   grafanaAdminUser: ''
 
-metricsProxy:
-  image:
-    version: ''
+# metricsProxy:
+#   image:
+#     version: ''
 
 # argocdReleaseOverride: "argocdReleaseOverride=$ARGOCD_APP_NAME"
 

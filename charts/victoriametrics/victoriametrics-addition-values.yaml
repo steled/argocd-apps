@@ -1,0 +1,7 @@
+secret:
+  grafanaAdminPassword: ''
+  grafanaAdminUser: ''
+
+metricsProxy:
+  image:
+    version: ''
