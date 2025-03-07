@@ -31,7 +31,7 @@ spec:
             value: {{ .Values.victoriametrics.grafana.tls0.hosts0 }}
           - name: "vmagent.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.vmagent.ingress.hosts0 }}
-          - name: "vmagent.ingresstls[0].hosts[0]"
+          - name: "vmagent.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
           - name: "vmalert.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
