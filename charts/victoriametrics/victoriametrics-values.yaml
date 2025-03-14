@@ -30,7 +30,14 @@ alertmanager:
     route:
       # receiver: webhook
       receiver: telegram
+      routes:
+        - receiver: 'null'
+          matchers:
+          - matchType: "="
+            name: alertname
+            value: Watchdog
     receivers:
+      - name: receivers
       - name: telegram
         telegram_configs:
           - bot_token: ''
