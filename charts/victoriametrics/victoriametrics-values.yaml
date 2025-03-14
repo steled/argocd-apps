@@ -35,11 +35,11 @@ alertmanager:
           matchers:
           - alertname="Watchdog"
     receivers:
-      - name: "null"
       - name: telegram
         telegram_configs:
           - bot_token: ''
             chat_id: ''
+      - name: "null"
       # - name: webhook
       #   webhook_configs:
       #   - url: https://${notify_domain}/notify/${apprise_config_id}?template=json&disabletls=yes&messagekey=body
