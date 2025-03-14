@@ -31,7 +31,7 @@ alertmanager:
       # receiver: webhook
       receiver: telegram
       routes:
-        - receiver: 'null'
+        - receiver: null
           matchers:
           - matchType: "="
             name: alertname
