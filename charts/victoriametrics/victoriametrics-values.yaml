@@ -33,9 +33,7 @@ alertmanager:
       routes:
         - receiver: "null"
           matchers:
-          - matchType: "="
-            name: alertname
-            value: Watchdog
+          - alertname = Watchdog
     receivers:
       - name: "null"
       - name: telegram
