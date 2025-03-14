@@ -56,4 +56,4 @@ victoriametrics:
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator packageName=VictoriaMetrics/helm-charts
-  version: "0.42.4"
+  version: "0.42.5"
