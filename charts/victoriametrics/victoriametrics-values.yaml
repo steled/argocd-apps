@@ -32,7 +32,7 @@ alertmanager:
       # receiver: webhook
       receiver: telegram
       routes:
-        - receiver: "null"
+        - receiver: blackhole
           matchers:
           - alertname="Watchdog"
     receivers:
@@ -40,7 +40,7 @@ alertmanager:
         telegram_configs:
           - bot_token: ''
             chat_id: ''
-      - name: "null"
+      - name: blackhole
       # - name: webhook
       #   webhook_configs:
       #   - url: https://${notify_domain}/notify/${apprise_config_id}?template=json&disabletls=yes&messagekey=body
