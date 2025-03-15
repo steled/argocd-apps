@@ -14,7 +14,7 @@ defaultDashboards:
   defaultTimezone: Europe/Berlin
 
 alertmanager:
-  externalURL: https://vmalert.steled.org/
+  externalURL: ''
   ingress:
     enabled: true
     ingressClassName: cilium
