@@ -611,7 +611,7 @@ data:
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "{{container}}",
+              "legendFormat": "{{`{{container}}`}}",
               "refId": "A",
               "step": 10
             },
