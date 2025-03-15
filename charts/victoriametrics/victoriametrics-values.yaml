@@ -14,7 +14,7 @@ defaultDashboards:
   defaultTimezone: Europe/Berlin
 
 alertmanager:
-  externalURL: ''
+  # externalURL: ''
   ingress:
     enabled: true
     ingressClassName: cilium
@@ -85,7 +85,7 @@ vmagent:
         - ''
 
 vmalert:
-  baseURL: ''
+  # baseURL: ''
   ingress:
     enabled: true
     ingressClassName: cilium
