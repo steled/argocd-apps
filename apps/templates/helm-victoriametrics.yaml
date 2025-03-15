@@ -37,7 +37,7 @@ spec:
             value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
           - name: "vmalert.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
-          - name: "vmalert.spec.extraArgs.external.url"
+          - name: "vmalert.spec.extraArgs[0].external.url"
             value: "https://{{ .Values.victoriametrics.vmalert.ingress.hosts0 }}"
           - name: "vmalert.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.vmalert.ingress.tls0.hosts0 }}
