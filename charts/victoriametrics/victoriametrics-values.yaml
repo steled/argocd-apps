@@ -85,7 +85,7 @@ vmagent:
         - ''
 
 vmalert:
-  baseURL: "vmalert.steled.org"
+  baseURL: ''
   ingress:
     enabled: true
     ingressClassName: cilium
