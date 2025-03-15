@@ -85,7 +85,7 @@ vmagent:
         - ''
 
 vmalert:
-  remoteWriteVMAgent: false
+  baseURL: "vmalert.steled.org"
   ingress:
     enabled: true
     ingressClassName: cilium
