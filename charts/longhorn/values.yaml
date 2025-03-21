@@ -36,7 +36,7 @@ longhornUI:
 
 persistence:
   defaultClassReplicaCount: 2
-  migratable: true
+  migratable: false
   reclaimPolicy: Retain
 
 preUpgradeChecker:
