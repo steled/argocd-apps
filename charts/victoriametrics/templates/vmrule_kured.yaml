@@ -1,11 +1,10 @@
-kind: ConfigMap
-apiVersion: v1
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMRule
 metadata:
-  name: vmalert-rules-config
-data:
-  alert-rules.yaml: |
-    gropus:
-      - name: kured.rules
+  name: vmrule-ent-example
+spec:
+  groups:
+    - name: kured-rules
         rules:
           - alert: RebootRequired
             annotations:
