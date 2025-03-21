@@ -86,6 +86,8 @@ vmalert:
     - secretName: vmalert-tls
       hosts:
         - ''
+  server:
+    configMap: vmalert-rules-config
 
 vmsingle:
   ingress:
@@ -100,22 +102,6 @@ vmsingle:
       - secretName: vmsingle-tls
         hosts:
           - ''
-
-server:
-  config:
-    alerts:
-      gropus:
-        - name: kured.rules
-          rules:
-            - alert: RebootRequired
-              annotations:
-                description: "Machine(s) require being rebooted, probably due to kernel update."
-                impact: "Cluster nodes more vulnerable to security exploits. Eventually, no disk space left."
-                summary: "Machine(s) require being rebooted, and the reboot daemon has failed to do so for 24 hours"
-              expr: max(kured_reboot_required) != 0
-              for: 24h
-              labels:
-                severity: warning
 
 grafana:
   # grafana.ini:
