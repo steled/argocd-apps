@@ -16,6 +16,8 @@ spec:
       targetRevision: {{ .Values.victoriametrics.version }}
       helm:
         releaseName: victoria-metrics-k8s-stack
+        valueFiles:
+          - $values/charts/victoriametrics/victoriametrics-values.yaml
         parameters:
           - name: "alertmanager.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.alertmanager.ingress.hosts0 }}
@@ -43,8 +45,6 @@ spec:
             value: {{ .Values.victoriametrics.vmsingle.ingress.hosts0 }}
           - name: "vmsingle.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
-        valueFiles:
-          - $values/charts/victoriametrics/victoriametrics-values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
