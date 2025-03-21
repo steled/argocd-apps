@@ -44,7 +44,7 @@ spec:
           - name: "vmsingle.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
         valueFiles:
-          - $values/charts/victoriametrics/victoriametrics-values2.yaml
+          - $values/charts/victoriametrics/victoriametrics-values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
