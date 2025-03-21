@@ -37,7 +37,7 @@ spec:
             value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
           - name: "vmalert.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
-          - name: "vmalert.spec.extraArgs.external\\.url"
+          - name: "vmalert.spec.extraArgs.external\.url"
             value: "https://{{ .Values.victoriametrics.vmalert.ingress.hosts0 }}"
           - name: "vmalert.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.vmalert.ingress.tls0.hosts0 }}
@@ -47,7 +47,9 @@ spec:
             value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
         valueFiles:
           - $values/charts/victoriametrics/victoriametrics-values.yaml
-          # - ./values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/victoriametrics
       targetRevision: {{ .Values.spec.source.targetRevision }}
@@ -62,9 +64,6 @@ spec:
         releaseName: victoriametrics-addition
         valueFiles:
           - ./victoriametrics-addition-values.yaml
-    - repoURL: git@github.com:steled/argocd-apps.git
-      targetRevision: main
-      ref: values
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
