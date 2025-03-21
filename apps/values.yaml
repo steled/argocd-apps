@@ -40,7 +40,7 @@ sftpServer:
     # renovate: datasource=docker depName=sftp-image packageName=atmoz/sftp
     version: "alpine@sha256:93d2d9c0e8e3d619e01321bd0eabaf746c9700115f92db5038d2d54b277ed22f"
   # renovate: datasource=github-tags depName=sftp-server packageName=sj14/helm-charts
-  version: "0.7.0"
+  version: "0.8.0"
 
 vault:
   # renovate: datasource=github-tags depName=hashicorp-vault packageName=hashicorp/vault-helm
