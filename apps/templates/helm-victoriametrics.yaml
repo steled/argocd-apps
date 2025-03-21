@@ -17,8 +17,6 @@ spec:
       helm:
         releaseName: victoria-metrics-k8s-stack
         parameters:
-          # - name: "alertmanager.externalURL"
-          #   value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
           - name: "alertmanager.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.alertmanager.ingress.hosts0 }}
           - name: "alertmanager.ingress.tls[0].hosts[0]"
