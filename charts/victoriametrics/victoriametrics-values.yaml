@@ -1,7 +1,7 @@
 additionalVictoriaMetricsMap:
   kured-rule:
     gropus:
-      - name: kured-rules
+      - name: kured_rules
         rules:
           - alert: RebootRequired
             annotations:
