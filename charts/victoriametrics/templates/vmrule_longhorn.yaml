@@ -67,13 +67,13 @@ spec:
           severity: critical
       - alert: LonghornInstanceManagerCPUUsageWarning
         annotations:
-          description: Longhorn instance manager {{$labels.instance_manager}} on {{`{{$labels.node}}`}}` has CPU Usage / CPU request is {{`{{$value}}`}}% for
+          description: Longhorn instance manager {{`{{$labels.instance_manager}}`}}` on {{`{{$labels.node}}`}}` has CPU Usage / CPU request is {{`{{$value}}`}}% for
             more than 5 minutes.
-          summary: Longhorn instance manager {{$labels.instance_manager}} on {{`{{$labels.node}}`}}` has CPU Usage / CPU request is over 300%.
+          summary: Longhorn instance manager {{`{{$labels.instance_manager}}`}}` on {{`{{$labels.node}}`}}` has CPU Usage / CPU request is over 300%.
         expr: (longhorn_instance_manager_cpu_usage_millicpu/longhorn_instance_manager_cpu_requests_millicpu) * 100 > 300
         for: 5m
         labels:
-          issue: Longhorn instance manager {{$labels.instance_manager}} on {{`{{$labels.node}}`}}` consumes 3 times the CPU request.
+          issue: Longhorn instance manager {{`{{$labels.instance_manager}}`}}` on {{`{{$labels.node}}`}}` consumes 3 times the CPU request.
           severity: warning
       - alert: LonghornNodeCPUUsageWarning
         annotations:
