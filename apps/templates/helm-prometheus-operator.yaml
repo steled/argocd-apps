@@ -16,6 +16,9 @@ spec:
       targetRevision: {{ .Values.prometheusOperatorCrds.version }}
       helm:
         releaseName: prometheus-operator-crds
+        parameters:
+          - name: "crds.annotations"
+            value: "metadata.annotations.argocd\\.argoproj\\.io/sync-options: ServerSideApply=true"
   # syncPolicy:
   #   syncOptions:
   #     - CreateNamespace=true
