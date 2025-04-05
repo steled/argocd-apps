@@ -37,7 +37,7 @@ jdownloader2:
 
 prometheus-operator-crds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds packageName=prometheus-community/helm-charts
-  version: "18.0.0"
+  version: "18.0.1"
 
 sftpServer:
   image:
