@@ -70,6 +70,12 @@
     },
     {
       "matchDatasources": ["github-tags"],
+      "matchDepNames": ["prometheus-operator-crds"],
+      "matchPackageNames": ["prometheus-community/helm-charts"],
+      "extractVersion": "^prometheus-operator-crds-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
       "matchPackageNames": ["sj14/helm-charts"],
       "extractVersion": "^sftp-server-(?<version>.*)$"
     },
