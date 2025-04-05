@@ -2125,7 +2125,7 @@ data:
                   "format": "table",
                   "instant": true,
                   "interval": "",
-                  "legendFormat": "{{disk}}",
+                  "legendFormat": "{{`{{disk}}`}}",
                   "refId": "A"
                 }
               ],
