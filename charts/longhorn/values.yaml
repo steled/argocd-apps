@@ -34,9 +34,9 @@ ingress:
 longhornUI:
   replicas: 2
 
-metrics:
-  serviceMonitor:
-    enabled: true
+# metrics:
+#   serviceMonitor:
+#     enabled: true
 
 persistence:
   defaultClassReplicaCount: 2
