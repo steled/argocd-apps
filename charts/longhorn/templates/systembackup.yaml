@@ -1,7 +1,7 @@
 apiVersion: longhorn.io/v1beta2
 kind: SystemBackup
 metadata:
-  name: systemBackup
+  name: systembackup
   namespace: longhorn
 spec:
   volumeBackupPolicy: always
