@@ -1794,7 +1794,7 @@ data:
                   "format": "table",
                   "instant": true,
                   "interval": "",
-                  "legendFormat": "{{node}}",
+                  "legendFormat": "{{`{{node}}`}}",
                   "refId": "A"
                 }
               ],
