@@ -545,7 +545,7 @@ data:
               "instant": true,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{volume}}",
+              "legendFormat": {{`"{{volume}}`}}",
               "refId": "capacity"
             },
             {
@@ -559,7 +559,7 @@ data:
               "format": "table",
               "hide": false,
               "instant": true,
-              "legendFormat": "{{volume}}",
+              "legendFormat": {{`"{{volume}}`}}",
               "range": false,
               "refId": "used"
             },
@@ -574,7 +574,7 @@ data:
               "format": "table",
               "hide": false,
               "instant": true,
-              "legendFormat": "{{volume}}",
+              "legendFormat": {{`"{{volume}}`}}",
               "range": false,
               "refId": "usage-percentage"
             }
