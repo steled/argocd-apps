@@ -16,9 +16,11 @@ spec:
       targetRevision: {{ .Values.prometheusOperatorCrds.version }}
       helm:
         releaseName: prometheus-operator-crds
-        parameters:
-          - name: "crds.annotations[0].argocd\\.argoproj\\.io/sync-options"
-            value: "ServerSideApply=true"
+        valueFiles:
+          - $values/charts/prometheus-operator-crds/values.yaml
+        # parameters:
+        #   - name: "crds.annotations[0].argocd\\.argoproj\\.io/sync-options"
+        #     value: "ServerSideApply=true"
   # syncPolicy:
   #   syncOptions:
   #     - CreateNamespace=true
