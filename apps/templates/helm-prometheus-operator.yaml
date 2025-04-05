@@ -17,8 +17,8 @@ spec:
       helm:
         releaseName: prometheus-operator-crds
         parameters:
-          - name: "crds.annotations"
-            value: "argocd\\.argoproj\\.io\\/sync-options: ServerSideApply=true"
+          - name: "crds.annotations[0]"
+            value: "argocd.argoproj.io/sync-options: ServerSideApply=true"
   # syncPolicy:
   #   syncOptions:
   #     - CreateNamespace=true
