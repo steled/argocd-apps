@@ -20,7 +20,9 @@ spec:
           - $values/charts/prometheus-operator-crds/values.yaml
         # parameters:
         #   - name: "crds.annotations[0].argocd\\.argoproj\\.io/sync-options"
-        #     value: "ServerSideApply=true"
-  # syncPolicy:
+        #     value: "ServerSideApply=true"  # syncPolicy:
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
   #   syncOptions:
   #     - CreateNamespace=true
