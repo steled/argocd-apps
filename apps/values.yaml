@@ -54,7 +54,7 @@ victoriametrics:
   metricsProxy:
     image:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
-      version: "3.1.6-alpine"
+      version: "3.1.7-alpine"
   # renovate: datasource=github-tags depName=victoriametrics packageName=VictoriaMetrics/helm-charts
   version: "0.42.0"
 
