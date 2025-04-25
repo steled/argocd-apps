@@ -26,7 +26,7 @@ nextcloud:
     # renovate: datasource=docker depName=nextcloud-fpm packageName=nextcloud
     version: "31.0.2-fpm"
   # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
-  version: "6.6.9"
+  version: "6.6.10"
 
 jdownloader2:
   image:
