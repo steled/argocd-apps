@@ -15,7 +15,7 @@ spec:
       - command:
         - /bin/sh
         - -c
-        - sleep 180 && su -s /bin/bash www-data -c 'php occ maintenance:repair --include-expensive && php occ db:add-missing-indices'
+        - echo "sleep for 180 seconds..." && sleep 180 && echo "running maintenance" && su -s /bin/bash www-data -c 'php occ maintenance:repair --include-expensive && php occ db:add-missing-indices'
         env:
         - name: NEXTCLOUD_DATA_DIR
           value: /var/www/html/data
