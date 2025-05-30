@@ -15,7 +15,7 @@ certmanager:
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
-  version: "1.8.1"
+  version: "1.9.0"
 
 minio:
   # renovate: datasource=helm depName=minio registryUrl=https://charts.min.io/
