@@ -15,7 +15,7 @@ certmanager:
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
-  version: "1.8.1"
+  version: "1.9.0"
 
 minio:
   # renovate: datasource=helm depName=minio registryUrl=https://charts.min.io/
@@ -37,7 +37,7 @@ jdownloader2:
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds packageName=prometheus-community/helm-charts
-  version: "20.0.0"
+  version: "20.0.1"
 
 sftpServer:
   image:
@@ -54,10 +54,10 @@ victoriametrics:
   metricsProxy:
     image:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
-      version: "3.1.7-alpine"
+      version: "3.2.0-alpine"
   # renovate: datasource=github-tags depName=victoriametrics packageName=VictoriaMetrics/helm-charts
-  version: "0.48.1"
+  version: "0.50.1"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator packageName=VictoriaMetrics/helm-charts
-  version: "0.47.0"
+  version: "0.49.1"
