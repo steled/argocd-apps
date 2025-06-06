@@ -32,7 +32,7 @@ ingress:
     ingress.cilium.io/loadbalancer-mode: shared
 
 longhornUI:
-  replicas: 2
+  replicas: 1
 
 # metrics:
 #   serviceMonitor:
