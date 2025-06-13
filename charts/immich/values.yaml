@@ -80,19 +80,19 @@ postgresql:
 
 redis:
   enabled: true
+  architecture: standalone
   auth:
-    existingSecret: immich-secret
-    existingSecretPasswordKey: redis-password
-  global:
-    defaultStorageClass: longhorn
-  master:
-    persistence:
-      enabled: true
-      storageClass: longhorn
-    resourcesPreset: "micro"
-  replica:
-    persistence:
-      enabled: true
-      storageClass: longhorn
-    replicaCount: 1
-    resourcesPreset: "micro"
+    enabled: false
+  # global:
+  #   defaultStorageClass: longhorn
+  # master:
+  #   persistence:
+  #     enabled: true
+  #     storageClass: longhorn
+  #   resourcesPreset: "micro"
+  # replica:
+  #   persistence:
+  #     enabled: true
+  #     storageClass: longhorn
+  #   replicaCount: 1
+  #   resourcesPreset: "micro"
