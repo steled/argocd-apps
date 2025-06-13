@@ -20,8 +20,8 @@ spec:
         parameters:
           - name: "image.tag"
             value: {{ .Values.immich.image.version }}
-          - name: "server.ingress.main.hosts"
-            value: {{ .Values.immich.server.ingress.main.hosts }}
+          - name: "server.ingress.main.hosts[0].host"
+            value: {{ .Values.immich.server.ingress.main.hosts0.host }}
           - name: "server.ingress.main.tls[0].hosts[0]"
             value: {{ .Values.immich.server.ingress.main.tls0.hosts0 }}
           - name: "postgresql.global.postgresql.auth.database"
