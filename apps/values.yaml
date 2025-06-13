@@ -13,6 +13,17 @@ certmanager:
   # renovate: datasource=github-tags depName=cert-manager packageName=cert-manager/cert-manager
   version: "v1.18.0"
 
+immich:
+  # renovate: datasource=github-tags depName=immich packageName=immich-app/immich-charts
+  version: "0.9.3"
+
+jdownloader2:
+  image:
+    # renovate: datasource=docker depName=jdownloader-2 packageName=jlesage/jdownloader-2
+    version: "v25.02.1"
+  # renovate: datasource=github-tags depName=jdownloader2 packageName=pmoscode-helm/jdownloader2
+  version: "1.2.1"
+
 longhorn:
   # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
   version: "1.9.0"
@@ -27,13 +38,6 @@ nextcloud:
     version: "31.0.5-fpm"
   # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
   version: "6.6.10"
-
-jdownloader2:
-  image:
-    # renovate: datasource=docker depName=jdownloader-2 packageName=jlesage/jdownloader-2
-    version: "v25.02.1"
-  # renovate: datasource=github-tags depName=jdownloader2 packageName=pmoscode-helm/jdownloader2
-  version: "1.2.1"
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds packageName=prometheus-community/helm-charts

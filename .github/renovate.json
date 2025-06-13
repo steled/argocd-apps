@@ -103,6 +103,15 @@
       "matchDatasources": [
         "github-tags"
       ],
+      "matchPackageNames": [
+        "immich-app/immich-charts"
+      ],
+      "extractVersion": "^immich-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
       "matchDepNames": [
         "prometheus-operator-crds"
       ],

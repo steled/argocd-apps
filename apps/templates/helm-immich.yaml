@@ -1,0 +1,49 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-immich
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: immich
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: immich
+      repoURL: oci://ghcr.io/immich-app/immich-charts/immich
+      targetRevision: {{ .Values.immich.version }}
+      helm:
+        valueFiles:
+          - $values/charts/immich/values.yaml
+        parameters:
+          - name: "server.ingress.main.hosts"
+            value: {{ .Values.immich.server.ingress.main.hosts }}
+          - name: "server.ingress.main.tls[0].hosts[0]"
+            value: {{ .Values.immich.server.ingress.main.tls0.hosts0 }}
+          - name: "postgresql.global.postgresql.auth.database"
+            value: {{ .Values.immich.postgresql.global.postgresql.auth.database }}
+          - name: "postgresql.global.postgresql.auth.username"
+            value: {{ .Values.immich.postgresql.global.postgresql.auth.username }}
+        releaseName: immich
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/immich
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        parameters:
+          - name: "secret.postgresqlAdminPassword"
+            value: {{ .Values.immich.secret.postgresqlAdminPassword }}
+          - name: "secret.postgresqlUserPassword"
+            value: {{ .Values.immich.secret.postgresqlUserPassword }}
+          - name: "secret.redisPassword"
+            value: {{ .Values.immich.secret.redisPassword }}
+        releaseName: immich-addition
+        valueFiles:
+          - ./values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

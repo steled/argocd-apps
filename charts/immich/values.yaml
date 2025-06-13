@@ -1,0 +1,81 @@
+env:
+  DB_PASSWORD:
+    valueFrom:
+      secretKeyRef:
+        name: immich-secret
+        key: postgresql-user-password
+
+immich:
+  metrics:
+    # Enabling this will create the service monitors needed to monitor immich with the prometheus operator
+    enabled: true
+  persistence:
+    # Main data store for all photos shared between different components.
+    library:
+      # Automatically creating the library volume is not supported by this chart
+      # You have to specify an existing PVC to use
+      existingClaim: immich-pvc
+
+server:
+  ingress:
+    main:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+        ingress.cilium.io/loadbalancer-mode: shared
+        # proxy-body-size is set to 0 to remove the body limit on file uploads
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
+      hosts:
+        - ''
+      ingressClassName: cilium
+      tls:
+        - secretName: immich-tls
+          hosts:
+            - ''
+
+machine-learning:
+  persistence:
+    cache:
+      type: pvc
+      storageClass: longhorn
+
+postgresql:
+  enabled: true
+  backup:
+    enabled: true
+    cronjob:
+      schedule: "@hourly"
+      storage:
+        enabled: true
+        # resourcePolicy: keep
+        storageClass: longhorn
+    
+  global:
+    defaultStorageClass: longhorn
+    postgresql:
+      auth:
+        database: ''
+        username: ''
+        existingSecret: immich-secret
+        secretKeys:
+          adminPasswordKey: postgresql-admin-password
+          userPasswordKey: postgresql-user-password
+
+redis:
+  enabled: true
+  auth:
+    existingSecret: immich-secret
+    existingSecretPasswordKey: redis-password
+  global:
+    defaultStorageClass: longhorn
+  master:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+    resourcesPreset: "micro"
+  replica:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+    replicaCount: 1
+    resourcesPreset: "micro"
