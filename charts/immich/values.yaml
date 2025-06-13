@@ -14,6 +14,8 @@ env:
     value: ''
   - name: IMMICH_MACHINE_LEARNING_URL
     value: http://immich-machine-learning:3003
+  # - name: IMMICH_LOG_LEVEL
+  #   value: verbose
 
 image:
   tag: ''
@@ -70,6 +72,7 @@ postgresql:
   #       # resourcePolicy: keep
   #       storageClass: longhorn
   primary:
+    resourcesPreset: "large"
     containerSecurityContext:
       readOnlyRootFilesystem: false
     initdb:
