@@ -1,9 +1,12 @@
 env:
-  DB_PASSWORD:
+  - name: DB_PASSWORD
     valueFrom:
       secretKeyRef:
         name: immich-secret
         key: postgresql-user-password
+
+image:
+  tag: ''
 
 immich:
   metrics:

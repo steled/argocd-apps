@@ -18,6 +18,8 @@ spec:
         valueFiles:
           - $values/charts/immich/values.yaml
         parameters:
+          - name: "image.tag"
+            value: {{ .Values.immich.image.version }}
           - name: "server.ingress.main.hosts"
             value: {{ .Values.immich.server.ingress.main.hosts }}
           - name: "server.ingress.main.tls[0].hosts[0]"
