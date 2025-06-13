@@ -11,7 +11,7 @@ apprise:
 
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager packageName=cert-manager/cert-manager
-  version: "v1.17.2"
+  version: "v1.18.0"
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
@@ -37,7 +37,7 @@ jdownloader2:
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds packageName=prometheus-community/helm-charts
-  version: "20.0.1"
+  version: "21.0.0"
 
 sftpServer:
   image:
@@ -54,10 +54,10 @@ victoriametrics:
   metricsProxy:
     image:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
-      version: "3.2.0-alpine"
+      version: "3.2.1-alpine"
   # renovate: datasource=github-tags depName=victoriametrics packageName=VictoriaMetrics/helm-charts
-  version: "0.50.1"
+  version: "0.52.0"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator packageName=VictoriaMetrics/helm-charts
-  version: "0.49.1"
+  version: "0.49.2"
