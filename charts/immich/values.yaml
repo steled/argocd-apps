@@ -58,14 +58,23 @@ useDeprecatedPostgresChart: true
 
 postgresql:
   enabled: true
-  backup:
-    enabled: true
-    cronjob:
-      schedule: "@hourly"
-      storage:
-        enabled: true
-        # resourcePolicy: keep
-        storageClass: longhorn
+  # backup:
+  #   enabled: true
+  #   cronjob:
+  #     schedule: "@hourly"
+  #     storage:
+  #       enabled: true
+  #       # resourcePolicy: keep
+  #       storageClass: longhorn
+  primary:
+  containerSecurityContext:
+    readOnlyRootFilesystem: false
+  initdb:
+    scripts:
+      create-extensions.sql: |
+        CREATE EXTENSION cube;
+        CREATE EXTENSION earthdistance;
+        CREATE EXTENSION vectors;
     
   global:
     defaultStorageClass: longhorn
