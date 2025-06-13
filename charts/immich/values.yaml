@@ -70,14 +70,14 @@ postgresql:
   #       # resourcePolicy: keep
   #       storageClass: longhorn
   primary:
-  containerSecurityContext:
-    readOnlyRootFilesystem: false
-  initdb:
-    scripts:
-      create-extensions.sql: |
-        CREATE EXTENSION cube;
-        CREATE EXTENSION earthdistance;
-        CREATE EXTENSION vectors;
+    containerSecurityContext:
+      readOnlyRootFilesystem: false
+    initdb:
+      scripts:
+        create-extensions.sql: |
+          CREATE EXTENSION cube;
+          CREATE EXTENSION earthdistance;
+          CREATE EXTENSION vectors;
     
   global:
     defaultStorageClass: longhorn
