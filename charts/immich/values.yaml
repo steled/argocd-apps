@@ -6,6 +6,8 @@ env:
       secretKeyRef:
         name: immich-secret
         key: postgresql-user-password
+  - name: DB_HOSTNAME
+    value: immich-postgresql
 
 image:
   tag: ''
