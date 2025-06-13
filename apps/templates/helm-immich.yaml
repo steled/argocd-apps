@@ -12,7 +12,7 @@ spec:
   project: apps
   sources:
     - chart: immich
-      repoURL: oci://ghcr.io/immich-app/immich-charts/immich
+      repoURL: oci://ghcr.io/immich-app/immich-charts
       targetRevision: {{ .Values.immich.version }}
       helm:
         valueFiles:
