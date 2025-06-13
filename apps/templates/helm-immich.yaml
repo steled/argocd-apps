@@ -18,6 +18,10 @@ spec:
         valueFiles:
           - $values/charts/immich/values.yaml
         parameters:
+          - name: "env.name[3].value"
+            value: {{ .Values.immich.postgresql.global.postgresql.auth.database }}
+          - name: "env.name[4].value"
+            value: {{ .Values.immich.postgresql.global.postgresql.auth.username }}
           - name: "image.tag"
             value: {{ .Values.immich.image.version }}
           - name: "server.ingress.main.hosts[0].host"
