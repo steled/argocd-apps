@@ -42,6 +42,8 @@ machine-learning:
       type: pvc
       storageClass: longhorn
 
+useDeprecatedPostgresChart: true
+
 postgresql:
   enabled: true
   backup:
