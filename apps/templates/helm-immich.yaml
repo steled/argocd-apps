@@ -11,8 +11,8 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - chart: immich
-      repoURL: oci://ghcr.io/immich-app/immich-charts
+    - chart: immich-app/immich-charts/immich
+      repoURL: oci://ghcr.io/
       targetRevision: {{ .Values.immich.version }}
       helm:
         valueFiles:
