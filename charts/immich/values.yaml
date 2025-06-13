@@ -8,6 +8,12 @@ env:
         key: postgresql-user-password
   - name: DB_HOSTNAME
     value: immich-postgresql
+  - name: DB_DATABASE_NAME
+    value: {{ .Values.postgresql.global.postgresql.auth.database }}
+  - name: DB_USERNAME
+    value: {{ .Values.postgresql.global.postgresql.auth.username }}
+  - name: IMMICH_MACHINE_LEARNING_URL
+    value: http://immich-machine-learning:3003
 
 image:
   tag: ''
