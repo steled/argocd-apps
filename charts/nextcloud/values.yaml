@@ -175,6 +175,8 @@ externalDatabase:
     usernameKey: postgresql-username
     passwordKey: postgresql-user-password
 
+useDeprecatedPostgresChart: true
+
 postgresql:
   enabled: true
   backup:
