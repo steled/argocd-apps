@@ -30,6 +30,8 @@ server:
         nginx.ingress.kubernetes.io/proxy-body-size: "0"
       hosts:
         - host: ''
+          paths:
+            - path: "/"
       ingressClassName: cilium
       tls:
         - secretName: immich-tls
