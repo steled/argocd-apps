@@ -69,14 +69,14 @@ postgresql:
   image:
     repository: tensorchord/vchord-postgres
     tag: pg17-v0.3.0
-  # backup:
-  #   enabled: true
-  #   cronjob:
-  #     schedule: "@hourly"
-  #     storage:
-  #       enabled: true
-  #       # resourcePolicy: keep
-  #       storageClass: longhorn
+  backup:
+    enabled: true
+    cronjob:
+      schedule: "@hourly"
+      storage:
+        enabled: true
+        # resourcePolicy: keep
+        storageClass: longhorn
   primary:
     resourcesPreset: "large"
     containerSecurityContext:
