@@ -65,6 +65,8 @@ machine-learning:
 useDeprecatedPostgresChart: true
 
 postgresql:
+  auth:
+    enablePostgresUser: false
   enabled: true
   image:
     repository: tensorchord/vchord-postgres
@@ -96,7 +98,7 @@ postgresql:
         username: ''
         existingSecret: immich-secret
         secretKeys:
-          adminPasswordKey: postgresql-admin-password
+          # adminPasswordKey: postgresql-user-password
           userPasswordKey: postgresql-user-password
 
 redis:
