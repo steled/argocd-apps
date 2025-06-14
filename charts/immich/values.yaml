@@ -68,7 +68,7 @@ postgresql:
   enabled: true
   image:
     repository: tensorchord/vchord-postgres
-    tag: pg17-v0.3.0
+    tag: ''
   backup:
     enabled: true
     cronjob:

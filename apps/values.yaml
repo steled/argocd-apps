@@ -14,6 +14,10 @@ certmanager:
   version: "v1.18.0"
 
 immich:
+  postgresql:
+    image:
+      # renovate: datasource=docker depName=vchord-postgres packageName=tensorchord/vchord-postgres
+      version: "pg17-v0.3.0"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
     version: "v1.134.0"

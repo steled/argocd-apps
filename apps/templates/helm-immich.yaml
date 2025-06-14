@@ -22,6 +22,8 @@ spec:
             value: {{ .Values.immich.postgresql.global.postgresql.auth.database }}
           - name: "env[4].value"
             value: {{ .Values.immich.postgresql.global.postgresql.auth.username }}
+          - name: "postgresql.image.tag"
+            value: {{ .Values.immich.postgresql.image.version }}
           - name: "image.tag"
             value: {{ .Values.immich.image.version }}
           - name: "server.ingress.main.hosts[0].host"
