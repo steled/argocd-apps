@@ -81,12 +81,12 @@ postgresql:
     resourcesPreset: "large"
     containerSecurityContext:
       readOnlyRootFilesystem: false
-    initdb:
-      scripts:
-        create-extensions.sql: |
-          CREATE EXTENSION cube;
-          CREATE EXTENSION earthdistance;
-          CREATE EXTENSION vectors;
+    # initdb:
+    #   scripts:
+    #     create-extensions.sql: |
+    #       CREATE EXTENSION cube;
+    #       CREATE EXTENSION earthdistance;
+    #       CREATE EXTENSION vectors;
     
   global:
     defaultStorageClass: longhorn
