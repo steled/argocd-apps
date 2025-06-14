@@ -14,6 +14,10 @@ env:
     value: ''
   - name: IMMICH_MACHINE_LEARNING_URL
     value: http://immich-machine-learning:3003
+  - name: TZ
+    value: Europe/Berlin
+  - name: UPLOAD_LOCATION
+    value: /usr/src/app/upload
   # - name: IMMICH_LOG_LEVEL
   #   value: verbose
 
