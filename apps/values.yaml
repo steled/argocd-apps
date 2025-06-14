@@ -6,59 +6,59 @@ spec:
     targetRevision: HEAD
 
 apprise:
-  # renovate: datasource=docker depName=apprise packageName=caronc/apprise
+  # renovate: datasource=docker depName=apprise-image packageName=caronc/apprise
   version: "1.2.0"
 
 certmanager:
-  # renovate: datasource=github-tags depName=cert-manager packageName=cert-manager/cert-manager
+  # renovate: datasource=github-tags depName=cert-manager-chart packageName=cert-manager/cert-manager
   version: "v1.18.0"
 
 immich:
   postgresql:
     image:
-      # renovate: datasource=docker depName=vchord-postgres packageName=tensorchord/vchord-postgres
+      # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
       version: "pg17-v0.3.0"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
     version: "v1.134.0"
-  # renovate: datasource=github-tags depName=immich packageName=immich-app/immich-charts
+  # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
   version: "0.9.3"
 
 jdownloader2:
   image:
-    # renovate: datasource=docker depName=jdownloader-2 packageName=jlesage/jdownloader-2
+    # renovate: datasource=docker depName=jdownloader2-image packageName=jlesage/jdownloader-2
     version: "v25.02.1"
-  # renovate: datasource=github-tags depName=jdownloader2 packageName=pmoscode-helm/jdownloader2
+  # renovate: datasource=github-tags depName=jdownloader2-chart packageName=pmoscode-helm/jdownloader2
   version: "1.2.1"
 
 longhorn:
-  # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
+  # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
   version: "1.9.0"
 
 minio:
-  # renovate: datasource=helm depName=minio registryUrl=https://charts.min.io/
+  # renovate: datasource=helm depName=minio-chart registryUrl=https://charts.min.io/
   version: "5.4.0"
 
 nextcloud:
   fpm:
-    # renovate: datasource=docker depName=nextcloud-fpm packageName=nextcloud
+    # renovate: datasource=docker depName=nextcloud-fpm-image packageName=nextcloud
     version: "31.0.5-fpm"
-  # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
+  # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
   version: "6.6.10"
 
 prometheusOperatorCrds:
-  # renovate: datasource=github-tags depName=prometheus-operator-crds packageName=prometheus-community/helm-charts
+  # renovate: datasource=github-tags depName=prometheus-operator-crds-image packageName=prometheus-community/helm-charts
   version: "21.0.0"
 
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-image packageName=atmoz/sftp
     version: "alpine@sha256:93d2d9c0e8e3d619e01321bd0eabaf746c9700115f92db5038d2d54b277ed22f"
-  # renovate: datasource=github-tags depName=sftp-server packageName=sj14/helm-charts
+  # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.0"
 
 vault:
-  # renovate: datasource=github-tags depName=hashicorp-vault packageName=hashicorp/vault-helm
+  # renovate: datasource=github-tags depName=hashicorp-vault-chart packageName=hashicorp/vault-helm
   version: "0.30.0"
 
 victoriametrics:
@@ -66,9 +66,9 @@ victoriametrics:
     image:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
       version: "3.2.1-alpine"
-  # renovate: datasource=github-tags depName=victoriametrics packageName=VictoriaMetrics/helm-charts
+  # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
   version: "0.52.0"
 
 victoriametricsOperator:
-  # renovate: datasource=github-tags depName=victoriametrics-operator packageName=VictoriaMetrics/helm-charts
+  # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
   version: "0.49.2"
