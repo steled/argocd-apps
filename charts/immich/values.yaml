@@ -67,8 +67,8 @@ useDeprecatedPostgresChart: true
 postgresql:
   enabled: true
   image:
-    repository: tensorchord/pgvecto-rs
-    tag: pg14-v0.3.0
+    repository: tensorchord/vchord-postgres
+    tag: pg17-v0.4.2
   # backup:
   #   enabled: true
   #   cronjob:
