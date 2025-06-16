@@ -40,6 +40,9 @@ immich:
       existingClaim: immich-pvc
 
 server:
+  controller:
+    strategy: Recreate
+    type: deployment
   ingress:
     main:
       enabled: true
