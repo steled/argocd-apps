@@ -22,6 +22,8 @@ env:
     value: /upload
   - name: IMMICH_IGNORE_MOUNT_CHECK_ERRORS
     value: 'true'
+  - name: IMMICH_TELEMETRY_INCLUDE
+    vale: all
   # - name: IMMICH_LOG_LEVEL
   #   value: verbose
 
