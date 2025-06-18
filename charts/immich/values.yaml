@@ -23,7 +23,7 @@ env:
   - name: IMMICH_IGNORE_MOUNT_CHECK_ERRORS
     value: 'true'
   - name: IMMICH_TELEMETRY_INCLUDE
-    vale: all
+    value: all
   # - name: IMMICH_LOG_LEVEL
   #   value: verbose
 
