@@ -19,6 +19,7 @@ defaultSettings:
   defaultReplicaCount: 2
   orphanAutoDeletion: true
   replicaReplenishmentWaitInterval: 0
+  storageReservedPercentageForDefaultDisk: 1
 
 ingress:
   enabled: true
