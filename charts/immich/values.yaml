@@ -25,7 +25,7 @@ env:
   - name: IMMICH_TELEMETRY_INCLUDE
     value: all
   - name: ENCODED_VIDEO_LOCATION
-    value: upload/encoded-video
+    value: /usr/src/app/upload/encoded-video
   # - name: IMMICH_LOG_LEVEL
   #   value: verbose
 
