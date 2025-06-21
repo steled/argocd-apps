@@ -6,7 +6,7 @@ image:
   # check for new supported version here: https://immich.app/docs/administration/postgres-standalone/#prerequisites
   tag: ''
 backup:
-  enabled: true
+  enabled: false
   cronjob:
     schedule: "@hourly"
     storage:
