@@ -76,16 +76,7 @@
       "matchPackageNames": [
         "tensorchord/vchord-postgres"
       ],
-      "extractVersion": [
-        {
-          "regex": "^(pg\\d+)-v(\\d+\\.\\d+\\.\\d+)$",
-          "version": "$1"
-        },
-        {
-          "regex": "^(pg\\d+)-v(\\d+\\.\\d+\\.\\d+)$",
-          "version": "$2"
-        }
-      ]
+      "extractVersion": "^pg17-(?<version>.*)$"
     },
     {
       "matchDatasources": [
