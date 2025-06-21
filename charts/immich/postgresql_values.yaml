@@ -34,3 +34,5 @@ global:
       secretKeys:
         # adminPasswordKey: postgresql-user-password
         userPasswordKey: postgresql-user-password
+  security:
+    allowInsecureImages: true
