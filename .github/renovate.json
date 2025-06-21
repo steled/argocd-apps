@@ -76,7 +76,7 @@
       "matchPackageNames": [
         "tensorchord/vchord-postgres"
       ],
-      "extractVersion": "^pg17-(?<version>.*)$"
+      "versioning": "regex:^pg17-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     },
     {
       "matchDatasources": [
