@@ -76,7 +76,7 @@
       "matchPackageNames": [
         "tensorchord/vchord-postgres"
       ],
-      "extractVersion": "^pg17-(?<version>.*)$"
+      "versioni": "loose"
     },
     {
       "matchDatasources": [
