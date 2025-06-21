@@ -18,9 +18,11 @@ spec:
         valueFiles:
           - $values/charts/immich/postgresql_values.yaml
         parameters:
-          - name: "postgresql.global.postgresql.auth.database"
+          - name: "image.tag"
+            value: {{ .Values.immich.postgresql.image.version }}
+          - name: "global.postgresql.auth.database"
             value: {{ .Values.immich.postgresql.global.postgresql.auth.database }}
-          - name: "postgresql.global.postgresql.auth.username"
+          - name: "global.postgresql.auth.username"
             value: {{ .Values.immich.postgresql.global.postgresql.auth.username }}
         releaseName: postgresql
     - chart: immich
