@@ -16,7 +16,7 @@ certmanager:
 immich:
   postgresql:
     # renovate: datasource=github-tags depName=immich-postgres-chart packageName=bitnami/charts
-    version: "16.7.12"
+    version: "16.7.13"
     image:
       # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
       version: "pg17-v0.4.3"
