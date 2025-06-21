@@ -16,12 +16,8 @@ env:
     value: http://immich-machine-learning:3003
   - name: TZ
     value: Europe/Berlin
-  # - name: UPLOAD_LOCATION
-  #   value: /usr/src/app/upload
-  # - name: IMMICH_MEDIA_LOCATION
-  #   value: /upload
-  - name: IMMICH_IGNORE_MOUNT_CHECK_ERRORS
-    value: 'true'
+  # - name: IMMICH_IGNORE_MOUNT_CHECK_ERRORS
+  #   value: 'true'
   - name: IMMICH_TELEMETRY_INCLUDE
     value: all
   # - name: IMMICH_LOG_LEVEL
@@ -77,6 +73,7 @@ postgresql:
   enabled: true
   image:
     repository: tensorchord/vchord-postgres
+    # check for new supported version here: https://immich.app/docs/administration/postgres-standalone/#prerequisites
     tag: ''
   backup:
     enabled: true
