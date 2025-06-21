@@ -76,7 +76,8 @@ postgresql:
     enablePostgresUser: false
   enabled: true
   image:
-    repository: tensorchord/vchord-postgres
+    # repository: tensorchord/vchord-postgres
+    repository: tensorchord/pgvecto-rs
     tag: ''
   backup:
     enabled: true
@@ -90,12 +91,13 @@ postgresql:
     resourcesPreset: "large"
     containerSecurityContext:
       readOnlyRootFilesystem: false
-    # initdb:
-    #   scripts:
-    #     create-extensions.sql: |
-    #       CREATE EXTENSION cube;
-    #       CREATE EXTENSION earthdistance;
-    #       CREATE EXTENSION vectors;
+    # deactivate for prod
+    initdb:
+      scripts:
+        create-extensions.sql: |
+          CREATE EXTENSION cube;
+          CREATE EXTENSION earthdistance;
+          CREATE EXTENSION vectors;
     
   global:
     defaultStorageClass: longhorn
