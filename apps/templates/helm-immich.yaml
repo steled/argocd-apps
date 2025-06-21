@@ -11,6 +11,18 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
+    - chart: postgresql
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: {{ .Values.immich.postgresql.version }}
+      helm:
+        valueFiles:
+          - $values/charts/immich/values.yaml
+        parameters:
+          - name: "postgresql.global.postgresql.auth.database"
+            value: {{ .Values.immich.postgresql.global.postgresql.auth.database }}
+          - name: "postgresql.global.postgresql.auth.username"
+            value: {{ .Values.immich.postgresql.global.postgresql.auth.username }}
+        releaseName: postgresql
     - chart: immich
       repoURL: ghcr.io/immich-app/immich-charts
       targetRevision: {{ .Values.immich.version }}
