@@ -17,11 +17,10 @@ immich:
   postgresql:
     image:
       # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
-      # version: "pg17-v0.3.0"
-      version: "pg14-v0.2.0@sha256:739cdd626151ff1f796dc95a6591b55a714f341c737e27f045019ceabf8e8c52"
+      version: "pg17-v0.3.0"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
-    version: "v1.119.1"
+    version: "v1.135.3"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
   version: "0.9.3"
 
