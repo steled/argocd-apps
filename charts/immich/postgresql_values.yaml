@@ -1,0 +1,36 @@
+auth:
+  enablePostgresUser: false
+enabled: true
+image:
+  repository: tensorchord/vchord-postgres
+  # check for new supported version here: https://immich.app/docs/administration/postgres-standalone/#prerequisites
+  tag: ''
+backup:
+  enabled: true
+  cronjob:
+    schedule: "@hourly"
+    storage:
+      enabled: true
+      # resourcePolicy: keep
+      storageClass: longhorn
+primary:
+  resourcesPreset: "large"
+  containerSecurityContext:
+    readOnlyRootFilesystem: false
+  # initdb:
+  #   scripts:
+  #     create-extensions.sql: |
+  #       CREATE EXTENSION cube;
+  #       CREATE EXTENSION earthdistance;
+  #       CREATE EXTENSION vectors;
+  
+global:
+  defaultStorageClass: longhorn
+  postgresql:
+    auth:
+      database: ''
+      username: ''
+      existingSecret: immich-secret
+      secretKeys:
+        # adminPasswordKey: postgresql-user-password
+        userPasswordKey: postgresql-user-password
