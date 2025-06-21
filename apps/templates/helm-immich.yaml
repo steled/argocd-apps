@@ -16,7 +16,7 @@ spec:
       targetRevision: {{ .Values.immich.postgresql.version }}
       helm:
         valueFiles:
-          - $values/charts/immich/postresql_values.yaml
+          - $values/charts/immich/postgresql_values.yaml
         parameters:
           - name: "postgresql.global.postgresql.auth.database"
             value: {{ .Values.immich.postgresql.global.postgresql.auth.database }}
