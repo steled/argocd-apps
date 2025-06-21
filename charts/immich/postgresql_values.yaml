@@ -1,12 +1,11 @@
 auth:
   enablePostgresUser: false
-enabled: true
 image:
   repository: tensorchord/vchord-postgres
   # check for new supported version here: https://immich.app/docs/administration/postgres-standalone/#prerequisites
   tag: ''
 backup:
-  enabled: false
+  enabled: true
   cronjob:
     schedule: "@hourly"
     storage:
