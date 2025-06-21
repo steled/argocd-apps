@@ -24,7 +24,7 @@ spec:
             value: {{ .Values.immich.postgresql.global.postgresql.auth.database }}
           - name: "global.postgresql.auth.username"
             value: {{ .Values.immich.postgresql.global.postgresql.auth.username }}
-        releaseName: postgresql
+        releaseName: immich-postgresql
     - chart: immich
       repoURL: ghcr.io/immich-app/immich-charts
       targetRevision: {{ .Values.immich.version }}
