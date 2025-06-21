@@ -76,7 +76,7 @@
       "matchPackageNames": [
         "tensorchord/vchord-postgres"
       ],
-      "versioni": "loose"
+      "versioning": "loose"
     },
     {
       "matchDatasources": [
