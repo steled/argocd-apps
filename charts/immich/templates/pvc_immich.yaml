@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   annotations:
     helm.sh/resource-policy: keep
-  name: immich-pvc
+  name: immich-server
 spec:
   storageClassName: longhorn
   accessModes:
