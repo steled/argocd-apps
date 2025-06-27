@@ -15,10 +15,3 @@ ingress:
     host0: ''
     tls0:
       hosts0: ''
-
-metrics:
-  serviceMonitor:
-    enabled: true
-    includeNode: true
-    interval: 30s
-    scrapeTimeout: 10s
