@@ -3784,7 +3784,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": {{`"bucket,range}}`}}",
+              "legendFormat": {{`"{{bucket,range}}`}}",
               "refId": "A",
               "step": 300
             }
