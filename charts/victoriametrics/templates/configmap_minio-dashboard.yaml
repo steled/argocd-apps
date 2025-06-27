@@ -2540,7 +2540,7 @@ data:
               "exemplar": true,
               "expr": "minio_node_file_descriptor_open_total{job=~\"$scrape_jobs\"}",
               "interval": "",
-              "legendFormat": {{`Open FDs [{{server}}]`}}",
+              "legendFormat": {{`"Open FDs [{{server}}]`}}",
               "refId": "B"
             }
           ],
@@ -2645,7 +2645,7 @@ data:
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": {{`Read Syscalls [{{server}}]`}}",
+              "legendFormat": {{`"Read Syscalls [{{server}}]`}}",
               "metric": "process_start_time_seconds",
               "refId": "A",
               "step": 60
@@ -2658,7 +2658,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_syscall_write_total{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "",
-              "legendFormat": {{`Write Syscalls [{{server}}]`}}",
+              "legendFormat": {{`"Write Syscalls [{{server}}]`}}",
               "refId": "B"
             }
           ],
@@ -2754,7 +2754,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_objects_scanned{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": {{`[{{server}}]`}}",
+              "legendFormat": {{`"[{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -2850,7 +2850,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_versions_scanned{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": {{`[{{server}}]`}}",
+              "legendFormat": {{`"[{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -2946,7 +2946,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_directories_scanned{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": {{`[{{server}}]`}}",
+              "legendFormat": {{`"[{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -3317,7 +3317,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_bucket_scans_finished{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": {{`[{{server}}]`}}",
+              "legendFormat": {{`"[{{server}}]`}}",
               "refId": "A"
             }
           ],
