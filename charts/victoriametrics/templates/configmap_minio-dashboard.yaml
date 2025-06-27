@@ -4674,7 +4674,7 @@ data:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "Prometheus"
+            "uid": "${datasource}"
           },
           "fill": 1,
           "fillGradient": 0,
@@ -4714,7 +4714,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "Prometheus"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "minio_usage_last_activity_nano_seconds{job=\"$scrape_jobs\"}",
