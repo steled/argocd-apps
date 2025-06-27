@@ -1247,7 +1247,7 @@ data:
               "expr": "sum by (server) (rate(minio_s3_traffic_received_bytes{job=~\"$scrape_jobs\"}[$__rate_interval]))",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "Data Received [{{server}}]",
+              "legendFormat": {{`"Data Received [{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -1345,7 +1345,7 @@ data:
               "expr": "sum by (server) (rate(minio_s3_traffic_sent_bytes{job=~\"$scrape_jobs\"}[$__rate_interval]))",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "Data Sent [{{server}}]",
+              "legendFormat": {{`"Data Sent [{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -1735,7 +1735,7 @@ data:
               "expr": "sum by (server,api) (increase(minio_s3_requests_total{job=~\"$scrape_jobs\"}[$__rate_interval]))",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{server,api}}",
+              "legendFormat": {{`"{{server,api}}`}}",
               "refId": "A"
             }
           ],
@@ -1833,7 +1833,7 @@ data:
               "expr": "sum by (server,api) (increase(minio_s3_requests_4xx_errors_total{job=~\"$scrape_jobs\"}[$__rate_interval]))",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{server,api}}",
+              "legendFormat": {{`"{{server,api}}`}}",
               "refId": "A"
             }
           ],
@@ -1931,7 +1931,7 @@ data:
               "expr": "sum by (server,api) (increase(minio_s3_requests_5xx_errors_total{job=~\"$scrape_jobs\"}[$__rate_interval]))",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{server,api}}",
+              "legendFormat": {{`"{{server,api}}`}}",
               "refId": "A"
             }
           ],
@@ -2242,7 +2242,7 @@ data:
               "format": "time_series",
               "instant": false,
               "interval": "",
-              "legendFormat": "Node RChar [{{server}}]",
+              "legendFormat": {{`"Node RChar [{{server}}]`}}",
               "refId": "A"
             },
             {
@@ -2253,7 +2253,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_io_wchar_bytes{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "",
-              "legendFormat": "Node WChar [{{server}}]",
+              "legendFormat": {{`"Node WChar [{{server}}]`}}",
               "refId": "B"
             }
           ],
@@ -2453,7 +2453,7 @@ data:
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "Internode Bytes Received [{{server}}]",
+              "legendFormat": {{`"Internode Bytes Received [{{server}}]`}}",
               "metric": "minio_http_requests_duration_seconds_count",
               "range": true,
               "refId": "A",
@@ -2467,7 +2467,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_inter_node_traffic_received_bytes{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "",
-              "legendFormat": "Internode Bytes Sent [{{server}}]",
+              "legendFormat": {{`"Internode Bytes Sent [{{server}}]`}}",
               "refId": "B"
             }
           ],
@@ -2540,7 +2540,7 @@ data:
               "exemplar": true,
               "expr": "minio_node_file_descriptor_open_total{job=~\"$scrape_jobs\"}",
               "interval": "",
-              "legendFormat": "Open FDs [{{server}}]",
+              "legendFormat": {{`Open FDs [{{server}}]`}}",
               "refId": "B"
             }
           ],
@@ -2645,7 +2645,7 @@ data:
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "Read Syscalls [{{server}}]",
+              "legendFormat": {{`Read Syscalls [{{server}}]`}}",
               "metric": "process_start_time_seconds",
               "refId": "A",
               "step": 60
@@ -2658,7 +2658,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_syscall_write_total{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "",
-              "legendFormat": "Write Syscalls [{{server}}]",
+              "legendFormat": {{`Write Syscalls [{{server}}]`}}",
               "refId": "B"
             }
           ],
@@ -2754,7 +2754,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_objects_scanned{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": "[{{server}}]",
+              "legendFormat": {{`[{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -2850,7 +2850,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_versions_scanned{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": "[{{server}}]",
+              "legendFormat": {{`[{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -2946,7 +2946,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_directories_scanned{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": "[{{server}}]",
+              "legendFormat": {{`[{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -3317,7 +3317,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_bucket_scans_finished{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": "[{{server}}]",
+              "legendFormat": {{`[{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -3515,7 +3515,7 @@ data:
               "expr": "sum by (server) (rate(minio_cluster_kms_request_success{job=~\"$scrape_jobs\"}[$__rate_interval]))",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "KMS Request Success [{{server}}]",
+              "legendFormat": {{`"KMS Request Success [{{server}}]`}}",
               "refId": "A"
             }
           ],
@@ -3609,7 +3609,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_scanner_bucket_scans_started{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "1m",
-              "legendFormat": "[{{server}}]",
+              "legendFormat": {{`"[{{server}}]`}}",
               "refId": "A"
             }
           ],
