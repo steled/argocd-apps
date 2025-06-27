@@ -973,7 +973,7 @@ data:
               "fullMetaSearch": false,
               "includeNullMetadata": true,
               "interval": "",
-              "legendFormat": "Pool: {{pool}} Set: {{set}}",
+              "legendFormat": {{`"Pool: {{pool}} Set: {{set}}`}}",
               "range": true,
               "refId": "A",
               "useBackend": false
@@ -2030,7 +2030,7 @@ data:
               "hide": false,
               "includeNullMetadata": true,
               "instant": false,
-              "legendFormat": "Pool {{pool}} / Set {{set}} - Online Drives",
+              "legendFormat": {{`"Pool {{pool}} / Set {{set}} - Online Drives`}}",
               "range": true,
               "refId": "A",
               "useBackend": false
@@ -2047,7 +2047,7 @@ data:
               "hide": false,
               "includeNullMetadata": true,
               "instant": false,
-              "legendFormat": "Pool {{pool}} / Set {{set}} - Read Quorum",
+              "legendFormat": {{`"Pool {{pool}} / Set {{set}} - Read Quorum`}}",
               "range": true,
               "refId": "B",
               "useBackend": false
@@ -2064,7 +2064,7 @@ data:
               "hide": false,
               "includeNullMetadata": true,
               "instant": false,
-              "legendFormat": "Pool {{pool}} / Set {{set}} - Write Quorum",
+              "legendFormat": {{`"Pool {{pool}} / Set {{set}} - Write Quorum`}}",
               "range": true,
               "refId": "C",
               "useBackend": false
@@ -2081,7 +2081,7 @@ data:
               "hide": false,
               "includeNullMetadata": true,
               "instant": false,
-              "legendFormat": "Pool {{pool}} / Set {{set}} - Healing Drives",
+              "legendFormat": {{`"Pool {{pool}} / Set {{set}} - Healing Drives`}}",
               "range": true,
               "refId": "D",
               "useBackend": false
@@ -2098,7 +2098,7 @@ data:
               "hide": false,
               "includeNullMetadata": true,
               "instant": false,
-              "legendFormat": "Pool {{pool}} / Set {{set}} - Status",
+              "legendFormat": {{`"Pool {{pool}} / Set {{set}} - Status`}}",
               "range": true,
               "refId": "E",
               "useBackend": false
