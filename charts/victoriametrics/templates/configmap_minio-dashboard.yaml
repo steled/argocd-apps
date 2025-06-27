@@ -611,7 +611,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{range}}",
+              "legendFormat": {{`"{{range}}`}}",
               "refId": "A",
               "step": 300,
               "useBackend": false
