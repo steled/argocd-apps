@@ -3595,7 +3595,27 @@ data:
       "templating": {
         "list": [
           {
-            "current": {},
+            "current": {
+              "selected": false,
+              "text": "prometheus",
+              "value": "prometheus"
+            },
+            "includeAll": false,
+            "label": "Datasource",
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "refresh": 1,
+            "regex": "",
+            "type": "datasource"
+          },
+          {
+            "current": {
+              "text": "All",
+              "value": [
+                "$__all"
+              ]
+            },
             "datasource": {
               "type": "prometheus",
               "uid": "${datasource}"
@@ -6749,7 +6769,27 @@ data:
       "templating": {
         "list": [
           {
-            "current": {},
+            "current": {
+              "selected": false,
+              "text": "prometheus",
+              "value": "prometheus"
+            },
+            "includeAll": false,
+            "label": "Datasource",
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "refresh": 1,
+            "regex": "",
+            "type": "datasource"
+          },
+          {
+            "current": {
+              "text": "All",
+              "value": [
+                "$__all"
+              ]
+            },
             "datasource": {
               "type": "prometheus",
               "uid": "${datasource}"
