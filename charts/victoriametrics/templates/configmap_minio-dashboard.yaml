@@ -3611,9 +3611,7 @@ data:
           },
           {
             "current": {
-              "text":  [
-                "All"
-              ],
+              "text": "All",
               "value": [
                 "$__all"
               ]
@@ -6787,12 +6785,8 @@ data:
           },
           {
             "current": {
-              "text": [
-                "scrapeConfig/victoriametrics/minio-bucket"
-              ],
-              "value": [
-                "scrapeConfig/victoriametrics/minio-bucket"
-              ]
+              "text": "scrapeConfig/victoriametrics/minio-bucket",
+              "value": "scrapeConfig/victoriametrics/minio-bucket"
             },
             "datasource": {
               "type": "prometheus",
