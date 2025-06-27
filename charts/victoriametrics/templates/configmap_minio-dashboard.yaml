@@ -717,7 +717,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{server}}",
+              "legendFormat": {{`"{{server}}`}}",
               "metric": "process_start_time_seconds",
               "refId": "A",
               "step": 60
@@ -905,7 +905,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{server}}",
+              "legendFormat": {{`"{{server}}`}}",
               "metric": "process_start_time_seconds",
               "refId": "A",
               "step": 60
@@ -2174,7 +2174,7 @@ data:
               "format": "time_series",
               "instant": false,
               "interval": "",
-              "legendFormat": "{{server}}",
+              "legendFormat": {{`"{{server}}`}}",
               "range": true,
               "refId": "A"
             }
@@ -2351,7 +2351,7 @@ data:
               "exemplar": true,
               "expr": "rate(minio_node_process_cpu_total_seconds{job=~\"$scrape_jobs\"}[$__rate_interval])",
               "interval": "",
-              "legendFormat": "{{server}}",
+              "legendFormat": {{`"{{server}}`}}",
               "range": true,
               "refId": "A"
             }
@@ -3126,7 +3126,7 @@ data:
               "expr": "sum by (server) (increase(minio_cluster_kms_request_error{job=~\"$scrape_jobs\"}[$__rate_interval]))",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{server}}",
+              "legendFormat": {{`"{{server}}`}}",
               "refId": "A"
             }
           ],
@@ -3221,7 +3221,7 @@ data:
               "exemplar": true,
               "expr": "sum by (server) (minio_cluster_kms_online{job=~\"$scrape_jobs\"})",
               "interval": "1m",
-              "legendFormat": "{{server}}",
+              "legendFormat": {{`"{{server}}`}}",
               "refId": "A"
             }
           ],
@@ -3417,7 +3417,7 @@ data:
               "expr": "sum by (server) (increase(minio_cluster_kms_request_failure{job=~\"$scrape_jobs\"}[$__rate_interval]))",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{server}}",
+              "legendFormat": {{`"{{server}}`}}",
               "refId": "A"
             }
           ],
@@ -4805,7 +4805,7 @@ data:
               "exemplar": true,
               "expr": "minio_usage_last_activity_nano_seconds{job=\"$scrape_jobs\"}",
               "interval": "1m",
-              "legendFormat": "{{server}}",
+              "legendFormat": {{`"{{server}}`}}",
               "refId": "A"
             }
           ],
