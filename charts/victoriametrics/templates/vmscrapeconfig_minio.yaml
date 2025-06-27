@@ -1,12 +1,38 @@
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMScrapeConfig
 metadata:
-  name: minio
+  name: minio-cluster
 spec:
   bearerTokenSecret:
     name: minio-bearer-token
     key: token
   path: /minio/v2/metrics/cluster
+  scheme: https
+  staticConfigs:
+    - targets: ['s3.steled.org']
+---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMScrapeConfig
+metadata:
+  name: minio-resource
+spec:
+  bearerTokenSecret:
+    name: minio-bearer-token
+    key: token
+  path: /minio/v2/metrics/resource
+  scheme: https
+  staticConfigs:
+    - targets: ['s3.steled.org']
+---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMScrapeConfig
+metadata:
+  name: minio-bucket
+spec:
+  bearerTokenSecret:
+    name: minio-bearer-token
+    key: token
+  path: /minio/v2/metrics/bucket
   scheme: https
   staticConfigs:
     - targets: ['s3.steled.org']
