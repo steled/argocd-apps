@@ -3611,7 +3611,9 @@ data:
           },
           {
             "current": {
-              "text": "All",
+              "text":  [
+                "All"
+              ],
               "value": [
                 "$__all"
               ]
@@ -6785,9 +6787,11 @@ data:
           },
           {
             "current": {
-              "text": "All",
+              "text": [
+                "scrapeConfig/victoriametrics/minio-bucket"
+              ],
               "value": [
-                "$__all"
+                "scrapeConfig/victoriametrics/minio-bucket"
               ]
             },
             "datasource": {
