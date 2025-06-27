@@ -9,7 +9,7 @@ spec:
       - alert: NodesOffline
         annotations:
           summary: "Node down in MinIO deployment"
-          description: "Node(s) in cluster {{`{{$labels.instance}}`}}` offline for more than 5 minutes"
+          description: Node(s) in cluster {{`{{$labels.instance}}`}}` offline for more than 5 minutes
         expr: avg_over_time(minio_cluster_nodes_offline_total{job="minio-job"}[5m]) > 0
         for: 10m
         labels:
@@ -17,7 +17,7 @@ spec:
       - alert: DisksOffline
         annotations:
           summary: "Disks down in MinIO deployment"
-          description: "Disks(s) in cluster {{`{{$$labels.instance}}`}}` offline for more than 5 minutes"
+          description: Disks(s) in cluster {{`{{$$labels.instance}}`}}` offline for more than 5 minutes
         expr: avg_over_time(minio_cluster_drive_offline_total{job="minio-job"}[5m]) > 0
         for: 10m
         labels:
