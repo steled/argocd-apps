@@ -15,3 +15,11 @@ ingress:
     host0: ''
     tls0:
       hosts0: ''
+
+metrics:
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: prometheus-operator
+    interval: 30s
+    scrapeTimeout: 10s
