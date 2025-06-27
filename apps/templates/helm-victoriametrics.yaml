@@ -59,6 +59,8 @@ spec:
             value: {{ .Values.victoriametrics.secret.grafanaAdminPassword }}
           - name: "secret.grafanaAdminUser"
             value: {{ .Values.victoriametrics.secret.grafanaAdminUser }}
+          - name: "secret.minioBearerToken"
+            value: {{ .Values.victoriametrics.secret.minioBearerToken }}
         releaseName: victoriametrics-addition
         valueFiles:
           - ./victoriametrics-addition-values.yaml
