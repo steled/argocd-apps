@@ -6073,7 +6073,7 @@ data:
               "expr": "minio_bucket_replication_proxied_head_requests_failures{job=\"$scrape_jobs\"}",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{instance}}",
+              "legendFormat": {{`"{{instance}}`}}",
               "refId": "A"
             }
           ],
