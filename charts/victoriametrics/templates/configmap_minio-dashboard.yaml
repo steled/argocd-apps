@@ -5,7 +5,7 @@ metadata:
     argocd.argoproj.io/sync-options: ServerSideApply=true
   labels:
     grafana_dashboard: "1"
-  name: minio
+  name: minio-cluster
 data:
   minio-cluster-dashboard.json: |
     {
@@ -3716,6 +3716,15 @@ data:
 ###############################
 # minio-bucket-dashboard.json #
 ###############################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: ServerSideApply=true
+  labels:
+    grafana_dashboard: "1"
+  name: minio-bucket
+data:
   minio-bucket-dashboard.json: |
     {
       "__inputs": [
