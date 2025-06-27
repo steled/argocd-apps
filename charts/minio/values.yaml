@@ -19,7 +19,6 @@ ingress:
 metrics:
   serviceMonitor:
     enabled: true
-    additionalLabels:
-      release: prometheus-operator
+    includeNode: true
     interval: 30s
     scrapeTimeout: 10s
