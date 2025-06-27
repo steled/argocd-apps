@@ -183,7 +183,7 @@ data:
               "instant": true,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{instance}}",
+              "legendFormat": {{`"{{instance}}`}}",
               "metric": "process_start_time_seconds",
               "refId": "A",
               "step": 60
@@ -265,7 +265,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{instance}}",
+              "legendFormat": {{`"{{instance}}`}}",
               "metric": "process_start_time_seconds",
               "refId": "A",
               "step": 60
@@ -3055,7 +3055,7 @@ data:
               "instant": true,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{instance}}",
+              "legendFormat": {{`"{{instance}}`}}",
               "metric": "minio_cluster_kms_uptime",
               "refId": "A",
               "step": 60
@@ -6257,7 +6257,7 @@ data:
               "expr": "minio_bucket_replication_proxied_put_tagging_requests_failures{job=\"$scrape_jobs\"}",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{instance}}",
+              "legendFormat": {{`"{{instance}}`}}",
               "refId": "A"
             }
           ],
@@ -6441,7 +6441,7 @@ data:
               "expr": "minio_bucket_replication_proxied_get_tagging_requests_failures{job=\"$scrape_jobs\"}",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{instance}}",
+              "legendFormat": {{`"{{instance}}`}}",
               "refId": "A"
             }
           ],
@@ -6625,7 +6625,7 @@ data:
               "expr": "minio_bucket_replication_proxied_delete_tagging_requests_failures{job=\"$scrape_jobs\"}",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{instance}}",
+              "legendFormat": {{`"{{instance}}`}}",
               "refId": "A"
             }
           ],
@@ -6809,7 +6809,7 @@ data:
               "expr": "minio_bucket_replication_proxied_get_requests_failures{job=\"$scrape_jobs\"}",
               "interval": "1m",
               "intervalFactor": 2,
-              "legendFormat": "{{instance}}",
+              "legendFormat": {{`"{{instance}}`}}",
               "refId": "A"
             }
           ],
