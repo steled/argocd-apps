@@ -46,7 +46,7 @@ nextcloud:
     # renovate: datasource=docker depName=nextcloud-fpm-image packageName=nextcloud
     version: "31.0.7-fpm"
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
-  version: "6.6.10"
+  version: "7.0.0"
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-image packageName=prometheus-community/helm-charts
