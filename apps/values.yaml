@@ -55,7 +55,7 @@ prometheusOperatorCrds:
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-image packageName=atmoz/sftp
-    version: "alpine@sha256:93d2d9c0e8e3d619e01321bd0eabaf746c9700115f92db5038d2d54b277ed22f"
+    version: "alpine@sha256:b7a178a05f419f522d5a2394c3d8c135eec88e97e8e0c45e215d51664d8ad547"
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.0"
 
