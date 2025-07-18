@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-jellyfin
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: jellyfin
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: jellyfin
+      repoURL: https://jellyfin.github.io/jellyfin-helm
+      targetRevision: {{ .Values.jellyfin.version }}
+      helm:
+        valueFiles:
+          - $values/charts/jellyfin/values.yaml
+        parameters:
+          - name: "ingress.hosts[0].host"
+            value: {{ .Values.jellyfin.ingress.hosts0.host }}
+          - name: "ingress.tls[0].hosts[0]"
+            value: {{ .Values.jellyfin.ingress.tls0.hosts0 }}
+        releaseName: jellyfin
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

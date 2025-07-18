@@ -107,6 +107,15 @@
         "github-tags"
       ],
       "matchPackageNames": [
+        "jellyfin/jellyfin-helm"
+      ],
+      "extractVersion": "^jellyfin-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchPackageNames": [
         "nextcloud/helm"
       ],
       "extractVersion": "^nextcloud-(?<version>.*)$"

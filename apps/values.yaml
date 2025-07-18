@@ -48,6 +48,10 @@ nextcloud:
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
   version: "7.0.0"
 
+jellyfin:
+  # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
+  version: "2.2.0"
+
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-image packageName=prometheus-community/helm-charts
   version: "21.0.0"
