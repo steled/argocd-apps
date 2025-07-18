@@ -8,7 +8,7 @@ ingress:
     - host: ''
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls:
     - secretName: jellyfin-tls
       hosts:
@@ -22,5 +22,3 @@ persistence:
 
 metrics:
   enabled: true
-  serviceMonitor:
-    enabled: true
