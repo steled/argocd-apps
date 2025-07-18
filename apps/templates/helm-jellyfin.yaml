@@ -23,6 +23,9 @@ spec:
           - name: "ingress.tls[0].hosts[0]"
             value: {{ .Values.jellyfin.ingress.tls0.hosts0 }}
         releaseName: jellyfin
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
