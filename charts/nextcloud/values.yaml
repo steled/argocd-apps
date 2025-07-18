@@ -198,6 +198,15 @@ postgresql:
           userPasswordKey: postgresql-user-password
 
   primary:
+    initContainers:
+      - name: upgrade
+        image: "pgautoupgrade/pgautoupgrade:17-alpine"
+        env:
+          - name: "PGAUTO_ONESHOT"
+            value: "yes"
+        volumeMounts:
+          - mountPath: "/bitnami/postgresql"
+            name: "data"
     persistence:
       enabled: true
       storageClass: longhorn
