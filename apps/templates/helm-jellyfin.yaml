@@ -24,6 +24,13 @@ spec:
             value: {{ .Values.jellyfin.ingress.tls0.hosts0 }}
         releaseName: jellyfin
     - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/jellyfin
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: jellyfin-addition
+        valueFiles:
+          - ./values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
   syncPolicy:
