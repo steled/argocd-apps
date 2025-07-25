@@ -35,7 +35,7 @@ jdownloader2:
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
-  version: "1.9.0"
+  version: "1.9.1"
 
 minio:
   # renovate: datasource=helm depName=minio-chart packageName=minio registryUrl=https://charts.min.io/
