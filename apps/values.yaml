@@ -65,7 +65,7 @@ sftpServer:
 
 vault:
   # renovate: datasource=github-tags depName=hashicorp-vault-chart packageName=hashicorp/vault-helm
-  version: "0.30.0"
+  version: "0.30.1"
 
 victoriametrics:
   metricsProxy:
