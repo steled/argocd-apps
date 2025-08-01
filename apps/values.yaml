@@ -31,7 +31,7 @@ jdownloader2:
     # renovate: datasource=docker depName=jdownloader2-image packageName=jlesage/jdownloader-2
     version: "v25.07.1"
   # renovate: datasource=github-tags depName=jdownloader2-chart packageName=pmoscode-helm/jdownloader2
-  version: "1.4.0"
+  version: "1.4.1"
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
