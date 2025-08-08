@@ -7,7 +7,7 @@ spec:
 
 apprise:
   # renovate: datasource=docker depName=apprise-image packageName=caronc/apprise
-  version: "1.2.0"
+  version: "1.2.1"
 
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager-chart packageName=cert-manager/cert-manager
