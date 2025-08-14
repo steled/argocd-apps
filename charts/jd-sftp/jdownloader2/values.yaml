@@ -15,5 +15,8 @@ service:
   myjd:
     enabled: true
 
+strategy:
+  type: Recreate
+
   web:
     enabled: false
