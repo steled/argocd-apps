@@ -19,7 +19,7 @@ immich:
     version: "16.7.26"
     image:
       # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
-      version: "pg17-v0.4.3"
+      version: "pg17-v0.5.0"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
     version: "v1.139.2"
