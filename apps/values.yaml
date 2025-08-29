@@ -22,7 +22,7 @@ immich:
       version: "pg17-v0.5.0"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
-    version: "v1.139.2"
+    version: "v1.139.4"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
   version: "0.9.3"
 
