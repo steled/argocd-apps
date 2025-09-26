@@ -19,5 +19,17 @@ spec:
   task: "snapshot-cleanup"
   groups:
   - default
-  retain: 1
+  retain: 0
   concurrency: 2
+---
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
+  name: demo
+  namespace: longhorn-system
+spec:
+  task: system-backup
+  cron: '0 21 * * *'
+  retain: 1
+  parameters:
+    volume-backup-policy: if-not-present
