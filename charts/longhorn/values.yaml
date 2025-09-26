@@ -16,7 +16,7 @@ defaultBackupStore:
 defaultSettings:
   concurrentAutomaticEngineUpgradePerNodeLimit: 1
   defaultDataPath: "/ext/persistent"
-  defaultReplicaCount: 2
+  defaultReplicaCount: "2"
   orphanAutoDeletion: true
   replicaReplenishmentWaitInterval: 0
   storageReservedPercentageForDefaultDisk: "1"
