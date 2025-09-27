@@ -6,7 +6,7 @@ myjd:
   password: ''
 
 persistence:
-  accessMode: ReadWriteMany
+  accessMode: ReadWriteOnce
   enabled: true
   size: 50Gi
   storageClass: longhorn
@@ -18,5 +18,5 @@ service:
   web:
     enabled: false
 
-strategy:
-  type: Recreate
+# strategy:
+#   type: Recreate

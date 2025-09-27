@@ -25,7 +25,7 @@ sftp:
       uid: "1000"
 
 persistentVolume:
-  accessModes: ["ReadWriteMany"]
+  accessModes: ["ReadWriteOnce"]
   enabled: false
   existingClaim: "jdownloader2-data"
   size: "50Gi"
