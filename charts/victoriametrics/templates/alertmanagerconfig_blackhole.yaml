@@ -6,6 +6,7 @@ spec:
   receivers:
     - name: blackhole
   route:
+    continue: false
     groupInterval: 1m
     receiver: blackhole
     matchers:
