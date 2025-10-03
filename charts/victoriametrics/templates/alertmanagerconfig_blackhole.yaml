@@ -3,37 +3,44 @@ kind: AlertmanagerConfig
 metadata:
   name: mute-nextcloud-pgdumpall
 spec:
-  receivers:
-    - name: blackhole
   route:
     continue: false
     groupInterval: 1m
     receiver: blackhole
-    matchers:
-    - name: namespace
-      value: nextcloud
-    - name: alertgroup
-      value: general.rules
-    - name: alertname
-      value: InfoInhibitor
-    - name: exported_alertname
-      value: CPUThrottlingHigh
-    - name: exported_severity
-      value: info
-    - name: severity
-      value: none
+    routes:
+    - receiver: blackhole
+      matchers:
+        - name: namespace
+          value: nextcloud
+          matchType: "="
+        - name: alertgroup
+          value: general.rules
+          matchType: "="
+        - name: alertname
+          value: InfoInhibitor
+          matchType: "="
+        - name: exported_alertname
+          value: CPUThrottlingHigh
+          matchType: "="
+        - name: exported_severity
+          value: info
+          matchType: "="
+        - name: severity
+          value: none
+          matchType: "="
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
   name: mute-watchdog
 spec:
-  receivers:
-    - name: blackhole
   route:
     continue: false
     groupInterval: 1m
     receiver: blackhole
-    matchers:
-    - name: alertname
-      value: Watchdog
+    routes:
+    - receiver: blackhole
+      matchers:
+        - name: alertname
+          value: Watchdog
+          matchType: "="
