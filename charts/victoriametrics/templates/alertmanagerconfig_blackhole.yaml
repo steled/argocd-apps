@@ -14,8 +14,6 @@ spec:
       value: nextcloud
     - name: alertgroup
       value: general.rules
-    - name: alertgroup
-      value: general.rules
     - name: alertname
       value: InfoInhibitor
     - name: exported_alertname
@@ -24,3 +22,18 @@ spec:
       value: info
     - name: severity
       value: none
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: mute-watchdog
+spec:
+  receivers:
+    - name: blackhole
+  route:
+    continue: false
+    groupInterval: 1m
+    receiver: blackhole
+    matchers:
+    - name: alertname
+      value: Watchdog
