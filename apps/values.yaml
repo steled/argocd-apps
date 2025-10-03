@@ -19,7 +19,7 @@ immich:
     version: "16.7.27"
     image:
       # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
-      version: "pg17-v0.5.2"
+      version: "pg17-v0.5.3"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
     version: "v2.0.0"
@@ -59,7 +59,7 @@ prometheusOperatorCrds:
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-image packageName=atmoz/sftp
-    version: "alpine@sha256:761c1e4d8e9d85dc38e0d70ede45231a302e78d593ffe37c4c0bfa914e3a04c4"
+    version: "alpine@sha256:9301b69cd4b37c63f84193eda57689c7a9bca6ca7bea049d72a3405cb9d6d88c"
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.0"
 
