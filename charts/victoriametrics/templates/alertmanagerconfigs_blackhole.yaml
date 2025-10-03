@@ -1,5 +1,5 @@
-apiVersion: operator.victoriametrics.com/v1beta1
-kind: VMAlertmanagerConfig
+apiVersion: alertmanagerconfigs.monitoring.coreos.com
+kind: AlertmanagerConfig
 metadata:
   name: mute-nextcloud-pgdumpall
 spec:
@@ -12,11 +12,12 @@ spec:
       # z. B. nur Namespace, oder alertgroup
       - namespace = "nextcloud"
       - alertgroup = "general.rules"
-    group_interval: 1m
+    groupInterval: 1m
     routes:
       - receiver: blackhole
         matchers:
           - alertgroup = "general.rules"
           - alertname = "InfoInhibitor"
           - exported_alertname = "CPUThrottlingHigh"
+          - exported_severity = "info"
           - severity = "none"
