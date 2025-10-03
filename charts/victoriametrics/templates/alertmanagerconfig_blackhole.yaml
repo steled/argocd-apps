@@ -10,14 +10,21 @@ spec:
     matchers:
       # Du kannst hier gewisse Label-Filter setzen, falls sinnvoll
       # z. B. nur Namespace, oder alertgroup
-      - namespace = "nextcloud"
-      - alertgroup = "general.rules"
+      - name: namespace
+        value: nextcloud
+      - name: alertgroup
+        value: general.rules
     groupInterval: 1m
     routes:
       - receiver: blackhole
         matchers:
-          - alertgroup = "general.rules"
-          - alertname = "InfoInhibitor"
-          - exported_alertname = "CPUThrottlingHigh"
-          - exported_severity = "info"
-          - severity = "none"
+          - name: alertgroup
+            value: general.rules
+          - name: alertname
+            value: InfoInhibitor
+          - name: exported_alertname
+            value: CPUThrottlingHigh
+          - name: exported_severity
+            value: info
+          - name: severity
+            value: none
