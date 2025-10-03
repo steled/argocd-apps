@@ -6,25 +6,24 @@ spec:
   receivers:
     - name: blackhole
   route:
+    groupInterval: 1m
     receiver: blackhole
     matchers:
-      # Du kannst hier gewisse Label-Filter setzen, falls sinnvoll
-      # z. B. nur Namespace, oder alertgroup
-      - name: "namespace"
-        value: "nextcloud"
-      - name: "alertgroup"
-        value: "general.rules"
-    groupInterval: 1m
+    - name: namespace
+      value: nextcloud
+    - name: alertgroup
+      value: general.rules
+    receiver: blackhole
     routes:
-      - receiver: blackhole
-        matchers:
-          - name: "alertgroup"
-            value: "general.rules"
-          - name: "alertname"
-            value: "InfoInhibitor"
-          - name: "exported_alertname"
-            value: "CPUThrottlingHigh"
-          - name: "exported_severity"
-            value: "info"
-          - name: "severity"
-            value: "none"
+    - matchers:
+      - name: alertgroup
+        value: general.rules
+      - name: alertname
+        value: InfoInhibitor
+      - name: exported_alertname
+        value: CPUThrottlingHigh
+      - name: exported_severity
+        value: info
+      - name: severity
+        value: none
+      receiver: blackhole
