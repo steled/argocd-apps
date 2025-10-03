@@ -6,7 +6,7 @@ myjd:
   password: ''
 
 persistence:
-  accessMode: ReadWriteOnce
+  accessMode: ReadWriteMany
   enabled: true
   size: 50Gi
   storageClass: longhorn
