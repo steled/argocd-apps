@@ -31,7 +31,7 @@ alertmanager:
         telegram_configs:
           - bot_token: ''
             chat_id: ''
-      - name: blackhole
+      # - name: blackhole
       # - name: webhook
       #   webhook_configs:
       #   - url: https://${notify_domain}/notify/${apprise_config_id}?template=json&disabletls=yes&messagekey=body
