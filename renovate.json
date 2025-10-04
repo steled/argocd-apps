@@ -131,6 +131,18 @@
     },
     {
       "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "sealed-secrets-chart"
+      ],
+      "matchPackageNames": [
+        "bitnami-labs/sealed-secrets"
+      ],
+      "extractVersion": "^helm-v(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
         "docker"
       ],
       "matchDepNames": [
