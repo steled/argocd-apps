@@ -139,7 +139,7 @@ grafana:
     storageClassName: longhorn
 
   admin:
-    existingSecret: victoriametrics-secret
+    existingSecret: victoriametrics
     userKey: grafana_admin-user
     passwordKey: grafana_admin-password
 
