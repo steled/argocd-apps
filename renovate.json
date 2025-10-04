@@ -49,6 +49,9 @@
       "matchDatasources": [
         "docker"
       ],
+      "matchDepNames": [
+        "sftp-server-image"
+      ],
       "matchPackageNames": [
         "atmoz/sftp"
       ],
@@ -83,7 +86,7 @@
         "github-tags"
       ],
       "matchDepNames": [
-        "victoriametrics"
+        "victoriametrics-chart"
       ],
       "matchPackageNames": [
         "VictoriaMetrics/helm-charts"
@@ -134,7 +137,7 @@
         "github-tags"
       ],
       "matchDepNames": [
-        "prometheus-operator-crds"
+        "prometheus-operator-crds-chart"
       ],
       "matchPackageNames": [
         "prometheus-community/helm-charts"
@@ -144,6 +147,9 @@
     {
       "matchDatasources": [
         "github-tags"
+      ],
+      "matchDepNames": [
+        "sftp-server-chart"
       ],
       "matchPackageNames": [
         "sj14/helm-charts"
