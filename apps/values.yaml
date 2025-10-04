@@ -56,6 +56,10 @@ prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
   version: "23.0.0"
 
+sealedSecrets:
+  # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
+  version: "2.17.7"
+
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-server-image packageName=atmoz/sftp
