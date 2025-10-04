@@ -1,0 +1,16 @@
+# ingress:
+#   enabeld: true
+#   ingressClassName: cilium
+#   hostname: ''
+#   annotations:
+#     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+#     ingress.cilium.io/loadbalancer-mode: shared
+#   tls: true
+#   secrets: sealed-secrets-tls
+
+metrics:
+  serviceMonitor:
+    enabled: true
+  dashboards:
+    create: true
+    namespace: victoriametrics
