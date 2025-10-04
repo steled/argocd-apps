@@ -11,7 +11,7 @@ csi:
 
 defaultBackupStore:
   backupTarget: s3://longhorn-backup@eu-east-local/
-  backupTargetCredentialSecret: minio-secret
+  backupTargetCredentialSecret: minio
 
 defaultSettings:
   concurrentAutomaticEngineUpgradePerNodeLimit: "1"
