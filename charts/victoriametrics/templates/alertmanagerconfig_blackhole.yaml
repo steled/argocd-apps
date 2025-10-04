@@ -52,7 +52,7 @@ spec:
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMAlertmanagerConfig
 metadata:
-  name: blackhole
+  name: mute
 spec:
   receivers:
     - name: blackhole
