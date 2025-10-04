@@ -31,6 +31,26 @@ spec:
           value: none
           matchType: "="
 ---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlertmanagerConfig
+metadata:
+  name: mute-nextcloud-pgdumpall
+spec:
+  receivers:
+    - name: blackhole
+  route:
+    group_interval: 1m
+    receiver: blackhole
+    routes:
+      - matchers:
+          - namespace="nextcloud"
+          - alertgroup="general.rules"
+          - alertname="InfoInhibitor"
+          - exported_alertname="CPUThrottlingHigh"
+          - exported_severity="info"
+          - severity="none"
+        receiver: blackhole
+---
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
