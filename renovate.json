@@ -47,12 +47,15 @@
     },
     {
       "matchDatasources": [
-        "docker"
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "immich-postgres-chart"
       ],
       "matchPackageNames": [
-        "atmoz/sftp"
+        "bitnami/charts"
       ],
-      "pinDigests": true
+      "extractVersion": "^postgresql/(?<version>.*)$"
     },
     {
       "matchDatasources": [
@@ -71,19 +74,91 @@
         "github-tags"
       ],
       "matchDepNames": [
-        "immich-postgres-chart"
+        "immich-chart"
       ],
       "matchPackageNames": [
-        "bitnami/charts"
+        "immich-app/immich-charts"
       ],
-      "extractVersion": "^postgresql/(?<version>.*)$"
+      "extractVersion": "^immich-(?<version>.*)$"
     },
     {
       "matchDatasources": [
         "github-tags"
       ],
       "matchDepNames": [
-        "victoriametrics"
+        "jdownloader2-chart"
+      ],
+      "matchPackageNames": [
+        "pmoscode-helm/jdownloader2"
+      ],
+      "extractVersion": "^jdownloader2-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "jellyfin-chart"
+      ],
+      "matchPackageNames": [
+        "jellyfin/jellyfin-helm"
+      ],
+      "extractVersion": "^jellyfin-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "nextcloud-chart"
+      ],
+      "matchPackageNames": [
+        "nextcloud/helm"
+      ],
+      "extractVersion": "^nextcloud-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "prometheus-operator-crds-chart"
+      ],
+      "matchPackageNames": [
+        "prometheus-community/helm-charts"
+      ],
+      "extractVersion": "^prometheus-operator-crds-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchDepNames": [
+        "sftp-server-image"
+      ],
+      "matchPackageNames": [
+        "atmoz/sftp"
+      ],
+      "pinDigests": true
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "sftp-server-chart"
+      ],
+      "matchPackageNames": [
+        "sj14/helm-charts"
+      ],
+      "extractVersion": "^sftp-server-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "victoriametrics-chart"
       ],
       "matchPackageNames": [
         "VictoriaMetrics/helm-charts"
@@ -101,63 +176,6 @@
         "VictoriaMetrics/helm-charts"
       ],
       "extractVersion": "^victoria-metrics-operator-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchPackageNames": [
-        "jellyfin/jellyfin-helm"
-      ],
-      "extractVersion": "^jellyfin-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchPackageNames": [
-        "nextcloud/helm"
-      ],
-      "extractVersion": "^nextcloud-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchPackageNames": [
-        "immich-app/immich-charts"
-      ],
-      "extractVersion": "^immich-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
-        "prometheus-operator-crds"
-      ],
-      "matchPackageNames": [
-        "prometheus-community/helm-charts"
-      ],
-      "extractVersion": "^prometheus-operator-crds-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchPackageNames": [
-        "sj14/helm-charts"
-      ],
-      "extractVersion": "^sftp-server-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchPackageNames": [
-        "pmoscode-helm/jdownloader2"
-      ],
-      "extractVersion": "^jdownloader2-(?<version>.*)$"
     }
   ]
 }

@@ -33,6 +33,10 @@ jdownloader2:
   # renovate: datasource=github-tags depName=jdownloader2-chart packageName=pmoscode-helm/jdownloader2
   version: "1.6.0"
 
+jellyfin:
+  # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
+  version: "2.3.0"
+
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
   version: "1.10.0"
@@ -48,12 +52,8 @@ nextcloud:
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
   version: "8.1.0"
 
-jellyfin:
-  # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
-  version: "2.3.0"
-
 prometheusOperatorCrds:
-  # renovate: datasource=github-tags depName=prometheus-operator-crds-image packageName=prometheus-community/helm-charts
+  # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
   version: "21.0.0"
 
 sealed-secrets:
@@ -62,7 +62,7 @@ sealed-secrets:
 
 sftpServer:
   image:
-    # renovate: datasource=docker depName=sftp-image packageName=atmoz/sftp
+    # renovate: datasource=docker depName=sftp-server-image packageName=atmoz/sftp
     version: "alpine@sha256:9301b69cd4b37c63f84193eda57689c7a9bca6ca7bea049d72a3405cb9d6d88c"
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.0"
