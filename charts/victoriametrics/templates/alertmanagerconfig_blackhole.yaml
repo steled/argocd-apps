@@ -51,6 +51,7 @@ spec:
           - exported_severity="info"
           - severity="none"
         receiver: blackhole
+        continue: false
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
@@ -85,3 +86,4 @@ spec:
       - matchers:
           - alertname="Watchdog"
         receiver: blackhole
+        continue: false
