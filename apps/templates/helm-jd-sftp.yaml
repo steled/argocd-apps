@@ -25,6 +25,11 @@ spec:
             value: {{ .Values.jdSftp.downloader2.password }}
         valueFiles:
           - $values/charts/jd-sftp/jdownloader2/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/jd-sftp/jdownloader2
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: jdownloader2-addition
     - chart: sftp-server
       repoURL: https://sj14.github.io/helm-charts
       targetRevision: {{ .Values.sftpServer.version }}
