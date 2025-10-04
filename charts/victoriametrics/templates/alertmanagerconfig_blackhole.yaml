@@ -3,6 +3,8 @@ kind: AlertmanagerConfig
 metadata:
   name: mute-nextcloud-pgdumpall
 spec:
+  receivers:
+    - name: blackhole
   route:
     continue: false
     groupInterval: 1m
@@ -34,6 +36,8 @@ kind: AlertmanagerConfig
 metadata:
   name: mute-watchdog
 spec:
+  receivers:
+    - name: blackhole
   route:
     continue: false
     groupInterval: 1m
