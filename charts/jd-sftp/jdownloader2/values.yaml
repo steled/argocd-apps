@@ -2,8 +2,9 @@ image:
   tag: ''
 
 myjd:
-  email: ''
-  password: ''
+  existingSecretName: myjd
+  # email: ''
+  # password: ''
 
 persistence:
   accessMode: ReadWriteMany
