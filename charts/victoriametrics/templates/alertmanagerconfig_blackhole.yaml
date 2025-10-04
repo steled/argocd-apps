@@ -42,5 +42,5 @@ spec:
     - receiver: blackhole
       matchers:
         - name: alertname
-          value: Watchdog
-          matchType: "="
+          value: "^Watchdog$"
+          matchType: "=~"
