@@ -38,6 +38,10 @@ metadata:
 spec:
   receivers:
     - name: blackhole
+      matchers:
+        - name: alertname
+          value: "^Watchdog$"
+          matchType: "=~"
   route:
     continue: false
     groupInterval: 1m
