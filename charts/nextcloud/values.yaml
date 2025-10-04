@@ -94,7 +94,7 @@ nextcloud:
 
   existingSecret:
     enabled: true
-    secretName: nextcloud-secret
+    secretName: nextcloud
     usernameKey: nextcloud-username
     passwordKey: nextcloud-password
     smtpUsernameKey: smtp-username
@@ -171,7 +171,7 @@ externalDatabase:
   database: ''
   existingSecret:
     enabled: true
-    secretName: nextcloud-secret
+    secretName: nextcloud
     usernameKey: postgresql-username
     passwordKey: postgresql-user-password
 
@@ -192,7 +192,7 @@ postgresql:
       auth:
         database: ''
         username: ''
-        existingSecret: nextcloud-secret
+        existingSecret: nextcloud
         secretKeys:
           adminPasswordKey: postgresql-admin-password
           userPasswordKey: postgresql-user-password
@@ -212,7 +212,7 @@ postgresql:
     #       - name: POSTGRES_PASSWORD
     #         valueFrom:
     #           secretKeyRef:
-    #             name: nextcloud-secret
+    #             name: nextcloud
     #             key: postgresql-admin-password
     #     volumeMounts:
     #       - mountPath: "/bitnami/postgresql"
@@ -225,7 +225,7 @@ postgresql:
 redis:
   enabled: true
   auth:
-    existingSecret: nextcloud-secret
+    existingSecret: nextcloud
     existingSecretPasswordKey: redis-password
   global:
     defaultStorageClass: longhorn
