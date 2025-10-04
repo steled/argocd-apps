@@ -38,10 +38,6 @@ metadata:
 spec:
   receivers:
     - name: blackhole
-      matchers:
-        - name: alertname
-          value: "^Watchdog$"
-          matchType: "=~"
   route:
     continue: false
     groupInterval: 1m
@@ -50,5 +46,21 @@ spec:
     - receiver: blackhole
       matchers:
         - name: alertname
-          value: "^Watchdog$"
-          matchType: "=~"
+          value: "Watchdog"
+          matchType: "="
+---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlertmanagerConfig
+metadata:
+  name: mute-watchdog
+spec:
+  disableNamespaceMatcher: true
+  receivers:
+    - name: blackhole
+  route:
+    group_interval: 1m
+    receiver: blackhole
+    routes:
+      - matchers:
+          - alertname="Watchdog"
+        receiver: blackhole
