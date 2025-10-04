@@ -28,13 +28,6 @@ spec:
       path: ./charts/longhorn
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
-        parameters:
-          - name: "secret.awsAccessKeyId"
-            value: {{ .Values.longhorn.secret.awsAccessKeyId }}
-          - name: "secret.awsSecretAccessKey"
-            value: {{ .Values.longhorn.secret.awsSecretAccessKey }}
-          - name: "secret.awsEndpoints"
-            value: {{ .Values.longhorn.secret.awsEndpoints }}
         releaseName: longhorn-addition
         valueFiles:
           - ./values.yaml
