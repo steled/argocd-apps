@@ -6,7 +6,7 @@ defaultDashboards:
 alertmanager:
   spec:
     disableNamespaceMatcher: true
-    # disableRouteContinueEnforce: true
+    disableRouteContinueEnforce: true
   ingress:
     enabled: true
     ingressClassName: cilium
