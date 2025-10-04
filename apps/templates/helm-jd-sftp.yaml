@@ -19,10 +19,6 @@ spec:
         parameters:
           - name: "image.tag"
             value: {{ .Values.jdownloader2.image.version }}
-          - name: "myjd.email"
-            value: {{ .Values.jdSftp.jdownloader2.email }}
-          - name: "myjd.password"
-            value: {{ .Values.jdSftp.downloader2.password }}
         valueFiles:
           - $values/charts/jd-sftp/jdownloader2/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
