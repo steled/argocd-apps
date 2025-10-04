@@ -4,6 +4,8 @@ defaultDashboards:
   defaultTimezone: Europe/Berlin
 
 alertmanager:
+  spec:
+    disableNamespaceMatcher: true
   ingress:
     enabled: true
     ingressClassName: cilium

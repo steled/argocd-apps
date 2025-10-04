@@ -54,7 +54,6 @@ kind: VMAlertmanagerConfig
 metadata:
   name: mute-watchdog
 spec:
-  disableNamespaceMatcher: true
   receivers:
     - name: blackhole
   route:
