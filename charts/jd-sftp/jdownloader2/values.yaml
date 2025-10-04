@@ -3,8 +3,6 @@ image:
 
 myjd:
   existingSecretName: myjd
-  # email: ''
-  # password: ''
 
 persistence:
   accessMode: ReadWriteMany
