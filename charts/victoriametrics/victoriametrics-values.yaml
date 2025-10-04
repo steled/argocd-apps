@@ -23,16 +23,16 @@ alertmanager:
     route:
       # receiver: webhook
       receiver: telegram
-      # routes:
-      #   - receiver: blackhole
-      #     matchers:
-      #     - alertname="Watchdog"
+      routes:
+        - receiver: blackhole
+          matchers:
+          - alertname="Watchdog"
     receivers:
       - name: telegram
         telegram_configs:
           - bot_token: ''
             chat_id: ''
-      # - name: blackhole
+      - name: blackhole
       # - name: webhook
       #   webhook_configs:
       #   - url: https://${notify_domain}/notify/${apprise_config_id}?template=json&disabletls=yes&messagekey=body
