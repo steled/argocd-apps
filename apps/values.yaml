@@ -33,6 +33,10 @@ jdownloader2:
   # renovate: datasource=github-tags depName=jdownloader2-chart packageName=pmoscode-helm/jdownloader2
   version: "1.6.0"
 
+jellyfin:
+  # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
+  version: "2.3.0"
+
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
   version: "1.10.0"
@@ -47,10 +51,6 @@ nextcloud:
     version: "32.0.0-fpm"
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
   version: "8.1.0"
-
-jellyfin:
-  # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
-  version: "2.3.0"
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
