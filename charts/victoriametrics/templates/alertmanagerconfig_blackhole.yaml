@@ -39,6 +39,7 @@ spec:
   receivers:
     - name: blackhole
   route:
+    continue: false
     group_interval: 1m
     receiver: blackhole
     routes:
@@ -77,6 +78,7 @@ spec:
   receivers:
     - name: blackhole
   route:
+    continue: false
     group_interval: 1m
     receiver: blackhole
     routes:
