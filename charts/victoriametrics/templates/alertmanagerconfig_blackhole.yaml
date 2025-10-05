@@ -59,7 +59,7 @@ spec:
   route:
     continue: true
     group_interval: 1m
-    receiver: blackhole
+    receiver: telegram
     routes:
       - matchers:
           - alertname="Watchdog"
