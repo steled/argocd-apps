@@ -82,14 +82,14 @@ spec:
   receivers:
     - name: blackhole
   route:
-    continue: true
+    continue: false
     group_interval: 1m
     matchers:
       alertname="Watchdog"
     receiver: blackhole
-    routes:
-      - receiver: blackhole
-        continue: false
+    # routes:
+    #   - receiver: blackhole
+    #     continue: false
       # - matchers:
       #     - namespace="nextcloud"
       #     - alertgroup="general.rules"
