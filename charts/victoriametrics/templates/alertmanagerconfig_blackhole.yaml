@@ -56,6 +56,7 @@ metadata:
 spec:
   receivers:
     - name: blackhole
+    - name: telegram
   route:
     continue: true
     group_interval: 1m
