@@ -77,7 +77,7 @@
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMAlertmanagerConfig
 metadata:
-  name: mute
+  name: mute-watchdog
 spec:
   receivers:
     - name: blackhole
@@ -99,3 +99,22 @@ spec:
       #     - severity="none"
       #   receiver: blackhole
       #   continue: false
+---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlertmanagerConfig
+metadata:
+  name: mute-cputhrottlinghigh
+spec:
+  receivers:
+    - name: blackhole
+  route:
+    continue: false
+    group_interval: 1m
+    matchers:
+      - namespace="nextcloud"
+      - alertgroup="general.rules"
+      - alertname="InfoInhibitor"
+      - exported_alertname="CPUThrottlingHigh"
+      - exported_severity="info"
+      - severity="none"
+    receiver: blackhole
