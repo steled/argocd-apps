@@ -49,28 +49,28 @@
 #           value: "Watchdog"
 #           matchType: "="
 # ---
-# apiVersion: operator.victoriametrics.com/v1beta1
-# kind: VMAlertmanagerConfig
-# metadata:
-#   name: mute
-# spec:
-#   receivers:
-#     - name: blackhole
-#   route:
-#     continue: false
-#     group_interval: 1m
-#     receiver: blackhole
-#     routes:
-#       - matchers:
-#           - alertname="Watchdog"
-#         receiver: blackhole
-#         continue: false
-#       - matchers:
-#           - namespace="nextcloud"
-#           - alertgroup="general.rules"
-#           - alertname="InfoInhibitor"
-#           - exported_alertname="CPUThrottlingHigh"
-#           - exported_severity="info"
-#           - severity="none"
-#         receiver: blackhole
-#         continue: false
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlertmanagerConfig
+metadata:
+  name: mute
+spec:
+  receivers:
+    - name: blackhole
+  route:
+    continue: true
+    group_interval: 1m
+    receiver: blackhole
+    routes:
+      - matchers:
+          - alertname="Watchdog"
+        receiver: blackhole
+        continue: false
+      - matchers:
+          - namespace="nextcloud"
+          - alertgroup="general.rules"
+          - alertname="InfoInhibitor"
+          - exported_alertname="CPUThrottlingHigh"
+          - exported_severity="info"
+          - severity="none"
+        receiver: blackhole
+        continue: false
