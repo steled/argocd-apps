@@ -1,8 +1,8 @@
 endpoint:
   minio:
-    ip: ''
+    ip: 172.16.4.26
   minioConsole:
-    ip: ''
+    ip: 172.16.4.26
 
 ingress:
   minio:

@@ -4,7 +4,7 @@ metadata:
   name: minio
 subsets:
 - addresses:
-  - ip: 172.16.4.26
+  - ip: {{ .Values.endpoint.minio.ip }}
   ports:
   - name: http
     port: 9000
@@ -16,7 +16,7 @@ metadata:
   name: minio-console
 subsets:
 - addresses:
-  - ip: 172.16.4.26
+  - ip: {{ .Values.endpoint.minioConsole.ip }}
   ports:
   - name: http
     port: 9001
