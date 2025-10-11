@@ -16,8 +16,6 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       parameters:
-        # - name: "endpoint.ip"
-        #   value: {{ .Values.hassio.endpoint.ip }}
         - name: "ingress.host0"
           value: {{ .Values.hassio.ingress.host0 }}
         - name: "ingress.tls0.hosts0"
