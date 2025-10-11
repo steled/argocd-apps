@@ -27,7 +27,7 @@ spec:
         - $values/charts/hassio/values.yaml
   syncPolicy:
     automated:
-      enable: true
+      enabled: true
       prune: true
     syncOptions:
       - ApplyOutOfSyncOnly=true

@@ -35,7 +35,7 @@ spec:
             value: "false"
   syncPolicy:
     automated:
-      enable: true
+      enabled: true
       prune: true
     syncOptions:
       - ApplyOutOfSyncOnly=true
