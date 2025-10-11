@@ -26,5 +26,9 @@ spec:
       valueFiles:
         - $values/charts/hassio/values.yaml
   syncPolicy:
+    automated:
+      enable: true
+      prune: true
     syncOptions:
+      - ApplyOutOfSyncOnly=true
       - CreateNamespace=true

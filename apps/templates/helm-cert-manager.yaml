@@ -25,5 +25,9 @@ spec:
             value: {{ .Values.certmanager.clusterIssuer.email }}
         releaseName: cert-manager-addition
   syncPolicy:
+    automated:
+      enable: true
+      prune: true
     syncOptions:
+      - ApplyOutOfSyncOnly=true
       - CreateNamespace=true

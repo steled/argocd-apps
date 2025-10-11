@@ -57,5 +57,9 @@ spec:
       targetRevision: main
       ref: values
   syncPolicy:
+    automated:
+      enable: true
+      prune: true
     syncOptions:
+      - ApplyOutOfSyncOnly=true
       - CreateNamespace=true

@@ -32,5 +32,9 @@ spec:
       valueFiles:
         - $values/charts/minio/values.yaml
   syncPolicy:
+    automated:
+      enable: true
+      prune: true
     syncOptions:
+      - ApplyOutOfSyncOnly=true
       - CreateNamespace=true

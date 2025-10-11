@@ -59,5 +59,9 @@ spec:
         valueFiles:
           - ./victoriametrics-addition-values.yaml
   syncPolicy:
+    automated:
+      enable: true
+      prune: true
     syncOptions:
+      - ApplyOutOfSyncOnly=true
       - CreateNamespace=true

@@ -34,5 +34,9 @@ spec:
           - name: "rbac.aggregatedClusterRoles.enabled"
             value: "false"
   syncPolicy:
+    automated:
+      enable: true
+      prune: true
     syncOptions:
+      - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
