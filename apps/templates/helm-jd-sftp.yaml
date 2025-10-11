@@ -34,8 +34,8 @@ spec:
         parameters:
           - name: "image.tag"
             value: {{ .Values.sftpServer.image.version }}
-          - name: "service.annotations.lbipam\\.cilium\\.io/ips"
-            value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
+          # - name: "service.annotations.lbipam\\.cilium\\.io/ips"
+          #   value: {{ .Values.jdSftp.sftpServer.service.annotations.lbipamCiliumIoIps }}
         valueFiles:
           - $values/charts/jd-sftp/sftp-server/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
