@@ -15,7 +15,7 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: cloudflare-letsencrypt-staging
       ingress.cilium.io/loadbalancer-mode: dedicated
-      lbipam.cilium.io/ips: "172.16.4.41"
+      lbipam.cilium.io/ips: 172.16.4.41
     hosts:
       - host: ''
         paths:
