@@ -16,8 +16,8 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       parameters:
-        - name: "endpoint.minio.ip"
-          value: {{ .Values.minio.endpoint.minio.ip }}
+        # - name: "endpoint.minio.ip"
+        #   value: {{ .Values.minio.endpoint.minio.ip }}
         - name: "ingress.minio.host0"
           value: {{ .Values.minio.ingress.minio.host0 }}
         - name: "ingress.minio.tls0.hosts0"
