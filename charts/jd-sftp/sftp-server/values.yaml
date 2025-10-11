@@ -10,7 +10,7 @@ extraVolumes:
 
 service:
   annotations:
-    lbipam.cilium.io/ips: "172.16.4.43"
+    lbipam.cilium.io/ips: 172.16.4.43
   type: LoadBalancer
 
 sftp:
