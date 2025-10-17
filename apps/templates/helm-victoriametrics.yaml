@@ -1,8 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    argocd.argoproj.io/skip-reconcile: "true"
   name: helm-victoriametrics
   namespace: argocd
   finalizers:
@@ -62,7 +60,7 @@ spec:
           - ./victoriametrics-addition-values.yaml
   syncPolicy:
     automated:
-      enabled: false
+      enabled: true
       prune: true
     syncOptions:
       - ApplyOutOfSyncOnly=true
