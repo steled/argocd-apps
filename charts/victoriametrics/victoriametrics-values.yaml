@@ -91,6 +91,11 @@ vmalert:
         - ''
 
 vmsingle:
+  spec:
+    storage:
+      resources:
+        requests:
+          storage: 40Gi
   ingress:
     enabled: true
     ingressClassName: cilium
