@@ -22,7 +22,7 @@ immich:
       version: "pg17-v0.5.3"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
-    version: "v2.0.1"
+    version: "v2.1.0"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
   version: "0.9.3"
 
@@ -50,11 +50,11 @@ nextcloud:
     # renovate: datasource=docker depName=nextcloud-fpm-image packageName=nextcloud
     version: "32.0.0-fpm"
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
-  version: "8.4.0"
+  version: "8.4.1"
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
-  version: "24.0.0"
+  version: "24.0.1"
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
@@ -65,7 +65,7 @@ sftpServer:
     # renovate: datasource=docker depName=sftp-server-image packageName=atmoz/sftp
     version: "alpine@sha256:61313b2ba0b9aa95a5bf5ff51386963219dd019ad9a7b5f4017bedf8d7309e11"
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
-  version: "0.8.0"
+  version: "0.8.1"
 
 vault:
   # renovate: datasource=github-tags depName=hashicorp-vault-chart packageName=hashicorp/vault-helm
@@ -77,7 +77,7 @@ victoriametrics:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
       version: "3.2.6-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
-  version: "0.61.3"
+  version: "0.61.7"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
