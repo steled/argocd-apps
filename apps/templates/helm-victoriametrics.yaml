@@ -62,7 +62,7 @@ spec:
           - ./victoriametrics-addition-values.yaml
   syncPolicy:
     automated:
-      enabled: true
+      enabled: false
       prune: true
     syncOptions:
       - ApplyOutOfSyncOnly=true
