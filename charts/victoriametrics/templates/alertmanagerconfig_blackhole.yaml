@@ -34,7 +34,7 @@ spec:
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMAlertmanagerConfig
 metadata:
-  name: mute-cputhrottlinghigh
+  name: mute-recordingrulesnodata
 spec:
   receivers:
     - name: blackhole
