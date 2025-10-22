@@ -42,9 +42,29 @@ spec:
     continue: false
     group_interval: 1m
     matchers:
-      - alertstate="pending"
+      - alertname="RecordingRulesNoData"
+      - alertgroup="vmalert"
+      - recording="count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile"
+      - severity="info"
+    receiver: blackhole
+---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlertmanagerConfig
+metadata:
+  name: mute-InfoInhibitor
+spec:
+  receivers:
+    - name: blackhole
+  route:
+    continue: false
+    group_interval: 1m
+    matchers:
+      - alertname="InfoInhibitor"
+      - alertgroup="general.rules"
+      - alertstate="firing|pending"
       - exported_alertgroup="vmalert"
       - exported_alertname="RecordingRulesNoData"
       - exported_severity="info"
+      - recording="count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile"
       - severity="none"
     receiver: blackhole
