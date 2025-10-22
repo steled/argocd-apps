@@ -61,7 +61,7 @@ spec:
     matchers:
       - alertname="InfoInhibitor"
       - alertgroup="general.rules"
-      - alertstate="firing|pending"
+      - alertstate=~"firing|pending"
       - exported_alertgroup="vmalert"
       - exported_alertname="RecordingRulesNoData"
       - exported_severity="info"
