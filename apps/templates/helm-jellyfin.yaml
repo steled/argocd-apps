@@ -34,9 +34,9 @@ spec:
       targetRevision: main
       ref: values
   syncPolicy:
-    # automated:
-    #   enabled: true
-    #   prune: true
+    automated:
+      enabled: true
+      prune: true
     syncOptions:
-      # - ApplyOutOfSyncOnly=true
+      - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
