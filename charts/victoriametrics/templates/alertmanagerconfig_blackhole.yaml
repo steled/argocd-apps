@@ -51,7 +51,7 @@ spec:
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMAlertmanagerConfig
 metadata:
-  name: mute-InfoInhibitor
+  name: mute-infoinhibitor
 spec:
   receivers:
     - name: blackhole
