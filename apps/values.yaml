@@ -24,7 +24,7 @@ immich:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
     version: "v2.1.0"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
-  version: "0.10.0"
+  version: "0.10.1"
 
 jdownloader2:
   image:
