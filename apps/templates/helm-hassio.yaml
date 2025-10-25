@@ -23,7 +23,7 @@ spec:
       helm:
         releaseName: hassio
         valueFiles:
-          - $values/charts/hassio/values.yaml
+          - ./values.yaml
   syncPolicy:
     automated:
       enabled: true
