@@ -1,9 +1,3 @@
-{{- $secret := lookup "v1" "Secret" "hassio" "hassio-ingress-secret" -}}
-{{- $host0 := "" -}}
-{{- if $secret }}
-  {{- $host0 = (index $secret.data "ingress-host" | b64dec) -}}
-{{- end }}
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -14,7 +8,7 @@ metadata:
 spec:
   ingressClassName: cilium
   rules:
-  - host: {{ $host0 }}
+  - host: {{ .Values.ingress.host0 }}
     http:
       paths:
       - backend:
@@ -26,5 +20,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - {{ $host0 }}
+    - {{ .Values.ingress.tls0.hosts0 }}
     secretName: hassio-secret
