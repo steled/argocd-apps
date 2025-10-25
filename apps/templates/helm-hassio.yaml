@@ -17,9 +17,8 @@ spec:
       path: ./charts/hassio/secrets
       targetRevision: {{ .Values.spec.source.targetRevision }}
 
-    - chart: hassio
-      path: charts/hassio
-      repoURL: git@github.com:steled/argocd-apps.git
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/hassio
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
         releaseName: hassio
