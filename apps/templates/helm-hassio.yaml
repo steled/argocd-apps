@@ -12,20 +12,18 @@ spec:
     namespace: hassio
     server: {{ .Values.spec.destination.server }}
   project: apps
-  source:
-    path: ./charts/hassio
-    repoURL: git@github.com:steled/argocd-apps.git
-    # targetRevision: {{ .Values.spec.source.targetRevision }}
-    targetRevision: sealed-secrets
-    helm:
-      parameters:
-        - name: "ingress.host0"
-          value: {{ .Values.hassio.ingress.host0 }}
-        - name: "ingress.tls0.hosts0"
-          value: {{ .Values.hassio.ingress.tls0.hosts0 }}
-      releaseName: hassio
-      valueFiles:
-        - $values/charts/hassio/values.yaml
+  sources:
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/hassio/secrets
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/hassio
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: hassio
+        valueFiles:
+          - ./values.yaml
   syncPolicy:
     automated:
       enabled: true
