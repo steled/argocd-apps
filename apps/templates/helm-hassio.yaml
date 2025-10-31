@@ -15,11 +15,13 @@ spec:
   sources:
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/hassio/secrets
-      targetRevision: {{ .Values.spec.source.targetRevision }}
+      # targetRevision: {{ .Values.spec.source.targetRevision }}
+      targetRevision: sealed-secrets
 
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/hassio
-      targetRevision: {{ .Values.spec.source.targetRevision }}
+      # targetRevision: {{ .Values.spec.source.targetRevision }}
+      targetRevision: sealed-secrets
       helm:
         releaseName: hassio
         valueFiles:
