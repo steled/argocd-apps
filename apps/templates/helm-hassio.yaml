@@ -26,6 +26,11 @@ spec:
         releaseName: hassio
         valueFiles:
           - ./values.yaml
+        valuesFrom:
+          - kind: Secret
+            name: hassio-ingress-secret
+            valuesKey: ingress-host
+            targetPath: ingress.host
   syncPolicy:
     automated:
       enabled: true
