@@ -38,6 +38,7 @@ persistence:
   defaultClassReplicaCount: 2
   migratable: false
   reclaimPolicy: Retain
+  unmapMarkSnapChainRemoved: enabled
 
 preUpgradeChecker:
   jobEnabled: false
