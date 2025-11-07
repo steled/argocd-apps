@@ -35,7 +35,7 @@ jdownloader2:
 
 jellyfin:
   # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
-  version: "2.4.0"
+  version: "2.5.0"
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
