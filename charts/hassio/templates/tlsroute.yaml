@@ -12,9 +12,8 @@ spec:
     namespace: kube-system
   rules:
   - backendRefs:
-    - name: hassio
+    - group: ''
+      kind: Service
+      name: hassio
       port: 443
-    matches:
-    - path:
-        type: PathPrefix
-        value: /
+      weight: 1
