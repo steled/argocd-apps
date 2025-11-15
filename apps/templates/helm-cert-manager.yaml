@@ -18,6 +18,11 @@ spec:
       targetRevision: {{ .Values.certmanager.version }}
       helm:
         releaseName: cert-manager
+        valueFiles:
+          - $values/charts/cert-manager/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/cert-manager
       targetRevision: {{ .Values.spec.source.targetRevision }}
