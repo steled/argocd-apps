@@ -1,0 +1,19 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: hassio
+  namespace: hassio
+spec:
+  hostnames:
+    - {{ .Values.tlsroute.hostnames0 }}
+  parentRefs:
+    - name: shared-gateway
+      namespace: kube-system
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: hassio
+          port: 443
