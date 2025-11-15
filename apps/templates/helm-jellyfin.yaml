@@ -32,8 +32,9 @@ spec:
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
         releaseName: jellyfin-addition
-        valueFiles:
-          - ./values.yaml
+        parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.jellyfin.httproute.hostnames0 }}
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
