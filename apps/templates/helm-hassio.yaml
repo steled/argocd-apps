@@ -18,6 +18,8 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       parameters:
+        - name: "tlsroute.hostnames0"
+          value: {{ .Values.hassio.tlsroute.hostnames0 }}
         - name: "ingress.host0"
           value: {{ .Values.hassio.ingress.host0 }}
         - name: "ingress.tls0.hosts0"

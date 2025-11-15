@@ -6,7 +6,7 @@ metadata:
   name: hassio
 spec:
   hostnames:
-  - {{ .Values.ingress.host0 }}
+  - {{ .Values.tlsroute.hostnames0 }}
   parentRefs:
   - name: shared-gateway
     namespace: kube-system
