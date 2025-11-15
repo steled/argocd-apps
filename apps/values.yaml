@@ -19,12 +19,12 @@ immich:
     version: "17.0.1"
     image:
       # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
-      version: "pg17-v0.5.3"
+      version: "pg17-v1.0.0"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
     version: "v2.2.3"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
-  version: "0.10.1"
+  version: "0.10.2"
 
 jdownloader2:
   image:
@@ -39,7 +39,7 @@ jellyfin:
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
-  version: "1.10.0"
+  version: "1.10.1"
 
 minio:
   # renovate: datasource=helm depName=minio-chart packageName=minio registryUrl=https://charts.min.io/
@@ -54,7 +54,7 @@ nextcloud:
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
-  version: "24.0.1"
+  version: "24.0.2"
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
@@ -75,9 +75,9 @@ victoriametrics:
   metricsProxy:
     image:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
-      version: "3.2.7-alpine"
+      version: "3.2.8-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
-  version: "0.63.3"
+  version: "0.63.5"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
