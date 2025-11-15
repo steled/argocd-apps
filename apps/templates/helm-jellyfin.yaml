@@ -20,8 +20,6 @@ spec:
         valueFiles:
           - $values/charts/jellyfin/values.yaml
         parameters:
-          - name: "httproute.hostnames0"
-            value: {{ .Values.jellyfin.httproute.hostnames0 }}
           - name: "ingress.hosts[0].host"
             value: {{ .Values.jellyfin.ingress.hosts0.host }}
           - name: "ingress.tls[0].hosts[0]"
