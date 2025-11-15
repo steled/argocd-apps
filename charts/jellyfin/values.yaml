@@ -1,3 +1,6 @@
+httproute:
+  hostnames0: ""
+
 ingress:
   enabled: true
   className: cilium
