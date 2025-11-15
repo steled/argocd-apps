@@ -1,5 +1,5 @@
 apiVersion: gateway.networking.k8s.io/v1
-kind: TLSRoute
+kind: TLSRoutes
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-{{ .Values.ingress.environment }}
