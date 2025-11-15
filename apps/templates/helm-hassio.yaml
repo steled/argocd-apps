@@ -29,6 +29,9 @@ spec:
     automated:
       enabled: true
       prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
