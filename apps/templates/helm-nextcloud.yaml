@@ -50,6 +50,8 @@ spec:
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
         parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.nextcloud.httproute.hostnames0 }}
           - name: "job.nextcloud.maintenance.image"
             value: {{ .Values.nextcloud.fpm.version }}
         releaseName: nextcloud-addition
@@ -62,6 +64,9 @@ spec:
     automated:
       enabled: true
       prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
