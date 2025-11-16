@@ -17,14 +17,12 @@ spec:
       repoURL: https://charts.longhorn.io
       targetRevision: {{ .Values.longhorn.version }}
       helm:
-        valueFiles:
-          - $values/charts/longhorn/values.yaml
         parameters:
-          - name: "httproute.hostnames0"
-            value: {{ .Values.longhorn.httproute.hostnames0 }}
           - name: "ingress.host"
             value: {{ .Values.longhorn.host }}
         releaseName: longhorn
+        valueFiles:
+          - $values/charts/longhorn/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
@@ -32,6 +30,9 @@ spec:
       path: ./charts/longhorn
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
+        parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.longhorn.httproute.hostnames0 }}
         releaseName: longhorn-addition
         valueFiles:
           - ./values.yaml
