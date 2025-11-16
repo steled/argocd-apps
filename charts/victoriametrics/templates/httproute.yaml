@@ -4,7 +4,7 @@ metadata:
   name: grafana
 spec:
   hostnames:
-    - {{ .Values.httproute.grafana.hostnames0 }}
+    - {{ .Values.grafana.httproute.hostnames0 }}
   parentRefs:
     - name: shared-gateway
       namespace: kube-system
