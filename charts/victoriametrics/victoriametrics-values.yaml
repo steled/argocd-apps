@@ -19,6 +19,13 @@ alertmanager:
     - secretName: alertmanager-tls
       hosts:
         - ''
+  route:
+    enabled: true
+    parentRefs:
+      - name: shared-gateway
+        namespace: kube-system
+    hostnames:
+      - ''
   config:
     route:
       # receiver: webhook
@@ -62,7 +69,6 @@ vmagent:
       requests:
         memory: "200Mi"
         cpu: "50m"
-
   ingress:
     enabled: true
     ingressClassName: cilium
@@ -75,6 +81,13 @@ vmagent:
     - secretName: vmagent-tls
       hosts:  
         - ''
+  route:
+    enabled: true
+    parentRefs:
+      - name: shared-gateway
+        namespace: kube-system
+    hostnames:
+      - ''
 
 vmalert:
   ingress:
@@ -89,6 +102,13 @@ vmalert:
     - secretName: vmalert-tls
       hosts:
         - ''
+  route:
+    enabled: true
+    parentRefs:
+      - name: shared-gateway
+        namespace: kube-system
+    hostnames:
+      - ''
 
 vmsingle:
   spec:
@@ -108,6 +128,13 @@ vmsingle:
       - secretName: vmsingle-tls
         hosts:
           - ''
+  route:
+    enabled: true
+    parentRefs:
+      - name: shared-gateway
+        namespace: kube-system
+    hostnames:
+      - ''
 
 grafana:
   # grafana.ini:

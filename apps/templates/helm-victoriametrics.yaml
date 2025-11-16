@@ -23,6 +23,8 @@ spec:
             value: {{ .Values.victoriametrics.alertmanager.ingress.hosts0 }}
           - name: "alertmanager.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.alertmanager.ingress.tls0.hosts0 }}
+          - name: "alertmanager.route.hostnames[0]"
+            value: {{ .Values.victoriametrics.alertmanager.route.hostnames0 }}
           - name: "alertmanager.config.receivers[0].telegram_configs[0].bot_token"
             value: {{ .Values.victoriametrics.alertmanager.config.receivers.telegram_configs.bot_token }}
           - name: "alertmanager.config.receivers[0].telegram_configs[0].chat_id"
@@ -35,8 +37,12 @@ spec:
             value: {{ .Values.victoriametrics.vmagent.ingress.hosts0 }}
           - name: "vmagent.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
+          - name: "vmagent.route.hostnames[0]"
+            value: {{ .Values.victoriametrics.vmagent.route.hostnames0 }}
           - name: "vmalert.ingress.hosts[0]"
             value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
+          - name: "vmalert.route.hostnames[0]"
+            value: {{ .Values.victoriametrics.vmalert.route.hostnames0 }}
           - name: "vmalert.spec.extraArgs.external\\.url"
             value: "https://{{ .Values.victoriametrics.grafana.ingress.hosts0 }}"
           - name: "vmalert.ingress.tls[0].hosts[0]"
@@ -45,6 +51,8 @@ spec:
             value: {{ .Values.victoriametrics.vmsingle.ingress.hosts0 }}
           - name: "vmsingle.ingress.tls[0].hosts[0]"
             value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
+          - name: "vmsingle.route.hostnames[0]"
+            value: {{ .Values.victoriametrics.vmsingle.route.hostnames0 }}
         valueFiles:
           - $values/charts/victoriametrics/victoriametrics-values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
@@ -57,6 +65,8 @@ spec:
         parameters:
           - name: "metricsProxy.image.version"
             value: {{ .Values.victoriametrics.metricsProxy.image.version }}
+          - name: "grafana.httproute.hostnames0"
+            value: {{ .Values.victoriametrics.grafana.httproute.hostnames0 }}
         releaseName: victoriametrics-addition
         valueFiles:
           - ./victoriametrics-addition-values.yaml
@@ -64,6 +74,9 @@ spec:
     automated:
       enabled: true
       prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
