@@ -20,6 +20,8 @@ spec:
         valueFiles:
           - $values/charts/longhorn/values.yaml
         parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.longhorn.httproute.hostnames0 }}
           - name: "ingress.host"
             value: {{ .Values.longhorn.host }}
         releaseName: longhorn
@@ -37,6 +39,9 @@ spec:
     automated:
       enabled: true
       prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
