@@ -18,6 +18,10 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       parameters:
+        - name: "httproute.minio.hostnames0"
+          value: {{ .Values.minio.httproute.minio.hostnames0 }}
+        - name: "httproute.minioConsole.hostnames0"
+          value: {{ .Values.minio.httproute.minioConsole.hostnames0 }}
         - name: "ingress.minio.host0"
           value: {{ .Values.minio.ingress.minio.host0 }}
         - name: "ingress.minio.tls0.hosts0"
@@ -33,6 +37,9 @@ spec:
     automated:
       enabled: true
       prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
