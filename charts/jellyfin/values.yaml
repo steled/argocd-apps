@@ -1,5 +1,5 @@
 ingress:
-  enabled: true
+  enabled: false
   className: cilium
   annotations:
     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
