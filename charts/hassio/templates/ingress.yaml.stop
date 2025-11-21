@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-{{ .Values.ingress.environment }}
+    ingress.cilium.io/loadbalancer-mode: shared
+  name: hassio
+spec:
+  ingressClassName: cilium
+  rules:
+  - host: {{ .Values.ingress.host0 }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: hassio
+            port:
+              number: 443
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - {{ .Values.ingress.tls0.hosts0 }}
+    secretName: hassio-secret
