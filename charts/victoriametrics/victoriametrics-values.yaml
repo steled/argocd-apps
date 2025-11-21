@@ -69,20 +69,20 @@ vmagent:
       requests:
         memory: "200Mi"
         cpu: "50m"
-  ingress:
-    enabled: false
-    ingressClassName: cilium
-    annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
-      ingress.cilium.io/loadbalancer-mode: shared
-    hosts:
-      - ''
-    tls:
-    - secretName: vmagent-tls
-      hosts:  
-        - ''
+  # ingress:
+  #   enabled: false
+  #   ingressClassName: cilium
+  #   annotations:
+  #     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+  #     ingress.cilium.io/loadbalancer-mode: shared
+  #   hosts:
+  #     - ''
+  #   tls:
+  #   - secretName: vmagent-tls
+  #     hosts:  
+  #       - ''
   route:
-    enabled: false
+    enabled: true
     parentRefs:
       - name: shared-gateway
         namespace: kube-system
