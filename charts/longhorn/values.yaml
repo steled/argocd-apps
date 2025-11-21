@@ -17,7 +17,7 @@ defaultSettings:
   storageReservedPercentageForDefaultDisk: "1"
 
 ingress:
-  enabled: true
+  enabled: false
   ingressClassName: cilium
   host: ''
   tls: true
