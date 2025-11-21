@@ -82,7 +82,7 @@ vmagent:
       hosts:  
         - ''
   route:
-    enabled: true
+    enabled: false
     parentRefs:
       - name: shared-gateway
         namespace: kube-system
