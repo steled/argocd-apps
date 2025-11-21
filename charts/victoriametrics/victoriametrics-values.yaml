@@ -8,7 +8,7 @@ alertmanager:
     disableNamespaceMatcher: true
     # disableRouteContinueEnforce: true
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: cilium
     annotations:
       cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
@@ -70,7 +70,7 @@ vmagent:
         memory: "200Mi"
         cpu: "50m"
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: cilium
     annotations:
       cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
@@ -91,7 +91,7 @@ vmagent:
 
 vmalert:
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: cilium
     annotations:
       cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
@@ -117,7 +117,7 @@ vmsingle:
         requests:
           storage: 40Gi
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: cilium
     annotations:
         cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
@@ -154,7 +154,7 @@ grafana:
   #     role_attribute_path: contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'
 
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: cilium
     annotations:
       cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
