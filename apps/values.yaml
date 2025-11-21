@@ -22,9 +22,9 @@ immich:
       version: "pg17-v1.0.0"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
-    version: "v2.2.3"
+    version: "v2.3.1"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
-  version: "0.10.2"
+  version: "0.10.3"
 
 jdownloader2:
   image:
@@ -77,7 +77,7 @@ victoriametrics:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
       version: "3.2.8-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
-  version: "0.63.5"
+  version: "0.63.6"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
