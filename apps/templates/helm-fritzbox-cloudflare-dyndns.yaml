@@ -1,0 +1,54 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: helm-fritzbox-cloudflare-dyndns
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: fritzbox-cloudflare-dyndns
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: fritzbox-cloudflare-dyndns
+      repoURL: https://steled.github.io/fritzbox-cloudflare-dyndns-chart/
+      targetRevision: {{ .Values.fritzbox-cloudflare-dyndns.version }}
+      helm:
+        valueFiles:
+          - $values/charts/fritzbox-cloudflare-dyndns/values.yaml
+        parameters:
+          - name: "secrets.cloudflareApiToken"
+            value: {{ .Values.fritzbox-cloudflare-dyndns.secrets.cloudflareApiToken }}
+          - name: "secrets.dyndnsServerPassword"
+            value: {{ .Values.fritzbox-cloudflare-dyndns.secrets.dyndnsServerPassword }}
+          - name: "env.cloudflareZonesIpv4"
+            value: {{ .Values.fritzbox-cloudflare-dyndns.env.cloudflareZonesIpv4 }}
+          - name: "env.cloudflareZonesIpv6"
+            value: {{ .Values.fritzbox-cloudflare-dyndns.env.cloudflareZonesIpv6 }}
+          - name: "env.dyndnsServerUsername"
+            value: {{ .Values.fritzbox-cloudflare-dyndns.env.dyndnsServerUsername }}
+        releaseName: fritzbox-cloudflare-dyndns
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/fritzbox-cloudflare-dyndns
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: fritzbox-cloudflare-dyndns-addition
+        parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.fritzbox-cloudflare-dyndns.httproute.hostnames0 }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
