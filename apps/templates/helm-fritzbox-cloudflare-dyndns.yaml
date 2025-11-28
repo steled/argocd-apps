@@ -13,7 +13,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - chart: fritzbox-cloudflare-dyndns
+    - chart: fritzbox-cloudflare-dyndns-chart
       repoURL: https://steled.github.io/fritzbox-cloudflare-dyndns-chart/
       targetRevision: {{ .Values.fritzboxCloudflareDyndns.version }}
       helm:
