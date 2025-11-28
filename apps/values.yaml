@@ -13,6 +13,10 @@ certmanager:
   # renovate: datasource=github-tags depName=cert-manager-chart packageName=cert-manager/cert-manager
   version: "v1.19.1"
 
+fritzboxCloudflareDyndns:
+  # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart
+  version: "0.0.6"
+
 immich:
   postgresql:
     # renovate: datasource=github-tags depName=immich-postgres-chart packageName=bitnami/charts
