@@ -15,7 +15,7 @@ certmanager:
 
 fritzboxCloudflareDyndns:
   # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart
-  version: "0.0.6"
+  version: "v0.0.6"
 
 immich:
   postgresql:
