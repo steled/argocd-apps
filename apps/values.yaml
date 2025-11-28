@@ -15,7 +15,7 @@ certmanager:
 
 fritzboxCloudflareDyndns:
   # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart packageName=steled/fritzbox-cloudflare-dyndns-chart
-  version: "0.0.7"
+  version: "0.0.8"
 
 immich:
   postgresql:
