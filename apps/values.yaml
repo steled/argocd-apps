@@ -14,7 +14,7 @@ certmanager:
   version: "v1.19.1"
 
 fritzboxCloudflareDyndns:
-  # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart
+  # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart packageName=steled/fritzbox-cloudflare-dyndns-chart
   version: "0.0.7"
 
 immich:
