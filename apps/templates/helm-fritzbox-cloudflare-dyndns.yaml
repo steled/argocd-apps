@@ -20,10 +20,6 @@ spec:
         valueFiles:
           - $values/charts/fritzbox-cloudflare-dyndns/values.yaml
         parameters:
-          - name: "secrets.cloudflareApiToken"
-            value: {{ .Values.fritzboxCloudflareDyndns.secrets.cloudflareApiToken }}
-          - name: "secrets.dyndnsServerPassword"
-            value: {{ .Values.fritzboxCloudflareDyndns.secrets.dyndnsServerPassword }}
           - name: "env.CLOUDFLARE_ZONES_IPV4"
             value: {{ .Values.fritzboxCloudflareDyndns.env.cloudflareZonesIpv4 }}
           - name: "env.CLOUDFLARE_ZONES_IPV6"

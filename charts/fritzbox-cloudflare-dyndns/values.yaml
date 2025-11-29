@@ -9,10 +9,10 @@ hostNetwork: false
 bindPort: 8080
 
 # Provide either secrets or set useExistingSecrets true and provide names
-useExistingSecrets: false
+useExistingSecrets: true
 secrets:
-  cloudflareApiToken: "" # plaintext token (will be placed into secret key 'token')
-  dyndnsServerPassword: "" # plaintext password (will be placed into secret key 'password')
+  cloudflareApiToken: "fritzbox-cloudflare-dyndns-chart" # plaintext token (will be placed into secret key 'token')
+  dyndnsServerPassword: "fritzbox-cloudflare-dyndns-chart" # plaintext password (will be placed into secret key 'password')
 
 # If you prefer to reference already-created secrets:
 existingSecrets:
