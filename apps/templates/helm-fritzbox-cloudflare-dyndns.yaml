@@ -24,11 +24,11 @@ spec:
             value: {{ .Values.fritzboxCloudflareDyndns.secrets.cloudflareApiToken }}
           - name: "secrets.dyndnsServerPassword"
             value: {{ .Values.fritzboxCloudflareDyndns.secrets.dyndnsServerPassword }}
-          - name: "env.cloudflareZonesIpv4"
+          - name: "env.CLOUDFLARE_ZONES_IPV4"
             value: {{ .Values.fritzboxCloudflareDyndns.env.cloudflareZonesIpv4 }}
-          - name: "env.cloudflareZonesIpv6"
+          - name: "env.CLOUDFLARE_ZONES_IPV6"
             value: {{ .Values.fritzboxCloudflareDyndns.env.cloudflareZonesIpv6 }}
-          - name: "env.dyndnsServerUsername"
+          - name: "env.DYNDNS_SERVER_USERNAME"
             value: {{ .Values.fritzboxCloudflareDyndns.env.dyndnsServerUsername }}
         releaseName: fritzbox-cloudflare-dyndns
     - repoURL: git@github.com:steled/argocd-apps.git
