@@ -109,10 +109,10 @@ vmalert:
         namespace: kube-system
     hostnames:
       - ''
-  spec:
-    extraArgs:
-      external.alert.source: |
-        explore?left=["{{`{{ .ActiveAt.UnixMilli }}`}}","now","{{`{{ if eq .Type "vlogs" }}VictoriaLogs{{ else }}VictoriaMetrics{{ end }}`}}",{"queries":[{"expr":{{`{{ .Expr|jsonEscape|queryEscape }}`}},"refId":"A"}]}]
+  # spec:
+  #   extraArgs:
+  #     external.alert.source: |
+  #       explore?left=["{{`{{ .ActiveAt.UnixMilli }}`}}","now","{{`{{ if eq .Type "vlogs" }}VictoriaLogs{{ else }}VictoriaMetrics{{ end }}`}}",{"queries":[{"expr":{{`{{ .Expr|jsonEscape|queryEscape }}`}},"refId":"A"}]}]
 
 vmsingle:
   spec:
