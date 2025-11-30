@@ -111,7 +111,8 @@ vmalert:
       - ''
   spec:
     extraArgs:
-      external.alert.source: 'explore?left={"datasource":"{{ if eq .Type "vlogs" }}VictoriaLogs{{ else }}VictoriaMetrics{{ end }}","queries":[{"expr":{{ .Expr|jsonEscape|queryEscape }},"refId":"A"}],"range":{"from":"{{ .ActiveAt.UnixMilli }}","to":"now"}}'
+      external.alert.source: >-
+        explore?left={"datasource":"{{ if eq .Type "vlogs" }}VictoriaLogs{{ else }}VictoriaMetrics{{ end }}","queries":[{"expr":{{ .Expr|jsonEscape|queryEscape }},"refId":"A"}],"range":{"from":"{{ .ActiveAt.UnixMilli }}","to":"now"}}
 
 vmsingle:
   spec:
