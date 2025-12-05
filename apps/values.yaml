@@ -15,7 +15,7 @@ certmanager:
 
 fritzboxCloudflareDyndns:
   # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart packageName=steled/fritzbox-cloudflare-dyndns-chart
-  version: "0.0.9"
+  version: "0.0.10"
 
 immich:
   postgresql:
@@ -39,7 +39,7 @@ jdownloader2:
 
 jellyfin:
   # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
-  version: "2.5.0"
+  version: "2.6.0"
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
@@ -79,9 +79,9 @@ victoriametrics:
   metricsProxy:
     image:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
-      version: "3.2.9-alpine"
+      version: "3.3.0-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
-  version: "0.63.6"
+  version: "0.65.0"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
