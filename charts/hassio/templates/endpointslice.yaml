@@ -1,0 +1,14 @@
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  labels:
+    kubernetes.io/service-name: hassio
+  name: hassio
+addressType: IPv4
+endpoints:
+  - addresses:
+    - {{ .Values.endpoint.minio.ip }}
+ports:
+  - name: http
+    port: 8123
+    protocol: TCP
