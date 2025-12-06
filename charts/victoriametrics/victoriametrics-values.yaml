@@ -139,6 +139,10 @@ vmsingle:
         namespace: kube-system
     hostnames:
       - ''
+    matches:
+      - path:
+          type: Exact
+          value: /health
 
 grafana:
   # grafana.ini:
