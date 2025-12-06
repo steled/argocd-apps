@@ -7,7 +7,9 @@ metadata:
 addressType: IPv4
 endpoints:
   - addresses:
-    - {{ .Values.endpoint.minio.ip }}
+      - {{ .Values.endpoint.minio.ip }}
+    conditions:
+      ready: true
 ports:
   - name: http
     port: 9000
@@ -22,7 +24,9 @@ metadata:
 addressType: IPv4
 endpoints:
   - addresses:
-    - {{ .Values.endpoint.minioConsole.ip }}
+      - {{ .Values.endpoint.minioConsole.ip }}
+    conditions:
+      ready: true
 ports:
   - name: http
     port: 9001
