@@ -11,6 +11,6 @@ endpoints:
     conditions:
       ready: true
 ports:
-  - name: http
+  - name: hassio
     port: 8123
     protocol: TCP
