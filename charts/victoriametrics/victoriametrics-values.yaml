@@ -141,6 +141,9 @@ vmsingle:
       - ''
     matches:
       - path:
+          type: PathPrefix
+          value: /
+      - path:
           type: Exact
           value: /health
 
