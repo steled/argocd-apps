@@ -17,9 +17,6 @@ spec:
       repoURL: https://charts.longhorn.io
       targetRevision: {{ .Values.longhorn.version }}
       helm:
-        parameters:
-          - name: "ingress.host"
-            value: {{ .Values.longhorn.host }}
         releaseName: longhorn
         valueFiles:
           - $values/charts/longhorn/values.yaml

@@ -16,16 +16,16 @@ defaultSettings:
   replicaReplenishmentWaitInterval: "0"
   storageReservedPercentageForDefaultDisk: "1"
 
-ingress:
-  enabled: false
-  ingressClassName: cilium
-  host: ''
-  tls: true
-  tlsSecret: longhorn-tls
-  pathType: Prefix
-  annotations:
-    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
-    ingress.cilium.io/loadbalancer-mode: shared
+# ingress:
+#   enabled: false
+#   ingressClassName: cilium
+#   host: ''
+#   tls: true
+#   tlsSecret: longhorn-tls
+#   pathType: Prefix
+#   annotations:
+#     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+#     ingress.cilium.io/loadbalancer-mode: shared
 
 longhornUI:
   replicas: 2
