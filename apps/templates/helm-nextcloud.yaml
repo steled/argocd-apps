@@ -20,8 +20,6 @@ spec:
         valueFiles:
           - $values/charts/nextcloud/values.yaml
         parameters:
-          - name: "ingress.tls[0].hosts[0]"
-            value: {{ .Values.nextcloud.ingress.tls0.hosts0 }}
           - name: "nextcloud.host"
             value: {{ .Values.nextcloud.host }}
           - name: "nextcloud.mail.fromAddress"
