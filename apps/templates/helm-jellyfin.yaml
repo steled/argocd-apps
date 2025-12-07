@@ -19,11 +19,6 @@ spec:
       helm:
         valueFiles:
           - $values/charts/jellyfin/values.yaml
-        parameters:
-          - name: "ingress.hosts[0].host"
-            value: {{ .Values.jellyfin.ingress.hosts0.host }}
-          - name: "ingress.tls[0].hosts[0]"
-            value: {{ .Values.jellyfin.ingress.tls0.hosts0 }}
         releaseName: jellyfin
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/jellyfin

@@ -1,18 +1,18 @@
-ingress:
-  enabled: false
-  className: cilium
-  annotations:
-    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
-    ingress.cilium.io/loadbalancer-mode: shared
-  hosts:
-    - host: ''
-      paths:
-        - path: /
-          pathType: Prefix
-  tls:
-    - secretName: jellyfin-tls
-      hosts:
-        - ''
+# ingress:
+#   enabled: false
+#   className: cilium
+#   annotations:
+#     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+#     ingress.cilium.io/loadbalancer-mode: shared
+#   hosts:
+#     - host: ''
+#       paths:
+#         - path: /
+#           pathType: Prefix
+#   tls:
+#     - secretName: jellyfin-tls
+#       hosts:
+#         - ''
 
 persistence:
   config:
