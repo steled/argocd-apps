@@ -19,38 +19,18 @@ spec:
       helm:
         releaseName: victoria-metrics-k8s-stack
         parameters:
-          - name: "alertmanager.ingress.hosts[0]"
-            value: {{ .Values.victoriametrics.alertmanager.ingress.hosts0 }}
-          - name: "alertmanager.ingress.tls[0].hosts[0]"
-            value: {{ .Values.victoriametrics.alertmanager.ingress.tls0.hosts0 }}
           - name: "alertmanager.route.hostnames[0]"
             value: {{ .Values.victoriametrics.alertmanager.route.hostnames0 }}
           - name: "alertmanager.config.receivers[0].telegram_configs[0].bot_token"
             value: {{ .Values.victoriametrics.alertmanager.config.receivers.telegram_configs.bot_token }}
           - name: "alertmanager.config.receivers[0].telegram_configs[0].chat_id"
             value: {{ .Values.victoriametrics.alertmanager.config.receivers.telegram_configs.chat_id }}
-          - name: "grafana.ingress.hosts[0]"
-            value: {{ .Values.victoriametrics.grafana.ingress.hosts0 }}
-          - name: "grafana.ingress.tls[0].hosts[0]"
-            value: {{ .Values.victoriametrics.grafana.tls0.hosts0 }}
-          - name: "vmagent.ingress.hosts[0]"
-            value: {{ .Values.victoriametrics.vmagent.ingress.hosts0 }}
-          - name: "vmagent.ingress.tls[0].hosts[0]"
-            value: {{ .Values.victoriametrics.vmagent.tls0.hosts0 }}
           - name: "vmagent.route.hostnames[0]"
             value: {{ .Values.victoriametrics.vmagent.route.hostnames0 }}
-          - name: "vmalert.ingress.hosts[0]"
-            value: {{ .Values.victoriametrics.vmalert.ingress.hosts0 }}
           - name: "vmalert.route.hostnames[0]"
             value: {{ .Values.victoriametrics.vmalert.route.hostnames0 }}
           - name: "vmalert.spec.extraArgs.external\\.url"
-            value: "https://{{ .Values.victoriametrics.grafana.ingress.hosts0 }}"
-          - name: "vmalert.ingress.tls[0].hosts[0]"
-            value: {{ .Values.victoriametrics.vmalert.ingress.tls0.hosts0 }}
-          - name: "vmsingle.ingress.hosts[0]"
-            value: {{ .Values.victoriametrics.vmsingle.ingress.hosts0 }}
-          - name: "vmsingle.ingress.tls[0].hosts[0]"
-            value: {{ .Values.victoriametrics.vmsingle.ingress.tls0.hosts0 }}
+            value: "https://{{ .Values.victoriametrics.grafana.httproute.hostnames0 }}"
           - name: "vmsingle.route.hostnames[0]"
             value: {{ .Values.victoriametrics.vmsingle.route.hostnames0 }}
         valueFiles:

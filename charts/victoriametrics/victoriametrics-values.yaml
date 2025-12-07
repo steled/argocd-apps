@@ -7,18 +7,18 @@ alertmanager:
   spec:
     disableNamespaceMatcher: true
     # disableRouteContinueEnforce: true
-  ingress:
-    enabled: false
-    ingressClassName: cilium
-    annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
-      ingress.cilium.io/loadbalancer-mode: shared
-    hosts:
-      - ''
-    tls:
-    - secretName: alertmanager-tls
-      hosts:
-        - ''
+  # ingress:
+  #   enabled: false
+  #   ingressClassName: cilium
+  #   annotations:
+  #     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+  #     ingress.cilium.io/loadbalancer-mode: shared
+  #   hosts:
+  #     - ''
+  #   tls:
+  #   - secretName: alertmanager-tls
+  #     hosts:
+  #       - ''
   route:
     enabled: true
     parentRefs:
@@ -90,18 +90,18 @@ vmagent:
       - ''
 
 vmalert:
-  ingress:
-    enabled: false
-    ingressClassName: cilium
-    annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
-      ingress.cilium.io/loadbalancer-mode: shared
-    hosts:
-      - ''
-    tls:
-    - secretName: vmalert-tls
-      hosts:
-        - ''
+  # ingress:
+  #   enabled: false
+  #   ingressClassName: cilium
+  #   annotations:
+  #     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+  #     ingress.cilium.io/loadbalancer-mode: shared
+  #   hosts:
+  #     - ''
+  #   tls:
+  #   - secretName: vmalert-tls
+  #     hosts:
+  #       - ''
   route:
     enabled: true
     parentRefs:
@@ -120,18 +120,18 @@ vmsingle:
       resources:
         requests:
           storage: 60Gi
-  ingress:
-    enabled: false
-    ingressClassName: cilium
-    annotations:
-        cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
-        ingress.cilium.io/loadbalancer-mode: shared
-    hosts:
-      - ''
-    tls:
-      - secretName: vmsingle-tls
-        hosts:
-          - ''
+  # ingress:
+  #   enabled: false
+  #   ingressClassName: cilium
+  #   annotations:
+  #       cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+  #       ingress.cilium.io/loadbalancer-mode: shared
+  #   hosts:
+  #     - ''
+  #   tls:
+  #     - secretName: vmsingle-tls
+  #       hosts:
+  #         - ''
   route:
     enabled: true
     parentRefs:
@@ -157,18 +157,18 @@ grafana:
   #     # Optionally map user groups to Grafana roles
   #     role_attribute_path: contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'
 
-  ingress:
-    enabled: false
-    ingressClassName: cilium
-    annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
-      ingress.cilium.io/loadbalancer-mode: shared
-    hosts:
-      - ''
-    tls:
-      - secretName: grafana-tls
-        hosts:
-          - ''
+  # ingress:
+  #   enabled: false
+  #   ingressClassName: cilium
+  #   annotations:
+  #     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+  #     ingress.cilium.io/loadbalancer-mode: shared
+  #   hosts:
+  #     - ''
+  #   tls:
+  #     - secretName: grafana-tls
+  #       hosts:
+  #         - ''
 
   persistence:
     enabled: true
