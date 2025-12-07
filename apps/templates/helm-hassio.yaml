@@ -20,10 +20,6 @@ spec:
       parameters:
         - name: "httproute.hostnames0"
           value: {{ .Values.hassio.httproute.hostnames0 }}
-        - name: "ingress.host0"
-          value: {{ .Values.hassio.ingress.host0 }}
-        - name: "ingress.tls0.hosts0"
-          value: {{ .Values.hassio.ingress.tls0.hosts0 }}
       releaseName: hassio
       valueFiles:
         - $values/charts/hassio/values.yaml
