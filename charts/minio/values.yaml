@@ -4,14 +4,14 @@ endpoint:
   minioConsole:
     ip: 172.16.4.26
 
-ingress:
-  minio:
-    environment: production
-    host0: ''
-    tls0:
-      hosts0: ''
-  minioConsole:
-    environment: production
-    host0: ''
-    tls0:
-      hosts0: ''
+# ingress:
+#   minio:
+#     environment: production
+#     host0: ''
+#     tls0:
+#       hosts0: ''
+#   minioConsole:
+#     environment: production
+#     host0: ''
+#     tls0:
+#       hosts0: ''

@@ -22,14 +22,6 @@ spec:
           value: {{ .Values.minio.httproute.minio.hostnames0 }}
         - name: "httproute.minioConsole.hostnames0"
           value: {{ .Values.minio.httproute.minioConsole.hostnames0 }}
-        - name: "ingress.minio.host0"
-          value: {{ .Values.minio.ingress.minio.host0 }}
-        - name: "ingress.minio.tls0.hosts0"
-          value: {{ .Values.minio.ingress.minio.tls0.hosts0 }}
-        - name: "ingress.minioConsole.host0"
-          value: {{ .Values.minio.ingress.minioConsole.host0 }}
-        - name: "ingress.minioConsole.tls0.hosts0"
-          value: {{ .Values.minio.ingress.minioConsole.tls0.hosts0 }}
       releaseName: minio
       valueFiles:
         - $values/charts/minio/values.yaml
