@@ -58,7 +58,7 @@ nextcloud:
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
-  version: "25.0.0"
+  version: "25.0.1"
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
