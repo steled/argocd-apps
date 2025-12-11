@@ -35,7 +35,7 @@ jdownloader2:
     # renovate: datasource=docker depName=jdownloader2-image packageName=jlesage/jdownloader-2
     version: "v25.07.2"
   # renovate: datasource=github-tags depName=jdownloader2-chart packageName=pmoscode-helm/jdownloader2
-  version: "1.6.0"
+  version: "1.7.0"
 
 jellyfin:
   # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
