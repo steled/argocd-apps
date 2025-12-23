@@ -1,5 +1,5 @@
-# env:
-#   TZ: "Europe/Berlin"
+env:
+  TZ: Europe/Berlin
 
 podSecurityContext:
 fsGroup: 2000
