@@ -1,0 +1,38 @@
+env:
+  TZ: "Europe/Berlin"
+
+podSecurityContext:
+fsGroup: 2000
+
+# -- Security context
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+httproute:
+  # -- Enable HTTPRoute
+  enabled: true
+  parentRefs:
+    - name: shared-gateway
+      namespace: kube-system
+  hostnames:
+    - ''
+
+persistence:
+  homarrDatabase:
+    # -- Enable homarr-database persistent storage
+    enabled: true
+    # -- homarr-database persistent storage name
+    name: "homarr-database"
+    # -- homarr-database storage class name
+    storageClassName: "longhorn"
+    # -- homarr-database access mode
+    accessMode: "ReadWriteOnce"
+    # -- homarr-database storage size
+    size: "50Mi"
+    # -- homarr-database mount path inside the pod
+    mountPath: "/appdata"
