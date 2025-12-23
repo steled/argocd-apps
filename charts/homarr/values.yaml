@@ -1,6 +1,5 @@
 env:
-  TZ: ""
-  DB_URL: ""
+  TZ: "Europe\/Belrin"
 
 podSecurityContext:
 fsGroup: 2000
