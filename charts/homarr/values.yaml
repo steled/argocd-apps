@@ -2,7 +2,7 @@ env:
   TZ: Europe/Berlin
 
 podSecurityContext:
-fsGroup: 2000
+  fsGroup: 2000
 
 # -- Security context
 securityContext:
