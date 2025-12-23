@@ -44,3 +44,53 @@ spec:
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
+
+  patches:
+    - target:
+        kind: Deployment
+        name: homarr
+      patch: |
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: homarr
+        spec:
+          template:
+            spec:
+              volumes:
+                - name: nginx-etc
+                  emptyDir: {}
+                - name: nginx-lib
+                  emptyDir: {}
+                - name: nginx-cache
+                  emptyDir: {}
+                - name: nginx-log
+                  emptyDir: {}
+              containers:
+                - name: homarr
+                  volumeMounts:
+                    - name: nginx-etc
+                      mountPath: /etc/nginx
+                    - name: nginx-lib
+                      mountPath: /var/lib/nginx
+                    - name: nginx-cache
+                      mountPath: /var/cache/nginx
+                    - name: nginx-log
+                      mountPath: /var/log/nginx
+    - target:
+        kind: Deployment
+        name: homarr
+      patch: |
+        spec:
+          template:
+            spec:
+              volumes:
+                - name: nginx-template
+                  configMap:
+                    name: homarr-nginx-template
+              containers:
+                - name: homarr
+                  volumeMounts:
+                    - name: nginx-template
+                      mountPath: /etc/nginx/templates
+                      readOnly: true
