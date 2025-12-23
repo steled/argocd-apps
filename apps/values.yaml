@@ -17,6 +17,10 @@ fritzboxCloudflareDyndns:
   # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart packageName=steled/fritzbox-cloudflare-dyndns-chart
   version: "0.0.10"
 
+homarr:
+  # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
+  version: "8.6.0"
+
 immich:
   postgresql:
     # renovate: datasource=github-tags depName=immich-postgres-chart packageName=bitnami/charts
