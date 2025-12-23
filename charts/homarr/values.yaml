@@ -1,6 +1,5 @@
 env:
-  TZ: '\"Europe/Berlin\"'
-  DB_URL: '\"/appdata/db.sqlite\"'
+  TZ: Europe/Berlin
 
 podSecurityContext:
 fsGroup: 2000
