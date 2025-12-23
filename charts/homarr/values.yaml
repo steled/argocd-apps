@@ -1,5 +1,6 @@
 env:
   TZ: ""
+  DB_URL: ""
 
 podSecurityContext:
 fsGroup: 2000
