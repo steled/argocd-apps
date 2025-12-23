@@ -50,6 +50,18 @@
         "github-tags"
       ],
       "matchDepNames": [
+        "homarr-chart"
+      ],
+      "matchPackageNames": [
+        "homarr-labs/charts"
+      ],
+      "extractVersion": "^homarr-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
         "immich-postgres-chart"
       ],
       "matchPackageNames": [
