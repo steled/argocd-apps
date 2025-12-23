@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: helm-homarr
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: homarr
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - repoURL: oci://ghcr.io/homarr-labs/charts/homarr
+      path: .
+      targetRevision: {{ .Values.homarr.version }}
+      helm:
+        parameters:
+          - name: "httproute.hostnames[0]"
+            value: {{ .Values.homarr.httproute.hostnames0 }}
+        releaseName: homarr
+        valueFiles:
+          - $values/charts/homarr/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/homarr
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: homarr-addition
+        parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.homarr.httproute.hostnames0 }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true

@@ -21,6 +21,14 @@ httproute:
       namespace: kube-system
   hostnames:
     - ''
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: homarr
+          port: 7575
 
 persistence:
   homarrDatabase:
