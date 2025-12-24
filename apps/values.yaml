@@ -22,7 +22,7 @@ homarr:
   version: "8.6.0"
 
 homepage:
-  # renovate: datasource=docker depName=ghcr.io/m0nsterrr/helm-charts/homepage
+  # renovate: datasource=docker depName=homepage-chart packageName=ghcr.io/m0nsterrr/helm-charts/homepage
   version: "4.4.1"
 
 immich:
