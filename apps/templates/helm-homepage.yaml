@@ -18,6 +18,9 @@ spec:
       targetRevision: {{ .Values.homepage.version }}
       helm:
         releaseName: homepage
+        parameters:
+          - name: "config.allowedHosts[0]"
+            value: {{ .Values.homepage.httproute.hostnames0 }}
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/homepage
       targetRevision: {{ .Values.spec.source.targetRevision }}
