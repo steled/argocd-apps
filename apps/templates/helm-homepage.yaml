@@ -29,8 +29,8 @@ spec:
       helm:
         releaseName: homepage-addition
         parameters:
-          - name: "httproute.hostnames0"
-            value: {{ .Values.homepage.httproute.hostnames0 }}
+          - name: "domain"
+            value: {{ .Values.homepage.domain }}
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
