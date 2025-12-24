@@ -16,9 +16,18 @@ data:
   custom.js: ""
   bookmarks.yaml: |
     - Developer:
-        - Github:
-            - abbr: GH
-              href: https://github.com/
+        - Github - argocd-apps:
+            - abbr: GH - argocd-apps
+              href: https://github.com/steled/argocd-apps/issues/127
+        - Github - homelab:
+            - abbr: GH - homelab
+              href: https://github.com/steled/homelab/issues/59
+        - Github - homelab-terraform:
+            - abbr: GH - homelab-terraform
+              href: https://github.com/steled/homelab-terraform/issues/173
+        - Github - terraformmodules:
+            - abbr: GH - terraformmodules
+              href: https://github.com/steled/terraformmodules/issues/65
   services.yaml: |
     - Internal Services:
         - argo:
