@@ -22,8 +22,8 @@ homarr:
   version: "8.6.0"
 
 homepage:
-  # renovate: datasource=helm depName=homepage-chart packageName=homepage registryUrl=https://github.com/M0NsTeRRR/helm-charts/pkgs/container/helm-charts%2Fhomepage
-  version: "4.5.0"
+  # renovate: datasource=helm depName=homepage-chart packageName=homepage registryUrl=https://m0nsterrr.github.io/helm-charts
+  version: "4.4.1"
 
 immich:
   postgresql:
