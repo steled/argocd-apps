@@ -22,7 +22,7 @@ homarr:
   version: "8.6.0"
 
 homepage:
-  # renovate: datasource=github-tags depName=homepage-chart packageName=m0nsterrr/helm-charts
+  # renovate: datasource=helm depName=homepage-chart packageName=homepage registryUrl=oci://ghcr.io/m0nsterrr/helm-charts/homepage
   version: "4.5.0"
 
 immich:
