@@ -20,20 +20,26 @@ data:
             - abbr: GH
               href: https://github.com/
   services.yaml: |
-    - My First Group:
-        - My First Service:
-            href: http://localhost/
-            description: Homepage is awesome
+    - Internal Services:
+        - argo:
+            href: https://gitops.{{ .Values.domain }}/
+            description: argocd gitops
+        - Longhorn:
+            href: https://volume.{{ .Values.domain }}/
+            description: longhorn ui
+        - Minio:
+            href: https://console.s3.{{ .Values.domain }}/
+            description: minio s3 console
 
-    - My Second Group:
-        - My Second Service:
-            href: http://localhost/
-            description: Homepage is the best
+    # - My Second Group:
+    #     - My Second Service:
+    #         href: http://localhost/
+    #         description: Homepage is the best
 
-    - My Third Group:
-        - My Third Service:
-            href: http://localhost/
-            description: Homepage is 😎
+    # - My Third Group:
+    #     - My Third Service:
+    #         href: http://localhost/
+    #         description: Homepage is 😎
   widgets.yaml: |
     - kubernetes:
         cluster:
