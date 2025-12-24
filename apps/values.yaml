@@ -21,6 +21,10 @@ homarr:
   # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
   version: "8.6.0"
 
+homepage:
+  # renovate: datasource=github-tags depName=homepage-chart packageName=m0nsterrr/helm-charts
+  version: "4.5.0"
+
 immich:
   postgresql:
     # renovate: datasource=github-tags depName=immich-postgres-chart packageName=bitnami/charts
