@@ -22,12 +22,15 @@ data:
   services.yaml: |
     - Internal Services:
         - argo:
+            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/argo-cd.svg
             href: https://gitops.{{ .Values.domain }}/
             description: argocd gitops
         - Longhorn:
+            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/rancher-longhorn.svg
             href: https://volume.{{ .Values.domain }}/
             description: longhorn ui
         - Minio:
+            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/minio.svg
             href: https://console.s3.{{ .Values.domain }}/
             description: minio s3 console
 
