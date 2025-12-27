@@ -30,10 +30,18 @@ data:
               href: https://github.com/steled/terraformmodules/issues/65
   services.yaml: |
     - Internal Services:
-        - argo:
+        - Alertmanager:
+            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/prometheus.svg
+            href: http://alert.{{ .Values.domain }}/
+            description: prometheus alertmanager
+        - Argo CD:
             icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/argo-cd.svg
             href: https://gitops.{{ .Values.domain }}/
             description: argocd gitops
+        - Grafana:
+            icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/grafana.svg
+            href: http://monitoring.{{ .Values.domain }}/
+            description: grafana dashboards
         - Longhorn:
             icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/rancher-longhorn.svg
             href: https://volume.{{ .Values.domain }}/
