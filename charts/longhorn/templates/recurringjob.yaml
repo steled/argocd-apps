@@ -13,10 +13,34 @@ spec:
 apiVersion: longhorn.io/v1beta2
 kind: RecurringJob
 metadata:
+  name: filesystem-trim-default
+spec:
+  cron: "0 0 * * *"
+  task: "filesystem-trim"
+  groups:
+  - default
+  retain: 0
+  concurrency: 2
+---
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
   name: snapshot-cleanup-default
 spec:
   cron: "0 23 * * *"
   task: "snapshot-cleanup"
+  groups:
+  - default
+  retain: 0
+  concurrency: 2
+---
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
+  name: snapshot-delete-default
+spec:
+  cron: "0 20 * * *"
+  task: "snapshot-delete"
   groups:
   - default
   retain: 0
