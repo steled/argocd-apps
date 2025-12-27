@@ -15,6 +15,7 @@ defaultSettings:
   orphanAutoDeletion: true
   replicaReplenishmentWaitInterval: "0"
   storageReservedPercentageForDefaultDisk: "1"
+  snapshotMaxCount: "8"
 
 # ingress:
 #   enabled: false
