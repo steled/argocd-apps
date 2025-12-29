@@ -5,6 +5,7 @@ pvc:
       storageClassName: longhorn
 
 job:
+  maintenance: false
   nextcloud:
     maintenance:
       image: fpm

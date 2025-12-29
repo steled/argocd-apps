@@ -1,3 +1,4 @@
+{{- if .Values.job.maintenance }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -60,3 +61,4 @@ spec:
       - name: nextcloud-main
         persistentVolumeClaim:
           claimName: nextcloud-nextcloud
+{{- end }}
