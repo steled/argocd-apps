@@ -1637,7 +1637,7 @@ data:
                   },
                   "expr": "longhorn_volume_write_throughput",
                   "interval": "",
-                  "legendFormat": "",
+                  "legendFormat": {{`"{{pvc}}`}}",
                   "refId": "A"
                 }
               ],
@@ -1737,7 +1737,7 @@ data:
                   },
                   "expr": "longhorn_volume_read_throughput",
                   "interval": "",
-                  "legendFormat": "",
+                  "legendFormat": {{`"{{pvc}}`}}",
                   "refId": "A"
                 }
               ],
@@ -1837,7 +1837,7 @@ data:
                   },
                   "expr": "longhorn_volume_write_iops",
                   "interval": "",
-                  "legendFormat": "",
+                  "legendFormat": {{`"{{pvc}}`}}",
                   "refId": "A"
                 }
               ],
@@ -1937,7 +1937,7 @@ data:
                   },
                   "expr": "longhorn_volume_read_iops",
                   "interval": "",
-                  "legendFormat": "",
+                  "legendFormat": {{`"{{pvc}}`}}",
                   "refId": "A"
                 }
               ],
@@ -2037,7 +2037,7 @@ data:
                   },
                   "expr": "longhorn_volume_write_latency",
                   "interval": "",
-                  "legendFormat": "",
+                  "legendFormat": {{`"{{pvc}}`}}",
                   "refId": "A"
                 }
               ],
@@ -2137,7 +2137,7 @@ data:
                   },
                   "expr": "longhorn_volume_read_latency",
                   "interval": "",
-                  "legendFormat": "",
+                  "legendFormat": {{`"{{pvc}}`}}",
                   "refId": "A"
                 }
               ],
