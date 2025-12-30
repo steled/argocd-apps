@@ -2930,138 +2930,138 @@ data:
           ],
           "title": "Alerts",
           "type": "row"
-        },
-        {
-          "collapsed": false,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 19
-          },
-          "id": 200,
-          "panels": [],
-          "title": "Backup Status (Error & Unknown)",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "mappings": [
-                {
-                  "options": {
-                    "4": { "color": "red", "index": 0, "text": "Error" }
-                  },
-                  "type": "value"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  { "color": "green", "value": null },
-                  { "color": "red", "value": 1 }
-                ]
-              }
-            }
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 0,
-            "y": 20
-          },
-          "id": 201,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "reduceOptions": {
-              "calcs": ["last"],
-              "fields": "",
-              "values": false
-            }
-          },
-          "targets": [
-            {
-              "expr": "count(longhorn_backup_state{volume=~\"$volume\"} == 4) OR on() vector(0)",
-              "refId": "A"
-            }
-          ],
-          "title": "Backup Errors (Status 4)",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "mappings": [
-                {
-                  "options": {
-                    "5": { "color": "orange", "index": 0, "text": "Unknown" }
-                  },
-                  "type": "value"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  { "color": "green", "value": null },
-                  { "color": "orange", "value": 1 }
-                ]
-              }
-            }
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 4,
-            "y": 20
-          },
-          "id": 202,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "reduceOptions": {
-              "calcs": ["last"]
-            }
-          },
-          "targets": [
-            {
-              "expr": "count(longhorn_backup_state{volume=~\"$volume\"} == 5) OR on() vector(0)",
-              "refId": "A"
-            }
-          ],
-          "title": "Backup Unknown (Status 5)",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 16,
-            "x": 8,
-            "y": 20
-          },
-          "id": 203,
-          "targets": [
-            {
-              "expr": "longhorn_backup_state{volume=~\"$volume\"} >= 4",
-              "format": "table",
-              "instant": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Details: Problematic backups",
-          "type": "table"
+        # },
+        # {
+        #   "collapsed": false,
+        #   "gridPos": {
+        #     "h": 1,
+        #     "w": 24,
+        #     "x": 0,
+        #     "y": 19
+        #   },
+        #   "id": 200,
+        #   "panels": [],
+        #   "title": "Backup Status (Error & Unknown)",
+        #   "type": "row"
+        # },
+        # {
+        #   "datasource": {
+        #     "type": "prometheus",
+        #     "uid": "${datasource}"
+        #   },
+        #   "fieldConfig": {
+        #     "defaults": {
+        #       "mappings": [
+        #         {
+        #           "options": {
+        #             "4": { "color": "red", "index": 0, "text": "Error" }
+        #           },
+        #           "type": "value"
+        #         }
+        #       ],
+        #       "thresholds": {
+        #         "mode": "absolute",
+        #         "steps": [
+        #           { "color": "green", "value": null },
+        #           { "color": "red", "value": 1 }
+        #         ]
+        #       }
+        #     }
+        #   },
+        #   "gridPos": {
+        #     "h": 6,
+        #     "w": 4,
+        #     "x": 0,
+        #     "y": 20
+        #   },
+        #   "id": 201,
+        #   "options": {
+        #     "colorMode": "value",
+        #     "graphMode": "area",
+        #     "reduceOptions": {
+        #       "calcs": ["last"],
+        #       "fields": "",
+        #       "values": false
+        #     }
+        #   },
+        #   "targets": [
+        #     {
+        #       "expr": "count(longhorn_backup_state{volume=~\"$volume\"} == 4) OR on() vector(0)",
+        #       "refId": "A"
+        #     }
+        #   ],
+        #   "title": "Backup Errors (Status 4)",
+        #   "type": "stat"
+        # },
+        # {
+        #   "datasource": {
+        #     "type": "prometheus",
+        #     "uid": "${datasource}"
+        #   },
+        #   "fieldConfig": {
+        #     "defaults": {
+        #       "mappings": [
+        #         {
+        #           "options": {
+        #             "5": { "color": "orange", "index": 0, "text": "Unknown" }
+        #           },
+        #           "type": "value"
+        #         }
+        #       ],
+        #       "thresholds": {
+        #         "mode": "absolute",
+        #         "steps": [
+        #           { "color": "green", "value": null },
+        #           { "color": "orange", "value": 1 }
+        #         ]
+        #       }
+        #     }
+        #   },
+        #   "gridPos": {
+        #     "h": 6,
+        #     "w": 4,
+        #     "x": 4,
+        #     "y": 20
+        #   },
+        #   "id": 202,
+        #   "options": {
+        #     "colorMode": "value",
+        #     "graphMode": "area",
+        #     "reduceOptions": {
+        #       "calcs": ["last"]
+        #     }
+        #   },
+        #   "targets": [
+        #     {
+        #       "expr": "count(longhorn_backup_state{volume=~\"$volume\"} == 5) OR on() vector(0)",
+        #       "refId": "A"
+        #     }
+        #   ],
+        #   "title": "Backup Unknown (Status 5)",
+        #   "type": "stat"
+        # },
+        # {
+        #   "datasource": {
+        #     "type": "prometheus",
+        #     "uid": "${datasource}"
+        #   },
+        #   "gridPos": {
+        #     "h": 6,
+        #     "w": 16,
+        #     "x": 8,
+        #     "y": 20
+        #   },
+        #   "id": 203,
+        #   "targets": [
+        #     {
+        #       "expr": "longhorn_backup_state{volume=~\"$volume\"} >= 4",
+        #       "format": "table",
+        #       "instant": true,
+        #       "refId": "A"
+        #     }
+        #   ],
+        #   "title": "Details: Problematic backups",
+        #   "type": "table"
         }
       ],
       "preload": false,
