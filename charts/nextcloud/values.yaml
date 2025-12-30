@@ -5,6 +5,7 @@ pvc:
       storageClassName: longhorn
 
 job:
+  # activate for maintenance job after installation/upgrade
   maintenance: false
   nextcloud:
     maintenance:
