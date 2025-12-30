@@ -2489,7 +2489,7 @@ data:
                   "refId": "A"
                 }
               ],
-              "title": "Node CPU Usage",
+              "title": "Node CPU Usage/Capacity",
               "type": "timeseries"
             },
             {
@@ -2589,7 +2589,7 @@ data:
                   "refId": "A"
                 }
               ],
-              "title": "Node Memory Usage",
+              "title": "Node Memory Usage/Capacity",
               "type": "timeseries"
             },
             {
@@ -2789,7 +2789,7 @@ data:
                   "refId": "A"
                 }
               ],
-              "title": "Instance Manager CPU Used from Request",
+              "title": "Instance Manager CPU Usage/Request",
               "type": "timeseries"
             },
             {
