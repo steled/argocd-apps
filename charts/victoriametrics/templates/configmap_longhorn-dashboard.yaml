@@ -3093,53 +3093,6 @@ data:
           ],
           "title": "CPU & Memory",
           "type": "row"
-        },
-        {
-          "collapsed": true,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 24
-          },
-          "id": 50,
-          "panels": [
-            {
-              "description": "To get Longhorn Alerts you have to deploy PrometheusRules (more Infos: https://longhorn.io/docs/1.10.1/monitoring/alert-rules-example/)",
-              "fieldConfig": {
-                "defaults": {},
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 13,
-                "w": 24,
-                "x": 0,
-                "y": 246
-              },
-              "id": 48,
-              "options": {
-                "alertInstanceLabelFilter": "",
-                "alertName": "Longhorn",
-                "dashboardAlerts": false,
-                "datasource": "prometheus",
-                "groupBy": [],
-                "groupMode": "default",
-                "maxItems": 20,
-                "sortOrder": 1,
-                "stateFilter": {
-                  "error": true,
-                  "firing": true,
-                  "noData": false,
-                  "normal": false,
-                  "pending": true
-                }
-              },
-              "title": "Longhorn Alerts",
-              "type": "alertlist"
-            }
-          ],
-          "title": "Alerts",
-          "type": "row"
         }
       ],
       "preload": false,
