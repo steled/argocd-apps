@@ -86,10 +86,12 @@ spec:
           issue: Longhorn node {{`{{$labels.node}}`}}` experiences high CPU pressure.
           severity: warning
       - alert: LonghornBackupCriticalState
-      expr: longhorn_backup_state >= 4
-      for: 5m
-      labels:
-        severity: critical
-      annotations:
-        summary: "Longhorn backup problem on volume {{ $labels.volume }}"
-        description: "The backup {{ $labels.backup }} for Volume {{ $labels.volume }} failed or is in an unknown state (Status: {{ $value }})."
+        annotations:
+          description: The backup {{`{{$labels.backup}}`}}` for Volume {{`{{$labels.volume}}`}}` failed or is in an unknown state (Status: {{`{{$value}}`}}) for
+            more than 5 minutes.
+          summary: Longhorn backup problem on volume {{`{{$labels.volume}}`}}`
+        expr: longhorn_backup_state >= 4
+        for: 5m
+        labels:
+          issue: The backup {{`{{$labels.backup}}`}}` for Volume {{`{{$labels.volume}}`}}` is in a critical state.
+          severity: critical
