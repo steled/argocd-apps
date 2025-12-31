@@ -141,6 +141,7 @@ vmsingle:
       - ''
 
 grafana:
+  fullnameOverride: grafana
   # grafana.ini:
   #   auth:
   #     signout_redirect_url: "${authentik_url}/application/o/grafana/end-session/"
