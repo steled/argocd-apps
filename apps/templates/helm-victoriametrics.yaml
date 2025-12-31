@@ -17,7 +17,7 @@ spec:
       repoURL: https://victoriametrics.github.io/helm-charts/
       targetRevision: {{ .Values.victoriametrics.version }}
       helm:
-        releaseName: victoria-metrics-k8s-stack
+        releaseName: vmks
         parameters:
           - name: "alertmanager.route.hostnames[0]"
             value: {{ .Values.victoriametrics.alertmanager.route.hostnames0 }}
