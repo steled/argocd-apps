@@ -3,6 +3,8 @@ defaultDashboards:
     argocd.argoproj.io/sync-options: ServerSideApply=true
   defaultTimezone: Europe/Berlin
 
+fullnameOverride: vmks
+
 alertmanager:
   spec:
     disableNamespaceMatcher: true
