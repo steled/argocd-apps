@@ -26,6 +26,8 @@ spec:
             value: {{ .Values.fritzboxCloudflareDyndns.env.cloudflareZonesIpv6 }}
           - name: "env.DYNDNS_SERVER_USERNAME"
             value: {{ .Values.fritzboxCloudflareDyndns.env.dyndnsServerUsername }}
+          - name: "env.FRITZBOX_ENDPOINT_URL"
+            value: {{ .Values.fritzboxCloudflareDyndns.env.fritzboxEndpointUrl }}
         releaseName: fritzbox-cloudflare-dyndns
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/fritzbox-cloudflare-dyndns
