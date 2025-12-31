@@ -180,6 +180,9 @@ grafana:
     userKey: grafana_admin-user
     passwordKey: grafana_admin-password
 
+kube-state-metrics:
+  fullnameOverride: kube-state-metrics
+
 kubeControllerManager:
   service:
     port: 10252
