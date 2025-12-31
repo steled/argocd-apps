@@ -23,6 +23,7 @@ env:
   CLOUDFLARE_ZONES_IPV4: ""
   CLOUDFLARE_ZONES_IPV6: ""
   DYNDNS_SERVER_USERNAME: ""
+  FRITZBOX_ENDPOINT_URL: ""
 
 resources:
   requests:
