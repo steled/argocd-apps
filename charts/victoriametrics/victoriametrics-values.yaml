@@ -220,3 +220,6 @@ kubeScheduler:
         - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
           port: http-metrics
           scheme: http
+
+prometheus-node-exporter:
+  fullnameOverride: prometheus-node-exporter
