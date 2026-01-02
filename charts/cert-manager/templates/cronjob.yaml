@@ -50,6 +50,6 @@ spec:
               optional: false
               secretName: cloudflare-dyndns
       ttlSecondsAfterFinished: 10
-  schedule: '@hourly'
+  schedule: '10 * * * *'
   startingDeadlineSeconds: 10
   successfulJobsHistoryLimit: 0
