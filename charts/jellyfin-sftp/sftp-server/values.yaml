@@ -15,7 +15,7 @@ service:
 sftp:
   users:
     - dirs: ["media"]
-      gid: "1000"
+      gid: "0"
       name: steled
       pass: ""
       passEncrypted: false
