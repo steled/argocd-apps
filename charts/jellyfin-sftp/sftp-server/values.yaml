@@ -1,9 +1,10 @@
 extraVolumeMounts:
-    - name: steled-downloads
-      mountPath: "/media"
+    - name: steled-media
+      mountPath: "/home/steled/media"
+      subPath: media
 
 extraVolumes:
-  - name: steled-downloads
+  - name: steled-media
     persistentVolumeClaim:
       claimName: jellyfin-media
 
