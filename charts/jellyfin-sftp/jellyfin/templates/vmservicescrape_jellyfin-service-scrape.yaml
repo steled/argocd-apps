@@ -1,0 +1,16 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMServiceScrape
+metadata:
+  name: jellyfin-service-scrape
+  labels:
+    name: jellyfin-service-scrape
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: jellyfin
+      app.kubernetes.io/name: jellyfin
+  namespaceSelector:
+    matchNames:
+    - jellyfin
+  endpoints:
+  - port: http

@@ -1,0 +1,26 @@
+# ingress:
+#   enabled: false
+#   className: cilium
+#   annotations:
+#     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
+#     ingress.cilium.io/loadbalancer-mode: shared
+#   hosts:
+#     - host: ''
+#       paths:
+#         - path: /
+#           pathType: Prefix
+#   tls:
+#     - secretName: jellyfin-tls
+#       hosts:
+#         - ''
+
+persistence:
+  config:
+    storageClass: longhorn
+  media:
+    accessMode: ReadWriteMany
+    size: 25Gi
+    storageClass: longhorn
+
+metrics:
+  enabled: true

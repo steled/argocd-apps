@@ -1,0 +1,53 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: helm-jellyfin-sftp
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: jellyfin-sftp
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: jellyfin
+      repoURL: https://jellyfin.github.io/jellyfin-helm
+      targetRevision: {{ .Values.jellyfin.version }}
+      helm:
+        valueFiles:
+          - $values/charts/jellyfin-sftp/jellyfin/values.yaml
+        releaseName: jellyfin
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/jellyfin-sftp/jellyfin
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: jellyfin-addition
+        parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.jellyfin.httproute.hostnames0 }}
+    - chart: sftp-server
+      repoURL: https://sj14.github.io/helm-charts
+      targetRevision: {{ .Values.sftpServer.version }}
+      helm:
+        releaseName: sftp-server
+        parameters:
+          - name: "image.tag"
+            value: {{ .Values.sftpServer.image.version }}
+        valueFiles:
+          - $values/charts/jellyfin-sftp/sftp-server/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
