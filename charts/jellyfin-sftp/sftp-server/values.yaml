@@ -1,7 +1,6 @@
 extraVolumeMounts:
     - name: steled-media
       mountPath: "/home/steled/media"
-      subPath: media
 
 extraVolumes:
   - name: steled-media
