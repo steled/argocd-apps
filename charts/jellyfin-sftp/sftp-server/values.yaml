@@ -1,7 +1,6 @@
 extraVolumeMounts:
     - name: steled-downloads
       mountPath: "/media"
-      subPath: media
 
 extraVolumes:
   - name: steled-downloads
@@ -29,4 +28,3 @@ persistentVolume:
   enabled: false
   existingClaim: jellyfin-media
   size: 25Gi
-  subPath: media
