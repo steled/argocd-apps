@@ -18,6 +18,8 @@ persistence:
   config:
     storageClass: longhorn
   media:
+    accessMode: ReadWriteMany
+    size: 25Gi
     storageClass: longhorn
 
 metrics:
