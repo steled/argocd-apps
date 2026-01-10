@@ -11,6 +11,6 @@ spec:
       app.kubernetes.io/name: jellyfin
   namespaceSelector:
     matchNames:
-    - jellyfin
+    - jellyfin-sftp
   endpoints:
   - port: http
