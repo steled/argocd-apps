@@ -155,6 +155,18 @@
     },
     {
       "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "sealed-secrets-web-chart"
+      ],
+      "matchPackageNames": [
+        "bakito/sealed-secrets-web"
+      ],
+      "extractVersion": "^v(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
         "docker"
       ],
       "matchDepNames": [
