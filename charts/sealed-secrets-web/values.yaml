@@ -1,0 +1,3 @@
+sealedSecrets:
+  namespace: kube-system
+  serviceName: sealed-secrets-controller
