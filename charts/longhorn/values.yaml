@@ -9,11 +9,15 @@ defaultBackupStore:
   backupTargetCredentialSecret: minio
 
 defaultSettings:
+  autoCleanupSnapshotAfterOnDemandBackupCompleted: true
+  autoCleanupSnapshotWhenDeleteBackup: true
+  autoCleanupSystemGeneratedSnapshot: true
   concurrentAutomaticEngineUpgradePerNodeLimit: "1"
   defaultDataPath: "/ext/persistent"
   defaultReplicaCount: "2"
   orphanAutoDeletion: true
   replicaReplenishmentWaitInterval: "0"
+  removeSnapshotsDuringFilesystemTrim: true
   storageReservedPercentageForDefaultDisk: "1"
   snapshotMaxCount: "8"
 
