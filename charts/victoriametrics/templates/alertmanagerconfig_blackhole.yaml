@@ -30,23 +30,23 @@ spec:
       - namespace="nextcloud"
       - severity="none"
     receiver: blackhole
----
-apiVersion: operator.victoriametrics.com/v1beta1
-kind: VMAlertmanagerConfig
-metadata:
-  name: mute-recordingrulesnodata
-spec:
-  receivers:
-    - name: blackhole
-  route:
-    continue: false
-    group_interval: 1m
-    matchers:
-      - alertname="RecordingRulesNoData"
-      - alertgroup="vmalert"
-      - recording=~"count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile"
-      - severity="info"
-    receiver: blackhole
+# ---
+# apiVersion: operator.victoriametrics.com/v1beta1
+# kind: VMAlertmanagerConfig
+# metadata:
+#   name: mute-recordingrulesnodata
+# spec:
+#   receivers:
+#     - name: blackhole
+#   route:
+#     continue: false
+#     group_interval: 1m
+#     matchers:
+#       - alertname="RecordingRulesNoData"
+#       - alertgroup="vmalert"
+#       - recording=~"count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile"
+#       - severity="info"
+#     receiver: blackhole
 ---
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMAlertmanagerConfig
@@ -65,7 +65,8 @@ spec:
       - exported_alertgroup="vmalert"
       - exported_alertname="RecordingRulesNoData"
       - exported_severity="info"
-      - recording=~"apiserver_request:availability30d|count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile|cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
+      - recording=~"cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile"
+      # - recording=~"apiserver_request:availability30d|count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile|cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
       - severity="none"
     receiver: blackhole
 ---
