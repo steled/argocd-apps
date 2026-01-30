@@ -27,11 +27,11 @@ kind: RecurringJob
 metadata:
   name: snapshot-cleanup-default
 spec:
-  cron: "0 23 * * *"
+  cron: "0 23 1 * *"
   task: "snapshot-cleanup"
   groups:
   - default
-  retain: 7
+  retain: 0
   concurrency: 2
 ---
 apiVersion: longhorn.io/v1beta2
