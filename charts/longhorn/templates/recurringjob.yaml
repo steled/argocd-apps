@@ -7,7 +7,7 @@ spec:
   task: "backup"
   groups:
   - default
-  retain: 1
+  retain: 7
   concurrency: 2
 ---
 apiVersion: longhorn.io/v1beta2
@@ -31,7 +31,7 @@ spec:
   task: "snapshot-cleanup"
   groups:
   - default
-  retain: 0
+  retain: 7
   concurrency: 2
 ---
 apiVersion: longhorn.io/v1beta2
@@ -43,7 +43,7 @@ spec:
   task: "snapshot-delete"
   groups:
   - default
-  retain: 0
+  retain: 7
   concurrency: 2
 ---
 apiVersion: longhorn.io/v1beta2
@@ -53,6 +53,6 @@ metadata:
 spec:
   task: system-backup
   cron: '0 21 * * *'
-  retain: 1
+  retain: 7
   parameters:
     volume-backup-policy: if-not-present
