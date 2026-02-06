@@ -35,6 +35,7 @@ spec:
           #   value: "true"
           - name: "rbac.aggregatedClusterRoles.enabled"
             value: "false"
+  revisionHistoryLimit: 3
   syncPolicy:
     automated:
       enabled: true

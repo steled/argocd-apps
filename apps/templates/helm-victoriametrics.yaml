@@ -50,6 +50,7 @@ spec:
         releaseName: victoriametrics-addition
         valueFiles:
           - ./victoriametrics-addition-values.yaml
+  revisionHistoryLimit: 3
   syncPolicy:
     automated:
       enabled: true

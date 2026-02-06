@@ -31,6 +31,7 @@ spec:
           - name: "clusterIssuer.certmanager.email"
             value: {{ .Values.certmanager.clusterIssuer.email }}
         releaseName: cert-manager-addition
+  revisionHistoryLimit: 3
   syncPolicy:
     automated:
       enabled: true

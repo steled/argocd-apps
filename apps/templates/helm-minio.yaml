@@ -25,6 +25,7 @@ spec:
       releaseName: minio
       valueFiles:
         - $values/charts/minio/values.yaml
+  revisionHistoryLimit: 3
   syncPolicy:
     automated:
       enabled: true

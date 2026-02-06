@@ -33,6 +33,7 @@ spec:
         releaseName: longhorn-addition
         valueFiles:
           - ./values.yaml
+  revisionHistoryLimit: 3
   syncPolicy:
     automated:
       enabled: true

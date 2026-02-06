@@ -23,6 +23,7 @@ spec:
       releaseName: hassio
       valueFiles:
         - $values/charts/hassio/values.yaml
+  revisionHistoryLimit: 3
   syncPolicy:
     automated:
       enabled: true
