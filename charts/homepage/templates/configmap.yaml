@@ -48,7 +48,7 @@ data:
             description: longhorn ui
         - Minio:
             icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/minio.svg
-            href: https://console.s3.{{ .Values.domain }}/
+            href: https://console-s3.{{ .Values.domain }}/
             description: minio s3 console
 
     # - My Second Group:
