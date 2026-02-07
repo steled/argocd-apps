@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: domain-wildcard-certificate
+  namespace: istio-system
+spec:
+  secretName: domain-wildcard-certificate-tls
+  issuerRef:
+    name: cloudflare-letsencrypt-production
+    kind: ClusterIssuer
+  dnsNames:
+  - "*.{{ .Values.certificate.dnsNames }}"

@@ -30,6 +30,8 @@ spec:
         parameters:
           - name: "clusterIssuer.certmanager.email"
             value: {{ .Values.certmanager.clusterIssuer.email }}
+          - name: "certificate.dnsNames"
+            value: {{ .Values.certmanager.certificate.dnsNames }}
         releaseName: cert-manager-addition
   revisionHistoryLimit: 3
   syncPolicy:
