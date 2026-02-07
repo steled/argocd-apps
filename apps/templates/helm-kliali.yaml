@@ -13,7 +13,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - chart: kiali
+    - chart: kiali-operator
       repoURL: https://kiali.org/helm-charts
       targetRevision: {{ .Values.kiali.version }}
       helm:
