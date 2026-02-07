@@ -7,9 +7,9 @@ spec:
     name: minio-bearer-token
     key: token
   path: /minio/v2/metrics/cluster
-  scheme: https
+  scheme: http
   staticConfigs:
-    - targets: ['s3.steled.org']
+    - targets: ['minio.minio.svc.cluster.local:9000']
 ---
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMScrapeConfig
@@ -20,9 +20,9 @@ spec:
     name: minio-bearer-token
     key: token
   path: /minio/v2/metrics/resource
-  scheme: https
+  scheme: http
   staticConfigs:
-    - targets: ['s3.steled.org']
+    - targets: ['minio.minio.svc.cluster.local:9000']
 ---
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMScrapeConfig
@@ -33,6 +33,6 @@ spec:
     name: minio-bearer-token
     key: token
   path: /minio/v2/metrics/bucket
-  scheme: https
+  scheme: http
   staticConfigs:
-    - targets: ['s3.steled.org']
+    - targets: ['minio.minio.svc.cluster.local:9000']
