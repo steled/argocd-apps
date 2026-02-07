@@ -7,7 +7,7 @@ spec:
     - {{ .Values.httproute.minio.hostnames0 }}
   parentRefs:
     - name: shared-gateway
-      namespace: kube-system
+      namespace: istio-system
   rules:
     - matches:
         - path:
@@ -26,7 +26,7 @@ spec:
     - {{ .Values.httproute.minioConsole.hostnames0 }}
   parentRefs:
     - name: shared-gateway
-      namespace: kube-system
+      namespace: istio-system
   rules:
     - matches:
         - path:
