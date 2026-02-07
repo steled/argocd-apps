@@ -18,6 +18,9 @@ spec:
       targetRevision: {{ .Values.kiali.version }}
       helm:
         releaseName: kiali-operator
+        parameters:
+          - name: "cr.spec.external_services.grafana.external_url"
+            value: {{ .Values.kiali.externalServices.grafana.external_url }}
         valueFiles:
           - $values/charts/kiali/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git

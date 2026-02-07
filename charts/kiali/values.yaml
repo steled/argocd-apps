@@ -8,4 +8,5 @@ cr:
       prometheus:
         url: "http://vmsingle-victoria-metrics-k8s-stack.victoriametrics.svc.cluster.local:8428"
       grafana:
-        url: "http://grafana.victoriametrics.svc.cluster.local:80"
+        external_url: ""
+        internal_url: "http://grafana.victoriametrics.svc.cluster.local:80"
