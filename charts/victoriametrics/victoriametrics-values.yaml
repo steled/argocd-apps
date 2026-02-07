@@ -23,7 +23,7 @@ alertmanager:
     enabled: true
     parentRefs:
       - name: shared-gateway
-        namespace: kube-system
+        namespace: istio-system
     hostnames:
       - ''
   config:
@@ -85,7 +85,7 @@ vmagent:
     enabled: true
     parentRefs:
       - name: shared-gateway
-        namespace: kube-system
+        namespace: istio-system
     hostnames:
       - ''
 
@@ -106,7 +106,7 @@ vmalert:
     enabled: true
     parentRefs:
       - name: shared-gateway
-        namespace: kube-system
+        namespace: istio-system
     hostnames:
       - ''
   # spec:
@@ -136,7 +136,7 @@ vmsingle:
     enabled: true
     parentRefs:
       - name: shared-gateway
-        namespace: kube-system
+        namespace: istio-system
     hostnames:
       - ''
 
