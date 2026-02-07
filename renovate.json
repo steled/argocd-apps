@@ -117,18 +117,6 @@
       ],
       "extractVersion": "^jellyfin-(?<version>.*)$"
     },
-        {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
-        "kiali-chart"
-      ],
-      "matchPackageNames": [
-        "kiali/helm-charts"
-      ],
-      "extractVersion": "^v(?<version>.*)$"
-    },
     {
       "matchDatasources": [
         "github-tags"
