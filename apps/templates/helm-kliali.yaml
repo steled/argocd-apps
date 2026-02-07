@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: helm-kiali
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: kiali
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: kiali
+      repoURL: https://kiali.org/helm-charts
+      targetRevision: {{ .Values.kiali.version }}
+      helm:
+        releaseName: kiali-operator
+        valueFiles:
+          - $values/charts/kiali/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/kiali
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.kiali.httproute.hostnames0 }}
+        releaseName: kiali-addition
+        valueFiles:
+          - ./values.yaml
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
