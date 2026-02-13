@@ -28,7 +28,7 @@ homepage:
 immich:
   postgresql:
     # renovate: datasource=github-tags depName=immich-postgres-chart packageName=bitnami/charts
-    version: "17.0.1"
+    version: "17.0.2"
     image:
       # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
       version: "pg17-v1.0.0"
