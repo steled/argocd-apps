@@ -43,6 +43,7 @@ spec:
       prune: true
     managedNamespaceMetadata:
       labels:
+        istio.io/dataplane-mode: ambient
         shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true

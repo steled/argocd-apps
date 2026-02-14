@@ -46,6 +46,9 @@ spec:
     automated:
       enabled: true
       prune: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
