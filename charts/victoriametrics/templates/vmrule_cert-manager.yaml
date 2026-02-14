@@ -2,7 +2,7 @@
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMRule
 metadata:
-  name: vmrule-alerting-kured
+  name: vmrule-alerting-cert-manager
 spec:
   groups:
     - name: cert-manager.rules
