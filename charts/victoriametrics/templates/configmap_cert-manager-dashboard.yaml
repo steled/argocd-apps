@@ -175,7 +175,7 @@ data:
                    },
                    "expr": "sum by (condition) (certmanager_certificate_ready_status{})",
                    "interval": "",
-                   "legendFormat": "{{ condition }}",
+                   "legendFormat": {{`"{{ condition }}`}}",
                    "refId": "A"
                 }
              ],
@@ -537,7 +537,7 @@ data:
                    },
                    "expr": "sum by (controller) (\n  rate(certmanager_controller_sync_call_count{}[$__rate_interval ])\n)",
                    "interval": "",
-                   "legendFormat": "{{ controller }}",
+                   "legendFormat": {{`"{{ controller }}`}}",
                    "refId": "A"
                 }
              ],
