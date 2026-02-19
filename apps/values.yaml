@@ -51,7 +51,7 @@ jellyfin:
 
 kiali:
   # renovate: datasource=github-tags depName=kiali-chart packageName=kiali/helm-charts
-  version: "v2.21.0"
+  version: "v2.22.0"
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
