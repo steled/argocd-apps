@@ -41,7 +41,7 @@ immich:
 jdownloader2:
   image:
     # renovate: datasource=docker depName=jdownloader2-image packageName=jlesage/jdownloader-2
-    version: "v26.01.1"
+    version: "v26.02.2"
   # renovate: datasource=github-tags depName=jdownloader2-chart packageName=pmoscode-helm/jdownloader2
   version: "1.8.0"
 
