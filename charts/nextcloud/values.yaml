@@ -234,6 +234,12 @@ redis:
     existingSecretPasswordKey: redis-password
   global:
     defaultStorageClass: longhorn
+  # needed for istio, see: https://github.com/bitnami/charts/issues/31394
+  networkPolicy:
+    enabled: true
+    extraIngress:
+        - ports:
+            - port: 15008
   master:
     persistence:
       enabled: true
