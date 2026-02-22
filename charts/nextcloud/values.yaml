@@ -162,8 +162,8 @@ persistence:
   storageClass: longhorn
   size: 10Gi
 
-podLabels:
-  istio.io/dataplane-mode: none
+# podLabels:
+#   istio.io/dataplane-mode: none
 
 cronjob:
   enabled: true
