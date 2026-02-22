@@ -225,6 +225,13 @@ postgresql:
     #     volumeMounts:
     #       - mountPath: "/bitnami/postgresql"
     #         name: "data"
+    networkPolicy:
+      enabled: true
+      extraIngress:
+        # needed for istio in ambient mode
+        - ports:
+          - port: 15008
+            protocol: TCP
     persistence:
       enabled: true
       storageClass: longhorn
