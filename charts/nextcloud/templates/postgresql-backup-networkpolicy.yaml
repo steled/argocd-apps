@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: nextcloud-postgresql-ambient-hbones
+  namespace: nextcloud
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/component: pg_dumpall
+      app.kubernetes.io/instance: nextcloud
+      app.kubernetes.io/name: postgresql
+  policyTypes:
+  - Ingress
+  ingress:
+  - ports:
+    - port: 15008
+      protocol: TCP
