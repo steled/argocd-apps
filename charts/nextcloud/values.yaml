@@ -187,6 +187,12 @@ postgresql:
   backup:
     enabled: true
     cronjob:
+      networkPolicy:
+        enabled: true
+        # needed for istio in ambient mode
+        extraIngress:
+          - ports:
+              - port: 15008
       schedule: "@hourly"
       storage:
         enabled: true
