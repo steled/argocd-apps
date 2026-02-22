@@ -10,7 +10,7 @@ spec:
       app.kubernetes.io/instance: nextcloud
       app.kubernetes.io/name: postgresql
   policyTypes:
-  - Ingress
+  - Egress
   ingress:
   - ports:
     - port: 15008
