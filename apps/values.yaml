@@ -19,7 +19,7 @@ fritzboxCloudflareDyndns:
 
 homarr:
   # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
-  version: "8.12.1"
+  version: "8.12.2"
 
 homepage:
   # renovate: datasource=docker depName=homepage-chart packageName=ghcr.io/m0nsterrr/helm-charts/homepage
