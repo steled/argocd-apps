@@ -79,7 +79,7 @@
       "matchPackageNames": [
         "ghcr.io/m0nsterrr/helm-charts/homepage"
       ],
-      "sourceUrl": "https://github.com/M0NsTeRRR/helm-charts/tree/main/charts/homepage"
+      "sourceUrl": "https://github.com/M0NsTeRRR/helm-charts"
     },
     {
       "matchDatasources": [
