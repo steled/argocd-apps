@@ -175,6 +175,7 @@
       "matchPackageNames": [
         "atmoz/sftp"
       ],
+      "sourceUrl": "https://github.com/atmoz/sftp",
       "pinDigests": true
     },
     {
