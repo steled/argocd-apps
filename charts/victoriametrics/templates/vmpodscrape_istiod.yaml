@@ -2,31 +2,30 @@ apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMPodScrape
 metadata:
   name: istiod
+  namespace: istio-system
 spec:
-  namespaceSelector:
-    matchNames:
-      - istio-system
-
   selector:
     matchLabels:
       app: istiod
 
+  namespaceSelector:
+    matchNames:
+      - istio-system
+
   podMetricsEndpoints:
     - port: http-monitoring
+      path: /metrics
       scheme: http
 
       relabelConfigs:
-        - action: replace
-          sourceLabels:
-            - __meta_kubernetes_pod_label_app
+        - sourceLabels: [__meta_kubernetes_pod_label_app]
           targetLabel: app
 
-        - action: replace
-          sourceLabels:
-            - __meta_kubernetes_namespace
+        - sourceLabels: [__meta_kubernetes_namespace]
           targetLabel: namespace
 
-        - action: replace
-          sourceLabels:
-            - __meta_kubernetes_pod_name
+        - sourceLabels: [__meta_kubernetes_pod_name]
           targetLabel: pod
+
+        - sourceLabels: [__meta_kubernetes_pod_container_name]
+          targetLabel: container
