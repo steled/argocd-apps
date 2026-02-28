@@ -11,28 +11,28 @@ generatorOptions:
 configMapGenerator:
   - name: istio-extension-dashboard
     files:
-      - istio-extension-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-extension-dashboard.json
+      - istio-extension-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.29.0/manifests/addons/dashboards/istio-extension-dashboard.json
 
   - name: istio-mesh-dashboard
     files:
-      - istio-mesh-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-mesh-dashboard.gen.json
+      - istio-mesh-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.29.0/manifests/addons/dashboards/istio-mesh-dashboard.gen.json
 
   - name: istio-performance-dashboard
     files:
-      - istio-performance-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-performance-dashboard.json
-
-  - name: istio-service-dashboard
-    files:
-      - istio-service-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-service-dashboard.json
-
-  - name: istio-workload-dashboard
-    files:
-      - istio-workload-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-workload-dashboard.json
+      - istio-performance-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.29.0/manifests/addons/dashboards/istio-performance-dashboard.json
 
   - name: istio-pilot-dashboard
     files:
-      - istio-pilot-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/pilot-dashboard.gen.json
+      - istio-pilot-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.29.0/manifests/addons/dashboards/pilot-dashboard.gen.json
+
+  - name: istio-service-dashboard
+    files:
+      - istio-service-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.29.0/manifests/addons/dashboards/istio-service-dashboard.json
+
+  - name: istio-workload-dashboard
+    files:
+      - istio-workload-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.29.0/manifests/addons/dashboards/istio-workload-dashboard.json
 
   - name: istio-ztunnel-dashboard
     files:
-      - istio-ztunnel-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/ztunnel-dashboard.gen.json
+      - istio-ztunnel-dashboard.json=https://raw.githubusercontent.com/istio/istio/1.29.0/manifests/addons/dashboards/ztunnel-dashboard.gen.json
