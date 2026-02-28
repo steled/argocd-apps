@@ -2,7 +2,6 @@ apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMPodScrape
 metadata:
   name: istiod
-  namespace: victoriametrics
 spec:
   namespaceSelector:
     matchNames:
@@ -13,7 +12,7 @@ spec:
       app: istiod
 
   podMetricsEndpoints:
-    - port: http-debug
+    - port: http-monitoring
       scheme: http
 
       relabelConfigs:
