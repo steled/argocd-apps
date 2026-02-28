@@ -30,11 +30,12 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-tags",
+      "depNameTemplate": "istio/istio",
       "managerFilePatterns": [
         "/(^|/)istio-dashboards/kustomization\\.yaml$/"
       ],
       "matchStrings": [
-        "raw.githubusercontent.com/istio/istio/(?<currentValue>\\d+\\.\\d+\\.\\d+)/"
+        "raw\\.githubusercontent\\.com/istio/istio/(?<currentValue>v?\\d+\\.\\d+\\.\\d+)/"
       ],
       "versioningTemplate": "semver"
     }
