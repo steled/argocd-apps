@@ -9,7 +9,6 @@ generatorOptions:
     grafana_dashboard: "1"
 
 configMapGenerator:
-
   - name: istio-extension-dashboard
     files:
       - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.29.0/manifests/addons/dashboards/istio-extension-dashboard.json

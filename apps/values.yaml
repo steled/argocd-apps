@@ -19,7 +19,7 @@ fritzboxCloudflareDyndns:
 
 homarr:
   # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
-  version: "8.12.2"
+  version: "8.13.0"
 
 homepage:
   # renovate: datasource=docker depName=homepage-chart packageName=ghcr.io/m0nsterrr/helm-charts/homepage
@@ -31,7 +31,7 @@ immich:
     version: "17.1.0"
     image:
       # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
-      version: "pg17-v1.1.0"
+      version: "pg17-v1.1.1"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
     version: "v2.5.6"
