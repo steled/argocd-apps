@@ -12,20 +12,20 @@ configMapGenerator:
 
   - name: istio-extension-dashboard
     files:
-      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-extension-dashboard.json
+      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.4/manifests/addons/dashboards/istio-extension-dashboard.json
 
   - name: istio-mesh-dashboard
     files:
-      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-mesh-dashboard.gen.json
+      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.4/manifests/addons/dashboards/istio-mesh-dashboard.gen.json
 
   - name: istio-performance-dashboard
     files:
-      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-performance-dashboard.json
+      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.4/manifests/addons/dashboards/istio-performance-dashboard.json
 
   - name: istio-service-dashboard
     files:
-      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-service-dashboard.json
+      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.4/manifests/addons/dashboards/istio-service-dashboard.json
 
   - name: istio-workload-dashboard
     files:
-      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/istio-workload-dashboard.json
+      - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.4/manifests/addons/dashboards/istio-workload-dashboard.json
