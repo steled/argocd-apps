@@ -38,6 +38,10 @@ immich:
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
   version: "0.10.3"
 
+istio:
+  # renovate: datasource=github-releases depName=istio packageName=istio/istio
+  version: "1.29.0"
+
 jdownloader2:
   image:
     # renovate: datasource=docker depName=jdownloader2-image packageName=jlesage/jdownloader-2
