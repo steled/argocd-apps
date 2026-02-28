@@ -33,6 +33,6 @@ configMapGenerator:
     files:
       - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/pilot-dashboard.gen.json
 
-  - name: ztunnel-dashboard
+  - name: istio-ztunnel-dashboard
     files:
       - dashboard.json=https://raw.githubusercontent.com/istio/istio/1.28.3/manifests/addons/dashboards/ztunnel-dashboard.gen.json
