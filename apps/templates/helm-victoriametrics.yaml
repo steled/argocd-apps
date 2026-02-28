@@ -50,6 +50,9 @@ spec:
         releaseName: victoriametrics-addition
         valueFiles:
           - ./victoriametrics-addition-values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      path: charts/istio-dashboards
   revisionHistoryLimit: 3
   syncPolicy:
     automated:
