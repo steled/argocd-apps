@@ -78,7 +78,7 @@ sealedSecrets:
 
 sealedSecretsWeb:
   # renovate: datasource=github-tags depName=sealed-secrets-web-chart packageName=bakito/sealed-secrets-web
-  version: "3.2.1"
+  version: "3.3.0"
 
 sftpServer:
   image:
