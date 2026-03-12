@@ -83,7 +83,7 @@ sealedSecretsWeb:
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-server-image packageName=atmoz/sftp
-    version: "alpine@sha256:db440eed81491c2a8085b2426418c0a070fd3dc5a402b4db48daf5d96c83bd13"
+    version: "alpine@sha256:64e27a8b047b8a515aa7eaaef3b7362a336d91446ce148fba913af959bb224cb"
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.1"
 
