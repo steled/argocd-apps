@@ -30,6 +30,23 @@ spec:
       - namespace="nextcloud"
       - severity="none"
     receiver: blackhole
+---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlertmanagerConfig
+metadata:
+  name: mute-generalRulesInfoInhibitor
+spec:
+  receivers:
+    - name: blackhole
+  route:
+    continue: false
+    group_interval: 1m
+    matchers:
+      - alertgroup="general.rules"
+      - alertname="InfoInhibitor"
+      - namespace="victoriametrics"
+      - severity="none"
+    receiver: blackhole
 # ---
 # apiVersion: operator.victoriametrics.com/v1beta1
 # kind: VMAlertmanagerConfig
@@ -69,23 +86,23 @@ spec:
       # - recording=~"apiserver_request:availability30d|count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile|cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
       - severity="none"
     receiver: blackhole
----
-apiVersion: operator.victoriametrics.com/v1beta1
-kind: VMAlertmanagerConfig
-metadata:
-  name: mute-longhornvolumeactualspaceusedwarning
-spec:
-  receivers:
-    - name: blackhole
-  route:
-    continue: false
-    group_interval: 1m
-    matchers:
-      - alertname="LonghornVolumeActualSpaceUsedWarning"
-      - alertgroup="longhorn.rules"
-      - namespace="longhorn"
-      - pvc="jdownloader2-data"
-      - pvc_namespace="jd-sftp"
-      - severity="warning"
-      - volume="pvc-54beeb51-fce3-49ef-a5bd-d1d13c2b5572"
-    receiver: blackhole
+# ---
+# apiVersion: operator.victoriametrics.com/v1beta1
+# kind: VMAlertmanagerConfig
+# metadata:
+#   name: mute-longhornvolumeactualspaceusedwarning
+# spec:
+#   receivers:
+#     - name: blackhole
+#   route:
+#     continue: false
+#     group_interval: 1m
+#     matchers:
+#       - alertname="LonghornVolumeActualSpaceUsedWarning"
+#       - alertgroup="longhorn.rules"
+#       - namespace="longhorn"
+#       - pvc="jdownloader2-data"
+#       - pvc_namespace="jd-sftp"
+#       - severity="warning"
+#       - volume="pvc-54beeb51-fce3-49ef-a5bd-d1d13c2b5572"
+#     receiver: blackhole
