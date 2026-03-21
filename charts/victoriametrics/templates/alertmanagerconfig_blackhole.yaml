@@ -12,7 +12,7 @@ spec:
       - alertgroup="general.rules"
       - alertname=~"Watchdog|InfoInhibitor"
       - severity="none"
-      - namespace=~"*"
+      - namespace=~".*"
     receiver: blackhole
 ---
 apiVersion: operator.victoriametrics.com/v1beta1
