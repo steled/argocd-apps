@@ -9,7 +9,10 @@ spec:
     continue: false
     group_interval: 1m
     matchers:
-      - alertname="Watchdog"
+      - alertgroup="general.rules"
+      - alertname=~"Watchdog|InfoInhibitor"
+      - severity="none"
+      - namespace="*"
     receiver: blackhole
 ---
 apiVersion: operator.victoriametrics.com/v1beta1
@@ -30,23 +33,23 @@ spec:
       - namespace="nextcloud"
       - severity="none"
     receiver: blackhole
----
-apiVersion: operator.victoriametrics.com/v1beta1
-kind: VMAlertmanagerConfig
-metadata:
-  name: mute-generalrules-infoinhibitor
-spec:
-  receivers:
-    - name: blackhole
-  route:
-    continue: false
-    group_interval: 1m
-    matchers:
-      - alertgroup="general.rules"
-      - alertname="InfoInhibitor"
-      - namespace="victoriametrics"
-      - severity="none"
-    receiver: blackhole
+# ---
+# apiVersion: operator.victoriametrics.com/v1beta1
+# kind: VMAlertmanagerConfig
+# metadata:
+#   name: mute-generalrules-infoinhibitor
+# spec:
+#   receivers:
+#     - name: blackhole
+#   route:
+#     continue: false
+#     group_interval: 1m
+#     matchers:
+#       - alertgroup="general.rules"
+#       - alertname="InfoInhibitor"
+#       - namespace="victoriametrics"
+#       - severity="none"
+#     receiver: blackhole
 # ---
 # apiVersion: operator.victoriametrics.com/v1beta1
 # kind: VMAlertmanagerConfig
