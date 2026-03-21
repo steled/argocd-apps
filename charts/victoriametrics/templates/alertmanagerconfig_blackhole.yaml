@@ -34,7 +34,7 @@ spec:
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMAlertmanagerConfig
 metadata:
-  name: mute-generalRulesInfoInhibitor
+  name: mute-generalrules-infoInhibitor
 spec:
   receivers:
     - name: blackhole
