@@ -2,8 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: nextcloud-postgresql-ambient-hbones
-  namespace: nextcloud
+  name: nextcloud-postgresql-backup-ambient-hbones
 spec:
   podSelector:
     matchLabels:
