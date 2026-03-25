@@ -1,5 +1,7 @@
 existingSecret: hedgedoc
 extraEnv:
+  CMD_ALLOW_ANONYMOUS: false
+  CMD_ALLOW_ANONYMOUS_EDITS: false
   CMD_DOMAIN: ''
   CMD_LOGLEVEL: debug
 gatewayApi:
