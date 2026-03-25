@@ -22,8 +22,6 @@ spec:
             value: {{ .Values.hedgedoc.extraEnv.cmd_domain }}
           - name: "gatewayApi.hostname"
             value: {{ .Values.hedgedoc.gatewayApi.hostname }}
-          - name: "postgresql.auth.password"
-            value: {{ .Values.hedgedoc.postgresql.auth.password }}
         releaseName: hedgedoc
         valueFiles:
           - $values/charts/hedgedoc/values.yaml
