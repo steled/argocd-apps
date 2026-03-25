@@ -14,7 +14,7 @@ spec:
   project: apps
   sources:
     - repoURL: ghcr.io/steled/hedgedoc
-      path: .
+      chart: hedgedoc
       targetRevision: {{ .Values.hedgedoc.version }}
       helm:
         releaseName: hedgedoc
