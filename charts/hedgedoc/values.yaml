@@ -17,7 +17,6 @@ postgresql:
   enabled: true
   auth:
     database: hedgedoc
-    password: ''
     username: hedgedoc
     existingSecret: hedgedoc
     secretKeys:
