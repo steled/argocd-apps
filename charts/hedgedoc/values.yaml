@@ -7,6 +7,8 @@ gatewayApi:
   parentRefs:
     - name: shared-gateway
       namespace: istio-system
+persistence:
+  storageClass: longhorn
 
 postgresql:
   enabled: true
