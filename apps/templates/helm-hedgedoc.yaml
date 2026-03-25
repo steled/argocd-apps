@@ -13,14 +13,14 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - repoURL: ghcr.io/steled/hedgedoc
-      chart: hedgedoc
+    - chart: hedgedoc
+      repoURL: https://steled.github.io/hedgedoc-kubernetes/
       targetRevision: {{ .Values.hedgedoc.version }}
       helm:
-        releaseName: hedgedoc
         parameters:
           - name: "gatewayApi.hostname"
             value: {{ .Values.hedgedoc.gatewayApi.hostname }}
+        releaseName: hedgedoc
         valueFiles:
           - $values/charts/hedgedoc/values.yaml
     # - repoURL: git@github.com:steled/argocd-apps.git
