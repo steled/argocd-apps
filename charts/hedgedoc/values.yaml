@@ -1,4 +1,4 @@
-existingSecret: hedgedoc-chart
+existingSecret: hedgedoc
 extraEnv:
   CMD_DOMAIN: ''
   CMD_LOGLEVEL: debug
