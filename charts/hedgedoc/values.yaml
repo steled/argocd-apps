@@ -7,3 +7,10 @@ gatewayApi:
   parentRefs:
     - name: shared-gateway
       namespace: istio-system
+
+postgresql:
+  enabled: true
+  auth:
+    database: hedgedoc
+    password: ''
+    username: hedgedoc
