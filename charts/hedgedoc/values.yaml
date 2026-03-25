@@ -14,3 +14,6 @@ postgresql:
     database: hedgedoc
     password: ''
     username: hedgedoc
+    existingSecret: hedgedoc
+    secretKeys:
+      adminPasswordKey: postgresql-admin-password
