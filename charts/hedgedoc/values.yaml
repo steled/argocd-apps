@@ -1,6 +1,7 @@
 existingSecret: hedgedoc-chart
 extraEnv:
   CMD_DOMAIN: ''
+  CMD_LOGLEVEL: debug
 gatewayApi:
   enabled: true
   parentRefs:
