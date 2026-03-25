@@ -1,4 +1,6 @@
 existingSecret: hedgedoc-chart
+extraEnv:
+  CMD_DOMAIN: ''
 gatewayApi:
   enabled: true
   parentRefs:

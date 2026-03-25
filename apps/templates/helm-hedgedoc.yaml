@@ -18,10 +18,12 @@ spec:
       targetRevision: {{ .Values.hedgedoc.version }}
       helm:
         parameters:
+          - name: "extraEnv.CMD_DOMAIN"
+            value: {{ .Values.hedgedoc.extraEnv.cmd_domain }}
           - name: "gatewayApi.hostname"
             value: {{ .Values.hedgedoc.gatewayApi.hostname }}
           - name: "postgresql.auth.password"
-            value: {{ .Values.hedgedoc.postgresqlAuthPassword }}
+            value: {{ .Values.hedgedoc.postgresql.auth.password }}
         releaseName: hedgedoc
         valueFiles:
           - $values/charts/hedgedoc/values.yaml
