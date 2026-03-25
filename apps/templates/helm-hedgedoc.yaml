@@ -20,17 +20,16 @@ spec:
         parameters:
           - name: "gatewayApi.hostname"
             value: {{ .Values.hedgedoc.gatewayApi.hostname }}
+          - name: "postgresql.auth.password"
+            value: {{ .Values.hedgedoc.postgresqlAuthPassword }}
         releaseName: hedgedoc
         valueFiles:
           - $values/charts/hedgedoc/values.yaml
-    # - repoURL: git@github.com:steled/argocd-apps.git
-    #   path: ./charts/hedgedoc
-    #   targetRevision: {{ .Values.spec.source.targetRevision }}
-    #   helm:
-    #     releaseName: hedgedoc-addition
-    #     parameters:
-    #       - name: "gatewayApi.hostname"
-    #         value: {{ .Values.hedgedoc.gatewayApi.hostname }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/hedgedoc
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: hedgedoc-addition
     - repoURL: git@github.com:steled/argocd-apps.git
       targetRevision: main
       ref: values
