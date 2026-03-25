@@ -17,8 +17,6 @@ spec:
       repoURL: https://steled.github.io/fritzbox-cloudflare-dyndns-chart/
       targetRevision: {{ .Values.fritzboxCloudflareDyndns.version }}
       helm:
-        valueFiles:
-          - $values/charts/fritzbox-cloudflare-dyndns/values.yaml
         parameters:
           - name: "env.CLOUDFLARE_ZONES_IPV4"
             value: {{ .Values.fritzboxCloudflareDyndns.env.cloudflareZonesIpv4 }}
@@ -29,6 +27,8 @@ spec:
           - name: "env.FRITZBOX_ENDPOINT_URL"
             value: {{ .Values.fritzboxCloudflareDyndns.env.fritzboxEndpointUrl }}
         releaseName: fritzbox-cloudflare-dyndns
+        valueFiles:
+          - $values/charts/fritzbox-cloudflare-dyndns/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
       path: ./charts/fritzbox-cloudflare-dyndns
       targetRevision: {{ .Values.spec.source.targetRevision }}
