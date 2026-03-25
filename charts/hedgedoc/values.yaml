@@ -1,0 +1,5 @@
+gatewayApi:
+  enabled: true
+  parentRefs:
+    - name: shared-gateway
+      namespace: istio-system

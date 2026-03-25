@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: helm-hedgedoc
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: hedgedoc
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - repoURL: ghcr.io/steled/hedgedoc
+      path: .
+      targetRevision: {{ .Values.hedgedoc.version }}
+      helm:
+        releaseName: hedgedoc
+        parameters:
+          - name: "gatewayApi.hostname"
+            value: {{ .Values.hedgedoc.gatewayApi.hostname }}
+        valueFiles:
+          - $values/charts/hedgedoc/values.yaml
+    # - repoURL: git@github.com:steled/argocd-apps.git
+    #   path: ./charts/hedgedoc
+    #   targetRevision: {{ .Values.spec.source.targetRevision }}
+    #   helm:
+    #     releaseName: hedgedoc-addition
+    #     parameters:
+    #       - name: "gatewayApi.hostname"
+    #         value: {{ .Values.hedgedoc.gatewayApi.hostname }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
