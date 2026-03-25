@@ -4,6 +4,7 @@ extraEnv:
   CMD_ALLOW_ANONYMOUS_EDITS: false
   CMD_DOMAIN: ''
   CMD_LOGLEVEL: debug
+  CMD_PROTOCOL_USESSL: true
 gatewayApi:
   enabled: true
   parentRefs:
