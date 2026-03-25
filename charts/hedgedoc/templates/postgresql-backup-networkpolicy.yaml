@@ -5,16 +5,16 @@ metadata:
   labels:
     app.kubernetes.io/instance: hedgedoc
     app.kubernetes.io/name: hedgedoc
-  name: hedgedoc-postgresql-ambient-hbones
+  name: hedgedoc-postgresql-backup-ambient-hbones
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/component: primary
+      app.kubernetes.io/component: pg_dumpall
       app.kubernetes.io/instance: hedgedoc
       app.kubernetes.io/name: postgresql
   policyTypes:
-  - Ingress
-  ingress:
+  - Egress
+  egress:
   - ports:
     - port: 15008
       protocol: TCP
