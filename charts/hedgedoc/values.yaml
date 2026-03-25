@@ -17,3 +17,4 @@ postgresql:
     existingSecret: hedgedoc
     secretKeys:
       adminPasswordKey: postgresql-admin-password
+      userPasswordKey: postgresql-user-password
