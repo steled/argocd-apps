@@ -1,3 +1,4 @@
+existingSecret: hedgedoc-chart
 gatewayApi:
   enabled: true
   parentRefs:
