@@ -1,8 +1,8 @@
 csi:
-  attacherReplicaCount: 2
-  provisionerReplicaCount: 2
-  resizerReplicaCount: 2
-  snapshotterReplicaCount: 2
+  attacherReplicaCount: 3
+  provisionerReplicaCount: 3
+  resizerReplicaCount: 3
+  snapshotterReplicaCount: 3
 
 defaultBackupStore:
   backupTarget: s3://longhorn-backup@eu-east-local/
@@ -14,7 +14,7 @@ defaultSettings:
   autoCleanupSystemGeneratedSnapshot: true
   concurrentAutomaticEngineUpgradePerNodeLimit: "1"
   defaultDataPath: "/ext/persistent"
-  defaultReplicaCount: "2"
+  defaultReplicaCount: "3"
   orphanAutoDeletion: true
   replicaReplenishmentWaitInterval: "0"
   removeSnapshotsDuringFilesystemTrim: true
@@ -40,7 +40,7 @@ longhornUI:
 #     enabled: true
 
 persistence:
-  defaultClassReplicaCount: 2
+  defaultClassReplicaCount: 3
   migratable: false
   reclaimPolicy: Retain
   unmapMarkSnapChainRemoved: enabled
