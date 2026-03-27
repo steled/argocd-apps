@@ -109,4 +109,4 @@ victoriametricsOperator:
 
 vikunja:
   # renovate: datasource=github-tags depName=vikunja-chart packageName=vikunja/helm-chart
-  version: "v2.0.1"
+  version: "v2.0.2"
