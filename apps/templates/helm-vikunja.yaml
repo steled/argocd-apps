@@ -13,8 +13,8 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - chart: vikunja
-      repoURL: ghcr.io/go-vikunja/helm-chart/vikunja
+    - repoURL: oci://ghcr.io/go-vikunja/helm-chart/vikunja
+      path: .
       targetRevision: {{ .Values.vikunja.version }}
       helm:
         parameters:
