@@ -1,0 +1,11 @@
+vikunja:
+  ingress:
+    main:
+      enabled: false
+  persistence:
+    data:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 3Gi
+      mountPath: /app/vikunja/files
+      storageClass: longhorn

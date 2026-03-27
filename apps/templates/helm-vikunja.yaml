@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: helm-vikunja
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: kube-system
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: vikunja
+      repoURL: ghcr.io/go-vikunja/helm-chart/vikunja
+      targetRevision: {{ .Values.vikunja.version }}
+      helm:
+        parameters:
+          - name: "vikunja.env.VIKUNJA_SERVICE_PUBLICURL"
+            value: {{ .Values.vikunja.service.publicurl }}
+        valueFiles:
+          - $values/charts/vikunja/values.yaml
+        releaseName: vikunja
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/vikunja
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.vikunja.httproute.hostnames0 }}
+        releaseName: vikunja-addition
+        valueFiles:
+          - ./values.yaml
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
