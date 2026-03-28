@@ -4,6 +4,15 @@ fileStorage:
       enabled: true
       storageClass: longhorn
 
+secretKeyExternalSecret:
+  # -- This is for setting up the secret key external secret name.
+  name: outline
+  # -- This is for setting up the secret key external secret key.
+  key: secret-key
+
+strategy:
+  type: Recreate
+
 postgresql:
   enabled: true
   auth:
