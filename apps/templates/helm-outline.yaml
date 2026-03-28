@@ -13,7 +13,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - chart: community-charts/outline
+    - chart: outline
       repoURL: https://community-charts.github.io/helm-charts
       targetRevision: {{ .Values.outline.version }}
       helm:
