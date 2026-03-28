@@ -15,4 +15,4 @@ spec:
             value: /
       backendRefs:
         - name: outline
-          port: 3456
+          port: 3000
