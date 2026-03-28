@@ -45,7 +45,6 @@ postgresql:
 
 externalPostgresql:
   existingSecret: outline
-  passwordSecretKey: postgresql-user-password
 
 redis:
   enabled: true
