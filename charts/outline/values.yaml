@@ -23,7 +23,6 @@ postgresql:
     postgresql:
       auth:
         database: outline
-        username: ''
         existingSecret: outline
         secretKeys:
           adminPasswordKey: postgresql-admin-password
@@ -41,6 +40,11 @@ postgresql:
       enabled: true
       storageClass: longhorn
     resourcesPreset: small
+
+externalPostgresql:
+  existingSecret: outline
+  username: outline
+  passwordSecretKey: postgresql-user-password
 
 redis:
   enabled: true
