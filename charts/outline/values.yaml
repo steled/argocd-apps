@@ -6,6 +6,8 @@ fileStorage:
 
 postgresql:
   enabled: true
+  auth:
+    username: outline
   backup:
     enabled: true
     cronjob:
@@ -43,7 +45,6 @@ postgresql:
 
 externalPostgresql:
   existingSecret: outline
-  username: outline
   passwordSecretKey: postgresql-user-password
 
 redis:
