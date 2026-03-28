@@ -66,3 +66,8 @@ redis:
   #     storageClass: longhorn
   #   replicaCount: 1
   #   resourcesPreset: "micro"
+
+externalRedis:
+  existingSecret: outline
+  usernameSecretKey: redis-username
+  passwordSecretKey: redis-password
