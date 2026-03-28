@@ -18,6 +18,12 @@ spec:
       targetRevision: {{ .Values.outline.version }}
       helm:
         parameters:
+          - name: "smtp.host"
+            value: {{ .Values.outline.smtp.host }}
+          - name: "smtp.fromEmail"
+            value: {{ .Values.outline.smtp.fromEmail }}
+          - name: "smtp.replyEmail"
+            value: {{ .Values.outline.smtp.replyEmail }}
           - name: "url"
             value: {{ .Values.outline.url }}
         valueFiles:

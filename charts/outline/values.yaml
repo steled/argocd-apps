@@ -13,6 +13,18 @@ secretKeyExternalSecret:
 strategy:
   type: Recreate
 
+smtp:
+  host: ""
+  port: 587
+  fromEmail: ""
+  replyEmail: ""
+  tlsCiphers: ""
+  secure: false
+  existingSecret:
+    name: outline
+    usernameKey: smtp-username
+    passwordKey: smtp-password
+
 postgresql:
   enabled: true
   auth:
