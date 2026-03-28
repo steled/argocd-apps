@@ -28,7 +28,7 @@ postgresql:
         existingSecret: outline
         secretKeys:
           adminPasswordKey: postgresql-admin-password
-          userPasswordKey: postgresql-user-password
+          userPasswordKey: password
 
   primary:
     networkPolicy:
