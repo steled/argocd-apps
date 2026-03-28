@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: helm-outline
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: outline
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: community-charts/outline
+      repoURL: https://community-charts.github.io/helm-charts
+      targetRevision: {{ .Values.outline.version }}
+      helm:
+        parameters:
+          - name: "url"
+            value: {{ .Values.outline.url }}
+        valueFiles:
+          - $values/charts/outline/values.yaml
+        releaseName: outline
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/outline
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        parameters:
+          - name: "httproute.hostnames0"
+            value: {{ .Values.outline.httproute.hostnames0 }}
+        releaseName: outline-addition
+        valueFiles:
+          - ./values.yaml
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true

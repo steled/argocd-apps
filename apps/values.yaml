@@ -72,6 +72,9 @@ nextcloud:
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
   version: "9.0.3"
 
+outline:
+  version: "outline-0.7.3"
+
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
   version: "28.0.1"
