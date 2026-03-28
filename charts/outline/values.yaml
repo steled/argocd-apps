@@ -41,3 +41,9 @@ postgresql:
       enabled: true
       storageClass: longhorn
     resourcesPreset: small
+
+externalRedis:
+  password: "redisTestPassword"
+  # existingSecret: outline
+  # usernameSecretKey: "redis-username"
+  # passwordSecretKey: "redis-password"
