@@ -10,6 +10,10 @@ secretKeyExternalSecret:
   # -- This is for setting up the secret key external secret key.
   key: secret-key
 
+utilsSecretExternalSecret:
+  name: outline
+  key: utils-secret
+
 strategy:
   type: Recreate
 
