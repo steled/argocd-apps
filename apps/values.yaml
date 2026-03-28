@@ -73,7 +73,7 @@ nextcloud:
   version: "9.0.3"
 
 outline:
-  version: "outline-0.7.3"
+  version: "0.7.3"
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
