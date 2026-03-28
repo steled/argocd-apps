@@ -24,7 +24,7 @@ postgresql:
       auth:
         database: outline
         username: ''
-        existingSecret: nextcloud
+        existingSecret: outline
         secretKeys:
           adminPasswordKey: postgresql-admin-password
           userPasswordKey: postgresql-user-password
