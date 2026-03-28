@@ -170,6 +170,18 @@
         "github-tags"
       ],
       "matchDepNames": [
+        "outline-chart"
+      ],
+      "matchPackageNames": [
+        "community-charts/helm-charts"
+      ],
+      "extractVersion": "^outline-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
         "sealed-secrets-chart"
       ],
       "matchPackageNames": [
