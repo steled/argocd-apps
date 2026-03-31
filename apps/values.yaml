@@ -73,6 +73,9 @@ nextcloud:
   version: "9.0.3"
 
 outline:
+  image:
+    # renovate: datasource=docker depName=outline-image packageName=outlinewiki/outline
+    version: "1.6"
   # renovate: datasource=github-tags depName=outline-chart packageName=community-charts/helm-charts
   version: "0.7.3"
 

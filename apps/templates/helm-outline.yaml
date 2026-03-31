@@ -15,9 +15,11 @@ spec:
   sources:
     - chart: outline
       repoURL: https://community-charts.github.io/helm-charts
-      targetRevision: {{ .Values.outline.version }}
+      targetRevision: {{ .Values.outline.image.version }}
       helm:
         parameters:
+          - name: "image.tag"
+            value: {{ .Values.outline.image.version }}
           - name: "smtp.host"
             value: {{ .Values.outline.smtp.host }}
           - name: "smtp.fromEmail"
