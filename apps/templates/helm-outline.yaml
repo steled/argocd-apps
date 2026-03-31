@@ -15,7 +15,7 @@ spec:
   sources:
     - chart: outline
       repoURL: https://community-charts.github.io/helm-charts
-      targetRevision: {{ .Values.outline.image.version }}
+      targetRevision: {{ .Values.outline.version }}
       helm:
         parameters:
           - name: "image.tag"
