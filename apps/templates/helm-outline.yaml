@@ -19,7 +19,7 @@ spec:
       helm:
         parameters:
           - name: "image.tag"
-            value: {{ .Values.outline.image.version }}
+            value: "{{ .Values.outline.image.version }}"
           - name: "smtp.host"
             value: {{ .Values.outline.smtp.host }}
           - name: "smtp.fromEmail"
