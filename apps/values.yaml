@@ -27,7 +27,7 @@ hedgedoc:
 
 homepage:
   # renovate: datasource=docker depName=homepage-chart packageName=ghcr.io/m0nsterrr/helm-charts/homepage
-  version: "4.9.0"
+  version: "4.10.1"
 
 immich:
   postgresql:
