@@ -13,8 +13,8 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - chart: outline
-      repoURL: https://community-charts.github.io/helm-charts
+    - repoURL: oci://ghcr.io/steled/outline-chart/outline
+      path: .
       targetRevision: {{ .Values.outline.version }}
       helm:
         parameters:
