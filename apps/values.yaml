@@ -51,7 +51,7 @@ jdownloader2:
 
 jellyfin:
   # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
-  version: "2.7.0"
+  version: "3.0.0"
 
 kiali:
   # renovate: datasource=github-tags depName=kiali-chart packageName=kiali/helm-charts
