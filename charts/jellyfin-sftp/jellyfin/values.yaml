@@ -20,7 +20,7 @@ httpRoute:
     - name: shared-gateway
       namespace: istio-system
   hostnames:
-    - ''
+    - 'test'
 
 persistence:
   config:
