@@ -19,6 +19,8 @@ httpRoute:
   parentRefs:
     - name: shared-gateway
       namespace: istio-system
+  hostnames:
+    - ''
 
 persistence:
   config:
