@@ -19,7 +19,7 @@ fritzboxCloudflareDyndns:
 
 homarr:
   # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
-  version: "8.15.1"
+  version: "8.16.1"
 
 hedgedoc:
   # renovate: datasource=docker depName=hedgedoc-chart packageName=ghcr.io/steled/hedgedoc
