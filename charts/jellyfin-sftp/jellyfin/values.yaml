@@ -14,13 +14,13 @@
 #       hosts:
 #         - ''
 
-# httpRoute:
-#   enabled: true
-#   parentRefs:
-#     - name: shared-gateway
-#       namespace: istio-system
-#   hostnames:
-#     - ''
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: shared-gateway
+      namespace: istio-system
+  hostnames:
+    - ''
 
 persistence:
   config:
