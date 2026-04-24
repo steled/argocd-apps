@@ -11,7 +11,7 @@ apprise:
 
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager-chart packageName=cert-manager/cert-manager
-  version: "v1.20.1"
+  version: "v1.20.2"
 
 fritzboxCloudflareDyndns:
   # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart packageName=steled/fritzbox-cloudflare-dyndns-chart
@@ -19,11 +19,11 @@ fritzboxCloudflareDyndns:
 
 homarr:
   # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
-  version: "8.16.1"
+  version: "8.18.1"
 
 hedgedoc:
   # renovate: datasource=docker depName=hedgedoc-chart packageName=ghcr.io/steled/hedgedoc
-  version: "0.1.1"
+  version: "0.1.2"
 
 homepage:
   # renovate: datasource=docker depName=homepage-chart packageName=ghcr.io/m0nsterrr/helm-charts/homepage
@@ -38,7 +38,7 @@ immich:
       version: "pg17-v1.1.1"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
-    version: "v2.7.2"
+    version: "v2.7.5"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
   version: "0.11.1"
 
@@ -47,7 +47,7 @@ jdownloader2:
     # renovate: datasource=docker depName=jdownloader2-image packageName=jlesage/jdownloader-2
     version: "v26.03.1"
   # renovate: datasource=github-tags depName=jdownloader2-chart packageName=pmoscode-helm/jdownloader2
-  version: "1.9.0"
+  version: "1.10.0"
 
 jellyfin:
   # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
@@ -55,7 +55,7 @@ jellyfin:
 
 kiali:
   # renovate: datasource=github-tags depName=kiali-chart packageName=kiali/helm-charts
-  version: "v2.24.0"
+  version: "v2.25.0"
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
@@ -70,7 +70,7 @@ nextcloud:
     # renovate: datasource=docker depName=nextcloud-fpm-image packageName=nextcloud
     version: "33.0.2-fpm"
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
-  version: "9.0.4"
+  version: "9.0.5"
 
 outline:
   image:
@@ -85,7 +85,7 @@ prometheusOperatorCrds:
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
-  version: "2.18.4"
+  version: "2.18.5"
 
 sealedSecretsWeb:
   # renovate: datasource=github-tags depName=sealed-secrets-web-chart packageName=bakito/sealed-secrets-web
@@ -94,7 +94,7 @@ sealedSecretsWeb:
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-server-image packageName=atmoz/sftp
-    version: "alpine@sha256:56483e4d6678cbca5afccb1a6c525d95ba8f65dfb69063954a73317eda911579"
+    version: "alpine@sha256:db00e1e6065936ee33d8806b6962b71b715eea7feb758b8d6de927b1607fba55"
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.1"
 
@@ -108,7 +108,7 @@ victoriametrics:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
       version: "3.3.6-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
-  version: "0.72.6"
+  version: "0.74.1"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
