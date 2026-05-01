@@ -92,7 +92,7 @@ sealedSecretsWeb:
   version: "3.3.0"
 
 shoppingList:
-  # renovate: datasource=docker depName=shopping-list-image packageName=ghcr.io/steled/shopping-list
+  # renovate: datasource=github-tags depName=shopping-list-chart packageName=steled/shopping-list
   version: "0.1.0"
 
 sftpServer:
