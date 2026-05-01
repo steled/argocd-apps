@@ -14,6 +14,7 @@ spec:
   project: apps
   sources:
     - repoURL: oci://ghcr.io/steled/charts/shopping-list
+      path: .
       targetRevision: {{ .Values.shoppingList.version }}
       helm:
         parameters:
