@@ -93,7 +93,7 @@ sealedSecretsWeb:
 
 shoppingList:
   # renovate: datasource=github-tags depName=shopping-list-chart packageName=steled/shopping-list
-  version: "0.2.0"
+  version: "0.1.0"
 
 sftpServer:
   image:
