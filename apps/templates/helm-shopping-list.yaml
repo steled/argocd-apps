@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: helm-shopping-list
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: shopping-list
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - repoURL: oci://ghcr.io/steled/charts/shopping-list:0.1.0
+      targetRevision: {{ .Values.shoppingList.version }}
+      helm:
+        parameters:
+          - name: "networking.gateway.hostname"
+            value: {{ .Values.shoppingList.networking.gateway.hostname }}
+        releaseName: shopping-list
+        valueFiles:
+          - $values/charts/shopping-list/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/shopping-list
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: shopping-list-addition
+        valueFiles:
+          - ./values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true

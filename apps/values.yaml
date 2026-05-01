@@ -91,6 +91,10 @@ sealedSecretsWeb:
   # renovate: datasource=github-tags depName=sealed-secrets-web-chart packageName=bakito/sealed-secrets-web
   version: "3.3.0"
 
+shoppingList:
+  # renovate: datasource=docker depName=shopping-list-image packageName=ghcr.io/steled/shopping-list
+  version: "0.1.0"
+
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-server-image packageName=atmoz/sftp

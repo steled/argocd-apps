@@ -1,0 +1,13 @@
+auth:
+  existingSecret: shopping-list
+
+persistence:
+  enabled: true
+  storageClass: longhorn
+
+networking:
+  gateway:
+    hostname: ''
+    parentRefs:
+      - name: shared-gateway
+        namespace: istio-system
