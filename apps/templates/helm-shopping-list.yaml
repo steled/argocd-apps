@@ -13,7 +13,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: apps
   sources:
-    - repoURL: oci://ghcr.io/steled/charts/shopping-list:0.1.0
+    - repoURL: oci://ghcr.io/steled/charts/shopping-list
       targetRevision: {{ .Values.shoppingList.version }}
       helm:
         parameters:
