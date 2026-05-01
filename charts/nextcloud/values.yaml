@@ -158,6 +158,8 @@ phpClientHttpsFix:
   protocol: https
 
 persistence:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
   enabled: true
   storageClass: longhorn
   size: 10Gi
@@ -235,6 +237,8 @@ postgresql:
           - port: 15008
             protocol: TCP
     persistence:
+      annotations:
+        argocd.argoproj.io/sync-options: Prune=false
       enabled: true
       storageClass: longhorn
     resourcesPreset: "small"
@@ -254,11 +258,15 @@ redis:
             - port: 15008
   master:
     persistence:
+      annotations:
+        argocd.argoproj.io/sync-options: Prune=false
       enabled: true
       storageClass: longhorn
     resourcesPreset: "micro"
   replica:
     persistence:
+      annotations:
+        argocd.argoproj.io/sync-options: Prune=false
       enabled: true
       storageClass: longhorn
     replicaCount: 1

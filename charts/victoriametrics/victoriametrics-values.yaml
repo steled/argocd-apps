@@ -120,6 +120,9 @@ vmsingle:
       resources:
         requests:
           storage: 60Gi
+    storageMetadata:
+      annotations:
+        argocd.argoproj.io/sync-options: Prune=false
   # ingress:
   #   enabled: false
   #   ingressClassName: cilium
@@ -172,6 +175,8 @@ grafana:
   #         - ''
 
   persistence:
+    annotations:
+      argocd.argoproj.io/sync-options: Prune=false
     enabled: true
     storageClassName: longhorn
 

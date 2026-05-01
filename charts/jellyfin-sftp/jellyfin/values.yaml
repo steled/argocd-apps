@@ -24,6 +24,8 @@ httpRoute:
 
 persistence:
   config:
+    annotations:
+      argocd.argoproj.io/sync-options: Prune=false
     storageClass: longhorn
   media:
     accessMode: ReadWriteMany

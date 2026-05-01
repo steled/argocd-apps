@@ -2,6 +2,8 @@ auth:
   existingSecret: shopping-list
 
 persistence:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
   enabled: true
   storageClass: longhorn
 
