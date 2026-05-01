@@ -29,7 +29,9 @@ persistence:
     storageClass: longhorn
   media:
     accessMode: ReadWriteMany
-    size: 25Gi
+    annotations:
+      argocd.argoproj.io/sync-options: Prune=false
+    size: 100Gi
     storageClass: longhorn
 
 metrics:
