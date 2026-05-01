@@ -17,10 +17,10 @@ spec:
       path: .
       targetRevision: {{ .Values.homepage.version }}
       helm:
-        releaseName: homepage
         parameters:
           - name: "config.allowedHosts[0]"
             value: {{ .Values.homepage.httproute.hostnames0 }}
+        releaseName: homepage
         valueFiles:
           - $values/charts/homepage/values.yaml
     - repoURL: git@github.com:steled/argocd-apps.git
