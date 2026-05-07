@@ -89,7 +89,7 @@ sealedSecrets:
 
 sealedSecretsWeb:
   # renovate: datasource=github-tags depName=sealed-secrets-web-chart packageName=bakito/sealed-secrets-web
-  version: "3.3.0"
+  version: "3.3.1"
 
 shoppingList:
   # renovate: datasource=github-tags depName=shopping-list-chart packageName=steled/shopping-list
