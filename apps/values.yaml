@@ -7,7 +7,7 @@ spec:
 
 apprise:
   # renovate: datasource=docker depName=apprise-image packageName=caronc/apprise
-  version: "v1.4.0"
+  version: "v1.4.1"
 
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager-chart packageName=cert-manager/cert-manager
@@ -19,7 +19,7 @@ fritzboxCloudflareDyndns:
 
 homarr:
   # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
-  version: "8.18.2"
+  version: "8.19.0"
 
 hedgedoc:
   # renovate: datasource=docker depName=hedgedoc-chart packageName=ghcr.io/steled/hedgedoc
@@ -59,7 +59,7 @@ kiali:
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
-  version: "1.11.1"
+  version: "1.11.2"
 
 minio:
   # renovate: datasource=helm depName=minio-chart packageName=minio registryUrl=https://charts.min.io/
@@ -68,9 +68,9 @@ minio:
 nextcloud:
   fpm:
     # renovate: datasource=docker depName=nextcloud-fpm-image packageName=nextcloud
-    version: "33.0.2-fpm"
+    version: "33.0.3-fpm"
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
-  version: "9.0.5"
+  version: "9.0.6"
 
 outline:
   image:
@@ -89,7 +89,7 @@ sealedSecrets:
 
 sealedSecretsWeb:
   # renovate: datasource=github-tags depName=sealed-secrets-web-chart packageName=bakito/sealed-secrets-web
-  version: "3.3.0"
+  version: "3.3.1"
 
 shoppingList:
   # renovate: datasource=github-tags depName=shopping-list-chart packageName=steled/shopping-list
@@ -110,9 +110,9 @@ victoriametrics:
   metricsProxy:
     image:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
-      version: "3.3.7-alpine"
+      version: "3.3.8-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
-  version: "0.76.0"
+  version: "0.77.0"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
