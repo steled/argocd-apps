@@ -36,3 +36,27 @@ persistence:
 
 metrics:
   enabled: true
+
+# Intel UHD 600 (J4105) VAAPI hardware transcoding
+podSecurityContext:
+  supplementalGroups:
+    - 44   # video group (/dev/dri/card0)
+    - 993  # render group (/dev/dri/renderD128)
+
+volumes:
+  - name: dri
+    hostPath:
+      path: /dev/dri
+      type: Directory
+
+volumeMounts:
+  - name: dri
+    mountPath: /dev/dri
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 4000m
+    memory: 4Gi
