@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: helm-node-feature-discovery
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: node-feature-discovery
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: node-feature-discovery
+      repoURL: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+      targetRevision: {{ .Values.nodeFeatureDiscovery.version }}
+      helm:
+        releaseName: node-feature-discovery
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
