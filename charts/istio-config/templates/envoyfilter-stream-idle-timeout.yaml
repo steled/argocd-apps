@@ -1,5 +1,0 @@
-# Placeholder — intentionally empty.
-# Timer-based Envoy stream timeouts (stream_idle_timeout, idleTimeout) cannot
-# distinguish buffering pauses from abandoned connections and break active streams.
-# The seeking hang for Direct Play clients (LG TV, Android) must be fixed at the
-# Jellyfin level by forcing HLS transcoding (MaxStreamingBitrate per user/device).
