@@ -1,27 +1,5 @@
-# Closes abandoned HTTP streams at the shared-gateway after 60s of inactivity.
-# Without this, Direct Play clients (LG TV, Android) that seek leave stale
-# Range-request connections open in Envoy, which saturates Longhorn I/O.
-# Chrome is unaffected because the Jellyfin web player uses short-lived HLS segments.
-apiVersion: networking.istio.io/v1alpha3
-kind: EnvoyFilter
-metadata:
-  name: stream-idle-timeout
-  namespace: istio-system
-spec:
-  workloadSelector:
-    labels:
-      gateway.networking.k8s.io/gateway-name: shared-gateway
-  configPatches:
-    - applyTo: NETWORK_FILTER
-      match:
-        context: GATEWAY
-        listener:
-          filterChain:
-            filter:
-              name: envoy.filters.network.http_connection_manager
-      patch:
-        operation: MERGE
-        value:
-          typed_config:
-            "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
-            stream_idle_timeout: 60s
+# Placeholder — intentionally empty.
+# Timer-based Envoy stream timeouts (stream_idle_timeout, idleTimeout) cannot
+# distinguish buffering pauses from abandoned connections and break active streams.
+# The seeking hang for Direct Play clients (LG TV, Android) must be fixed at the
+# Jellyfin level by forcing HLS transcoding (MaxStreamingBitrate per user/device).
