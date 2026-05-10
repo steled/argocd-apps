@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: helm-intel-gpu-plugin
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: intel-device-plugins
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: intel-device-plugins-gpu
+      repoURL: https://intel.github.io/helm-charts/
+      targetRevision: {{ .Values.intelGpuPlugin.version }}
+      helm:
+        releaseName: intel-gpu-plugin
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
