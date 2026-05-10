@@ -1,0 +1,11 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: jellyfin-stream
+  namespace: jellyfin-sftp
+spec:
+  host: jellyfin.jellyfin-sftp.svc.cluster.local
+  trafficPolicy:
+    connectionPool:
+      http:
+        idleTimeout: 30s
