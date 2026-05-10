@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: helm-intel-device-plugins-operator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: intel-device-plugins
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: intel-device-plugins-operator
+      repoURL: https://intel.github.io/helm-charts/
+      targetRevision: {{ .Values.intelDevicePluginsOperator.version }}
+      helm:
+        releaseName: intel-device-plugins-operator
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true

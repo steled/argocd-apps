@@ -49,6 +49,10 @@ jdownloader2:
   # renovate: datasource=github-tags depName=jdownloader2-chart packageName=pmoscode-helm/jdownloader2
   version: "1.10.0"
 
+intelDevicePluginsOperator:
+  # renovate: datasource=helm depName=intel-device-plugins-operator-chart packageName=intel-device-plugins-operator registryUrl=https://intel.github.io/helm-charts/
+  version: "0.35.0"
+
 intelGpuPlugin:
   # renovate: datasource=helm depName=intel-gpu-plugin-chart packageName=intel-device-plugins-gpu registryUrl=https://intel.github.io/helm-charts/
   version: "0.35.0"
