@@ -38,6 +38,10 @@ metrics:
   enabled: true
 
 # Intel UHD 600 (J4105) VAAPI hardware transcoding
+# privileged: cgroup v2 blockiert sonst den /dev/dri Zugriff über hostPath
+securityContext:
+  privileged: true
+
 podSecurityContext:
   supplementalGroups:
     - 44   # video group (/dev/dri/card0)
