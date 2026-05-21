@@ -145,6 +145,8 @@ vmsingle:
 
 grafana:
   fullnameOverride: grafana
+  plugins:
+    - victoriametrics-metrics-datasource
   # grafana.ini:
   #   auth:
   #     signout_redirect_url: "${authentik_url}/application/o/grafana/end-session/"
