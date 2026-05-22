@@ -97,7 +97,7 @@ prometheusOperatorCrds:
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
-  version: "2.18.5"
+  version: "2.18.6"
 
 sealedSecretsWeb:
   # renovate: datasource=github-tags depName=sealed-secrets-web-chart packageName=bakito/sealed-secrets-web
