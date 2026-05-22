@@ -232,5 +232,18 @@ kubeScheduler:
           port: http-metrics
           scheme: http
 
+kubelet:
+  vmScrape:
+    spec:
+      relabelConfigs:
+        - action: labelmap
+          regex: __meta_kubernetes_node_label_(.+)
+        - action: labeldrop
+          regex: feature_node_kubernetes_io_.+
+        - sourceLabels: [__metrics_path__]
+          targetLabel: metrics_path
+        - targetLabel: job
+          replacement: kubelet
+
 prometheus-node-exporter:
   fullnameOverride: prometheus-node-exporter

@@ -12,7 +12,6 @@ spec:
       - alertgroup="general.rules"
       - alertname=~"Watchdog|InfoInhibitor"
       - severity="none"
-      - namespace=~".*"
     receiver: blackhole
 ---
 apiVersion: operator.victoriametrics.com/v1beta1
@@ -50,23 +49,23 @@ spec:
 #       - namespace="victoriametrics"
 #       - severity="none"
 #     receiver: blackhole
-# ---
-# apiVersion: operator.victoriametrics.com/v1beta1
-# kind: VMAlertmanagerConfig
-# metadata:
-#   name: mute-recordingrulesnodata
-# spec:
-#   receivers:
-#     - name: blackhole
-#   route:
-#     continue: false
-#     group_interval: 1m
-#     matchers:
-#       - alertname="RecordingRulesNoData"
-#       - alertgroup="vmalert"
-#       - recording=~"count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile"
-#       - severity="info"
-#     receiver: blackhole
+---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAlertmanagerConfig
+metadata:
+  name: mute-recordingrulesnodata
+spec:
+  receivers:
+    - name: blackhole
+  route:
+    continue: false
+    group_interval: 1m
+    matchers:
+      - alertname="RecordingRulesNoData"
+      - alertgroup="vmalert"
+      - recording="node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile"
+      - severity="info"
+    receiver: blackhole
 ---
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMAlertmanagerConfig
