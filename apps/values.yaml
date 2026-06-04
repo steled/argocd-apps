@@ -82,7 +82,7 @@ nextcloud:
     # renovate: datasource=docker depName=nextcloud-fpm-image packageName=nextcloud
     version: "33.0.3-fpm"
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
-  version: "9.1.0"
+  version: "9.1.1"
 
 outline:
   image:
