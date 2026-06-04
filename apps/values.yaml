@@ -55,7 +55,7 @@ nodeFeatureDiscovery:
 
 intelDevicePluginsOperator:
   # renovate: datasource=helm depName=intel-device-plugins-operator-chart packageName=intel-device-plugins-operator registryUrl=https://intel.github.io/helm-charts/
-  version: "0.35.0"
+  version: "0.36.0"
 
 intelGpuPlugin:
   # renovate: datasource=helm depName=intel-gpu-plugin-chart packageName=intel-device-plugins-gpu registryUrl=https://intel.github.io/helm-charts/
