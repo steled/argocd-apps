@@ -59,7 +59,7 @@ intelDevicePluginsOperator:
 
 intelGpuPlugin:
   # renovate: datasource=helm depName=intel-gpu-plugin-chart packageName=intel-device-plugins-gpu registryUrl=https://intel.github.io/helm-charts/
-  version: "0.35.0"
+  version: "0.36.0"
 
 jellyfin:
   # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
