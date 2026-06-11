@@ -110,7 +110,7 @@ shoppingList:
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-server-image packageName=atmoz/sftp
-    version: "alpine@sha256:db00e1e6065936ee33d8806b6962b71b715eea7feb758b8d6de927b1607fba55"
+    version: "alpine@sha256:ce9063bb66314c8ed0c3ade82a52ee7ac6e563c1b554a66241c40ca40a520098"
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.1"
 
