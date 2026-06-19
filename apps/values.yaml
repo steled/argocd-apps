@@ -97,7 +97,7 @@ prometheusOperatorCrds:
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
-  version: "2.18.6"
+  version: "2.19.0"
 
 sealedSecretsWeb:
   # renovate: datasource=github-tags depName=sealed-secrets-web-chart packageName=bakito/sealed-secrets-web
@@ -110,7 +110,7 @@ shoppingList:
 sftpServer:
   image:
     # renovate: datasource=docker depName=sftp-server-image packageName=atmoz/sftp
-    version: "alpine@sha256:ce9063bb66314c8ed0c3ade82a52ee7ac6e563c1b554a66241c40ca40a520098"
+    version: "alpine@sha256:a6cb3eb29202ca7f57e73bb7e527286e66e0e822fff65609207c7e0ef2d135a3"
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.1"
 
@@ -124,7 +124,7 @@ victoriametrics:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
       version: "3.4.0-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
-  version: "0.82.0"
+  version: "0.84.0"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
