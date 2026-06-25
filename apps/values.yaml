@@ -89,7 +89,7 @@ outline:
     # renovate: datasource=docker depName=outline-image packageName=outlinewiki/outline
     version: "1.8"
   # renovate: datasource=github-tags depName=outline-chart packageName=community-charts/helm-charts
-  version: "0.8.1"
+  version: "0.9.0"
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
