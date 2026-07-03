@@ -19,7 +19,7 @@ fritzboxCloudflareDyndns:
 
 homarr:
   # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
-  version: "8.19.0"
+  version: "8.20.0"
 
 hedgedoc:
   # renovate: datasource=docker depName=hedgedoc-chart packageName=ghcr.io/steled/hedgedoc
@@ -40,7 +40,7 @@ immich:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
     version: "v2.7.5"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
-  version: "0.12.0"
+  version: "0.12.1"
 
 jdownloader2:
   image:
@@ -80,7 +80,7 @@ minio:
 nextcloud:
   fpm:
     # renovate: datasource=docker depName=nextcloud-fpm-image packageName=nextcloud
-    version: "34.0.0-fpm"
+    version: "34.0.1-fpm"
   # renovate: datasource=github-tags depName=nextcloud-chart packageName=nextcloud/helm
   version: "9.2.0"
 
@@ -93,7 +93,7 @@ outline:
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
-  version: "30.0.0"
+  version: "30.0.1"
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
@@ -116,7 +116,7 @@ sftpServer:
 
 vault:
   # renovate: datasource=github-tags depName=hashicorp-vault-chart packageName=hashicorp/vault-helm
-  version: "0.33.0"
+  version: "0.34.0"
 
 victoriametrics:
   metricsProxy:
@@ -124,7 +124,7 @@ victoriametrics:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
       version: "3.4.1-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
-  version: "0.85.5"
+  version: "0.85.9"
 
 victoriametricsOperator:
   # renovate: datasource=github-tags depName=victoriametrics-operator-chart packageName=VictoriaMetrics/helm-charts
