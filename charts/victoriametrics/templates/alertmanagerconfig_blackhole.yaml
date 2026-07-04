@@ -17,42 +17,6 @@ spec:
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMAlertmanagerConfig
 metadata:
-  name: mute-cputhrottlinghigh
-spec:
-  receivers:
-    - name: blackhole
-  route:
-    continue: false
-    group_interval: 1m
-    matchers:
-      - alertgroup="general.rules"
-      - alertname="InfoInhibitor"
-      - exported_alertname="CPUThrottlingHigh"
-      - exported_severity="info"
-      - namespace="nextcloud"
-      - severity="none"
-    receiver: blackhole
-# ---
-# apiVersion: operator.victoriametrics.com/v1beta1
-# kind: VMAlertmanagerConfig
-# metadata:
-#   name: mute-generalrules-infoinhibitor
-# spec:
-#   receivers:
-#     - name: blackhole
-#   route:
-#     continue: false
-#     group_interval: 1m
-#     matchers:
-#       - alertgroup="general.rules"
-#       - alertname="InfoInhibitor"
-#       - namespace="victoriametrics"
-#       - severity="none"
-#     receiver: blackhole
----
-apiVersion: operator.victoriametrics.com/v1beta1
-kind: VMAlertmanagerConfig
-metadata:
   name: mute-recordingrulesnodata
 spec:
   receivers:
@@ -63,29 +27,8 @@ spec:
     matchers:
       - alertname="RecordingRulesNoData"
       - alertgroup="vmalert"
-      - recording="node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile"
+      - recording=~"node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile|apiserver_request:availability30d|count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile|cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
       - severity="info"
-    receiver: blackhole
----
-apiVersion: operator.victoriametrics.com/v1beta1
-kind: VMAlertmanagerConfig
-metadata:
-  name: mute-infoinhibitor
-spec:
-  receivers:
-    - name: blackhole
-  route:
-    continue: false
-    group_interval: 1m
-    matchers:
-      - alertname="InfoInhibitor"
-      - alertgroup="general.rules"
-      - alertstate=~"firing|pending"
-      - exported_alertgroup="vmalert"
-      - exported_alertname="RecordingRulesNoData"
-      - exported_severity="info"
-      - recording=~"apiserver_request:availability30d|count:up0|cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile|cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile|cluster_quantile:scheduler_scheduling_attempt_duration_seconds:histogram_quantile|cluster_quantile:scheduler_pod_scheduling_sli_duration_seconds:histogram_quantile"
-      - severity="none"
     receiver: blackhole
 # ---
 # apiVersion: operator.victoriametrics.com/v1beta1
