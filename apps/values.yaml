@@ -7,7 +7,7 @@ spec:
 
 apprise:
   # renovate: datasource=docker depName=apprise-image packageName=caronc/apprise
-  version: "v1.5.0"
+  version: "v1.5.1"
 
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager-chart packageName=cert-manager/cert-manager
@@ -19,7 +19,7 @@ fritzboxCloudflareDyndns:
 
 homarr:
   # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
-  version: "8.20.0"
+  version: "8.21.0"
 
 hedgedoc:
   # renovate: datasource=docker depName=hedgedoc-chart packageName=ghcr.io/steled/hedgedoc
@@ -38,9 +38,9 @@ immich:
       version: "pg17-v1.1.1"
   image:
     # renovate: datasource=github-tags depName=immich-image packageName=immich-app/immich
-    version: "v3.0.1"
+    version: "v3.0.2"
   # renovate: datasource=github-tags depName=immich-chart packageName=immich-app/immich-charts
-  version: "0.12.1"
+  version: "0.13.1"
 
 jdownloader2:
   image:
@@ -87,9 +87,9 @@ nextcloud:
 outline:
   image:
     # renovate: datasource=docker depName=outline-image packageName=outlinewiki/outline
-    version: "1.8"
+    version: "1.9"
   # renovate: datasource=github-tags depName=outline-chart packageName=community-charts/helm-charts
-  version: "0.9.0"
+  version: "0.9.1"
 
 prometheusOperatorCrds:
   # renovate: datasource=github-tags depName=prometheus-operator-crds-chart packageName=prometheus-community/helm-charts
@@ -97,7 +97,7 @@ prometheusOperatorCrds:
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
-  version: "2.19.0"
+  version: "2.19.1"
 
 sealedSecretsWeb:
   # renovate: datasource=github-tags depName=sealed-secrets-web-chart packageName=bakito/sealed-secrets-web
@@ -105,7 +105,7 @@ sealedSecretsWeb:
 
 shoppingList:
   # renovate: datasource=github-tags depName=shopping-list-chart packageName=steled/shopping-list
-  version: "0.4.7"
+  version: "0.4.8"
 
 sftpServer:
   image:
@@ -122,7 +122,7 @@ victoriametrics:
   metricsProxy:
     image:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
-      version: "3.4.1-alpine"
+      version: "3.4.2-alpine"
   # renovate: datasource=github-tags depName=victoriametrics-chart packageName=VictoriaMetrics/helm-charts
   version: "0.86.0"
 
