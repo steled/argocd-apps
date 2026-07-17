@@ -1,3 +1,7 @@
+backupCleanup:
+  schedule: "0 23 * * *"
+  retainPerVolume: 7
+
 csi:
   attacherReplicaCount: 3
   provisionerReplicaCount: 3

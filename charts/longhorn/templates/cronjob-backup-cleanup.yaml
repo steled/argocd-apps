@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: longhorn-backup-cleanup
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: longhorn-backup-cleanup
+rules:
+  - apiGroups: ["longhorn.io"]
+    resources: ["backups"]
+    verbs: ["get", "list", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: longhorn-backup-cleanup
+subjects:
+  - kind: ServiceAccount
+    name: longhorn-backup-cleanup
+roleRef:
+  kind: Role
+  name: longhorn-backup-cleanup
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: longhorn-backup-cleanup
+spec:
+  schedule: {{ .Values.backupCleanup.schedule | quote }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        spec:
+          serviceAccountName: longhorn-backup-cleanup
+          restartPolicy: OnFailure
+          containers:
+            - name: cleanup
+              image: {{ .Values.backupCleanup.image }}
+              command:
+                - bash
+                - -c
+                - |
+                  set -euo pipefail
+                  # system-backup's RecurringJob creates a volume Backup per volume without a
+                  # RecurringJob label, so Longhorn's own retain=7 policy never prunes it.
+                  # Keep the N most recent backups per volume regardless of label/origin.
+                  KEEP={{ .Values.backupCleanup.retainPerVolume }}
+                  to_delete=$(kubectl get backups.longhorn.io -n {{ .Release.Namespace }} -o json | jq -r --argjson keep "$KEEP" '
+                    [.items[] | select(.status.volumeName != null and .status.volumeName != "" and .status.state != "InProgress")
+                      | {name: .metadata.name, vol: .status.volumeName, created: .status.snapshotCreatedAt}]
+                    | group_by(.vol)
+                    | map(sort_by(.created) | reverse | .[$keep:])
+                    | flatten
+                    | .[].name
+                  ')
+                  count=$(echo -n "$to_delete" | grep -c . || true)
+                  echo "Found $count backup(s) beyond retain=$KEEP per volume"
+                  if [ "$count" -gt 0 ]; then
+                    echo "$to_delete" | xargs -r -n 20 kubectl delete backups.longhorn.io -n {{ .Release.Namespace }} --wait=false
+                  fi

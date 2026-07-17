@@ -32,6 +32,8 @@ spec:
         parameters:
           - name: "httproute.hostnames0"
             value: {{ .Values.longhorn.httproute.hostnames0 }}
+          - name: "backupCleanup.image"
+            value: "alpine/k8s:{{ .Values.longhorn.backupCleanupImage.version }}"
         releaseName: longhorn-addition
         valueFiles:
           - ./values.yaml
