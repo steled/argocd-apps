@@ -74,7 +74,7 @@ longhorn:
   version: "1.12.0"
   backupCleanupImage:
     # renovate: datasource=docker depName=longhorn-backup-cleanup-image packageName=alpine/k8s
-    version: "1.30.0"
+    version: "1.30.14"
 
 minio:
   # renovate: datasource=helm depName=minio-chart packageName=minio registryUrl=https://charts.min.io/
