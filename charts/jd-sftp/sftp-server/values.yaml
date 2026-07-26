@@ -28,5 +28,5 @@ persistentVolume:
   accessModes: ["ReadWriteMany"]
   enabled: false
   existingClaim: "jdownloader2-data"
-  size: "50Gi"
+  size: "100Gi"
   subPath: "uploads"

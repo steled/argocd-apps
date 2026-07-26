@@ -7,7 +7,7 @@ myjd:
 persistence:
   accessMode: ReadWriteMany
   enabled: true
-  size: 50Gi
+  size: 100Gi
   storageClass: longhorn
 
 service:
