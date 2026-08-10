@@ -122,18 +122,6 @@
         "github-tags"
       ],
       "matchDepNames": [
-        "jdownloader2-chart"
-      ],
-      "matchPackageNames": [
-        "pmoscode-helm/jdownloader2"
-      ],
-      "extractVersion": "^jdownloader2-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
         "jellyfin-chart"
       ],
       "matchPackageNames": [
