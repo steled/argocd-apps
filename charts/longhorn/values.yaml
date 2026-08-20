@@ -36,6 +36,13 @@ defaultSettings:
 #     cert-manager.io/cluster-issuer: cloudflare-letsencrypt-production
 #     ingress.cilium.io/loadbalancer-mode: shared
 
+longhornManager:
+  # keep at least 2 of 3 managers available during rollouts instead of the chart
+  # default of restarting all of them at once
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+
 longhornUI:
   replicas: 2
 
