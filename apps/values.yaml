@@ -71,7 +71,7 @@ kiali:
 
 longhorn:
   # renovate: datasource=github-tags depName=longhorn-chart packageName=longhorn/longhorn
-  version: "1.12.0"
+  version: "1.12.1"
   backupCleanupImage:
     # renovate: datasource=docker depName=longhorn-backup-cleanup-image packageName=alpine/k8s
     version: "1.36.2"
