@@ -1,0 +1,24 @@
+# The upstream instance-manager NetworkPolicy (introduced in v1.12.1) only allows ingress
+# from other Longhorn component pods. It doesn't account for the node's own kernel iSCSI
+# initiator, which logs in to the instance-manager pod's iSCSI target (tgtd, port 3260)
+# from the host network namespace (via nsenter) rather than from a pod. Under Istio ambient
+# mesh + Cilium, this shows up as the "world" identity and gets denied, so volumes can
+# never finish attaching. 169.254.0.0/16 is link-local and only reachable from processes
+# on the same host as the pod, so this stays scoped to genuinely local, trusted traffic.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: instance-manager-host-iscsi
+spec:
+  podSelector:
+    matchLabels:
+      longhorn.io/component: instance-manager
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 169.254.0.0/16
+    ports:
+    - port: 3260
+      protocol: TCP
