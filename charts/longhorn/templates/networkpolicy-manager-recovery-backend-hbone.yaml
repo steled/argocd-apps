@@ -1,0 +1,24 @@
+# The upstream longhorn-recovery-backend NetworkPolicy (introduced in v1.12.1) allows
+# share-manager pods to reach longhorn-manager, but restricts it to port 9503 - the
+# recovery backend's own app port. Under Istio ambient mesh, that traffic is first
+# tunneled ztunnel-to-ztunnel over HBONE port 15008, which this port-restricted rule
+# doesn't cover, so the tunnel setup itself times out before the request ever reaches
+# port 9503. nfs-ganesha then fails "Recovery Backend Init for longhorn" and share-manager
+# exits, breaking all RWX volumes. NetworkPolicies targeting the same pod are additive, so
+# this supplementary policy just needs to allow all ports from share-manager, mirroring how
+# the upstream policy already treats its other peers (e.g. longhorn-csi-plugin).
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: longhorn-manager-recovery-backend-hbone
+spec:
+  podSelector:
+    matchLabels:
+      app: longhorn-manager
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          longhorn.io/component: share-manager
