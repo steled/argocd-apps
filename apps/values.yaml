@@ -135,4 +135,4 @@ victoriametricsOperator:
 
 vikunja:
   # renovate: datasource=docker depName=vikunja-chart packageName=ghcr.io/go-vikunja/helm-chart/vikunja
-  version: "v2.0.2"
+  version: "2.2.1"
