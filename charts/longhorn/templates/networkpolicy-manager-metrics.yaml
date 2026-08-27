@@ -4,6 +4,14 @@
 # dropped at the ztunnel tunnel layer - this is a documented caveat upstream, fixed
 # in v1.12.2, but we're still on v1.12.1. NetworkPolicies targeting the same pod are
 # additive, so this only needs to add the missing peer, not touch existing rules.
+#
+# No `ports` restriction here on purpose: under ambient mesh, all pod-to-pod traffic
+# is tunneled through ztunnel to the node's HBONE port (15008), and Cilium's policy
+# decision for that SYN only sees the tunnel port, not the original destination port
+# multiplexed inside it - so a port-scoped rule silently never matches and the peer
+# stays blocked (verified live via `cilium-dbg monitor`, "match none" against 15008).
+# Scoping to the vmagent peer (namespace + pod label) is the actual enforceable
+# boundary here, same as the existing CSI-sidecar policy.
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -22,6 +30,3 @@ spec:
       podSelector:
         matchLabels:
           app.kubernetes.io/name: vmagent
-    ports:
-    - port: 9500
-      protocol: TCP
