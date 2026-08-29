@@ -5,10 +5,6 @@ spec:
     repoURL: git@github.com:steled/argocd-apps.git
     targetRevision: HEAD
 
-apprise:
-  # renovate: datasource=docker depName=apprise-image packageName=caronc/apprise
-  version: "v1.5.2"
-
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager-chart packageName=cert-manager/cert-manager
   version: "v1.21.1"
@@ -16,14 +12,6 @@ certmanager:
 fritzboxCloudflareDyndns:
   # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart packageName=steled/fritzbox-cloudflare-dyndns-chart
   version: "0.0.17"
-
-homarr:
-  # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
-  version: "8.28.2"
-
-hedgedoc:
-  # renovate: datasource=docker depName=hedgedoc-chart packageName=ghcr.io/steled/hedgedoc
-  version: "0.1.5"
 
 homepage:
   # renovate: datasource=docker depName=homepage-chart packageName=ghcr.io/m0nsterrr/helm-charts/homepage
@@ -87,17 +75,6 @@ nextcloud:
   # renovate: datasource=helm depName=nextcloud-chart packageName=nextcloud registryUrl=https://nextcloud.github.io/helm
   version: "9.2.6"
 
-outline:
-  image:
-    # renovate: datasource=docker depName=outline-image packageName=outlinewiki/outline
-    version: "1.9"
-  # renovate: datasource=helm depName=outline-chart packageName=outline registryUrl=https://community-charts.github.io/helm-charts
-  version: "0.9.3"
-
-prometheusOperatorCrds:
-  # renovate: datasource=helm depName=prometheus-operator-crds-chart packageName=prometheus-operator-crds registryUrl=https://prometheus-community.github.io/helm-charts
-  version: "31.0.1"
-
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
   version: "2.19.3"
@@ -117,10 +94,6 @@ sftpServer:
   # renovate: datasource=github-tags depName=sftp-server-chart packageName=sj14/helm-charts
   version: "0.8.1"
 
-vault:
-  # renovate: datasource=github-tags depName=hashicorp-vault-chart packageName=hashicorp/vault-helm
-  version: "0.34.1"
-
 victoriametrics:
   metricsProxy:
     image:
@@ -132,7 +105,3 @@ victoriametrics:
 victoriametricsOperator:
   # renovate: datasource=helm depName=victoriametrics-operator-chart packageName=victoria-metrics-operator registryUrl=https://victoriametrics.github.io/helm-charts
   version: "0.67.2"
-
-vikunja:
-  # renovate: datasource=github-tags depName=vikunja-chart packageName=go-vikunja/helm-chart
-  version: "2.2.1"

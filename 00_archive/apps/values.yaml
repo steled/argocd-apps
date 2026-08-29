@@ -1,0 +1,37 @@
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: git@github.com:steled/argocd-apps.git
+    targetRevision: HEAD
+
+apprise:
+  # renovate: datasource=docker depName=apprise-image packageName=caronc/apprise
+  version: "v1.5.2"
+
+homarr:
+  # renovate: datasource=github-tags depName=homarr-chart packageName=homarr-labs/charts
+  version: "8.28.2"
+
+hedgedoc:
+  # renovate: datasource=docker depName=hedgedoc-chart packageName=ghcr.io/steled/hedgedoc
+  version: "0.1.5"
+
+outline:
+  image:
+    # renovate: datasource=docker depName=outline-image packageName=outlinewiki/outline
+    version: "1.9"
+  # renovate: datasource=helm depName=outline-chart packageName=outline registryUrl=https://community-charts.github.io/helm-charts
+  version: "0.9.3"
+
+prometheusOperatorCrds:
+  # renovate: datasource=helm depName=prometheus-operator-crds-chart packageName=prometheus-operator-crds registryUrl=https://prometheus-community.github.io/helm-charts
+  version: "31.0.1"
+
+vault:
+  # renovate: datasource=github-tags depName=hashicorp-vault-chart packageName=hashicorp/vault-helm
+  version: "0.34.1"
+
+vikunja:
+  # renovate: datasource=github-tags depName=vikunja-chart packageName=go-vikunja/helm-chart
+  version: "2.2.1"
