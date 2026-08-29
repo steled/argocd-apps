@@ -134,42 +134,6 @@
         "github-tags"
       ],
       "matchDepNames": [
-        "nextcloud-chart"
-      ],
-      "matchPackageNames": [
-        "nextcloud/helm"
-      ],
-      "extractVersion": "^nextcloud-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
-        "prometheus-operator-crds-chart"
-      ],
-      "matchPackageNames": [
-        "prometheus-community/helm-charts"
-      ],
-      "extractVersion": "^prometheus-operator-crds-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
-        "outline-chart"
-      ],
-      "matchPackageNames": [
-        "community-charts/helm-charts"
-      ],
-      "extractVersion": "^outline-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
         "sealed-secrets-chart"
       ],
       "matchPackageNames": [
@@ -213,30 +177,6 @@
         "sj14/helm-charts"
       ],
       "extractVersion": "^sftp-server-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
-        "victoriametrics-chart"
-      ],
-      "matchPackageNames": [
-        "VictoriaMetrics/helm-charts"
-      ],
-      "extractVersion": "^victoria-metrics-k8s-stack-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
-        "victoriametrics-operator"
-      ],
-      "matchPackageNames": [
-        "VictoriaMetrics/helm-charts"
-      ],
-      "extractVersion": "^victoria-metrics-operator-(?<version>.*)$"
     },
     {
       "matchDatasources": [
