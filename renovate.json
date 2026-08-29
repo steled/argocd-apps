@@ -71,18 +71,6 @@
     },
     {
       "matchDatasources": [
-        "github-tags"
-      ],
-      "matchDepNames": [
-        "immich-postgres-chart"
-      ],
-      "matchPackageNames": [
-        "bitnami/charts"
-      ],
-      "extractVersion": "^postgresql/(?<version>.*)$"
-    },
-    {
-      "matchDatasources": [
         "docker"
       ],
       "matchDepNames": [
