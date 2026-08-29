@@ -237,6 +237,18 @@
         "VictoriaMetrics/helm-charts"
       ],
       "extractVersion": "^victoria-metrics-operator-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "vikunja-chart"
+      ],
+      "matchPackageNames": [
+        "go-vikunja/helm-chart"
+      ],
+      "extractVersion": "^v(?<version>.*)$"
     }
   ]
 }
