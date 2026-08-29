@@ -7,6 +7,9 @@
     "custom.regex",
     "github-actions"
   ],
+  "ignorePaths": [
+    "00_archive/**"
+  ],
   "customManagers": [
     {
       "customType": "regex",
