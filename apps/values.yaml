@@ -20,7 +20,7 @@ homepage:
 immich:
   postgresql:
     # renovate: datasource=docker depName=immich-postgres-chart packageName=bitnamicharts/postgresql
-    version: "18.8.13"
+    version: "18.8.17"
     image:
       # renovate: datasource=docker depName=immich-postgres-image packageName=tensorchord/vchord-postgres
       version: "pg18-v1.1.1"
