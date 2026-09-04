@@ -104,4 +104,4 @@ victoriametrics:
 
 victoriametricsOperator:
   # renovate: datasource=helm depName=victoriametrics-operator-chart packageName=victoria-metrics-operator registryUrl=https://victoriametrics.github.io/helm-charts
-  version: "0.67.2"
+  version: "0.67.3"
