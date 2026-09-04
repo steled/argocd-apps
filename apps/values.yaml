@@ -15,7 +15,7 @@ fritzboxCloudflareDyndns:
 
 homepage:
   # renovate: datasource=docker depName=homepage-chart packageName=ghcr.io/m0nsterrr/helm-charts/homepage
-  version: "5.1.1"
+  version: "5.2.0"
 
 immich:
   postgresql:
