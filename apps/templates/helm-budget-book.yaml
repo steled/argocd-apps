@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: helm-budget-book
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: budget-book
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - repoURL: oci://ghcr.io/steled/charts/budget-book
+      path: .
+      targetRevision: {{ .Values.budgetBook.version }}
+      helm:
+        parameters:
+          - name: "networking.gateway.hostname"
+            value: {{ .Values.budgetBook.networking.gateway.hostname }}
+        releaseName: budget-book
+        valueFiles:
+          - $values/charts/budget-book/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      path: ./charts/budget-book
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      helm:
+        releaseName: budget-book-addition
+        valueFiles:
+          - ./values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    managedNamespaceMetadata:
+      labels:
+        istio.io/dataplane-mode: ambient
+        shared-gateway-access: "true"
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true

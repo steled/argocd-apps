@@ -1,0 +1,15 @@
+auth:
+  existingSecret: budget-book
+
+persistence:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+  enabled: true
+  storageClass: longhorn
+
+networking:
+  gateway:
+    hostname: 'budget.steled.org'
+    parentRefs:
+      - name: shared-gateway
+        namespace: istio-system
