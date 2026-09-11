@@ -7,7 +7,7 @@ spec:
 
 budgetBook:
   # renovate: datasource=github-tags depName=budget-book-chart packageName=steled/budget-book
-  version: "0.1.2"
+  version: "0.1.3"
 
 certmanager:
   # renovate: datasource=github-tags depName=cert-manager-chart packageName=cert-manager/cert-manager
