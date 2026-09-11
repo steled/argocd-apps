@@ -9,7 +9,7 @@ persistence:
 
 networking:
   gateway:
-    hostname: 'budget.steled.org'
+    hostname: ''
     parentRefs:
       - name: shared-gateway
         namespace: istio-system
