@@ -59,7 +59,7 @@ jellyfin:
 
 kiali:
   # renovate: datasource=helm depName=kiali-chart packageName=kiali-server registryUrl=https://kiali.org/helm-charts
-  version: "v2.31.0"
+  version: "2.32.0"
 
 longhorn:
   # renovate: datasource=helm depName=longhorn-chart packageName=longhorn registryUrl=https://charts.longhorn.io
