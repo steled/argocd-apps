@@ -104,7 +104,7 @@ victoriametrics:
       # renovate: datasource=docker depName=metricsProxy-image packageName=haproxy
       version: "3.4.4-alpine"
   # renovate: datasource=helm depName=victoriametrics-chart packageName=victoria-metrics-k8s-stack registryUrl=https://victoriametrics.github.io/helm-charts
-  version: "0.92.1"
+  version: "0.93.0"
 
 victoriametricsOperator:
   # renovate: datasource=helm depName=victoriametrics-operator-chart packageName=victoria-metrics-operator registryUrl=https://victoriametrics.github.io/helm-charts
