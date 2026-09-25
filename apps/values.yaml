@@ -77,7 +77,7 @@ nextcloud:
     # renovate: datasource=docker depName=nextcloud-fpm-image packageName=nextcloud
     version: "35.0.0-fpm"
   # renovate: datasource=helm depName=nextcloud-chart packageName=nextcloud registryUrl=https://nextcloud.github.io/helm
-  version: "9.2.6"
+  version: "9.3.0"
 
 sealedSecrets:
   # renovate: datasource=github-tags depName=sealed-secrets-chart packageName=bitnami-labs/sealed-secrets
