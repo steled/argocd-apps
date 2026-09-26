@@ -44,7 +44,12 @@ spec:
       prune: true
     managedNamespaceMetadata:
       labels:
-        istio.io/dataplane-mode: ambient
+        # Longhorn's data path (engine<->replica, NFS recovery backend) must not depend on
+        # ztunnel: every ztunnel restart dropped all replica connections cluster-wide, and
+        # enrollment races after reboots silently blackholed longhorn-manager
+        # (istio/istio#60882). Explicit "none" rather than dropping the label, so the
+        # namespace is reliably opted out even if the label were left behind.
+        istio.io/dataplane-mode: none
         shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
