@@ -20,7 +20,9 @@ defaultSettings:
   defaultDataPath: "/ext/persistent"
   defaultReplicaCount: "2"
   orphanAutoDeletion: true
-  replicaReplenishmentWaitInterval: "0"
+  # wait for a rebooting/drained node to come back and reuse its replicas (fast delta
+  # sync) instead of immediately copying full replicas elsewhere; a reboot takes ~2 min
+  replicaReplenishmentWaitInterval: "300"
   removeSnapshotsDuringFilesystemTrim: true
   storageReservedPercentageForDefaultDisk: "1"
   snapshotMaxCount: "8"
