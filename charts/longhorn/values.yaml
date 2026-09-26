@@ -24,6 +24,9 @@ defaultSettings:
   # sync) instead of immediately copying full replicas elsewhere; a reboot takes ~2 min
   replicaReplenishmentWaitInterval: "300"
   removeSnapshotsDuringFilesystemTrim: true
+  # keep replicas spread evenly across all three nodes; after drains they otherwise pile
+  # up on two nodes and every later drain of those hits all volumes
+  replicaAutoBalance: "best-effort"
   storageReservedPercentageForDefaultDisk: "1"
   snapshotMaxCount: "8"
 
