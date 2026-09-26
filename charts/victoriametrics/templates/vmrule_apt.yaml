@@ -1,0 +1,27 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMRule
+metadata:
+  name: vmrule-alerting-apt
+spec:
+  groups:
+    - name: apt.rules
+      rules:
+        - alert: AptUpdateStale
+          annotations:
+            summary: apt package lists on {{`{{ $labels.instance }}`}} not refreshed for {{`{{ $value | humanizeDuration }}`}}
+            description: The last successful apt update on {{`{{ $labels.instance }}`}} was {{`{{ $value | humanizeDuration }}`}} ago.
+              A hung apt/unattended-upgrade process is probably holding the apt lock, which also blocks security updates and kubeone.
+              Check with `ps -eo pid,etime,cmd | grep -E 'apt|dpkg'` on the node.
+          expr: time() - node_apt_update_success_timestamp_seconds > 2 * 86400
+          for: 1h
+          labels:
+            severity: warning
+        - alert: AptUpgradeStale
+          annotations:
+            summary: unattended-upgrade on {{`{{ $labels.instance }}`}} has not run for {{`{{ $value | humanizeDuration }}`}}
+            description: The last unattended-upgrade run on {{`{{ $labels.instance }}`}} was {{`{{ $value | humanizeDuration }}`}} ago,
+              so security updates are not being installed. Check `systemctl status apt-daily-upgrade.timer` and for a hung apt process.
+          expr: time() - node_apt_upgrade_timestamp_seconds > 3 * 86400
+          for: 1h
+          labels:
+            severity: warning

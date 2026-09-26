@@ -255,3 +255,44 @@ kubelet:
 
 prometheus-node-exporter:
   fullnameOverride: prometheus-node-exporter
+  # overriding extraArgs replaces the chart's list, so the first two are the
+  # victoria-metrics-k8s-stack defaults carried over unchanged
+  extraArgs:
+    - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
+    - --collector.filesystem.fs-types-exclude=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|erofs|sysfs|tracefs)$
+    - --collector.textfile.directory=/run/prometheus
+  sidecarVolumeMount:
+    - name: collector-textfiles
+      mountPath: /run/prometheus
+      readOnly: false
+  sidecarHostVolumeMounts:
+    - name: apt-periodic
+      hostPath: /var/lib/apt/periodic
+      mountPath: /host/apt-periodic
+      readOnly: true
+  # apt.systemd.daily touches these stamps after each successful run; exported so a
+  # hung apt run holding the lock gets noticed (see vmrule_apt.yaml)
+  sidecars:
+    - name: apt-stamps
+      image: busybox:1.37.0
+      command:
+        - sh
+        - -c
+        - |
+          while true; do
+            {
+              echo "# HELP node_apt_update_success_timestamp_seconds mtime of /var/lib/apt/periodic/update-success-stamp"
+              echo "# TYPE node_apt_update_success_timestamp_seconds gauge"
+              echo "node_apt_update_success_timestamp_seconds $(stat -c %Y /host/apt-periodic/update-success-stamp 2>/dev/null || echo 0)"
+              echo "# HELP node_apt_upgrade_timestamp_seconds mtime of /var/lib/apt/periodic/upgrade-stamp"
+              echo "# TYPE node_apt_upgrade_timestamp_seconds gauge"
+              echo "node_apt_upgrade_timestamp_seconds $(stat -c %Y /host/apt-periodic/upgrade-stamp 2>/dev/null || echo 0)"
+            } > /run/prometheus/apt.prom.tmp && mv /run/prometheus/apt.prom.tmp /run/prometheus/apt.prom
+            sleep 300
+          done
+      resources:
+        requests:
+          cpu: 1m
+          memory: 4Mi
+        limits:
+          memory: 16Mi
