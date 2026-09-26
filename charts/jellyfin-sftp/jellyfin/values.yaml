@@ -43,6 +43,23 @@ podSecurityContext:
     - 44   # video group (/dev/dri/card0)
     - 993  # render group (/dev/dri/renderD128)
 
+# Jellyfin has no env/config hook for server settings, so pin them in encoding.xml
+# on the config PVC before start. Changes made in the dashboard get overwritten on restart.
+# NightmodeDialogue: stereo downmix with boosted dialogue (5.1 content on the LG TV)
+extraInitContainers:
+  - name: pin-encoding-settings
+    image: busybox:1.37.0
+    command:
+      - sh
+      - -c
+      - |
+        f=/config/config/encoding.xml
+        [ -f "$f" ] || exit 0
+        sed -i 's|<DownMixStereoAlgorithm>.*</DownMixStereoAlgorithm>|<DownMixStereoAlgorithm>NightmodeDialogue</DownMixStereoAlgorithm>|' "$f"
+    volumeMounts:
+      - name: config
+        mountPath: /config
+
 resources:
   requests:
     cpu: 500m
