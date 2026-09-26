@@ -34,6 +34,10 @@ persistence:
     size: 100Gi
     storageClass: longhorn
 
+# Config PVC is RWO: a rolling update deadlocks when the new pod lands on another node
+deploymentStrategy:
+  type: Recreate
+
 metrics:
   enabled: true
 
