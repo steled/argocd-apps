@@ -184,6 +184,11 @@ grafana:
   #       hosts:
   #         - ''
 
+  # RWO PVC: a rolling update deadlocks when the new pod lands on another node
+  # (old pod keeps the volume, maxUnavailable rounds down to 0 with 1 replica)
+  deploymentStrategy:
+    type: Recreate
+
   persistence:
     annotations:
       argocd.argoproj.io/sync-options: Prune=false
