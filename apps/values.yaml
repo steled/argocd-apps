@@ -63,7 +63,7 @@ kiali:
 
 longhorn:
   # renovate: datasource=helm depName=longhorn-chart packageName=longhorn registryUrl=https://charts.longhorn.io
-  version: "1.12.1"
+  version: "1.13.0"
   backupCleanupImage:
     # renovate: datasource=docker depName=longhorn-backup-cleanup-image packageName=alpine/k8s
     version: "1.37.1"
