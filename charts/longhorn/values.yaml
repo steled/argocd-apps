@@ -52,6 +52,20 @@ longhornUI:
 #   serviceMonitor:
 #     enabled: true
 
+networkPolicies:
+  # the node's kernel iSCSI initiator logs in to instance-manager:3260 from the host
+  # network namespace; Cilium sees it from the link-local range
+  v1DataEngineInitiatorSourceCIDRs:
+    - 169.254.0.0/16
+  # let vmagent scrape longhorn-manager:9500 (also the REST API, so keep it narrow)
+  metricsScrapeSources:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: victoriametrics
+      podSelector:
+        matchLabels:
+          app.kubernetes.io/name: vmagent
+
 persistence:
   defaultClassReplicaCount: 2
   migratable: false
