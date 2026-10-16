@@ -20,6 +20,10 @@ defaultSettings:
   defaultDataPath: "/ext/persistent"
   defaultReplicaCount: "2"
   orphanAutoDeletion: true
+  # rebuild missing replicas of detached volumes too (the hourly nextcloud pg_dumpall volume
+  # is detached between jobs and otherwise stays at one replica after a node outage, which
+  # blocks the next drain via node-drain-policy block-if-contains-last-replica)
+  offlineReplicaRebuilding: true
   # wait for a rebooting/drained node to come back and reuse its replicas (fast delta
   # sync) instead of immediately copying full replicas elsewhere; a reboot takes ~2 min
   replicaReplenishmentWaitInterval: "300"
