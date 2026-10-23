@@ -39,7 +39,7 @@ jdownloader2:
     # renovate: datasource=docker depName=jdownloader2-image packageName=jlesage/jdownloader-2
     version: "v26.09.1"
   # renovate: datasource=helm depName=jdownloader2-chart packageName=jdownloader2 registryUrl=https://pmoscode-helm.github.io/jdownloader2/
-  version: "1.10.0"
+  version: "1.12.0"
 
 nodeFeatureDiscovery:
   # renovate: datasource=helm depName=node-feature-discovery-chart packageName=node-feature-discovery registryUrl=https://kubernetes-sigs.github.io/node-feature-discovery/charts
