@@ -43,7 +43,7 @@ jdownloader2:
 
 nodeFeatureDiscovery:
   # renovate: datasource=helm depName=node-feature-discovery-chart packageName=node-feature-discovery registryUrl=https://kubernetes-sigs.github.io/node-feature-discovery/charts
-  version: "0.20.0"
+  version: "0.20.1"
 
 intelDevicePluginsOperator:
   # renovate: datasource=helm depName=intel-device-plugins-operator-chart packageName=intel-device-plugins-operator registryUrl=https://intel.github.io/helm-charts/
