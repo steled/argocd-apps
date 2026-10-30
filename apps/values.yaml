@@ -55,7 +55,7 @@ intelGpuPlugin:
 
 jellyfin:
   # renovate: datasource=github-tags depName=jellyfin-chart packageName=jellyfin/jellyfin-helm
-  version: "3.6.0"
+  version: "3.7.0"
 
 kiali:
   # renovate: datasource=helm depName=kiali-chart packageName=kiali-server registryUrl=https://kiali.org/helm-charts
