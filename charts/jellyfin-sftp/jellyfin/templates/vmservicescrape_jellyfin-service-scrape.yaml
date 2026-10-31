@@ -13,5 +13,4 @@ spec:
     matchNames:
     - jellyfin-sftp
   endpoints:
-  # service port name in the jellyfin chart (service.portName), not the container port name
   - port: service
