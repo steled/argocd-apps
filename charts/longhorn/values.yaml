@@ -19,7 +19,9 @@ defaultSettings:
   concurrentAutomaticEngineUpgradePerNodeLimit: "1"
   defaultDataPath: "/ext/persistent"
   defaultReplicaCount: "2"
-  orphanAutoDeletion: true
+  # delete orphaned engine/replica processes so a stale engine cannot be re-adopted later
+  # (replica-data is left out on purpose: it would delete orphaned replica directories on disk)
+  orphanResourceAutoDeletion: "instance"
   # rebuild missing replicas of detached volumes too (the hourly nextcloud pg_dumpall volume
   # is detached between jobs and otherwise stays at one replica after a node outage, which
   # blocks the next drain via node-drain-policy block-if-contains-last-replica)
