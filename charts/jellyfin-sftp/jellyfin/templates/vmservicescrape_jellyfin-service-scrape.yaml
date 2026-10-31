@@ -13,4 +13,4 @@ spec:
     matchNames:
     - jellyfin-sftp
   endpoints:
-  - port: http
+  - port: service
