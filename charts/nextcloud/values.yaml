@@ -192,6 +192,7 @@ postgresql:
       networkPolicy:
         enabled: true
       schedule: "@hourly"
+      concurrencyPolicy: Forbid
       command:
         - /bin/bash
         - -c
