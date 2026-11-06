@@ -25,9 +25,3 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/resources/limits/memory
         value: 150Mi
-      # STAGE 1: Multus writes 00-multus.conf, which takes over pod networking on the node.
-      # Roll it out on one node first, then drop this nodeSelector.
-      - op: add
-        path: /spec/template/spec/nodeSelector
-        value:
-          kubernetes.io/hostname: k8s-c03
