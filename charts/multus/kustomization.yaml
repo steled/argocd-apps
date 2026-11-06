@@ -1,0 +1,33 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Multus (thick plugin) + Whereabouts (cluster-wide IPAM) for the Longhorn storage network on the
+# second NIC (i226, enp1s0, 10.99.0.0/24). Upstream publishes plain manifests only, no Helm chart.
+resources:
+  - https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/v4.3.2/deployments/multus-daemonset-thick.yml
+  - https://raw.githubusercontent.com/k8snetworkplumbingwg/whereabouts/v0.9.4/doc/crds/daemonset-install.yaml
+  - https://raw.githubusercontent.com/k8snetworkplumbingwg/whereabouts/v0.9.4/doc/crds/whereabouts.cni.cncf.io_ippools.yaml
+  - https://raw.githubusercontent.com/k8snetworkplumbingwg/whereabouts/v0.9.4/doc/crds/whereabouts.cni.cncf.io_overlappingrangeipreservations.yaml
+  - storage-network-nad.yaml
+
+# upstream manifests point at floating tags (snapshot-thick, latest)
+images:
+  - name: ghcr.io/k8snetworkplumbingwg/multus-cni
+    newTag: v4.3.2-thick
+  - name: ghcr.io/k8snetworkplumbingwg/whereabouts
+    newTag: v0.9.4
+
+patches:
+  - target:
+      kind: DaemonSet
+      name: kube-multus-ds
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/limits/memory
+        value: 150Mi
+      # STAGE 1: Multus writes 00-multus.conf, which takes over pod networking on the node.
+      # Roll it out on one node first, then drop this nodeSelector.
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          kubernetes.io/hostname: k8s-c03
