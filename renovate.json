@@ -41,6 +41,18 @@
         "raw\\.githubusercontent\\.com/istio/istio/(?<currentValue>v?\\d+\\.\\d+\\.\\d+)/"
       ],
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "managerFilePatterns": [
+        "/(^|/)multus/kustomization\\.yaml$/"
+      ],
+      "matchStrings": [
+        "raw\\.githubusercontent\\.com/(?<depName>k8snetworkplumbingwg/(?:multus-cni|whereabouts))/(?<currentValue>v\\d+\\.\\d+\\.\\d+)/",
+        "name: ghcr\\.io/(?<depName>k8snetworkplumbingwg/[a-z-]+)\\s+newTag: (?<currentValue>v\\d+\\.\\d+\\.\\d+)(?:-thick)?"
+      ],
+      "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
