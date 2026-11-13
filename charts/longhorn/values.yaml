@@ -30,7 +30,7 @@ defaultSettings:
   # wait for a rebooting/drained node to come back and reuse its replicas (fast delta
   # sync) instead of immediately copying full replicas elsewhere; the clock starts when the
   # drain evicts the instance-manager, and drain + reboot + Longhorn startup took ~7.5 min
-  replicaReplenishmentWaitInterval: "600"
+  replicaReplenishmentWaitInterval: "420"
   removeSnapshotsDuringFilesystemTrim: true
   storageReservedPercentageForDefaultDisk: "1"
   snapshotMaxCount: "8"
