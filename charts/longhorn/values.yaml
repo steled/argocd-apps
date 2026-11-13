@@ -17,6 +17,10 @@ defaultSettings:
   autoCleanupSnapshotWhenDeleteBackup: true
   autoCleanupSystemGeneratedSnapshot: true
   concurrentAutomaticEngineUpgradePerNodeLimit: "1"
+  # at most 2 replica rebuilds per node at once: with 5 in parallel, rebuild traffic saturates
+  # the 1 GbE link and engines mark healthy replicas ERR after the 8 s r/w timeout, which
+  # restarts the rebuild (v1 has no rebuild bandwidth limit, that setting is v2-only)
+  concurrentReplicaRebuildPerNodeLimit: "2"
   defaultDataPath: "/ext/persistent"
   defaultReplicaCount: "2"
   # delete orphaned engine/replica processes so a stale engine cannot be re-adopted later, and
