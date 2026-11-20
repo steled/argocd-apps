@@ -1,0 +1,82 @@
+# Values for the argocd-apps chart (AppProject + root-app). Managed by Argo CD itself (apps/templates/helm-argocd-apps.yaml)
+# and installed once by homelab-terraform (bootstrap). Private root-app values: apps/values-private.yaml (transcrypt).
+projects:
+  apps:
+    namespace: argocd
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    description: Application Project
+    sourceRepos:
+      - git@github.com:steled/argocd-apps.git
+      - https://charts.jetstack.io
+      - https://charts.longhorn.io
+      - https://charts.min.io/
+      - https://helm.releases.hashicorp.com
+      - https://nextcloud.github.io/helm/
+      - https://victoriametrics.github.io/helm-charts/
+      - https://sj14.github.io/helm-charts
+      - https://pmoscode-helm.github.io/jdownloader2/
+      - https://prometheus-community.github.io/helm-charts
+      - ghcr.io/immich-app/immich-charts
+      - registry-1.docker.io/bitnamicharts
+      - https://jellyfin.github.io/jellyfin-helm
+      - https://bitnami.github.io/sealed-secrets
+      - https://steled.github.io/fritzbox-cloudflare-dyndns-chart/
+      # - oci://ghcr.io/homarr-labs/charts/homarr
+      - oci://ghcr.io/m0nsterrr/helm-charts/homepage
+      - https://charts.bakito.net
+      - https://kiali.org/helm-charts
+      - https://steled.github.io/hedgedoc-kubernetes/
+      - oci://ghcr.io/go-vikunja/helm-chart/vikunja
+      - https://community-charts.github.io/helm-charts
+      - oci://ghcr.io/steled/outline-chart/outline
+      - oci://ghcr.io/steled/charts/shopping-list
+      - oci://ghcr.io/steled/charts/budget-book
+      - https://intel.github.io/helm-charts/
+      - https://kubernetes-sigs.github.io/node-feature-discovery/charts
+      - https://argoproj.github.io/argo-helm
+    destinations:
+      - namespace: '*'
+        server: https://kubernetes.default.svc
+    clusterResourceWhitelist:
+      - group: ''
+        kind: Namespace
+      - group: admissionregistration.k8s.io
+        kind: MutatingWebhookConfiguration
+      - group: rbac.authorization.k8s.io
+        kind: ClusterRole
+      - group: rbac.authorization.k8s.io
+        kind: ClusterRoleBinding
+      - group: apiextensions.k8s.io
+        kind: CustomResourceDefinition
+      - group: admissionregistration.k8s.io
+        kind: ValidatingWebhookConfiguration
+      - group: scheduling.k8s.io
+        kind: PriorityClass
+      - group: cert-manager.io
+        kind: ClusterIssuer
+      - group: deviceplugin.intel.com
+        kind: GpuDevicePlugin
+      - group: nfd.k8s-sigs.io
+        kind: NodeFeatureRule
+applications:
+  root-app:
+    namespace: argocd
+    additionalAnnotations: {"argocd.argoproj.io/sync-wave": "0"}
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    project: apps
+    destination:
+      name: in-cluster
+      namespace: argocd
+    sources:
+      - path: apps
+        repoURL: git@github.com:steled/argocd-apps.git
+        targetRevision: HEAD
+        helm:
+          valueFiles:
+            - values.yaml
+            - values-private.yaml
+    syncPolicy:
+      syncOptions:
+        - RespectResourceOrder=true

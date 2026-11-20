@@ -1,0 +1,38 @@
+# Argo CD manages itself. Installed once by homelab-terraform (bootstrap.tf), afterwards updated from here.
+# No finalizer and no pruning: deleting this Application or a resource from the chart must never remove Argo CD.
+# If an update breaks Argo CD: revert the change in git and run homelab-terraform/bin/argocd-recover.sh
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: helm-argocd
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: argo-cd
+      repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: {{ .Values.argocd.version }}
+      helm:
+        releaseName: argocd
+        valueFiles:
+          - $values/charts/argocd/values.yaml
+          - $values/charts/argocd/values-private.yaml
+        parameters:
+          - name: "repoServer.image.tag"
+            value: {{ .Values.argocd.transcryptPlugin.version | quote }}
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: false
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - ServerSideApply=true

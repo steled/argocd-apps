@@ -1,0 +1,2 @@
+#pattern  filter=crypt diff=crypt merge=crypt
+values-private.yaml filter=crypt diff=crypt merge=crypt

@@ -5,6 +5,18 @@ spec:
     repoURL: git@github.com:steled/argocd-apps.git
     targetRevision: HEAD
 
+argocd:
+  # renovate: datasource=helm depName=argo-cd-chart packageName=argo-cd registryUrl=https://argoproj.github.io/argo-helm
+  version: "10.18.2"
+  transcryptPlugin:
+    # image tag must match the Argo CD version of the chart (appVersion), see renovate.json (group "argocd")
+    # renovate: datasource=docker depName=argocd-transcrypt-plugin-image packageName=ghcr.io/steled/argocd-transcrypt-plugin
+    version: "v3.6.2-transcrypt-v1.2.0"
+
+argocdApps:
+  # renovate: datasource=helm depName=argocd-apps-chart packageName=argocd-apps registryUrl=https://argoproj.github.io/argo-helm
+  version: "2.0.8"
+
 budgetBook:
   # renovate: datasource=github-tags depName=budget-book-chart packageName=steled/budget-book
   version: "0.4.2"
