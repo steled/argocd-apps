@@ -1,0 +1,31 @@
+# AppProject "apps" and the root-app (which renders this Application, so it manages itself).
+# Installed once by homelab-terraform (bootstrap.tf), afterwards updated from here.
+# No finalizer and no pruning: deleting this Application must never cascade-delete the root-app and all apps.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: helm-argocd-apps
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  sources:
+    - chart: argocd-apps
+      repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: {{ .Values.argocdApps.version }}
+      helm:
+        releaseName: argocd-apps
+        valueFiles:
+          - $values/charts/argocd-apps/values.yaml
+    - repoURL: git@github.com:steled/argocd-apps.git
+      targetRevision: main
+      ref: values
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: false

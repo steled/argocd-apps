@@ -180,6 +180,25 @@
         "go-vikunja/helm-chart"
       ],
       "extractVersion": "^v(?<version>.*)$"
+    },
+    {
+      "description": "Argo CD manages itself: the repo-server image (argocd-transcrypt-plugin) must match the Argo CD version of the argo-cd chart, so both are updated together and never automerged",
+      "matchDepNames": [
+        "argo-cd-chart",
+        "argocd-transcrypt-plugin-image"
+      ],
+      "groupName": "argocd",
+      "automerge": false
+    },
+    {
+      "description": "argocd-transcrypt-plugin image tags: <argocd-version>-transcrypt-<plugin-version>, the plugin version increases with every Argo CD update",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchDepNames": [
+        "argocd-transcrypt-plugin-image"
+      ],
+      "versioning": "regex:^v\\d+\\.\\d+\\.\\d+-transcrypt-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ]
 }
