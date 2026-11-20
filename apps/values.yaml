@@ -9,7 +9,6 @@ argocd:
   # renovate: datasource=helm depName=argo-cd-chart packageName=argo-cd registryUrl=https://argoproj.github.io/argo-helm
   version: "10.18.2"
   transcryptPlugin:
-    # image tag must match the Argo CD version of the chart (appVersion), see renovate.json (group "argocd")
     # renovate: datasource=docker depName=argocd-transcrypt-plugin-image packageName=ghcr.io/steled/argocd-transcrypt-plugin
     version: "v3.6.2-transcrypt-v1.2.0"
 
