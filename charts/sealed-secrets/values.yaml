@@ -16,3 +16,7 @@ metrics:
     labels:
       grafana_dashboard: "1"
     namespace: victoriametrics
+
+# Disable automatic key renewal: all keys are backed up (transcrypt-encrypted) in homelab-terraform
+# (bin/backup-sealed-secrets-keys.sh) and restored on bootstrap. New keys would not be in the backup.
+keyrenewperiod: "0"
