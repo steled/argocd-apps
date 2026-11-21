@@ -21,7 +21,7 @@ spec:
         - name: "domain"
           value: {{ .Values.istioGateways.domain }}
         {{- range $i, $host := .Values.istioGateways.publicHostnames }}
-        - name: "gateways.shared-gateway.hostnames[{{ $i }}]"
+        - name: "gateways.public-gateway.hostnames[{{ $i }}]"
           value: {{ $host }}
         {{- end }}
       releaseName: istio-gateways

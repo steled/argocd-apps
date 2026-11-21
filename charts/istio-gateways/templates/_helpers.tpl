@@ -6,7 +6,7 @@ allowedRoutes:
     from: Selector
     selector:
       matchLabels:
-        shared-gateway-access: "true"
+        {{ .routeNamespaceLabel }}: "true"
 tls:
   mode: Terminate
   certificateRefs:
