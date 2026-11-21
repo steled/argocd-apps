@@ -78,6 +78,8 @@ server:
     parentRefs:
       - name: shared-gateway
         namespace: istio-system
+      - name: internal-gateway
+        namespace: istio-system
 controller:
   podLabels:
     istio.io/dataplane-mode: none

@@ -8,6 +8,8 @@ spec:
   parentRefs:
     - name: shared-gateway
       namespace: istio-system
+    - name: internal-gateway
+      namespace: istio-system
   rules:
     - matches:
         - path:

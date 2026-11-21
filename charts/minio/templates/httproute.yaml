@@ -8,6 +8,8 @@ spec:
   parentRefs:
     - name: shared-gateway
       namespace: istio-system
+    - name: internal-gateway
+      namespace: istio-system
   rules:
     - matches:
         - path:
@@ -26,6 +28,8 @@ spec:
     - {{ .Values.httproute.minioConsole.hostnames0 }}
   parentRefs:
     - name: shared-gateway
+      namespace: istio-system
+    - name: internal-gateway
       namespace: istio-system
   rules:
     - matches:
