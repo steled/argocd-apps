@@ -11,5 +11,5 @@ networking:
   gateway:
     hostname: ''
     parentRefs:
-      - name: shared-gateway
+      - name: public-gateway
         namespace: istio-system

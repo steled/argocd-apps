@@ -6,7 +6,7 @@ spec:
   hostnames:
     - {{ .Values.grafana.httproute.hostnames0 }}
   parentRefs:
-    - name: shared-gateway
+    - name: public-gateway
       namespace: istio-system
   rules:
     - matches:

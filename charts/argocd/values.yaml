@@ -1,4 +1,4 @@
-# Only argocd-server needs to be part of the Istio ambient mesh (for the shared-gateway HTTPRoute
+# Only argocd-server needs to be part of the Istio ambient mesh (for the internal-gateway HTTPRoute
 # ingress below). The other components are excluded via podLabels, because Cilium's NetworkPolicy
 # identity resolution for pod/namespaceSelector-based ingress rules doesn't work reliably for
 # ztunnel-redirected ambient traffic in this cluster, which broke both kubelet health probes and

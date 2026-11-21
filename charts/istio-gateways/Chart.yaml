@@ -1,6 +1,6 @@
 apiVersion: v2
 name: istio-gateways
-description: Istio Gateway API gateways (public shared-gateway and internal-gateway)
+description: Istio Gateway API gateways (public-gateway and internal-gateway)
 type: application
 version: 0.1.0
 appVersion: "1.0"
