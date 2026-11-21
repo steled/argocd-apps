@@ -26,7 +26,7 @@ certmanager:
 
 fritzboxCloudflareDyndns:
   # renovate: datasource=github-tags depName=fritzbox-cloudflare-dyndns-chart packageName=steled/fritzbox-cloudflare-dyndns-chart
-  version: "0.0.17"
+  version: "0.0.18"
 
 homepage:
   # renovate: datasource=docker depName=homepage-chart packageName=ghcr.io/m0nsterrr/helm-charts/homepage
