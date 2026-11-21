@@ -1,10 +1,5 @@
 replicaCount: 1
 useDaemonSet: false
-image:
-  repository: ghcr.io/cromefire/fritzbox-cloudflare-dyndns
-  tag: "1"
-  pullPolicy: IfNotPresent
-
 hostNetwork: false
 bindPort: 8080
 
@@ -38,12 +33,6 @@ securityContext:
   runAsUser: 1000
   fsGroup: 1000
   readOnlyRootFilesystem: true
-
-readinessProbe:
-  path: /healthz
-  port: 9876
-  initialDelaySeconds: 3
-  periodSeconds: 10
 
 livenessProbe:
   path: /liveness
