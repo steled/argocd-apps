@@ -70,6 +70,8 @@ victoria-metrics-operator:
 
 vmagent:
   spec:
+    extraArgs:
+      promscrape.maxScrapeSize: "32MiB"
     resources:
       limits:
         memory: "500Mi"
