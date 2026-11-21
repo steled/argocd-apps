@@ -32,7 +32,6 @@ spec:
       labels:
         istio.io/dataplane-mode: ambient
         public-gateway-access: "true"
-        shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
