@@ -50,6 +50,7 @@ spec:
         # (istio/istio#60882). Explicit "none" rather than dropping the label, so the
         # namespace is reliably opted out even if the label were left behind.
         istio.io/dataplane-mode: none
+        internal-gateway-access: "true"
         shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true

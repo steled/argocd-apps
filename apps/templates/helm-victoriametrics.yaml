@@ -62,6 +62,7 @@ spec:
       labels:
         istio.io/dataplane-mode: ambient
         public-gateway-access: "true"
+        internal-gateway-access: "true"
         shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
