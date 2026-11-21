@@ -33,6 +33,7 @@ spec:
     managedNamespaceMetadata:
       labels:
         istio.io/dataplane-mode: ambient
+        internal-gateway-access: "true"
         shared-gateway-access: "true"
     syncOptions:
       - ApplyOutOfSyncOnly=true
