@@ -23,7 +23,7 @@ job:
 #     # nginx.ingress.kubernetes.io/proxy-body-size: 32M
 #     # nginx.ingress.kubernetes.io/server-snippet: |-
 #     #   proxy_hide_header X-Powered-By;
-#     #   server_name next.steled.org;
+#     #   server_name next.example.org;
 #     #   server_tokens off;
 #     #   rewrite ^/.well-known/webfinger /index.php/.well-known/webfinger last;
 #     #   rewrite ^/.well-known/nodeinfo /index.php/.well-known/nodeinfo last;
