@@ -6,8 +6,6 @@ spec:
   hostnames:
     - {{ .Values.httproute.hostnames0 }}
   parentRefs:
-    - name: shared-gateway
-      namespace: istio-system
     - name: internal-gateway
       namespace: istio-system
   rules:

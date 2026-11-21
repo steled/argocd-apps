@@ -76,8 +76,6 @@ server:
   httproute:
     enabled: true
     parentRefs:
-      - name: shared-gateway
-        namespace: istio-system
       - name: internal-gateway
         namespace: istio-system
 controller:

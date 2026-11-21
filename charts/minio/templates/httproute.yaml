@@ -6,8 +6,6 @@ spec:
   hostnames:
     - {{ .Values.httproute.minio.hostnames0 }}
   parentRefs:
-    - name: shared-gateway
-      namespace: istio-system
     - name: internal-gateway
       namespace: istio-system
   rules:
@@ -27,8 +25,6 @@ spec:
   hostnames:
     - {{ .Values.httproute.minioConsole.hostnames0 }}
   parentRefs:
-    - name: shared-gateway
-      namespace: istio-system
     - name: internal-gateway
       namespace: istio-system
   rules:

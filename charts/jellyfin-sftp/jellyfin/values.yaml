@@ -17,8 +17,6 @@
 httpRoute:
   enabled: true
   parentRefs:
-    - name: shared-gateway
-      namespace: istio-system
     - name: internal-gateway
       namespace: istio-system
   hostnames:

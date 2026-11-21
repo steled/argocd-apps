@@ -22,8 +22,6 @@ alertmanager:
   route:
     enabled: true
     parentRefs:
-      - name: shared-gateway
-        namespace: istio-system
       - name: internal-gateway
         namespace: istio-system
     hostnames:
@@ -96,8 +94,6 @@ vmagent:
   route:
     enabled: true
     parentRefs:
-      - name: shared-gateway
-        namespace: istio-system
       - name: internal-gateway
         namespace: istio-system
     hostnames:
@@ -119,8 +115,6 @@ vmalert:
   route:
     enabled: true
     parentRefs:
-      - name: shared-gateway
-        namespace: istio-system
       - name: internal-gateway
         namespace: istio-system
     hostnames:
@@ -154,8 +148,6 @@ vmsingle:
   route:
     enabled: true
     parentRefs:
-      - name: shared-gateway
-        namespace: istio-system
       - name: internal-gateway
         namespace: istio-system
     hostnames:

@@ -1,4 +1,4 @@
-# Passed in from apps/values-private.yaml.
+# domain and the public hostnames of shared-gateway are passed in from apps/values-private.yaml.
 domain: example.org
 
 # Gateway name -> settings. Without hostnames a gateway gets a single wildcard
