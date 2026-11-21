@@ -22,7 +22,7 @@ spec:
         releaseName: victoria-metrics-operator
         parameters:
           # - name: "admissionWebhooks.certManager.cert.commonName"
-          #   value: "victoria-metrics-operator.steled.org"
+          #   value: "victoria-metrics-operator.example.org"
           - name: "admissionWebhooks.certManager.enabled"
             value: "true"
           # - name: "admissionWebhooks.certManager.issuer.group"
