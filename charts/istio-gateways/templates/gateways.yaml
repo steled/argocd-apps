@@ -1,0 +1,29 @@
+{{- range $name, $gw := .Values.gateways }}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: {{ $name }}
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false
+    # Workaround for istio/istio#61940: on K8s 1.36 istiod fails to write this annotation
+    # itself (via /status) and then never renders the gateway Deployment.
+    gateway.istio.io/controller-version: "5"
+spec:
+  gatewayClassName: istio
+  addresses:
+    - type: IPAddress
+      value: {{ $gw.address }}
+  listeners:
+    {{- if $gw.hostnames }}
+    {{- range $gw.hostnames }}
+    - name: {{ . }}
+      hostname: {{ printf "%s.%s" . $.Values.domain | quote }}
+      {{- include "istio-gateways.listener" $ | nindent 6 }}
+    {{- end }}
+    {{- else }}
+    - name: https
+      hostname: {{ printf "*.%s" $.Values.domain | quote }}
+      {{- include "istio-gateways.listener" $ | nindent 6 }}
+    {{- end }}
+{{- end }}

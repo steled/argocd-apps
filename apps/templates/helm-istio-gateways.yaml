@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: helm-istio-gateways
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: istio-system
+    server: {{ .Values.spec.destination.server }}
+  project: apps
+  source:
+    path: ./charts/istio-gateways
+    repoURL: git@github.com:steled/argocd-apps.git
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      parameters:
+        - name: "domain"
+          value: {{ .Values.istioGateways.domain }}
+      releaseName: istio-gateways
+  revisionHistoryLimit: 3
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true

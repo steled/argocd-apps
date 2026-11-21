@@ -1,0 +1,12 @@
+# Passed in from apps/values-private.yaml.
+domain: example.org
+
+# Gateway name -> settings. Without hostnames a gateway gets a single wildcard
+# listener "*.<domain>"; with hostnames it gets one listener per "<host>.<domain>".
+gateways:
+  shared-gateway:
+    address: 172.16.4.40
+    hostnames: []
+  internal-gateway:
+    address: 172.16.4.41
+    hostnames: []
