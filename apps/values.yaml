@@ -14,7 +14,7 @@ argocd:
 
 argocdApps:
   # renovate: datasource=helm depName=argocd-apps-chart packageName=argocd-apps registryUrl=https://argoproj.github.io/argo-helm
-  version: "2.0.8"
+  version: "2.0.10"
 
 budgetBook:
   # renovate: datasource=github-tags depName=budget-book-chart packageName=steled/budget-book
