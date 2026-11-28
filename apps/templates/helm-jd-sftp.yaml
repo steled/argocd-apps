@@ -28,6 +28,9 @@ spec:
       targetRevision: {{ .Values.spec.source.targetRevision }}
       helm:
         releaseName: jdownloader2-addition
+        parameters:
+          - name: "captchaNotifier.image.tag"
+            value: {{ .Values.jdownloader2.captchaNotifier.image.version }}
     - chart: sftp-server
       repoURL: https://sj14.github.io/helm-charts
       targetRevision: {{ .Values.sftpServer.version }}

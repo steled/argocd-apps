@@ -1,0 +1,118 @@
+{{- if .Values.captchaNotifier.enabled }}
+{{- $cn := .Values.captchaNotifier }}
+# Exposes JDownloader's local API inside the cluster for the captcha notifier.
+apiVersion: v1
+kind: Service
+metadata:
+  name: jdownloader2-api
+spec:
+  type: ClusterIP
+  ports:
+    - name: http-api
+      port: {{ $cn.jdApiPort }}
+      targetPort: {{ $cn.jdApiPort }}
+      protocol: TCP
+  selector:
+    {{- toYaml $cn.jdPodLabels | nindent 4 }}
+---
+# The local API has no authentication: only the notifier may reach it.
+# Enforced by ztunnel (Istio ambient); other JDownloader ports are unaffected.
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: jdownloader2-api-only-captcha-notifier
+spec:
+  selector:
+    matchLabels:
+      {{- toYaml $cn.jdPodLabels | nindent 6 }}
+  action: DENY
+  rules:
+    - from:
+        - source:
+            notPrincipals:
+              - cluster.local/ns/{{ .Release.Namespace }}/sa/captcha-notifier
+      to:
+        - operation:
+            ports:
+              - "{{ $cn.jdApiPort }}"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: captcha-notifier
+automountServiceAccountToken: false
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: captcha-notifier
+data:
+  captcha-notifier.py: |
+    {{- .Files.Get "files/captcha-notifier.py" | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: captcha-notifier
+  labels:
+    app.kubernetes.io/name: captcha-notifier
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: captcha-notifier
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: captcha-notifier
+      annotations:
+        checksum/script: {{ .Files.Get "files/captcha-notifier.py" | sha256sum }}
+    spec:
+      serviceAccountName: captcha-notifier
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+        runAsGroup: 65534
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: captcha-notifier
+          image: "{{ $cn.image.repository }}:{{ required "captchaNotifier.image.tag is required" $cn.image.tag }}"
+          command: ["python", "/app/captcha-notifier.py"]
+          env:
+            - name: JD_API_URL
+              value: "http://jdownloader2-api:{{ $cn.jdApiPort }}"
+            - name: POLL_INTERVAL
+              value: "{{ $cn.pollInterval }}"
+            - name: SOLVE_URL
+              value: "{{ $cn.solveUrl }}"
+            - name: PYTHONUNBUFFERED
+              value: "1"
+            - name: PYTHONDONTWRITEBYTECODE
+              value: "1"
+          envFrom:
+            - secretRef:
+                name: {{ $cn.existingSecretName }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: 5m
+              memory: 24Mi
+            limits:
+              memory: 64Mi
+          volumeMounts:
+            - name: script
+              mountPath: /app
+              readOnly: true
+      volumes:
+        - name: script
+          configMap:
+            name: captcha-notifier
+{{- end }}

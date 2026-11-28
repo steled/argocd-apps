@@ -17,5 +17,24 @@ service:
   web:
     enabled: false
 
-# strategy:
-#   type: Recreate
+# JDownloader refuses to start while another instance holds /config on the
+# shared RWX volume, so a rolling update would crash-loop the new pod.
+strategy:
+  type: Recreate
+
+# --- used by the jdownloader2-addition chart only ---
+captchaNotifier:
+  enabled: true
+  image:
+    repository: python
+    tag: ''  # set from apps/values.yaml (renovate)
+  # JDownloader local API ("RemoteAPI: Deprecated Api", localhost only = off)
+  jdApiPort: 3128
+  pollInterval: 15
+  solveUrl: https://my.jdownloader.org/
+  # Secret with keys TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID
+  existingSecretName: captcha-notifier
+  # labels of the JDownloader pod (upstream chart selector labels)
+  jdPodLabels:
+    app.kubernetes.io/name: jdownloader2
+    app.kubernetes.io/instance: jdownloader2
