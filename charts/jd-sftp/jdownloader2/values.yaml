@@ -17,8 +17,6 @@ service:
   web:
     enabled: false
 
-# JDownloader refuses to start while another instance holds /config on the
-# shared RWX volume, so a rolling update would crash-loop the new pod.
 strategy:
   type: Recreate
 
